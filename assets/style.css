@@ -1845,7 +1845,8 @@ img {
   color: #000000;
 }
 .main-menu ul li a .menu-arrow {
-  display: inline-block;
+  width: 24px;
+  height: 24px;
 }
 .main-menu ul li a .menu-arrow img {
   display: inline-block;
