@@ -168,13 +168,13 @@
         "settings": {
           "img": "shopify:\/\/shop_images\/logo-white.png",
           "img2": "shopify:\/\/shop_images\/footerhuman.png",
-          "Social": "",
-          "Social1": "",
-          "Social2": "",
+          "Social": "#",
+          "Social1": "#",
+          "Social2": "#",
           "menu1": "QUICK LINK",
-          "sub4": "",
+          "sub4": "footer-menue",
           "menu2": "QUICK LINK",
-          "sub5": "",
+          "sub5": "footer",
           "copy": "© 2022 WE ARE CHIMMI"
         }
       }
