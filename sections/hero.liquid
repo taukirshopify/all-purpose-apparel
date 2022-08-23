@@ -18,3 +18,41 @@
           </div>
           
     </div>
+
+
+    {% schema %}
+    {
+        "name": "Header",
+        "class": "header",
+        "settings": [
+           
+        {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Please Select your logo"
+        },
+        {
+            "type": "link_list",
+            "id": "sub4",
+            "label": "Select your Menu",
+            "info": "Menu"
+        }
+        ],
+        "blocks": [
+            {
+                "type": "slide",
+                "name": "Announcement",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "text",
+                        "label": "Please put your anounce text",
+                        "default": "FREE US SHIPPING ON ORDERS OVER $100",
+                        "placeholder": "FREE US SHIPPING ON ORDERS OVER $100"
+                    }
+                ]
+            }
+        ]
+        
+    }
+{% endschema %}
