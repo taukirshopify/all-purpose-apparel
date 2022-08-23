@@ -130,6 +130,53 @@
           "show_currency_selector": false,
           "show_locale_selector": false
         }
+      },
+      "customeheader": {
+        "type": "customeheader",
+        "blocks": {
+          "d9d62d45-0a71-4f40-a938-a426c811bc9d": {
+            "type": "slide",
+            "settings": {
+              "text": "FREE US SHIPPING ON ORDERS OVER $100"
+            }
+          },
+          "c696e4de-b7ed-4647-bedd-8d3be81e470b": {
+            "type": "slide",
+            "settings": {
+              "text": "FREE US SHIPPING ON ORDERS OVER $100"
+            }
+          },
+          "ff9ac438-287d-4e43-a92a-85a75e1f1bf7": {
+            "type": "slide",
+            "settings": {
+              "text": "FREE US SHIPPING ON ORDERS OVER $100"
+            }
+          }
+        },
+        "block_order": [
+          "d9d62d45-0a71-4f40-a938-a426c811bc9d",
+          "c696e4de-b7ed-4647-bedd-8d3be81e470b",
+          "ff9ac438-287d-4e43-a92a-85a75e1f1bf7"
+        ],
+        "settings": {
+          "img": "shopify:\/\/shop_images\/logo-gray.png",
+          "sub4": "main-menu"
+        }
+      },
+      "customefooter": {
+        "type": "customefooter",
+        "settings": {
+          "img": "shopify:\/\/shop_images\/logo-white.png",
+          "img2": "shopify:\/\/shop_images\/footerhuman.png",
+          "Social": "#",
+          "Social1": "#",
+          "Social2": "#",
+          "menu1": "QUICK LINK",
+          "sub4": "footer-menue",
+          "menu2": "QUICK LINK",
+          "sub5": "footer",
+          "copy": "© 2022 WE ARE CHIMMI"
+        }
       }
     },
     "content_for_index": [
