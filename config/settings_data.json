@@ -166,6 +166,8 @@
       "customefooter": {
         "type": "customefooter",
         "settings": {
+          "img": "shopify:\/\/shop_images\/logo-white.png",
+          "img2": "shopify:\/\/shop_images\/footerhuman.png",
           "Social": "",
           "Social1": "",
           "Social2": "",
