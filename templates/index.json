@@ -13,15 +13,10 @@
         "img2": "shopify:\/\/shop_images\/earch-logo.png"
       }
     },
-    "1661297293c8d8f0f3": {
-      "type": "hero",
-      "settings": {
-      }
-    },
     "1661379335a2efa1ce": {
       "type": "customehomejoin",
       "settings": {
-        "imf": "shopify:\/\/shop_images\/Frame.png",
+        "img": "shopify:\/\/shop_images\/Frame.png",
         "h2": "JOIN THE HUSTLE.",
         "p": "WE ARE CHIMMI, short for 'Children of Immigrants,' is inspired by our backgrounds. We are an accessories brand that donates 10% of profits from sales to organizations that support immigrant and marginalized communities. Learn more about us",
         "url": "",
@@ -52,7 +47,6 @@
   },
   "order": [
     "1661379305202ed988",
-    "1661297293c8d8f0f3",
     "1661379335a2efa1ce",
     "1661379363c7f59ed6",
     "1661379423c25722ee",
