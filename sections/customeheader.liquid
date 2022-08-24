@@ -1,4 +1,6 @@
-<header>
+{% comment %} loging liquid emd  {% endcomment %}
+
+{% comment %} <header>
     <div class="header-top-wrapper d-flex align-items-center">
         <div id="splide" class="splide">
             <div class="splide__track">
@@ -125,7 +127,7 @@
                             <li><a href="{{ routes.account_login_url }}">{% include 'svguser' %}</a></li>
                             {% endif %}
                         {% endif %}
-{% comment %} loging liquid emd  {% endcomment %}
+
 
                       <li><a href="{{ routes.cart_url }}"> {% include 'svgcart' %} </a></li>
                     </ul>
@@ -148,7 +150,7 @@
         </div>
       </div>
     </div>
-  </header>
+  </header> {% endcomment %}
   {% include 'customeoffsetmenu' %}
 {% schema %}
     {
