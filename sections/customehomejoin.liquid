@@ -4,7 +4,7 @@
         <div class="col-md-3 offset-md-1">
            <div class="join-image-wrapper">
             <img data-sizes="auto"
-                data-src="{{ section.settings.img | img_url:'' }}" class="lazyload" loading="lazy" alt="">
+                data-src="{{ section.settings.img | img_url:'' }}" class="lazyload" loading="lazy" alt="{{img.alt}}">
            </div>
         </div>
         <div class="col-md-7 offset-md-1 d-flex align-items-center">
@@ -38,7 +38,7 @@
         "settings": [
             {
                 "type": "image_picker",
-                "id": "imf",
+                "id": "img",
                 "label": "Please Select your Image"
             },
             {
