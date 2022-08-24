@@ -39,7 +39,8 @@
         <div class="splide__track">
           <ul class="splide__list">
 
-
+ 
+            {% for product in collection.products limit: section.settings.p_limit %}
             <li class="splide__slide">
 
 
@@ -75,6 +76,7 @@
       
       
             </li>
+        {% endfor %}
           
             
           </ul>

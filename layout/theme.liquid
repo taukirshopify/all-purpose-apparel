@@ -19,17 +19,24 @@
       assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic'
     -%}
   
-    <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
-  
-    <link rel="stylesheet" href="{{ 'splide&bootstrap&mCustomScrollbar.css' | asset_url }}" >
 
+
+ 
+
+    <link rel="stylesheet" href="{{ 'bootstrap.min.css' | asset_url }}" >
+    <link rel="stylesheet" href="{{ 'jquery.mCustomScrollbar.min.css' | asset_url }}" >
+    <link rel="stylesheet" href="{{ 'splide.min.css' | asset_url }}" >
+
+
+    <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
     <link rel="stylesheet" href="{{ 'style.css' | asset_url }}" >
+
+
+
  
     
     <script src="{{ 'lazysizes.min.js' | asset_url }}" ></script>
     
-
-    {% comment %} <link rel="preload" href="{{ 'main.js' | asset_url }}" as="script"> {% endcomment %}
     <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
   
     {%- if canonical_url != blank -%}
