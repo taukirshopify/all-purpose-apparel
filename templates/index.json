@@ -31,6 +31,13 @@
         "product": "new-arrivals"
       }
     },
+    "1661379423c25722ee": {
+      "type": "custometshirt",
+      "settings": {
+        "h2": "T-SHIRTS",
+        "product": "hair-ties"
+      }
+    },
     "1661379383bd156f7a": {
       "type": "customenewslatter",
       "settings": {
@@ -44,6 +51,7 @@
     "1661297293c8d8f0f3",
     "1661379335a2efa1ce",
     "1661379363c7f59ed6",
+    "1661379423c25722ee",
     "1661379383bd156f7a"
   ]
 }
