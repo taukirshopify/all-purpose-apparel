@@ -1,51 +1,22 @@
 {
   "sections": {
-    "collection": {
-      "type": "collection",
-      "disabled": true,
-      "settings": {
-        "title": "Featured collection",
-        "collection": "",
-        "grid": 4,
-        "rows": 2,
-        "show_vendor": false,
-        "show_view_all": false
-      }
-    },
     "1661297293c8d8f0f3": {
       "type": "hero",
-      "blocks": {
-        "17b0d762-21e9-4df2-a9de-34ee8f656f55": {
-          "type": "slide",
-          "settings": {
-            "text": "FREE US SHIPPING ON ORDERS OVER $100"
-          }
-        },
-        "13eaa672-8ef7-429b-9817-b94586284531": {
-          "type": "slide",
-          "settings": {
-            "text": "FREE US SHIPPING ON ORDERS OVER $100"
-          }
-        },
-        "2bee34a0-15b7-480c-b3bf-ed7cdf52e859": {
-          "type": "slide",
-          "settings": {
-            "text": "FREE US SHIPPING ON ORDERS OVER $100"
-          }
-        }
-      },
-      "block_order": [
-        "17b0d762-21e9-4df2-a9de-34ee8f656f55",
-        "13eaa672-8ef7-429b-9817-b94586284531",
-        "2bee34a0-15b7-480c-b3bf-ed7cdf52e859"
-      ],
       "settings": {
-        "sub4": ""
+      }
+    },
+    "1661379305202ed988": {
+      "type": "customebannar",
+      "settings": {
+        "h1": "LOUD & PROUD",
+        "p": "We Are Children of Immigrats",
+        "shop": "Shop Now",
+        "link": ""
       }
     }
   },
   "order": [
-    "collection",
-    "1661297293c8d8f0f3"
+    "1661297293c8d8f0f3",
+    "1661379305202ed988"
   ]
 }
