@@ -34,7 +34,8 @@
     "1661379383bd156f7a": {
       "type": "customenewslatter",
       "settings": {
-        "h2": "JOIN OUR NEWSLETTER"
+        "h2": "JOIN OUR NEWSLETTER",
+        "img": "shopify:\/\/shop_images\/footerSmile.png"
       }
     }
   },
