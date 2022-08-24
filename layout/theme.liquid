@@ -23,6 +23,15 @@
     <link rel="preload" as="font" href="{{ header_font | font_url }}" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="{{ base_font | font_url }}" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="{{ base_font_bold | font_url }}" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ 'jquery.mCustomScrollbar.min.css' | asset_url }}" type="text/css">
+    <link rel="stylesheet" href="{{ 'allextra.css' | asset_url }}" >
+    <link rel="stylesheet" href="{{ 'allextra.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}" >
+ 
+
+
+
+    <link rel="preload" href="{{ 'main.js' | asset_url }}" as="script">
     <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
   
     {%- if canonical_url != blank -%}
@@ -76,11 +85,6 @@
     </script>
   
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
-    <link rel="stylesheet" href="{{ 'jquery.mCustomScrollbar.min.css' | asset_url }}" type="text/css">
-    <link rel="stylesheet" href="{{ 'allextra.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
-    <link rel="stylesheet" href="{{ 'allextra.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
-    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
-  
   
     <style>
       {{ header_font | font_face: font_display: 'swap' }}
@@ -198,7 +202,9 @@
     {{ content_for_header }}
 
 
-
+    <link rel="stylesheet" href="{{ 'allextra.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
+    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
+  
   </head>
   
   <body class="template-{{ request.page_type | handle }}">
@@ -238,12 +244,9 @@
       <li id="a11y-refresh-page-message">{{ 'general.accessibility.refresh_page' | t }}</li>
       <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
     </ul>
-
-
-    <script src="{{ 'jquery-3.5.1.slim.min.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'bootstrap.bundle.min.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'jquery.mCustomScrollbar.concat.min.js' | asset_url }}" defer="defer"></script>
-    <!-- jQuery Custom Scroller CDN -->
+    <script src="{{ 'jquery-3.5.1.slim.min.js' | asset_url }}" ></script>
+    <script src="{{ 'bootstrap.bundle.min.js' | asset_url }}" ></script>
+    <script src="{{ 'jquery.mCustomScrollbar.concat.min.js' | asset_url }}" ></script>
     <script src="{{ 'splide.js' | asset_url }}"></script> 
     <script src="{{ 'main.js' | asset_url }}"></script> 
   </body>
