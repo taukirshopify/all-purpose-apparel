@@ -186,3 +186,45 @@
         
     }
 {% endschema %}
+
+
+
+  <script>
+ document.addEventListener( 'DOMContentLoaded', function () {
+    // top bannar insitalization 
+    new Splide( '#splide' , {
+      type: 'loop',
+      // arrows: { prev: <div></div>, next: <div></div> },
+      pagination : false,
+      arrows     : false,
+      drag   : 'free',
+      focus  : 'center',
+      gap         : 10,
+      autoScroll: {
+        speed: 2,
+      },
+      breakpoints : {
+        '200': {
+          perPage: 1,
+        },
+        '600': {
+          perPage: 2,
+        },
+        '1020': {
+          perPage: 2,
+        },
+        '1333': {
+          perPage: 3,
+        },
+        '1500': {
+          perPage: 4,
+        },
+        '1920': {
+          perPage: 5,
+        }
+    },
+      
+    }).mount( window.splide.Extensions );
+    });
+    
+  </script>
