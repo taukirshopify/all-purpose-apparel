@@ -110,31 +110,6 @@ h6 a {
   color: inherit;
 }
 
-h1 {
-  font-size: 48px;
-  font-weight: 900;
-}
-
-h2 {
-  font-size: 48px;
-}
-
-h3 {
-  font-size: 40px;
-}
-
-h4 {
-  font-size: 32px;
-}
-
-h5 {
-  font-size: 24px;
-}
-
-h6 {
-  font-size: 20px;
-}
-
 ul {
   margin: 0px;
   padding: 0px;
@@ -868,14 +843,14 @@ img {
   font-style: normal;
   font-weight: 700;
   line-height: 36px;
-  font-size: 30px;
+  font-size: 22px;
   line-height: 53px;
   text-align: center;
   margin: 25px 0 4px 0;
 }
 @media (min-width: 576px) {
   .prouct-details h2 {
-    font-size: 36px;
+    font-size: 24px;
   }
 }
 .prouct-details p {
@@ -929,6 +904,9 @@ img {
 
 .t-shirt {
   background: #5E6B61;
+}
+.t-shirt .section-title h2 {
+  color: #fff;
 }
 
 .t-shirt-content h2 {
