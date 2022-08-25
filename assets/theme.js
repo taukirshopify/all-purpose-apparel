@@ -5873,7 +5873,7 @@ window.theme = window.theme || {};
     }
 
     function initSearchAccordingToViewport() {
-      theme.SearchDrawer.close();
+      // theme.SearchDrawer.close();
       theme.SearchHeader.unload();
       theme.SearchPage.unload();
 

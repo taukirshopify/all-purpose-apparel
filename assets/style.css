@@ -509,6 +509,10 @@ img {
   z-index: 1011;
 }
 
+header.site-header.border-bottom.logo--left {
+  display: none;
+}
+
 .bannar-wrapper {
   background: rgb(242, 224, 133);
   position: relative;
