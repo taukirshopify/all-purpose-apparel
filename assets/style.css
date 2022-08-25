@@ -427,15 +427,17 @@ img {
 }
 
 .main-header-wrapper .submenu {
+  opacity: 0;
+  visibility: hidden;
   padding: 0;
   text-align: center;
   width: 100%;
   position: absolute;
   top: 100%;
   background: #fff;
-  -webkit-transition: 0.2s all ease-in-out;
-  -o-transition: 0.2s all ease-in-out;
-  transition: 0.2s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
 }
 .main-header-wrapper .singel-menu {
   padding: 10px 0;
@@ -458,7 +460,7 @@ img {
 .main-menu ul li:hover > .submenu {
   opacity: 1;
   visibility: visible;
-  top: 100%;
+  top: 101%;
   z-index: 1000;
 }
 
