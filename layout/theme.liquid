@@ -31,7 +31,7 @@
 
 
 
-    
+    <script src="{{ 'splide.js' | asset_url }}"></script> 
     <script src="{{ 'lazysizes.min.js' | asset_url }}" ></script>
     
     <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
@@ -85,17 +85,14 @@
         link.dispatchEvent(new Event('load'));
       }
     </script>
-  
+    <script src="{{ 'jquery-3.5.1.slim.min.js' | asset_url }}" ></script>
+    <script src="{{ 'bootstrap.bundle.min.js' | asset_url }}" ></script>
+    <script src="{{ 'mCustomScrollbar.min.js' | asset_url }}" ></script>
+   
+    <script src="{{ 'main.js' | asset_url }}"></script> 
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
   
-    <style>
-      {{ header_font | font_face: font_display: 'swap' }}
-      {{ base_font | font_face: font_display: 'swap' }}
-      {{ base_font_bold | font_face: font_display: 'swap' }}
-      {{ base_font_bolder | font_face: font_display: 'swap' }}
-      {{ base_font_italic | font_face: font_display: 'swap' }}
-      {{ base_font_bold_italic | font_face: font_display: 'swap' }}
-    </style>
+
   
     <script>
       {%- if settings.currency_code_enabled -%}
@@ -246,11 +243,7 @@
 
 
     
-    <script src="{{ 'jquery-3.5.1.slim.min.js' | asset_url }}" ></script>
-    <script src="{{ 'bootstrap.bundle.min.js' | asset_url }}" ></script>
-    <script src="{{ 'mCustomScrollbar.min.js' | asset_url }}" ></script>
-    <script src="{{ 'splide.js' | asset_url }}"></script> 
-    <script src="{{ 'main.js' | asset_url }}"></script> 
+
   </body>
   </html>
   

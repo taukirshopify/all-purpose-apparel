@@ -51,15 +51,17 @@
 
                   <div class="svg-icon-here t-s-svg-one t-shirt-mobile ">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 424 593" fill="none">
-                      <rect x="0.5" y="0.5" width="423" height="592" rx="89.5" fill="url(#pattern0)" stroke="black"/>
+                      <rect x="0.5" y="0.5" width="423" height="592" rx="89.5" fill="url(#p{{section.id}}-{{forloop.index}})" stroke="black"/>
                       <defs>
-                      <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-                      <use xlink:href="#image0_118_129" transform="translate(0 -0.000505902) scale(0.00147059 0.00105148)"/>
+                      <pattern id="p{{section.id}}-{{forloop.index}}" patternContentUnits="objectBoundingBox" width="1" height="1">
+                      <use xlink:href="#image{{section.id}}-{{forloop.index}}" transform="translate(0 -0.000505902) scale(0.00147059 0.00105148)"/>
                       </pattern>
-                      <image id="image0_118_129" width="680" loading="lazy" height="952" xlink:href="{{ product.featured_image.src | img_url: '' }}"/>
+                      <image id="image{{section.id}}-{{forloop.index}}" width="680" loading="lazy" height="952" xlink:href="{{ product.featured_image.src | img_url: '' }}"/>
                       </defs>
-                      </svg>
-                    <div class="prudct-shado-svg t-shirt-mobile ">
+                    </svg>
+                   
+                   
+                      <div class="prudct-shado-svg t-shirt-mobile ">
                       <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 424 593" fill="none">
                         <rect x="0.5" y="0.5" width="423" height="592" rx="89.5" fill="#D77628" stroke="black"/>
                         </svg>
@@ -146,67 +148,70 @@
 {% endschema %}
 
 
+
+
+
 <script>
-  document.addEventListener( 'DOMContentLoaded', function () {
-    new Splide("#first-slider1",{
+
+  new Splide("#first-slider1",{
   
-        pagination : false,
-        drag   : 'free',
-        cover      : true,
-        gap       : 20,
-        snap :true,
-        perMove :1,
-        focus  : 'left',
-        interval: 4000,
+    pagination : false,
+    drag   : 'free',
+    cover      : true,
+    gap       : 20,
+    snap :true,
+    perMove :1,
+    focus  : 'left',
+    interval: 4000,
+    autoScroll: {
+      speed: 1,
+    },
+    breakpoints : {
+
+      '200': {
+        perPage: 1,
         autoScroll: {
-          speed: 1,
+          speed: 0,
         },
-        breakpoints : {
-    
-          '200': {
-            perPage: 1,
-            autoScroll: {
-              speed: 0,
-            },
-          },
-          '600': {
-            perPage: 1,
-            autoScroll: {
-              speed: 0,
-            },
-          },
-          '960': {
-            perPage: 2,
-            autoScroll: {
-              speed: 0,
-            },
-          },
-          '1020': {
-            perPage: 2,
-            autoScroll: {
-              speed: 0,
-            },
-          },
-          '1333': {
-            perPage: 3,
-        
-            autoScroll: {
-              speed: 0.09,
-            },
-          },
-          '1500': {
-            perPage: 3,
-            autoScroll: {
-              speed: 0.09,
-            },
-          },
-          '1920': {
-            perPage: 3,
-           
-          }
       },
-      }).mount(window.splide.Extensions);
+      '600': {
+        perPage: 1,
+        autoScroll: {
+          speed: 0,
+        },
+      },
+      '960': {
+        perPage: 2,
+        autoScroll: {
+          speed: 0,
+        },
+      },
+      '1020': {
+        perPage: 2,
+        autoScroll: {
+          speed: 0,
+        },
+      },
+      '1333': {
+        perPage: 3,
     
-     });
-     
-   </script>
+        autoScroll: {
+          speed: 0.09,
+        },
+      },
+      '1500': {
+        perPage: 3,
+        autoScroll: {
+          speed: 0.09,
+        },
+      },
+      '1920': {
+        perPage: 3,
+       
+      }
+  },
+  }).mount(window.splide.Extensions);
+
+
+
+</script>

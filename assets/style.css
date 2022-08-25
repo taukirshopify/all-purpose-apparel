@@ -286,11 +286,7 @@ img {
   height: 40px;
   background: #B5B35C;
 }
-.header-top-wrapper .splide__slide {
-  margin-top: 6px;
-}
 .header-top-wrapper .splide__slide p {
-  margin-bottom: 3px;
   margin-left: 8px;
   font-family: Jost;
   font-weight: 400;

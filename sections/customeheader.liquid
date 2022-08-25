@@ -67,25 +67,29 @@
                         <!-- End submeu start  -->
 
 
-                        {% for childlink in linklists[child_list_handle].links %}
-                            {% assign grand_child_link_handle = childlink.title | handleize %}
                         <div class="submenu" id="rec">
                             <div class="container">
                             <div class="row">
+                              {% for childlink in linklists[child_list_handle].links %}
+                                {% assign grand_child_link_handle = childlink.title | handleize %}
                                 <div class="col-md-3">
 
                                     <div class="singel-menu">
+                                      
                                     <ul>
+                                      
+                    
                                         <li><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
                                         {% for grand_child_link in linklists[grand_child_link_handle].links %}
                                         <li><a href="{{ grand_child_link.url }}">{{ grand_child_link.title }}</a></li>
                                         {% endfor %}
-
+                                    
                                     </ul>
+                                 
                                     </div>
 
                                 </div>
-                            
+                              {% endfor %}
                             </div>
                             </div>
                             
@@ -93,7 +97,7 @@
                         </div>
                         <!-- End submeu  -->
                       
-                    {% endfor %}
+                   
 
 
                     {% else %}
@@ -191,41 +195,53 @@
 
 
   <script>
- document.addEventListener( 'DOMContentLoaded', function () {
-    // top bannar insitalization 
-    new Splide( '#splide' , {
-      type: 'loop',
-      // arrows: { prev: <div></div>, next: <div></div> },
-      pagination : false,
-      arrows     : false,
-      drag   : 'free',
-      focus  : 'center',
-      gap         : 10,
-      autoScroll: {
-        speed: 2,
+
+    document.addEventListener( 'DOMContentLoaded', function () {
+      // top bannar insitalization 
+      new Splide( '#splide' , {
+        type: 'loop',
+        pagination : false,
+        arrows     : false,
+        drag   : 'free',
+        focus  : 'center',
+        gap         : 10,
+        autoScroll: {
+          speed: 2,
+        },
+        breakpoints : {
+          '200': {
+            perPage: 1,
+          },
+          '600': {
+            perPage: 2,
+          },
+          '1020': {
+            perPage: 2,
+          },
+          '1333': {
+            perPage: 3,
+          },
+          '1500': {
+            perPage: 4,
+          },
+          '1920': {
+            perPage: 5,
+          }
       },
-      breakpoints : {
-        '200': {
-          perPage: 1,
-        },
-        '600': {
-          perPage: 2,
-        },
-        '1020': {
-          perPage: 2,
-        },
-        '1333': {
-          perPage: 3,
-        },
-        '1500': {
-          perPage: 4,
-        },
-        '1920': {
-          perPage: 5,
-        }
-    },
-      
-    }).mount( window.splide.Extensions );
-    });
+        
+      }).mount( window.splide.Extensions );
     
+      });
+
   </script>
+
+
+
+
+<style>
+  .top-bar-svg {
+    width: 16px;
+    height: 16px;
+}
+
+</style>

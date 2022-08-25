@@ -53,43 +53,42 @@ We may release future updates so it will overwrite this file. it's better and sa
 
 
 
-  // const splide = new Splide( '.splide', {
-  //  type: 'loop',
-  //   pagination : false,
-  //   arrows     : false,
-  //   drag   : 'free',
-  //   focus  : 'center',
-  //   gap         : 10,
-  //   autoScroll: {
-  //     speed: 2,
-  //   },
-  //   breakpoints : {
-  //     '200': {
-  //       perPage: 1,
-  //     },
-  //     '600': {
-  //       perPage: 2,
-  //     },
-  //     '1020': {
-  //       perPage: 2,
-  //     },
-  //     '1333': {
-  //       perPage: 3,
-  //     },
-  //     '1500': {
-  //       perPage: 4,
-  //     },
-  //     '1920': {
-  //       perPage: 5,
-  //     }
-  // },
-  // } );
-  
-  // splide.mount(window.splide.Extensions);
+//  new Splide( '.splide', {
+//    type: 'loop',
+//     pagination : false,
+//     arrows     : false,
+//     drag   : 'free',
+//     focus  : 'center',
+//     gap         : 10,
+//     autoScroll: {
+//       speed: 2,
+//     },
+//     breakpoints : {
+//       '200': {
+//         perPage: 1,
+//       },
+//       '600': {
+//         perPage: 2,
+//       },
+//       '1020': {
+//         perPage: 2,
+//       },
+//       '1333': {
+//         perPage: 3,
+//       },
+//       '1500': {
+//         perPage: 4,
+//       },
+//       '1920': {
+//         perPage: 5,
+//       }
+//   },
+//   } ).mount(window.splide.Extensions);
+// new Splide( '#slider1' ).mount(window.splide.Extensions);
 
 
 
-  // new Splide("#first-slider",{
+  //  new Splide("#first-slider",{
   //   type: 'loop',
   //   pagination : false,
   //   drag   : 'free',
@@ -141,6 +140,7 @@ We may release future updates so it will overwrite this file. it's better and sa
   //     }
   // },
   // }).mount(window.splide.Extensions);
+
   // new Splide("#first-slider1",{
   
   //   pagination : false,
@@ -199,7 +199,58 @@ We may release future updates so it will overwrite this file. it's better and sa
   //     }
   // },
   // }).mount(window.splide.Extensions);
+  // new Splide("#first-slider2",{
+  //   type: 'loop',
+  //   pagination : false,
+  //   drag   : 'free',
+  //   cover      : true,
+  //   gap       : 20,
+  //   perMove:1,
+  //   focus  : 'left',
+  //   interval: 4000,
+  //    autoScroll: {
+  //     speed: 2,
+  //   },
+  //   breakpoints : {
 
+  //     '600': {
+  //       perPage: 1,
+  //       autoScroll: {
+  //         speed: 0,
+  //       },
+  //     },
+  //     '960': {
+  //       perPage: 2,
+  //       autoScroll: {
+  //         speed: 0,
+  //       },
+  //     },
+  //     '1020': {
+  //       perPage: 3,
+  //       autoScroll: {
+  //         speed: 0,
+  //       },
+  //     },
+  //     '1333': {
+  //       perPage: 4,
+  //       autoScroll: {
+  //         speed: 0.09,
+  //       },
+  //     },
+  //     '1500': {
+  //       perPage: 4,
+  //       autoScroll: {
+  //         speed: 0.09,
+  //       },
+  //     },
+  //     '1920': {
+  //       perPage: 5,
+  //       autoScroll: {
+  //         speed: 1.5,
+  //       },
+  //     }
+  // },
+  // }).mount(window.splide.Extensions);
 
 
 
