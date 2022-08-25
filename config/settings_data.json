@@ -1,6 +1,6 @@
 {
   "current": {
-    "enable_ajax": false,
+    "enable_ajax": true,
     "sections": {
       "header": {
         "type": "header",
