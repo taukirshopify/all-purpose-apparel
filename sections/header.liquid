@@ -41,7 +41,7 @@
         }
       </style>
 
-      <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
+      <div class="announcement-bar d-none" role="region" aria-label="{{ 'sections.header.announcement_bar_label' | t }}">
         {%- unless section.settings.message_link == blank -%}
           <a href="{{ section.settings.message_link }}" class="announcement-bar__link">
         {%- endunless -%}
@@ -54,7 +54,7 @@
     {% endif %}
   {% endif %}
 
-  <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
+  <header class="d-none site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
       {% if section.settings.align_logo == 'center' %}
         {%- assign logo_classes = 'medium-up--one-third medium-up--push-one-third logo-align--center' -%}
@@ -115,7 +115,43 @@
       {% endif %}
 
       <div class="grid__item {% if section.settings.align_logo == 'left' %}medium-up--one-quarter{% else %}medium-up--one-third medium-up--push-one-third{% endif %} text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
-        
+        <div class="site-header__icons-wrapper">
+
+          <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top" data-predictive-search-open-drawer>
+            {% render 'icon-search' %}
+            <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
+          </button>
+
+          {% if shop.customer_accounts_enabled %}
+            {% if customer %}
+              <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
+                {% render 'icon-login' %}
+                <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
+              </a>
+            {% else %}
+              <a href="{{ routes.account_login_url }}" class="site-header__icon site-header__account">
+                {% render 'icon-login' %}
+                <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
+              </a>
+            {% endif %}
+          {% endif %}
+
+          <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
+            {% render 'icon-cart' %}
+            <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
+            <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %} critical-hidden" data-cart-count-bubble>
+              <span data-cart-count>{{ cart.item_count }}</span>
+              <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
+            </div>
+          </a>
+
+          {% unless linklists[section.settings.main_linklist] == blank %}
+            <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
+              {% render 'icon-hamburger' %}
+              {% render 'icon-close' %}
+            </button>
+          {% endunless %}
+        </div>
 
       </div>
     </div>
@@ -265,87 +301,3 @@
   </script>
 {% endif %}
 
-{% schema %}
-{
-  "name": "t:sections.header.name",
-  "settings": [
-    {
-      "type": "radio",
-      "id": "align_logo",
-      "label": "t:sections.header.settings.align_logo.label",
-      "default": "left",
-      "options": [
-        {
-          "value": "left",
-          "label": "t:sections.header.settings.align_logo.options__1.label"
-        },
-        {
-          "value": "center",
-          "label": "t:sections.header.settings.align_logo.options__2.label"
-        }
-      ]
-    },
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "t:sections.header.settings.logo.label"
-    },
-    {
-      "type": "range",
-      "id": "logo_max_width",
-      "label": "t:sections.header.settings.logo_max_width.label",
-      "min": 50,
-      "max": 250,
-      "step": 5,
-      "unit": "px",
-      "default": 100
-    },
-    {
-      "type": "link_list",
-      "id": "main_linklist",
-      "label": "t:sections.header.settings.main_linklist.label",
-      "default": "main-menu"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__1.content"
-    },
-    {
-      "type": "checkbox",
-      "id": "message",
-      "label": "t:sections.header.settings.message.label",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "home_page_only",
-      "label": "t:sections.header.settings.home_page_only.label",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "message_text",
-      "label": "t:sections.header.settings.message_text.label",
-      "default": "Announce something here"
-    },
-    {
-      "type": "url",
-      "id": "message_link",
-      "label": "t:sections.header.settings.message_link.label",
-      "info": "t:sections.header.settings.message_link.info"
-    },
-    {
-      "type": "color",
-      "id": "color_bg",
-      "label": "t:sections.header.settings.color_bg.label",
-      "default": "#3a3a3a"
-    },
-    {
-      "type": "color",
-      "id": "color_text",
-      "label": "t:sections.header.settings.color_text.label",
-      "default": "#ffffff"
-    }
-  ]
-}
-{% endschema %}
