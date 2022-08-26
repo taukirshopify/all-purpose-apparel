@@ -471,7 +471,7 @@ img {
   padding: 0 24px 0 16px;
 }
 .sider-bar-top .sidebar-header-logo {
-  margin: 38px 0 32px 0;
+  margin: 38px 0 32px 8px;
 }
 
 #sidebar ul li {
@@ -520,11 +520,16 @@ header.site-header.border-bottom.logo--left {
 .logo {
   margin-right: 24px;
   width: 143px;
+  margin-bottom: 10px;
 }
 @media (min-width: 768px) {
   .logo {
     margin-bottom: 0px;
   }
+}
+
+.sidebar-header-logo {
+  width: 150px;
 }
 
 .bannar-wrapper {
@@ -1211,5 +1216,28 @@ header.site-header.border-bottom.logo--left {
   .footer-wrapper .footer-human-shap img {
     width: auto;
   }
+}
+
+.product-slider-wrapper {
+  padding: 50px 0;
+}
+.product-slider-wrapper .splide__track .splide__list .splide__slide {
+  border: none !important;
+}
+.product-slider-wrapper .splide__track .splide__list .splide__slide svg {
+  margin-left: 18px;
+}
+
+.proudct-wrapper-content {
+  padding: 50px 0;
+}
+.proudct-wrapper-content .product-single__title {
+  font-family: "GT Super Txt Trial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 60px;
+  color: #000000;
+  text-transform: uppercase;
 }
 /*# sourceMappingURL=style.css.map */
