@@ -39,7 +39,7 @@
       "type": "custometshirt",
       "settings": {
         "h2": "T-SHIRTS",
-        "product": "jewelry"
+        "product": "hair-ties"
       }
     },
     "1661379383bd156f7a": {
@@ -55,6 +55,29 @@
         "h2": "JEWELRY",
         "product": "jewelry"
       }
+    },
+    "166151523068b4b8aa": {
+      "type": "customepagebannar",
+      "blocks": {
+        "747f071b-3aa4-4b4a-9ad9-f8e53d882c9b": {
+          "type": "slide",
+          "settings": {
+            "text": "FREE US SHIPPING ON ORDERS OVER $100"
+          }
+        },
+        "b0715bd2-e11b-4daf-aef5-8bbe59a095b5": {
+          "type": "slide",
+          "settings": {
+            "text": "FREE US SHIPPING ON ORDERS OVER $100"
+          }
+        }
+      },
+      "block_order": [
+        "747f071b-3aa4-4b4a-9ad9-f8e53d882c9b",
+        "b0715bd2-e11b-4daf-aef5-8bbe59a095b5"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
@@ -64,6 +87,7 @@
     "1661379363c7f59ed6",
     "1661379423c25722ee",
     "1661379383bd156f7a",
-    "16615151866e0eb289"
+    "16615151866e0eb289",
+    "166151523068b4b8aa"
   ]
 }
