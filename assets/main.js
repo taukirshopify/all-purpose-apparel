@@ -312,7 +312,7 @@ $(document).ready(function () {
 $(document).ready(function(){
 //  mobile menu-button-toggle 
 $(".crote").click(function(){
-  $(".mobile-menu-arrow").toggleClass("m-rotate");
+  $(this).children('div').toggleClass("m-rotate");
 });
 });
 

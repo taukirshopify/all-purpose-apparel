@@ -61,51 +61,51 @@
                     {% assign footer_menu_4 = section.settings.sub4 %}
                     {% for link in linklists[footer_menu_4].links %}
 
-                {% assign child_list_handle = link.title | handleize %}
+                          {% assign child_list_handle = link.title | handleize %}
                     
-                    {% if linklists[child_list_handle].links != blank %}
-                        <li class="witharrow"><a href="{{link.url}}" class="d-flex align-items-center"><p class="d-inline-block">{{ link.title }}</p> <div class="menu-arrow d-inline-block">
-                            {% include 'svgarrow_down' %}
-                            </div></a>
-                        <!-- End submeu start  -->
+                            {% if linklists[child_list_handle].links != blank %}
+                                <li class="witharrow"><a href="{{link.url}}" class="d-flex align-items-center"><p class="d-inline-block">{{ link.title }}</p> <div class="menu-arrow d-inline-block">
+                                    {% include 'svgarrow_down_desktop' %}
+                                    </div></a>
+                                <!-- End submeu start  -->
 
 
-                        <div class="submenu" id="rec">
-                            <div class="container">
-                            <div class="row">
-                              {% for childlink in linklists[child_list_handle].links %}
-                                {% assign grand_child_link_handle = childlink.title | handleize %}
-                                <div class="col-md-3">
+                                <div class="submenu" id="rec">
+                                    <div class="container">
+                                    <div class="row">
+                                      {% for childlink in linklists[child_list_handle].links %}
+                                        {% assign grand_child_link_handle = childlink.title | handleize %}
+                                        <div class="col-md-3">
 
-                                    <div class="singel-menu">
-                                      
-                                    <ul>
-                                      
-                    
-                                        <li><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
-                                        {% for grand_child_link in linklists[grand_child_link_handle].links %}
-                                        <li><a href="{{ grand_child_link.url }}">{{ grand_child_link.title }}</a></li>
-                                        {% endfor %}
-                                    
-                                    </ul>
-                                 
+                                            <div class="singel-menu">
+                                              
+                                            <ul>
+                                              
+                            
+                                                <li><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+                                                {% for grand_child_link in linklists[grand_child_link_handle].links %}
+                                                <li><a href="{{ grand_child_link.url }}">{{ grand_child_link.title }}</a></li>
+                                                {% endfor %}
+                                            
+                                            </ul>
+                                        
+                                            </div>
+
+                                        </div>
+                                      {% endfor %}
                                     </div>
-
+                                    </div>
+                                    
+                                    
                                 </div>
-                              {% endfor %}
-                            </div>
-                            </div>
-                            
-                            
-                        </div>
-                        <!-- End submeu  -->
-                      
-                   
+                                <!-- End submeu  -->
+                              
+                          
 
 
-                    {% else %}
-                    <li><a href="{{link.url}}">{{ link.title }}</a></li>
-                    {% endif %}
+                            {% else %}
+                            <li><a href="{{link.url}}">{{ link.title }}</a></li>
+                            {% endif %}
                    
              
 
@@ -413,3 +413,4 @@
     </div>
   </div>
 </header> {% endcomment %}
+

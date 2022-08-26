@@ -513,6 +513,10 @@ header.site-header.border-bottom.logo--left {
   display: none;
 }
 
+.home-middle-wrapper {
+  border-top: 1px solid #000;
+}
+
 .bannar-wrapper {
   background: rgb(242, 224, 133);
   position: relative;
@@ -716,7 +720,7 @@ header.site-header.border-bottom.logo--left {
 }
 .home-join-wrapper {
   background: #BFEAFF;
-  border-bottom: 1px solid #000000;
+  border-top: 1px solid #000000;
   padding: 40px 0;
 }
 
@@ -790,11 +794,13 @@ header.site-header.border-bottom.logo--left {
 }
 
 .common-product-wrapper {
-  margin: 60px 0px;
+  padding: 60px 0px;
+  border-top: 1px solid #000000;
 }
 @media (min-width: 1400px) {
   .common-product-wrapper {
-    margin: 60px 37px;
+    padding: 60px 0px;
+    border-top: 1px solid #000000;
   }
 }
 .common-product-wrapper .singel-product-svg-wrapper {
