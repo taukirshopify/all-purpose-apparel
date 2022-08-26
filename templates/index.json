@@ -35,27 +35,6 @@
         "product": "new-arrivals"
       }
     },
-    "1661379423c25722ee": {
-      "type": "custometshirt",
-      "settings": {
-        "h2": "T-SHIRTS",
-        "product": "hair-ties"
-      }
-    },
-    "1661379383bd156f7a": {
-      "type": "customenewslatter",
-      "settings": {
-        "h2": "JOIN OUR NEWSLETTER",
-        "img": "shopify:\/\/shop_images\/footerSmile.png"
-      }
-    },
-    "16615151866e0eb289": {
-      "type": "customejewwlry",
-      "settings": {
-        "h2": "JEWELRY",
-        "product": "jewelry"
-      }
-    },
     "166151523068b4b8aa": {
       "type": "customepagebannar",
       "blocks": {
@@ -78,6 +57,27 @@
       ],
       "settings": {
       }
+    },
+    "1661379423c25722ee": {
+      "type": "custometshirt",
+      "settings": {
+        "h2": "T-SHIRTS",
+        "product": "hair-ties"
+      }
+    },
+    "16615151866e0eb289": {
+      "type": "customejewwlry",
+      "settings": {
+        "h2": "JEWELRY",
+        "product": "jewelry"
+      }
+    },
+    "1661379383bd156f7a": {
+      "type": "customenewslatter",
+      "settings": {
+        "h2": "JOIN OUR NEWSLETTER",
+        "img": "shopify:\/\/shop_images\/footerSmile.png"
+      }
     }
   },
   "order": [
@@ -85,9 +85,9 @@
     "1661297293c8d8f0f3",
     "1661379335a2efa1ce",
     "1661379363c7f59ed6",
+    "166151523068b4b8aa",
     "1661379423c25722ee",
-    "1661379383bd156f7a",
     "16615151866e0eb289",
-    "166151523068b4b8aa"
+    "1661379383bd156f7a"
   ]
 }
