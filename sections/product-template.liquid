@@ -15,12 +15,12 @@
   <div class="row">
 
     {% comment %} slider Start  {% endcomment %}
-  <div class="col-md-7">
+  <div class="col-lg-7">
   
         <div class="product-slider-wrapper">
         <div class="row">
 
-          <div class="col-md-2 p-ab">
+          <div class="col-xl-2 p-ab d-none d-xl-block">
               
             <!-- slider nav start here  -->
               <section
@@ -63,7 +63,7 @@
             <!-- slider nav start here  -->
             </div>
    
-            <div class="col-md-9 p-0">
+            <div class="col-md-12 col-xl-9 p-0">
               <section
               id="main-carousel"
               class="splide"
@@ -112,7 +112,7 @@
 
     {% comment %} Product wrapper  {% endcomment %}
  
-  <div class="col-md-5">
+  <div class="col-lg-5">
   
     <div class="proudct-wrapper-content">
       <div class="grid__item {{ product_description_width }}">
@@ -124,22 +124,16 @@
                 {% render block %}
               {% when 'title' %}
                 <h1 class="product-single__title">{{ product.title }}</h1>
-                <script>window.performance.mark('debut:product:title_visible');</script>
+                
               {% when 'price' %}
                 <div class="product__price">
                   {% render 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
+
+
+                  <hr>
                 </div>
   
-                {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
-                  <div class="product__policies rte" data-product-policies>
-                    {%- if cart.taxes_included -%}
-                      {{ 'products.product.include_taxes' | t }}
-                    {%- endif -%}
-                    {%- if shop.shipping_policy.body != blank -%}
-                      {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                    {%- endif -%}
-                  </div>
-                {%- endif -%}
+             
               {% when 'buttons' %}
                 {% capture "form_classes" -%}
                   product-form product-form-{{ section.id }}
@@ -149,11 +143,40 @@
   
                 {% form 'product', product, class: form_classes, novalidate: 'novalidate', data-product-form: '' %}
                   {{ form | payment_terms }}
-  
+                  {% if section.settings.show_quantity_selector %}
+                    <div class="product-form__controls-group">
+                      <div class="product-form__item d-flex align-items-center  selector-wrapper-custome">
+                        <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
+
+                         {% comment %} incrise button  {% endcomment %}
+                         <div class="add">
+                        
+                         {% include 'svgproductincrise' %}
+                        </div>
+                         {% comment %} incrise button end  {% endcomment %}
+                        <input  id="Quantity-{{ section.id }}"
+                          name="quantity" value="1" 
+                          class="product-form__input product-form__input--quantity custome-class-quantity qty" data-quantity-input
+                        >
+                                  {% comment %} incrise button  {% endcomment %}
+                                  <div class="minus">
+                                 
+                         {% include 'svgproductdecrise' %}
+                        </div>
+                         {% comment %} incrise button end  {% endcomment %}
+                      </div>
+                    </div>
+                  {% endif %}
                   {% unless product.has_only_default_variant %}
                     <div class="product-form__controls-group">
                       {% for option in product.options_with_values %}
-                        <div class="selector-wrapper js product-form__item">
+                        <div class="selector-wrapper  selector-wrapper-custome js product-form__item d-inline-flex align-items-center">
+
+                          <div class="product-svg-down">
+                          
+                             {% include 'sv-gproduct-down' %}
+                          </div>
+
                           <label for="SingleOptionSelector-{{ forloop.index0 }}">
                             {{ option.name }}
                           </label>
@@ -164,12 +187,21 @@
                             {% for value in option.values %}
                               <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
                             {% endfor %}
+
+                                <div class="down-svg-cion">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9" fill="none">
+                                    <path d="M13 1.5L7 7.5L1 1.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                
+                                </div>
+
+
                           </select>
                         </div>
                       {% endfor %}
                     </div>
                   {% endunless %}
-  
+               
                   <select name="id" id="ProductSelect-{{ section.id }}" class="product-form__variants no-js">
                     {% for variant in product.variants %}
                       <option value="{{ variant.id }}"
@@ -180,17 +212,7 @@
                     {% endfor %}
                   </select>
   
-                {% if section.settings.show_quantity_selector %}
-                  <div class="product-form__controls-group">
-                    <div class="product-form__item">
-                      <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
-                      <input type="number" id="Quantity-{{ section.id }}"
-                        name="quantity" value="1" min="1" pattern="[0-9]*"
-                        class="product-form__input product-form__input--quantity" data-quantity-input
-                      >
-                    </div>
-                  </div>
-                {% endif %}
+             
   
                   <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %}"
                     data-error-message-wrapper
@@ -223,9 +245,18 @@
                           {% render 'icon-spinner' %}
                         </span>
                       </button>
-                      {% if section.settings.enable_payment_button %}
-                        {{ form | payment_button }}
-                      {% endif %}
+
+
+                      {% comment %} dynamic pay  {% endcomment %}
+                          <div class="shopify-dynamic-pay">
+                            {% if section.settings.enable_payment_button %}
+                              {{ form | payment_button }}
+                            {% endif %}
+                          
+                          
+                          </div>
+                      {% comment %} dynamic pay  {% endcomment %}
+
                     </div>
                   </div>
                 {% endform %}
@@ -489,12 +520,47 @@
 
 
 <script>
+
+  $(function()
+  {
+      $(".add").click(function()
+      {
+          var currentVal = parseInt($(this).next(".qty").val());
+          if (currentVal != NaN)
+          {
+              $(this).next(".qty").val(currentVal + 1);
+          }
+      });
+  
+      $(".minus").click(function()
+      {
+          var currentVal = parseInt($(this).prev(".qty").val());
+          if (currentVal != NaN)
+          {
+              if(currentVal > 0){
+                      $(this).prev(".qty").val(currentVal - 1);
+                  }
+  
+          }
+      });
+  });
+
+
+
+
+
+
   // new Splide(".second-slider").mount();
 
   var main = new Splide( '#main-carousel', { 
     type      : 'fade',
     rewind    : true,
     pagination: false,
+    breakpoints : {
+      800: {
+        pagination: true,
+      },
+    },
     arrows    : false,
    } );
   var thumbnails = new Splide( '.thumbnail-carousel', { 
@@ -505,7 +571,7 @@
     height   : '588px',
     arrows:  false,
     gap        : 10,
-    autoplay:true,
+    autoplay:false,
     rewind     : true,
     interval:5000,
     pagination : false,

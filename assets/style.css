@@ -370,8 +370,15 @@ img {
   margin-right: 0;
 }
 
-.user-cart-navigation {
-  margin-left: 48px;
+@media (min-width: 1200px) {
+  .user-cart-navigation {
+    margin-left: 30px;
+  }
+}
+@media (min-width: 1400px) {
+  .user-cart-navigation {
+    margin-left: 48px;
+  }
 }
 .user-cart-navigation ul li a {
   padding: 10px;
@@ -778,6 +785,11 @@ header.site-header.border-bottom.logo--left {
   padding-right: 5px;
   letter-spacing: 2px;
   color: #000000;
+}
+
+.newslatter-wrapper .form-wrapper {
+  text-align: center;
+  padding: 0 18px;
 }
 
 .section-title h2 {
@@ -1224,8 +1236,10 @@ header.site-header.border-bottom.logo--left {
 .product-slider-wrapper .splide__track .splide__list .splide__slide {
   border: none !important;
 }
-.product-slider-wrapper .splide__track .splide__list .splide__slide svg {
-  margin-left: 18px;
+@media (min-width: 1400px) {
+  .product-slider-wrapper .splide__track .splide__list .splide__slide svg {
+    margin-left: 18px;
+  }
 }
 
 .proudct-wrapper-content {
@@ -1233,11 +1247,198 @@ header.site-header.border-bottom.logo--left {
 }
 .proudct-wrapper-content .product-single__title {
   font-family: "GT Super Txt Trial";
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
   line-height: 60px;
   color: #000000;
   text-transform: uppercase;
+}
+.proudct-wrapper-content .selector-wrapper-custome {
+  margin: 15px 0 12px 0;
+}
+.proudct-wrapper-content .selector-wrapper-custome label {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+  text-transform: uppercase;
+  margin-right: 40px;
+}
+.proudct-wrapper-content .selector-wrapper-custome select {
+  width: 168px;
+  max-height: 41px;
+  border: 2.5px solid #000;
+}
+
+.custome-class-quantity {
+  font-family: "GT Super Txt Trial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  padding: 0;
+  text-align: center;
+  color: #000000;
+  border: none;
+}
+
+.product-form__input--quantity {
+  max-width: 4.5rem;
+}
+
+.product-svg-down {
+  position: absolute;
+  left: 250px;
+}
+
+span.price-item.price-item--regular {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #B5B35C;
+}
+
+.price__regular {
+  margin-top: 4px;
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #B5B35C;
+}
+
+hr {
+  margin: 28px 0;
+  border: 1px solid #000000 !important;
+  opacity: 1;
+}
+
+.product-form__controls-group ~ .product-form__controls-group--submit {
+  margin-top: 36px;
+}
+
+button.btn.product-form__cart-submit.btn--secondary-accent {
+  padding: 12px 32px;
+  gap: 12px;
+  height: 48px;
+  text-transform: capitalize;
+  background: #B5B35C;
+  font-family: "GT Super Txt Trial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  border: 2px solid #000000;
+}
+
+.shopify-dynamic-pay .shopify-cleanslate div {
+  height: 48px;
+  background: #F2E085 !important;
+  margin-top: 12px;
+  border: 2px solid #000000 !important;
+}
+
+.restockify-notify-button {
+  padding: 10 !important;
+}
+
+.product-single__description {
+  margin-top: 30px;
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+.product-single__description p, .product-single__description span, .product-single__description div {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+}
+.product-single__description > ul {
+  margin-top: 10px;
+  list-style-type: disc !important;
+}
+.product-single__description > ul li {
+  display: block;
+  list-style-type: disc !important;
+}
+
+ul.social-sharing li a {
+  border: none;
+  margin-right: 0;
+  padding: 0 10px;
+}
+
+.proudct-page-wrapper {
+  padding: 50px 0;
+}
+
+.splide__track--fade > .splide__list {
+  display: block;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .splide__track--fade > .splide__list {
+    text-align: left;
+  }
+}
+
+.splide__pagination {
+  bottom: -2.5em;
+  left: 0;
+  padding: 0 1em;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+}
+
+ul.splide__pagination.splide__pagination--ltr li .splide__pagination__page {
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  padding: 5px;
+  -webkit-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  transform: scale(1.4);
+  background: #000000;
+  opacity: 0.4;
+}
+ul.splide__pagination.splide__pagination--ltr li .splide__pagination__page.is-active {
+  opacity: 1;
+  border: 1px solid #000;
+  position: relative;
+}
+ul.splide__pagination.splide__pagination--ltr li .splide__pagination__page.is-active::before {
+  position: absolute;
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  border: 2px solid #ddd;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+}
+
+.splide__pagination li {
+  display: inline-block;
+  line-height: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  pointer-events: auto;
 }
 /*# sourceMappingURL=style.css.map */

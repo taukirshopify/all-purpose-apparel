@@ -1225,9 +1225,7 @@ h6,
     .rte h6:first-child,
     .rte .h6:first-child {
       margin-top: 0; }
-  .rte li {
-    margin-bottom: 4px;
-    list-style: inherit; }
+ 
     .rte li:last-child {
       margin-bottom: 0; }
 
@@ -1721,9 +1719,7 @@ select,
   select.hidden-placeholder::-ms-input-placeholder,
   .hidden-placeholder.disclosure__toggle::-ms-input-placeholder {
     opacity: 1; }
-  .product-form input, .product-form
-  textarea, .product-form select, .product-form .disclosure__toggle {
-    min-height: 44px; }
+
 
 textarea {
   min-height: 100px; }
@@ -1755,15 +1751,7 @@ textarea.input--error {
 .selector-wrapper {
   position: relative; }
 
-.selector-wrapper:after {
-  content: '';
-  position: absolute;
-  bottom: calc(22px - 9px / 2);
-  right: 15px;
-  width: 9px;
-  height: 9px;
-  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgOSA5IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICA8cGF0aCBkPSJNOC41NDIwNCAyLjU1ODA2QzguNzg2MTIgMi44MDIxNCA4Ljc4NjEyIDMuMTk3ODYgOC41NDIwNCAzLjQ0MTk0TDQuOTQyNDIgNy4wNDE1NkM0LjgyNTIxIDcuMTU4NzcgNC42NjU4NiA3LjIyNSA0LjUwMDEgNy4yMjVDNC4zMzQzNCA3LjIyNSA0LjE3NTM3IDcuMTU5MTUgNC4wNTgxNiA3LjA0MTk0TDAuNDU4MTU3IDMuNDQxOTRDMC4yMTQwNzkgMy4xOTc4NiAwLjIxNDA3OSAyLjgwMjE0IDAuNDU4MTU3IDIuNTU4MDZDMC43MDIyMzQgMi4zMTM5OCAxLjA5Nzk2IDIuMzEzOTggMS4zNDIwNCAyLjU1ODA2TDQuNTAwMSA1LjcxNjEyTDcuNjU4MTYgMi41NTgwNkM3LjkwMjIzIDIuMzEzOTggOC4yOTc5NiAyLjMxMzk4IDguNTQyMDQgMi41NTgwNloiIGZpbGw9IiMxNjI5NTAiLz4NCjwvc3ZnPg0K");
-  background: var(--color-text-field-text); }
+
 
 select,
 .disclosure__toggle {
@@ -2101,7 +2089,7 @@ body.prevent-scrolling {
       transform: translate3d(0, 0, 0); } }
 
 hr {
-  margin: 55px 0;
+
   border: 0;
   border-bottom: 1px solid var(--color-border); }
 
@@ -2710,9 +2698,7 @@ hr {
   font-size: calc(((var(--font-size-base) - 1) / (var(--font-size-base))) * 1em); }
 
 /*================ Add to cart form ================*/
-.product-form {
-  width: auto;
-  padding-top: 2rem; }
+
 
 .product-form__controls-group {
   display: flex;
@@ -2731,7 +2717,7 @@ hr {
   padding: 0; }
   @media only screen and (min-width: 990px) {
     .product-form__item {
-      flex-basis: 50%;
+
       padding: 0 5px; }
       .product-single--large-image .product-form__item {
         flex-basis: 100%; } }
