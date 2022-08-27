@@ -20,212 +20,212 @@
 {% paginate collection.products by limit %}
 
 <div data-section-id="{{ section.id }}" data-section-type="collection-template">
-  <header class="collection-header">
-    {%- assign is_filter_by_available = false -%}
-    {%- if section.settings.tags_enable and collection.all_tags.size > 0 -%}
-      {%- assign is_filter_by_available = true -%}
-    {%- endif -%}
 
-    {% if section.settings.show_collection_image and collection.image %}
-      <div class="collection-hero">
-        <div class="collection-hero__image" style="background-image: url({{ collection.image | img_url: '2048x600', crop: 'top' }});"></div>
-        <div class="collection-hero__title-wrapper">
-          <h1 class="collection-hero__title page-width">
-              <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
-              {{ collection.title }}
-          </h1>
-        </div>
-      </div>
-      {% if is_filter_by_available == false and section.settings.sort_enable == false %}
-        <div class="page-width">
-          <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
-        </div>
-      {% endif %}
-      {% if collection.description != blank %}
-        <div class="rte collection-description page-width">
-          {{ collection.description }}
-        </div>
-      {% endif %}
-    {% else %}
-      <div class="page-width">
-        <div class="section-header text-center">
-          <h1>
-              <span class="visually-hidden">{{ 'collections.general.collection_label' | t }}: </span>
-              {{ collection.title }}
-          </h1>
-          {% if collection.description != blank %}
-            <div class="rte">
-              {{ collection.description }}
-            </div>
-          {% endif %}
-          {% if is_filter_by_available == false and section.settings.sort_enable == false %}
-            <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
-          {% endif %}
-        </div>
-      </div>
-    {% endif %}
 
-    {% if is_filter_by_available or section.settings.sort_enable %}
-      <div class="filters-toolbar-wrapper{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %}">
-        <div class="page-width">
-          <div class="filters-toolbar">
-            <div class="filters-toolbar__item-wrapper">
-              {% if section.settings.tags_enable %}
-                {% unless collection.all_tags.size == 0 %}
-                  <div class="filters-toolbar__item-child">
-                    <label class="filters-toolbar__label select-label" for="FilterTags">{{ 'collections.filters.title_tags' | t }}</label>
-                    <div class="filters-toolbar__input-wrapper select-group">
-                      <select class="filters-toolbar__input hidden" name="FilterTags" id="FilterTags" aria-describedby="a11y-refresh-page-message a11y-selection-message" data-select-input>
-                        <option value="{{ collection.url }}">{{ 'collections.filters.all_tags' | t }}</option>
-                        {% for tag in collection.all_tags %}
-                          {%- assign new_url = tag | link_to_tag: tag | split: 'href="' | last | split: '"' | first -%}
-                          <option value="{{ new_url }}"{% if current_tags contains tag %} selected="selected"{% endif %}>{{ tag }}</option>
-                        {% endfor %}
-                      </select>
-                      {% render 'icon-chevron-down' %}
-                    </div>
+
+
+<section class="overflow-hidden shop-section">
+  <div class="shop-banner">
+      <div class="container">
+          <div class="shop-breadcrumb">
+              <div class="d-flex align-tems-center">
+                  <a>All collections</a>
+                   <div class="breade-comearrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                      <path d="M1 1L5 5L1 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
                   </div>
-                {% endunless %}
-              {% endif %}
-
-              {% if section.settings.sort_enable %}
-                <div class="filters-toolbar__item-child">
-                  {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-                  <label class="filters-toolbar__label select-label" for="SortBy">{{ 'collections.sorting.title' | t }}</label>
-                  <div class="filters-toolbar__input-wrapper select-group">
-                    <select name="sort_by" id="SortBy"
-                      class="filters-toolbar__input hidden"
-                      aria-describedby="a11y-refresh-page-message a11y-selection-message"
-                      data-default-sortby="{{ collection.default_sort_by }}"
-                      data-select-input
-                    >
-                      {%- for option in collection.sort_options -%}
-                        <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
-                      {%- endfor -%}
-                    </select>
-                    {% render 'icon-chevron-down' %}
-                  </div>
-                </div>
-              {% endif %}
-            </div>
-
-            <div class="filters-toolbar__item filters-toolbar__item--count">
-              <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    {% endif %}
-  </header>
-
-  <div class="page-width" id="Collection">
-    {% if section.settings.layout == 'grid' %}
-      {% liquid
-        case section.settings.grid
-          when 2
-            assign grid_item_width = 'medium-up--one-half'
-          when 3
-            assign grid_item_width = 'small--one-half medium-up--one-third'
-          when 4
-            assign grid_item_width = 'small--one-half medium-up--one-quarter'
-          when 5
-            assign grid_item_width = 'small--one-half medium-up--one-fifth'
-        endcase
-      %}
-
-      <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
-        {% for product in collection.products %}
-          <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-            {% render 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
-          </li>
-        {% else %}
-          {% comment %}
-          Add default products to help with onboarding for collections/all only.
-
-          The onboarding styles and products are only loaded if the
-          store has no products.
-          {% endcomment %}
-          {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
-            <li class="grid__item">
-              <div class="grid grid--uniform">
-                {% for i in (1..limit) %}
-                  <div class="grid__item {{ grid_item_width }}">
-                    <div class="grid-view-item">
-                      <a href="#" class="grid-view-item__link">
-                        <div class="grid-view-item__image">
-                          {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-                          {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-                        </div>
-                        <div class="h4 grid-view-item__title">{{ 'homepage.onboarding.product_title' | t }}</div>
-                        <div class="grid-view-item__meta">
-                          <span class="product-price__price">$19.99</span>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                {% endfor %}
+                  <a>Products</a>
               </div>
-            </li>
-          {% else %}
-            {%- assign is_empty_collection = true -%}
-          {% endif %}
-        {% endfor %}
-      </ul>
-    {% else %}
-      <ul class="list-view-items">
-        {% for product in collection.products %}
-          <li class="list-view-item">
-            {% render 'product-card-list', product: product, show_vendor: section.settings.show_vendor %}
-          </li>
-        {% else %}
-
-          {% comment %}
-          Add default products to help with onboarding for collections/all only.
-
-          The onboarding styles and products are only loaded if the
-          store has no products.
-          {% endcomment %}
-          {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
-            {% for i in (1..4) %}
-              <li class="list-view-item">
-                <a href="#" class="list-view-item__link">
-                  <div class="list-view-item__image-column">
-                    <div class="list-view-item__image-wrapper">
-                      <div class="list-view-item__image">
-                        {% capture current %}{% cycle 1, 2, 3, 4 %}{% endcapture %}
-                        {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="list-view-item__title-column">
-                    <div class="list-view-item__title">{{ 'homepage.onboarding.product_title' | t }}</div>
-                  </div>
-
-                  <div class="list-view-item__price-column">
-                    <span class="product-price__price">$19.99</span>
-                  </div>
-                </a>
-              </li>
-            {% endfor %}
-          {% else %}
-            {%- assign is_empty_collection = true -%}
-          {% endif %}
-        {% endfor %}
-      </ul>
-    {% endif %}
-
-    {% if is_empty_collection %}
-      <div class="grid__item small--text-center">
-        <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+          </div>
       </div>
-    {% endif %}
-
-    {%- if paginate.pages > 1 -%}
-      {% render 'pagination', paginate: paginate %}
-    {%- endif -%}
   </div>
+  <div class="container">
+      <div class="row align-items-top">
+          <div class="col-md-2 ">
+              <div class="side-menu d-none d-md-block">
+                  <p>Showing:</p>
+                  <ul>
+
+                    {% for c in collections  %}
+                     
+                      <li>
+                        <a href="{{ c.url }}">{{ c.title }}</a>
+                      </li>
+                     
+                      {% endfor %}
+
+                  
+                  </ul>
+              </div>
+              <!-- -------for mobile--------- -->
+              <div class="d-block d-md-none">
+                  <div class="row mobile-filter">
+                      <div class="col-6" style="padding: 28px 0;">
+                          <div class=" align-items-start d-flex justify-content-center pb-1">
+                              <div>
+                                  <h6 class="m-0"> Shop</h6>
+                              </div>
+                              <div> <img class="img-fluid" src="./shop-img/Vector.svg" alt=""></div>
+                          </div>
+                      </div>
+                      <div class="col-6" style="border-left: 1px solid black;padding: 28px 0;">
+                          <div class=" align-items-center d-flex pb-1 justify-content-center">
+                              <h6 class="m-0 "> Featured</h6>
+                              <img class="img-fluid" src="./shop-img/ArrowsDownUp.svg" alt="">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+
+          </div>
+          <div class="col-md-10 col-12">
+              <!-- -----------wave-area----------- -->
+              <div class="wave-area d-flex align-items-center justify-content-between">
+                  <div class="d-flex align-items-center">
+                      <h5>Products</h5>
+                      <div class="wave-img" >
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="271" height="22" viewBox="0 0 271 22" fill="none">
+                          <path d="M2 2C15.3547 2 15.3547 20 28.7094 20C42.0641 20 42.0641 2 55.4188 2C68.7735 2 68.7735 20 82.0969 20C95.452 20 95.452 2 108.775 2C122.13 2 122.13 20 135.453 20C148.808 20 148.808 2 162.162 2C175.517 2 175.517 20 188.872 20C202.226 20 202.226 2 215.581 2C228.936 2 228.936 20 242.291 20C255.645 20 255.645 2 269 2" stroke="#B5B35C" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+                          </svg>
+                      </div>
+                  </div>
+                  <div class=" align-items-center drop-down pb-1 ">
+                   {% comment %} featued start  {% endcomment %}
+                    <div class="featued-wrapper">
+                      {%- assign is_filter_by_available = true -%}
+
+                        {% if is_filter_by_available or section.settings.sort_enable %}
+                          <div class="filters-toolbar">
+                          
+                          
+                    
+                                  {% if section.settings.sort_enable %}
+                                    <div class="filters-tool">
+                                      {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+                                      <div class="filters-toolbar__input-wrapper select-group">
+                                        <select name="sort_by" id="SortBy"
+                                          class="filters-toolbar__input hidden"
+                                          aria-describedby="a11y-refresh-page-message a11y-selection-message"
+                                          data-default-sortby="{{ collection.default_sort_by }}"
+                                          data-select-input
+                                        >
+                                          {%- for option in collection.sort_options -%}
+                                            <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
+                                          {%- endfor -%}
+                                        </select>
+                                        {% render 'icon-chevron-down' %}
+                                      </div>
+                                    </div>
+                                  {% endif %}
+                              
+                          </div>
+                        {% endif %}
+                    
+                    </div>
+                   {% comment %} featued start  {% endcomment %}
+
+
+
+
+
+                  </div>
+              </div>
+              <!-- ------product-area------ -->
+              <div class="product-area">
+                  <div class="row justify-content-center ">
+
+                    {% for product in collection.products %}
+          
+                      <!-- ---------product-1----------- -->
+                      <div class="col-lg-3 col-md-4 col-sm-6  col-12  p-0">
+                          <div class="single-shop-product text-center">
+                              <div class="product-img  d-inline-block">
+                                <a href="{{ product.url }}">
+                                
+
+                                  <div class="img-fluid">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="252" height="351" viewBox="0 0 252 351" fill="none">
+                                      <rect x="0.5" y="0.5" width="250.5" height="350" rx="63.5" fill="url(#p{{forloop.index}}attern0)" stroke="black"/>
+                                      <defs>
+                                      <pattern id="p{{forloop.index}}attern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                      <use xlink:href="#image0_280{{forloop.index}}_2170" transform="translate(0 -0.00156695) scale(0.00227273 0.00162846)"/>
+                                      </pattern>
+                                      <image id="image0_280{{forloop.index}}_2170" width="440" height="616" xlink:href="{{ product.featured_image.src | img_url: 'large' }}"/>
+                                      </defs>
+                                      </svg>
+                                  </div>
+                                    <div class="img-fluid hover-img">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="252" height="351" viewBox="0 0 252 351" fill="none">
+                                        <rect x="1" y="0.5" width="250.5" height="350" rx="63.5" fill="#F2E085" stroke="black"/>
+                                        </svg>
+                                    </div>                
+
+
+
+                                  <img class="img-fluid hover-img" src="./shop-img/hover.svg" alt="">
+                                </a>
+                              </div>
+                              <div class="text-center product-content">
+                                <a href="{{ product.url }}"> <h3>{{ product.title }}</h3> </a>
+                                  <h6>$38.00</h6>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- ---------product-1----------- -->
+                    {% endfor %}
+                      
+                  </div>
+
+
+                  {% comment %} pagination  {% endcomment %}
+
+                <div class="pagination-wrapper pagination">
+                
+                        <ul class="pagination-custom">
+                          {% if paginate.previous %}
+                            <li><a href="{{ paginate.previous.url }}" title="{{ paginate.previous.title }}">&larr;</a></li>
+                          {% else %}
+                            <li class="disabled"><span>&larr;</span></li>
+                          {% endif %}
+                        
+                          {% for part in paginate.parts %}
+                            {% if part.is_link %}
+                              <li>
+                                <a href="{{ part.url }}" title="">{{ part.title }}</a>
+                              </li>
+                            {% else %}
+                              {% if part.title == paginate.current_page %}
+                                <li class="active"><span>{{ part.title }}</li>
+                              {% else %}
+                                <li><span>{{ part.title }}</span></li>
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        
+                          {% if paginate.next %}
+                            <li><a href="{{ paginate.next.url }}" title="{{ paginate.next.title }}">&rarr;</a></li>
+                          {% else %}
+                            <li class="disabled"><span>&rarr;</span></li>
+                          {% endif %}
+                        </ul>
+                </div>
+
+         
+                  {% comment %} pagination End  {% endcomment %}
+
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
 </div>
+
+
+
 
 {% endpaginate %}
 
@@ -296,3 +296,224 @@
   ]
 }
 {% endschema %}
+
+
+
+
+<style>
+  .filters-toolbar__input {
+    border: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    height: 40px;
+    opacity: 1;
+    color: #000000;
+    font-family: 'GT Super Txt Trial';
+    font-weight: 700;
+    padding: 0 29px 0 0;
+    font-size: 20px;
+}
+
+.filters-toolbar__input:focus-visible {
+outline:none;
+border:none;
+
+}
+.icon-absolute-sort{
+
+position: absolute;
+right:0;
+top: 22%;
+}
+.shop-section{
+    padding-bottom: 104px;
+}
+.wave-area {
+  margin-bottom: 10px;
+}
+.side-menu ul li {
+  display: block;
+}
+.product-img {
+    position: relative;
+    z-index: 22;
+    cursor: pointer;
+}
+
+.single-shop-product {
+  margin-left: 18px;
+    margin-right: 18px;
+    margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.shop-banner {
+    background: #D77628;
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    padding: 7px 0;
+    margin-bottom: 40px;
+}
+.shop-breadcrumb img{
+    margin: 0px 14px;
+}
+.shop-breadcrumb {
+    font-family: 'Jost';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.hover-img {
+    z-index: -22;
+    position: absolute;
+    left: 4%;
+    top: 2.5%;
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.product-img:hover .hover-img {
+    opacity: 100%;
+}
+
+.product-content h3 {
+    font-family: 'GT Super Txt Trial';
+    color: #000000;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.product-content h6 {
+    color: #B5B35C;
+    font-family: 'Jost';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.wave-area {
+    margin-bottom: 20px;
+}
+
+.wave-area h5 {
+    color: #000000;
+    font-family: 'GT Super Txt Trial';
+    font-weight: 700;
+    font-size: 40px;
+    margin-right: 64px;
+}
+
+.wave-area h6 {
+    color: #000000;
+    font-family: 'GT Super Txt Trial';
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.drop-down {
+    border-bottom: 2px solid #000000;
+    ;
+}
+
+.side-menu li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.side-menu a {
+    color: #B5B35C;
+    text-decoration: none;
+    font-family: 'GT Super Txt Trial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.side-menu p {
+    font-family: 'Jost';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 12px;
+    padding: 0;
+}
+
+.pagination {
+    margin-top: 70px;
+}
+.pagination ul  {
+  display: flex;
+}
+
+.pagination ul li {
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border: 2px solid black;
+    margin-right: 24px;
+    font-family: 'GT Super Txt Trial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.pagination-active {
+    background-color: #B5B35C;
+}
+
+.drop-down {
+    display: flex;
+}
+
+.mobile-filter {
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+.mobile-filter h6 {
+    font-family: 'GT Super Txt Trial';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    padding-right: 12px;
+}
+
+@media screen and (max-width:767px) {
+    .drop-down {
+        display: none;
+    }
+}
+
+@media screen and (max-width:991px) and (min-width:767px) {
+    .wave-img {
+        width: 40%;
+    }
+
+    .wave-area h5 {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (min-width:800px) and (max-width:1440px) {
+    .product-content h3 {
+        line-height: 22px;
+        font-size: 17px;
+
+    }
+}
+
+
+
+</style>

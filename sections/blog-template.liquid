@@ -20,22 +20,22 @@
   </header>
 </div>
 
-
-{% if section.settings.layout == 'grid' %}
-  <div class="page-width">
-    <ul class="grid grid--uniform grid--blog">
-      {% for article in blog.articles %}
-        <li class="grid__item medium-up--one-third">
-          <a href="{{ article.url }}" class="article__link">
-            {% if article.image %}
-              {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
-              {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
-              {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '.' -%}
-
-              {% render 'image-style', image: article.image, height: 345, wrapper_id: img_wrapper_id, img_id: img_id %}
-              <div id="{{ img_wrapper_id }}" class="article__grid-image-wrapper js">
-                <div class="article__grid-image-container" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;" data-image-loading-animation>
-                  <img id="{{ img_id }}"
+<section class="blog-area  overflow-hidden">
+  <div class="container">
+      <div class="row gx-4 gy-5">
+          <!-- --------blog-1------- -->
+          {% for article in blog.articles %}
+          <div class="col-lg-4 col-md-6 col-12">
+              <div class="blog-card h-100">
+                     <button class="blog-badge">  {% for tag in article.tags  limit: 1%}
+                      <li>
+                        <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="article__grid-tag">{{ tag }}</a>
+                      </li>
+                    {% endfor %}  Charities</button>
+                     {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
+                     {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
+                     {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '.' -%}
+                     <a href="{{ article.url }}"> <img class="blog-top-img"  id="{{ img_id }}"
                       class="article__grid-image"
                       src="{{ img_url }}"
                       data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
@@ -44,162 +44,29 @@
                       loading="lazy"
                       width="auto"
                       height="auto"
-                      alt="">
-                </div>
+                      alt="{{ article.title }}"></a>
+                 
+                  <div class="blog-content">
+                      <h6>{{ article.published_at | time_tag: format: 'date' }}</h6>
+                      <h3>{{ article.title | escape }}</h3>
+                      <p>{{article.content | strip_html | truncate: 110 }}</p>
+                      <div class="d-flex align-items-center blog-btn">
+                          <div><a class="" href="{{ article.url }}">Read More</a></div>
+                          <div><img class="img-fluid" src="../img/blog-img/Arrow.svg" alt=""></div>
+                      </div>
+                  </div>
               </div>
-              <noscript>
-                <div class="article__grid-image-wrapper">
-                  {{ article | img_url: '345x345', scale: 2 | img_tag: article.title, 'article__grid-image' }}
-                </div>
-              </noscript>
-            {% endif %}
-
-            <h2 class="article__title h3{% if article.image %} article__title--has-image{% endif %}">
-              {{ article.title | escape }}
-            </h2>
-          </a>
-
-          <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}">
-            {% if section.settings.blog_show_author %}
-              <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
-            {% endif %}
-
-            {% if section.settings.blog_show_date %}
-              <span class="article__date">
-                {{ article.published_at | time_tag: format: 'date' }}
-              </span>
-            {% endif %}
-
-            <div class="rte article__grid-excerpt">
-              {% if article.excerpt.size > 0 %}
-                {{ article.excerpt }}
-              {% else %}
-                {{ article.content | strip_html | truncate: 150 }}
-              {% endif %}
-            </div>
-
-            {% if article.tags.size > 0 %}
-              <div class="article__tags rte">
-                <ul class="list--inline" aria-label="{{ 'blogs.article.tags' | t }}">
-                  {% for tag in article.tags %}
-                    <li>
-                      <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="article__grid-tag">{{ tag }}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              </div>
-            {% endif %}
-
-            <ul class="list--inline article__meta-buttons">
-              <li>
-                <a href="{{ article.url }}" class="btn btn--tertiary btn--small" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
-                  {{ 'blogs.article.read_more' | t }}
-                </a>
-              </li>
-
-              {% if blog.comments_enabled? and article.comments_count > 0 %}
-                <li>
-                  <a href="{{ article.url }}#comments" class="article__comment-count btn btn--tertiary btn--small">
-                    {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
-                  </a>
-                </li>
-              {% endif %}
-            </ul>
           </div>
-        </li>
-      {% endfor %}
-    </ul>
+        {% endfor %}
+          
+      </div>
   </div>
-{% else %}
-  <ul class="blog-list-view">
-    {% for article in blog.articles %}
-      <li class="border-top">
-        <div class="page-width">
-          <div class="grid">
-            <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
-              <div class="article-listing">
-                <h2 class="article__title h3"><a href="{{ article.url }}">{{ article.title }}</a></h2>
-                {% if section.settings.blog_show_author %}
-                  <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
-                {% endif %}
+</section>
 
-                {% if section.settings.blog_show_date %}
-                  <span class="article__date">
-                    {{ article.published_at | time_tag: format: 'date' }}
-                  </span>
-                {% endif %}
 
-                {% if article.image %}
-                  {% capture img_id %}ArticleImage-{{ article.image.id }}{% endcapture %}
-                  {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
-                  {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '.' -%}
 
-                  {% render 'image-style', image: article.image, height: 600, wrapper_id: img_wrapper_id, img_id: img_id %}
 
-                  <div id="{{ img_wrapper_id }}" class="article__list-image-wrapper js">
-                    <a href="{{ article.url }}" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;" class="article__list-image-container" data-image-loading-animation>
-                      <img id="{{ img_id }}"
-                           class="article__list-image"
-                           src="{{ img_url }}"
-                           data-widths="[180, 360, 540, 720, 905, 1090, 1296, 1512, 1728, 2048]"
-                           data-aspectratio="{{ article.image.aspect_ratio }}"
-                           data-sizes="auto"
-                           loading="lazy"
-                           width="auto"
-                           height="auto"
-                           alt="">
-                    </a>
-                  </div>
 
-                  <noscript>
-                    <p>
-                      <a href="{{ article.url }}">
-                        {{ article | img_url: '455x300', scale: 2 | img_tag: article.title }}
-                      </a>
-                    </p>
-                  </noscript>
-                {% endif %}
-
-                <div class="rte">
-                  {% if article.excerpt.size > 0 %}
-                    {{ article.excerpt }}
-                  {% else %}
-                    {{ article.content | strip_html | truncate: 150 }}
-                  {% endif %}
-                </div>
-
-                {% if article.tags.size > 0 %}
-                  <div class="article__tags article__tags--list rte">
-                    {{ 'blogs.article.posted_in' | t }}
-                    {% for tag in article.tags %}
-                      <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-                    {% endfor %}
-                  </div>
-                {% endif %}
-
-                <ul class="list--inline article__meta-buttons">
-                  <li>
-                    <a href="{{ article.url }}" class="btn btn--tertiary btn--small" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
-                      {{ 'blogs.article.read_more' | t }}
-                    </a>
-                  </li>
-
-                  {% if blog.comments_enabled? and article.comments_count > 0 %}
-                    <li>
-                      <a href="{{ article.url }}#comments" class="article__comment-count btn btn--tertiary btn--small">
-                        {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
-                      </a>
-                    </li>
-                  {% endif %}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
-    {% endfor %}
-  </ul>
-{% endif %}
 
 {%- if paginate.pages > 1 -%}
   {% render 'pagination', paginate: paginate %}
@@ -244,3 +111,123 @@
   ]
 }
 {% endschema %}
+
+
+
+
+
+
+
+
+
+
+<style>
+
+  .blog-area {
+    background-color: #F8F8F8;
+    padding: 120px 0;
+}
+.blog-area-row{
+    grid-column-gap:36px ;
+}
+.blog-title {
+    background-color: #F2E085;
+    padding: 100px 0;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+.blog-title h4 {
+    color: black;
+    font-family: 'GT Super Txt Trial';
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 83px;
+    text-align: center;
+}
+
+.blog-card {
+    position: relative;
+    z-index: 3;
+    background-color: #F8F8F8;
+    border: 1px solid #000000;
+    cursor: pointer;
+    transition: 0.6s;
+}
+.blog-top-img{
+    width: 100%;
+}
+.blog-card:hover {
+    box-shadow: 12px 14px 0px 1px #5E6B61;
+}
+.blog-badge {
+    font-family: 'Jost';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: #F8F8F8;;
+    border: 2px solid #000000;
+    padding: 6px 16px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+.blog-btn {
+    position: absolute;
+    bottom: 16px;
+    border-bottom: 2px solid #000000;
+}
+
+.blog-btn a {
+    color: #000000;
+    font-family: 'GT Super Txt Trial';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+.blog-content {
+    padding: 16px;
+}
+
+.blog-content h6 {
+    color: #000000;
+    font-family: 'Jost';
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.blog-content h3 {
+    font-family: 'GT Super Txt Trial';
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.blog-content p {
+    color: #000000;
+    font-family: 'Jost';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 38px;
+}
+@media screen and (max-width:991px){
+    .blog-title h4{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width:541px){
+
+    .blog-title  h4{
+        font-size: 20px;
+    }
+}
+
+
+</style>

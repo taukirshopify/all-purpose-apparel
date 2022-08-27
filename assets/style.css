@@ -1441,4 +1441,61 @@ ul.splide__pagination.splide__pagination--ltr li .splide__pagination__page.is-ac
   padding: 0;
   pointer-events: auto;
 }
+
+.pagination ul li.active {
+  background: #B5B35C;
+}
+
+.pagination ul li a {
+  display: block;
+  line-height: 40px;
+  font-family: "GT Super Txt Trial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  font-size: 20px;
+  text-align: center;
+  color: #000000;
+}
+
+.pagination ul li:first-child {
+  border: none;
+}
+
+.pagination ul li:last-child {
+  border: none;
+}
+
+.pagination-wrapper {
+  text-align: center;
+}
+.pagination {
+  margin-top: 70px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.pagination ul {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.breade-comearrow {
+  margin: 0 11px;
+}
 /*# sourceMappingURL=style.css.map */

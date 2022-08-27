@@ -5483,7 +5483,7 @@ hr {
   max-width: 100%;
   height: 55px;
   opacity: 1;
-  position: relative; }
+   }
   .filters-toolbar__item:first-child .filters-toolbar__input {
     padding-left: 0; }
   @media only screen and (max-width: 749px) {
