@@ -1,5 +1,11 @@
 {
   "sections": {
+    "166163546889a04271": {
+      "type": "customeyellowbreadbannar",
+      "settings": {
+        "text": "NEWS"
+      }
+    },
     "main": {
       "type": "page-template",
       "settings": {
@@ -13,6 +19,7 @@
     }
   },
   "order": [
+    "166163546889a04271",
     "main",
     "166163539815975314"
   ]
