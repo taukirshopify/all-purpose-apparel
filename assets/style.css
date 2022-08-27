@@ -1469,6 +1469,7 @@ ul.splide__pagination.splide__pagination--ltr li .splide__pagination__page.is-ac
 .pagination-wrapper {
   text-align: center;
 }
+
 .pagination {
   margin-top: 70px;
   text-align: center;
@@ -1497,5 +1498,328 @@ ul.splide__pagination.splide__pagination--ltr li .splide__pagination__page.is-ac
 
 .breade-comearrow {
   margin: 0 11px;
+}
+
+.sigle-blog-hero img {
+  width: 100%;
+}
+
+.sigle-content-area {
+  background: #F8F8F8;
+}
+
+.single-content-container {
+  width: 60%;
+  margin: auto;
+  padding: 64px 0;
+}
+
+.single-content h6 {
+  color: #000000;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 20px 0;
+}
+
+.single-content a {
+  text-decoration: none;
+  -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;
+  margin: 0px 4px;
+  color: #B5B35C;
+  font-size: 18px;
+}
+
+.single-content a:hover {
+  text-decoration: underline;
+}
+
+.single-content h1 {
+  color: #000000;
+  font-family: "GT Super Txt Trial";
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 84px;
+  margin: 20px 0;
+}
+
+.single-content p {
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 20px 0;
+}
+
+.single-content div {
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 20px 0;
+}
+
+.single-content h5, h4, h3 {
+  color: #000000;
+  font-family: "GT Super Txt Trial";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  margin: 20px 0;
+}
+
+.single-content ul {
+  margin: 20px 0;
+  list-style-type: disc;
+}
+.single-content ul li {
+  list-style-type: disc;
+  display: block;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.single-content ol {
+  margin: 20px 0;
+  list-style-type: disc;
+}
+.single-content ol li {
+  list-style-type: disc;
+  display: block;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.border-div {
+  border-bottom: 1px solid #000000;
+  margin: 64px 0;
+}
+
+.single-content-btn {
+  font-family: "Jost";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 22px;
+  border: 1px solid #000000;
+  border-radius: 100px;
+  padding: 5px 12px;
+  margin-left: 10px;
+}
+
+.single-content-icon {
+  color: #000000;
+  font-size: 26px;
+  -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.single-content-icon:hover {
+  color: #B5B35C;
+}
+
+.single-content-icon-wifi {
+  margin-left: 32px;
+  -webkit-transform: rotate(50deg);
+  -ms-transform: rotate(50deg);
+  transform: rotate(50deg);
+}
+
+.comments {
+  margin-bottom: 80px;
+}
+
+.comments h3 {
+  font-family: "GT Super Txt Trial";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 48px;
+  margin-bottom: 59px;
+  margin-top: 80px;
+}
+
+.comments h6 {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.comments p {
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.single-content-form .form-control {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  background: #F3F3F3;
+}
+
+.commnet-wrappper-form {
+  background: #F8F8F8;
+}
+
+.singel-input-wrapper {
+  margin-top: 11px;
+}
+.singel-input-wrapper label {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  display: block;
+}
+.singel-input-wrapper input {
+  background: #F3F3F3;
+  border: 1px solid #000000;
+  border-radius: 4px;
+}
+.singel-input-wrapper textarea {
+  background: #F3F3F3;
+  border: 1px solid #000000;
+  border-radius: 4px;
+}
+
+#comment_form input.btn {
+  float: right;
+  font-family: "GT Super Txt Trial";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 14px;
+  background: #B5B35C;
+  padding: 12px 32px;
+  border: 2px solid #000000;
+  margin-top: 48px;
+}
+
+.singel-input-wrapper input::-webkit-input-placeholder {
+  color: #A3A59B;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.singel-input-wrapper input::-moz-placeholder {
+  color: #A3A59B;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.singel-input-wrapper input:-ms-input-placeholder {
+  color: #A3A59B;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.singel-input-wrapper input::-ms-input-placeholder {
+  color: #A3A59B;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.singel-input-wrapper input::placeholder {
+  color: #A3A59B;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.single-content-form .form-control::-webkit-input-placeholder {
+  color: #A3A59B;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.single-content-form .form-control::-moz-placeholder {
+  color: #A3A59B;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.single-content-form .form-control:-ms-input-placeholder {
+  color: #A3A59B;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.single-content-form .form-control::-ms-input-placeholder {
+  color: #A3A59B;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.single-content-form .form-control::placeholder {
+  color: #A3A59B;
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.single-content-form .form-label {
+  color: #000000;
+  font-family: "Jost";
+  font-weight: 700 !important;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.single-form-btn {
+  font-family: "GT Super Txt Trial";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  background: #B5B35C;
+  padding: 12px 32px;
+  border: 2px solid #000000;
+  margin-top: 48px;
+}
+
+@media screen and (max-width: 991px) {
+  .single-content-container {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .single-content-container {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 793px) and (min-width: 767px) {
+  .single-content-icon {
+    font-size: 20px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
