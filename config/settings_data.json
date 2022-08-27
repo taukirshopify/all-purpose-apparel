@@ -5,7 +5,6 @@
       "header": {
         "type": "header",
         "settings": {
-          "main_linklist": "main-menu"
         }
       },
       "feature-row": {
@@ -153,7 +152,7 @@
         ],
         "settings": {
           "img": "shopify:\/\/shop_images\/logo-gray_a6035c7d-cb4e-4a0e-a12a-ed8f484234b5.png",
-          "sub4": "main-menu"
+          "sub4": "testing_menu"
         }
       },
       "customefooter": {
@@ -167,7 +166,7 @@
           "menu1": "QUICK LINK",
           "sub4": "footer-menue",
           "menu2": "QUICK LINK",
-          "sub5": "footer",
+          "sub5": "contact-us-footer",
           "copy": "© 2022 WE ARE CHIMMI"
         }
       }
