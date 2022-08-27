@@ -1,10 +1,22 @@
 {
   "sections": {
+    "1661635155560660da": {
+      "type": "customeyellowbreadbannar",
+      "settings": {
+        "text": "NEWS"
+      }
+    },
     "main": {
-      "type": "blog-template"
+      "type": "blog-template",
+      "settings": {
+        "layout": "list",
+        "blog_show_author": true,
+        "blog_show_date": true
+      }
     }
   },
   "order": [
+    "1661635155560660da",
     "main"
   ]
 }
