@@ -58,11 +58,27 @@
       "type": "product-back-to-collection",
       "settings": {
       }
+    },
+    "1661634090644eeecc": {
+      "type": "custometshirt",
+      "settings": {
+        "h2": "T-SHIRTS",
+        "product": "headbands"
+      }
+    },
+    "1661634110acf85023": {
+      "type": "customenewarrival",
+      "settings": {
+        "h2": "NEW ARRIVALS",
+        "product": "hair-claws"
+      }
     }
   },
   "order": [
     "product-recommendations",
     "main",
-    "product-back-to-collection"
+    "product-back-to-collection",
+    "1661634090644eeecc",
+    "1661634110acf85023"
   ]
 }
