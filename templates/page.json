@@ -1,7 +1,10 @@
 {
   "sections": {
     "main": {
-      "type": "page-template"
+      "type": "page-template",
+      "disabled": true,
+      "settings": {
+      }
     }
   },
   "order": [
