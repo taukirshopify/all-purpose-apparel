@@ -2351,7 +2351,7 @@ theme.Drawers = (function() {
     };
 
     this.nodes = {
-      parents: [document.documentElement, document.body],
+    
       page: document.getElementById('PageContainer')
     };
 
@@ -2407,14 +2407,6 @@ theme.Drawers = (function() {
       theme.Helpers.prepareTransition(this.drawer);
     }
 
-    this.nodes.parents.forEach(
-      function(parent) {
-        parent.classList.add(
-          this.config.classes.open,
-          this.config.classes.openVariant
-        );
-      }.bind(this)
-    );
 
     this.drawerIsOpen = true;
 
@@ -2464,14 +2456,6 @@ theme.Drawers = (function() {
       theme.Helpers.prepareTransition(this.drawer);
     }
 
-    this.nodes.parents.forEach(
-      function(parent) {
-        parent.classList.remove(
-          this.config.classes.open,
-          this.config.classes.openVariant
-        );
-      }.bind(this)
-    );
 
     if (this.activeSource && this.activeSource.hasAttribute('aria-expanded')) {
       this.activeSource.setAttribute('aria-expanded', 'false');
@@ -2839,7 +2823,7 @@ theme.Header = (function() {
   var selectors = {
     body: 'body',
     navigation: '#AccessibleNav',
-    siteNavHasDropdown: '[data-has-dropdowns]',
+   
     siteNavChildLinks: '.site-nav__child-link',
     siteNavActiveDropdown: '.site-nav--active-dropdown',
     siteNavHasCenteredDropdown: '.site-nav--has-centered-dropdown',
@@ -2861,12 +2845,11 @@ theme.Header = (function() {
 
   function init() {
     cacheSelectors();
-    styleDropdowns(document.querySelectorAll(selectors.siteNavHasDropdown));
+
+    
     positionFullWidthDropdowns();
 
-    cache.parents.forEach(function(element) {
-      element.addEventListener('click', submenuParentClickHandler);
-    });
+
 
     // check when we're leaving a dropdown and close the active dropdown
     cache.siteNavChildLink.forEach(function(element) {
@@ -2894,7 +2877,7 @@ theme.Header = (function() {
     cache = {
       nav: navigation,
       topLevel: document.querySelectorAll(selectors.siteNavLinkMain),
-      parents: navigation.querySelectorAll(selectors.siteNavHasDropdown),
+     
       subMenuLinks: document.querySelectorAll(selectors.siteNavChildLinks),
       activeDropdown: document.querySelector(selectors.siteNavActiveDropdown),
       siteHeader: document.querySelector(selectors.siteHeader),
@@ -3003,7 +2986,7 @@ theme.Header = (function() {
   }
 
   var adjustStyleAndPosition = theme.Helpers.debounce(function() {
-    styleDropdowns(document.querySelectorAll(selectors.siteNavHasDropdown));
+   
     positionFullWidthDropdowns();
   }, 50);
 
@@ -3016,9 +2999,7 @@ theme.Header = (function() {
       element.removeEventListener('click', stopImmediatePropagation);
     });
 
-    cache.parents.forEach(function(element) {
-      element.removeEventListener('click', submenuParentClickHandler);
-    });
+
 
     cache.siteNavChildLink.forEach(function(element) {
       element.removeEventListener('focusout', submenuFocusoutHandler);
@@ -3284,9 +3265,7 @@ window.Modals = (function() {
 
     if (!this.modal) return false;
 
-    this.nodes = {
-      parents: [document.querySelector('html'), document.body]
-    };
+
 
     this.config = Object.assign(defaults, options);
 
@@ -3334,10 +3313,6 @@ window.Modals = (function() {
 
     this.modal.classList.add(this.config.openClass);
 
-    this.nodes.parents.forEach(function(node) {
-      node.classList.add(self.config.openClass);
-    });
-
     this.modalIsOpen = true;
 
     slate.a11y.trapFocus({
@@ -3357,9 +3332,7 @@ window.Modals = (function() {
 
     var self = this;
 
-    this.nodes.parents.forEach(function(node) {
-      node.classList.remove(self.config.openClass);
-    });
+    
 
     this.modalIsOpen = false;
 

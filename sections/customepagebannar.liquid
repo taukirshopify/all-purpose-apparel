@@ -5,7 +5,7 @@
 
 <header>
     <div class="header-top-wrapper home-middle-wrapper d-flex align-items-center">
-        <div id="splide1" class="splide">
+        <div id="splide1-{{section.id}}" class="splide">
             <div class="splide__track">
               <ul class="splide__list">
                 {% for item in section.blocks %}
@@ -63,9 +63,9 @@
 
   <script>
 
-    document.addEventListener( 'DOMContentLoaded', function () {
+  
       // top bannar insitalization 
-      new Splide( '#splide1' , {
+      new Splide( '#splide1-{{section.id}}' , {
         type: 'loop',
         pagination : false,
         arrows     : false,
@@ -98,7 +98,6 @@
         
       }).mount( window.splide.Extensions );
     
-      });
 
   </script>
 

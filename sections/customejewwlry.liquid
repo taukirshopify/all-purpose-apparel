@@ -29,7 +29,7 @@
     </div>
     {% assign collection = collections[section.settings.product] %}
     <div class="container-fluid p-0">
-      <section class="splide" id="first-slider3" aria-label="Splide Basic HTML Example">
+      <section class="splide" id="first-slider-{{section.id}}" aria-label="Splide Basic HTML Example">
        
         <div class="splide__track">
           <ul class="splide__list">
@@ -133,7 +133,7 @@
   
   
   
-    new Splide("#first-slider3",{
+    new Splide("#first-slider-{{section.id}}",{
       type: 'loop',
       pagination : false,
       drag   : 'free',

@@ -1,7 +1,19 @@
 <footer>
+  
     <div class="footer-wrapper">
  <div class="footer-human-shap">
-        <img src="{{section.settings.img2 | img_url: '' }}" alt="">
+  {%if  request.page_type  == "blog" %}
+
+
+
+ {% elsif request.page_type  == "article" %}
+ {% elsif request.page_type  == "product" %}
+
+      {% include 'svgproudctpage' %}
+{% else %}
+
+<img src="{{section.settings.img2 | img_url: '' }}" alt="">
+{%endif%}
       </div> 
       <div class="container">
         <div class="row">

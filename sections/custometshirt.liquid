@@ -34,7 +34,7 @@
     <!-- slider splide__track  -->
     {% assign collection = collections[section.settings.product] %}
     <div class="container-fluid p-0">
-      <section class="splide" id="first-slidertshir" aria-label="Splide Basic HTML Example" >
+      <section class="splide" id="first-slidertshir-{{section.id}}" aria-label="Splide Basic HTML Example" >
        
         <div class="splide__track">
           <ul class="splide__list">
@@ -153,7 +153,7 @@
 
 <script>
 
-  new Splide("#first-slidertshir",{
+  new Splide("#first-slidertshir-{{section.id}}",{
   
     pagination : false,
     drag   : 'free',
