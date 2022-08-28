@@ -1267,6 +1267,7 @@ header.site-header.border-bottom.logo--left {
   color: #000000;
   text-transform: uppercase;
   margin-right: 40px;
+  width: 88px;
 }
 .proudct-wrapper-content .selector-wrapper-custome select {
   width: 168px;
@@ -1291,7 +1292,7 @@ header.site-header.border-bottom.logo--left {
 
 .product-svg-down {
   position: absolute;
-  left: 250px;
+  left: 273px;
 }
 
 span.price-item.price-item--regular {
@@ -1498,6 +1499,10 @@ ul.splide__pagination.splide__pagination--ltr li .splide__pagination__page.is-ac
 
 .breade-comearrow {
   margin: 0 11px;
+}
+
+.selector-wrapper::last-child svg {
+  left: 232px;
 }
 
 .sigle-blog-hero img {
