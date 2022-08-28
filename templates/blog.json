@@ -3,7 +3,11 @@
     "1661635155560660da": {
       "type": "customeyellowbreadbannar",
       "settings": {
-        "text": "NEWS"
+        "text": "NEWS",
+        "t-color": "#1c1c1c",
+        "show_announcement": true,
+        "color": "#f2e085",
+        "arroa": "Orange"
       }
     },
     "main": {
