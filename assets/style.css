@@ -544,6 +544,12 @@ header.site-header.border-bottom.logo--left {
   position: relative;
   display: none;
 }
+.search-wrapper .search-close {
+  position: absolute;
+  right: 1%;
+  top: 10px;
+  z-index: 10000;
+}
 
 .search-wrapper.active {
   display: block;
@@ -554,19 +560,35 @@ div#suggeationlist {
   top: 100%;
   left: 0;
   right: 0;
-  padding: 39px 68px;
   width: 100%;
   z-index: 1000;
   background: #fff;
 }
-
-.singel-porduct {
-  margin: 0 10px;
-  display: inline-block;
+@media (min-width: 250px) {
+  div#suggeationlist {
+    padding: 39px 5px;
+    margin-top: 5px;
+  }
 }
-
-.singel-porduct {
-  width: 200px;
+@media (min-width: 576px) {
+  div#suggeationlist {
+    padding: 39px 5px;
+  }
+}
+@media (min-width: 576px) {
+  div#suggeationlist {
+    padding: 39px 10px;
+  }
+}
+@media (min-width: 768px) {
+  div#suggeationlist {
+    padding: 39px 15px;
+  }
+}
+@media (min-width: 992px) {
+  div#suggeationlist {
+    padding: 39px 68px;
+  }
 }
 
 .searchplaceholder {
@@ -577,22 +599,92 @@ div#suggeationlist {
   width: 20%;
 }
 
+.proudct-werapper {
+  text-align: center;
+}
 .proudct-werapper h3 {
   margin-left: 10px;
 }
+@media (min-width: 992px) {
+  .proudct-werapper {
+    text-align: left;
+  }
+}
 
 .singel-porducta {
-  width: 202px;
   width: 172px;
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .singel-porducta {
+    margin: 20px 0;
+  }
+}
+@media (min-width: 992px) {
+  .singel-porducta {
+    display: block;
+    margin: 0;
+  }
 }
 .singel-porducta h4 {
   text-align: center;
 }
 
+.proudct-werapper {
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .proudct-werapper {
+    margin-bottom: 38px;
+    text-align: center;
+  }
+}
+@media (min-width: 992px) {
+  .proudct-werapper {
+    margin-bottom: 0;
+    text-align: left;
+  }
+}
+
+.proudct-werappera {
+  text-align: center;
+}
+
 .singel-porduct {
+  margin: 0 10px;
+  display: inline-block;
   text-align: center;
   position: relative;
   height: 330px;
+}
+@media (min-width: 250px) {
+  .singel-porduct {
+    width: 113px;
+    height: 253px;
+  }
+}
+@media (min-width: 576px) {
+  .singel-porduct {
+    width: 152px;
+    height: 270px;
+  }
+}
+@media (min-width: 768px) {
+  .singel-porduct {
+    width: 166px;
+    height: 330px;
+  }
+}
+@media (min-width: 992px) {
+  .singel-porduct {
+    width: 166px;
+    height: 330px;
+  }
+}
+@media (min-width: 1200px) {
+  .singel-porduct {
+    width: 172px;
+  }
 }
 .singel-porduct a h4 {
   font-size: 15px;
@@ -603,9 +695,18 @@ div#suggeationlist {
   text-decoration: none;
   display: block;
   width: 100%;
-  padding: 37px 0;
   position: absolute;
   z-index: 10;
+}
+@media (min-width: 768px) {
+  .singel-porduct a h4 {
+    padding: 13px 0;
+  }
+}
+@media (min-width: 992px) {
+  .singel-porduct a h4 {
+    padding: 37px 0;
+  }
 }
 
 .bannar-wrapper {

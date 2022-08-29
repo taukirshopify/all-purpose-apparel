@@ -53,7 +53,7 @@
 
                 {% comment %} theme serarch  {% endcomment %}
                 <form class="search-form search-bar__form" action="{{ routes.search_url }}" method="get" role="search">
-                  <div class="search-form__input-wrapper">
+                  <div class="search-form__input-wrapper search-form-active">
                     <input
                       type="text"
                       name="q"
@@ -184,12 +184,35 @@
             <div class="col-12">
               <div class="search-from d-lg-none">
                 <div class="sidebar-box search-form-wrap">
-                  <form action="#" class="search-form">
-                    <div class="form-group">
-                      <span class="icon "> {% include 'svgsearch' %} </span>
-                      <input type="text" class="form-control" id="s" placeholder="What can we help you find?">
-                    </div>
-                  </form>
+                  {% comment %} theme serarch  {% endcomment %}
+                <form class="search-form search-bar__form" action="{{ routes.search_url }}" method="get" role="search">
+                  <div class="search-form__input-wrapper search-form-active">
+                    <input
+                      type="text"
+                      name="q"
+                      placeholder="{{ 'general.search.placeholder' | t }}"
+                      role="combobox"
+                      aria-autocomplete="list"
+                      aria-owns="predictive-search-results"
+                      aria-expanded="false"
+                      aria-label="{{ 'general.search.placeholder' | t }}"
+                      aria-haspopup="listbox"
+                      class="search-form__input search-bar__input"
+                      data-predictive-search-drawer-input
+                      data-base-url="{{ routes.search_url }}"
+                      onkeyup="suggestinlist(this)"
+                    />
+                    <input type="hidden" name="options[prefix]" name="type" value="last" aria-hidden="true" value="product" />
+                  </div>
+          
+                  <button class="search-bar__submit search-form__submit"
+                    type="submit"
+                    data-search-form-submit>
+                    {% render 'icon-search' %}
+                    <span class="icon__fallback-text">{{ 'general.search.submit' | t }}</span>
+                  </button>
+                </form>
+                {% comment %} theme serarch End {% endcomment %}
                 </div>
               </div>
             </div>
@@ -197,7 +220,10 @@
           <div class="row">
            <div class="col-12">
            <div class="search-wrapper">
-            <div id="suggeationlist" class="d-flex justify-content-between align-items-top">
+            <div class="search-close search-form-active">
+             {% include 'svgclose' %}
+            </div>
+            <div id="suggeationlist" class="d-xl-flex justify-content-between align-items-top">
                 <div class="text-center searchplaceholder">
                   <h2>Add you Search teram</h2> 
                 </div>
@@ -210,21 +236,7 @@
 
   
           
-          {% comment %} proudct suggation end {% endcomment %}
-    
-
-
-        {% comment %} collection  
-        <div class="collection-wrapper">
-          <h3>Collection</h3>
-          <div class="singel-porduct">
-          <a href=""> <img src="" alt=""></a>
-          <h4>Product title</h4>
-          </div>
-
-        </div> 
-        {% endcomment %}
-        {% comment %} collection end {% endcomment %}
+        
       </div>
     </div>
   </header>
@@ -308,131 +320,8 @@
         
       }).mount( window.splide.Extensions );
     
-
-      async function suggestinlist(e){
-        const thisVal = e.value
-       
-        const suggestionList = document.getElementById("suggeationlist")
-       
-      
-        const reqcollection = await fetch(`/search/suggest.json?q=${ thisVal }&resources[type]=collection&limit=4`)
-        const collectionitems  = await reqcollection.json()
-      
-       const collectionlist = collectionitems.resources.results.collections;
-
-       const collectionwerapper = document.createElement('div')
-       const collectiontTitle = document.createElement('h3')
-       collectiontTitle.innerHTML ="Collection"
-       collectionwerapper.className = "proudct-werapper"
-       suggestionList.innerHTML = ''
-       collectionlist.forEach((item) => {
-       
-        const singelcollection = document.createElement('div')
-        singelcollection.className = "singel-porducta"
-        {% comment %} img  {% endcomment %}
-        const singelcollectionimg = document.createElement('img')
-        singelcollectionimg.src= item.featured_image.url
-      
-        {% comment %} imglink {% endcomment %}
-        const singelcollectionimglink = document.createElement('a')
-        singelcollectionimglink.href= item.url
-        singelcollectionimglink.append(singelcollectionimg);
-
-        {% comment %} proudct title  {% endcomment %}
-        const singelcollectiontTitle = document.createElement('h4');
-        singelcollectiontTitle.innerText = item.title
-        {% comment %} proudct title link {% endcomment %}
-        const singelcollectiontTitlelink = document.createElement('a')
-        singelcollectiontTitlelink.href= item.url
-        singelcollectiontTitlelink.append(singelcollectiontTitle);
-        singelcollection.append(singelcollectionimglink,singelcollectiontTitlelink);
-        collectionwerapper.append(collectiontTitle, singelcollection )
-    
-      })
-      
-    const req = await fetch(`/search/suggest.json?q=${ thisVal }&resources[type]=product`)
-    const items  = await req.json()
+      {% include 'header-searchjs' %}
   
-   const proudctlist = items.resources.results.products;
-   console.log(proudctlist)
-   const proudctwerapper = document.createElement('div')
-   const proudctTitle = document.createElement('h3')
-   proudctTitle.innerHTML ="Proudcts"
-   proudctwerapper.className = "proudct-werapper"
-   suggestionList.innerHTML = ''
-   proudctwerapper.append( proudctTitle )
-   proudctlist.forEach((item) => {
-   
-    const singelproudct = document.createElement('div')
-    singelproudct.className = "singel-porduct"
-    {% comment %} img  {% endcomment %}
-    const singelproudctimg = document.createElement('img')
-    singelproudctimg.src= item.image
-  
-    {% comment %} imglink {% endcomment %}
-    const singelproudctimglink = document.createElement('a')
-    singelproudctimglink.href= item.url
-    singelproudctimglink.append(singelproudctimg);
-
-    {% comment %} proudct title  {% endcomment %}
-    const singelproudcttitle = document.createElement('h4');
-    singelproudcttitle.innerText = item.title
-    {% comment %} proudct title link {% endcomment %}
-    const singelproudcttitlelink = document.createElement('a')
-    singelproudcttitlelink.href= item.url
-    singelproudcttitlelink.append(singelproudcttitle);
-
-
-    
-    
-
-      singelproudct.append(singelproudctimglink,singelproudcttitlelink);
-      proudctwerapper.append( singelproudct )
-
-  }) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      if(collectionlist.length > 0 && proudctlist.length > 0) {
-      suggestionList.append( proudctwerapper, collectionwerapper);
-
-        
-      } else if(collectionlist.length > 0){
-        suggestionList.append( collectionwerapper)
-      }
-       else if(proudctlist.length > 0){
-        suggestionList.append(proudctwerapper)
-      }
-
-    }
-
-  $(document).ready(function() {
-    $('.search-form__input-wrapper').click(function() {
-        $(this).addClass('active');
-        $(".search-wrapper").addClass("active");
-    });
-});
   </script>
 
 
