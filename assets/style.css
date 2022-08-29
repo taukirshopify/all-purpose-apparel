@@ -361,6 +361,7 @@ img {
 .main-menu ul li a .menu-arrow {
   width: 24px;
   height: 24px;
+  overflow: hidden;
 }
 .main-menu ul li a .menu-arrow img {
   display: inline-block;
@@ -537,6 +538,74 @@ header.site-header.border-bottom.logo--left {
 
 .sidebar-header-logo {
   width: 150px;
+}
+
+.search-wrapper {
+  position: relative;
+  display: none;
+}
+
+.search-wrapper.active {
+  display: block;
+}
+
+div#suggeationlist {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 39px 68px;
+  width: 100%;
+  z-index: 1000;
+  background: #fff;
+}
+
+.singel-porduct {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.singel-porduct {
+  width: 200px;
+}
+
+.searchplaceholder {
+  width: 100%;
+}
+
+.collection-wrapper {
+  width: 20%;
+}
+
+.proudct-werapper h3 {
+  margin-left: 10px;
+}
+
+.singel-porducta {
+  width: 202px;
+  width: 172px;
+}
+.singel-porducta h4 {
+  text-align: center;
+}
+
+.singel-porduct {
+  text-align: center;
+  position: relative;
+  height: 330px;
+}
+.singel-porduct a h4 {
+  font-size: 15px;
+  font-family: "Jost";
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #000000;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 37px 0;
+  position: absolute;
+  z-index: 10;
 }
 
 .bannar-wrapper {
@@ -1827,6 +1896,10 @@ ul.splide__pagination.splide__pagination--ltr li .splide__pagination__page.is-ac
     font-size: 20px;
   }
 }
+html.js {
+  padding: 0 !important;
+}
+
 .about-hero-area {
   background-color: #BD6059;
   padding-top: 104px;

@@ -1,0 +1,26 @@
+{% comment %} {% layout none%}
+
+
+
+
+
+
+{
+items:[
+  {%for item in search.results%}
+
+  {% if forloop.last %}
+  {
+   "title":"{{item.title}}",
+   "url":"{{item.url}}"
+  }
+ {% else %}
+    {
+      "title":"{{item.title}}",
+      "url":"{{item.url}}"
+    }
+{% endif %}
+  {%endfor%}
+]
+
+} {% endcomment %}
