@@ -40,7 +40,7 @@
           </div>
       </div>
   </div>
-  <div class="container">
+  <div class="container-fluid container-xxl shop-extra-magin">
       <div class="row align-items-top">
           <div class="col-md-2 ">
               <div class="side-menu d-none d-md-block">
@@ -61,18 +61,47 @@
               <!-- -------for mobile--------- -->
               <div class="d-block d-md-none">
                   <div class="row mobile-filter">
-                      <div class="col-6" style="padding: 28px 0;">
-                          <div class=" align-items-start d-flex justify-content-center pb-1">
-                              <div>
+                      <div class="col-4 col-sm-6  align-items-center d-flex justify-content-center">
+                        
+                           
+                                <div class="shop-mobile-wrapper d-flex">
                                   <h6 class="m-0"> Shop</h6>
-                              </div>
-                              <div> <img class="img-fluid" src="./shop-img/Vector.svg" alt=""></div>
-                          </div>
+                           
+                              <div> {% include 'svgshopmobilebutton' %} </div>
+                                
+                                </div>
+                          
                       </div>
-                      <div class="col-6" style="border-left: 1px solid black;padding: 28px 0;">
-                          <div class=" align-items-center d-flex pb-1 justify-content-center">
-                              <h6 class="m-0 "> Featured</h6>
-                              <img class="img-fluid" src="./shop-img/ArrowsDownUp.svg" alt="">
+                      <div class="col-8 col-sm-6 border-left" >
+                          <div class=" align-items-center d-flex pb-1 justify-content-center mobile-filtera">
+                            {%- assign is_filter_by_available = true -%}
+
+                            {% if is_filter_by_available or section.settings.sort_enable %}
+                              <div class="filters-toolbar">
+                              
+                              
+                        
+                                      {% if section.settings.sort_enable %}
+                                        <div class="filters-tool">
+                                          {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+                                          <div class="filters-toolbar__input-wrapper select-group">
+                                            <select name="sort_by" id="SortBy"
+                                              class="filters-toolbar__input hidden"
+                                              aria-describedby="a11y-refresh-page-message a11y-selection-message"
+                                              data-default-sortby="{{ collection.default_sort_by }}"
+                                              data-select-input
+                                            >
+                                              {%- for option in collection.sort_options -%}
+                                                <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
+                                              {%- endfor -%}
+                                            </select>
+                                            {% render 'icon-chevron-down' %}
+                                          </div>
+                                        </div>
+                                      {% endif %}
+                                  
+                              </div>
+                            {% endif %}
                           </div>
                       </div>
                   </div>
@@ -82,7 +111,7 @@
           </div>
           <div class="col-md-10 col-12">
               <!-- -----------wave-area----------- -->
-              <div class="wave-area d-flex align-items-center justify-content-between">
+              <div class="wave-area d-flex align-items-center justify-content-left justify-content-sm-center justify-content-md-center  justify-content-lg-between">
                   <div class="d-flex align-items-center">
                       <h5>Products</h5>
                       <div class="wave-img" >
@@ -140,7 +169,7 @@
                     {% for product in collection.products %}
           
                       <!-- ---------product-1----------- -->
-                      <div class="col-lg-3 col-md-4 col-sm-6  col-12  p-0">
+                      <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  col-12  p-0">
                           <div class="single-shop-product text-center">
                               <div class="product-img  d-inline-block">
                                 <a href="{{ product.url }}">
@@ -301,6 +330,9 @@
 
 
 <style>
+  .border-left{
+    border-left: 1px solid #000;
+}
   .filters-toolbar__input {
     border: none;
     overflow: hidden;
@@ -406,6 +438,8 @@ top: 22%;
     font-family: 'GT Super Txt Trial';
     font-weight: 700;
     font-size: 40px;
+    
+    margin-top: 10px;
     margin-right: 64px;
 }
 
@@ -489,7 +523,11 @@ top: 22%;
     line-height: 23px;
     padding-right: 12px;
 }
-
+.mobile-filtera .icon-absolute-sort {
+       
+  right: 14px;
+  top: 22%;
+}
 @media screen and (max-width:767px) {
     .drop-down {
         display: none;
