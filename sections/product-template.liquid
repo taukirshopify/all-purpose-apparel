@@ -44,7 +44,7 @@
                       <pattern id="pattern{{forloop.index}}-a" patternContentUnits="objectBoundingBox" width="1" height="1">
                       <use xlink:href="#image0_{{forloop.index}}-a" transform="translate(-0.00180832) scale(0.00501808 0.00357143)"/>
                       </pattern>
-                      <image id="image0_{{forloop.index}}-a" width="200" height="280" xlink:href="{{ image.src | img_url: '' }}"/>                      </defs>
+                      <image id="image0_{{forloop.index}}-a" width="200" class="lazyload"  height="280" xlink:href="{{ image.src | img_url: '' }}"/>                      </defs>
                       </svg>
                       
                       
@@ -85,7 +85,7 @@
                       <pattern id="patter{{ forloop.index }}n0" patternContentUnits="objectBoundingBox" width="1" height="1">
                       <use xlink:href="#image0_254_266{{ forloop.index }}2" transform="translate(0 -0.000505902) scale(0.001 0.000715008)"/>
                       </pattern>
-                      <image id="image0_254_266{{ forloop.index }}2" width="1000" height="1400" xlink:href="{{ image.src | img_url: 'master' }}"> </defs>
+                      <image id="image0_254_266{{ forloop.index }}2" class="lazyload"  width="1000" height="1400" xlink:href="{{ image.src | img_url: 'master' }}"> </defs>
                       </svg>
                   </li>
                 {% endfor %}

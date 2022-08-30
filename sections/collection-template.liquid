@@ -73,12 +73,12 @@
                           <div class=" align-items-center d-flex pb-1 justify-content-center mobile-filtera">
                             {%- assign is_filter_by_available = true -%}
 
-                            {% if is_filter_by_available or section.settings.sort_enable %}
+                            {% if is_filter_by_available or section.settings.enable %}
                               <div class="filters-toolbar">
                               
                               
                         
-                                      {% if section.settings.sort_enable %}
+                                      {% if section.settings.enable %}
                                         <div class="filters-tool">
                                           {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
                                           <div class="filters-toolbar__input-wrapper select-group">
@@ -123,12 +123,12 @@
                     <div class="featued-wrapper">
                       {%- assign is_filter_by_available = true -%}
 
-                        {% if is_filter_by_available or section.settings.sort_enable %}
+                        {% if is_filter_by_available or section.settings.enable %}
                           <div class="filters-toolbar">
                           
                           
                     
-                                  {% if section.settings.sort_enable %}
+                                  {% if section.settings.enable %}
                                     <div class="filters-tool">
                                       {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
                                       <div class="filters-toolbar__input-wrapper select-group">
@@ -261,6 +261,12 @@
 {
   "name": "t:sections.collection-template.name",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enable Banner",
+      "default": true
+    },
   {
     "type": "text",
     "id": "limit",

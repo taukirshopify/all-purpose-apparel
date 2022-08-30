@@ -5,7 +5,12 @@
           <div class="col-lg-4  col-md-3 p-0 col-sm-2 col-2 d-flex align-items-center">
               <div class="left-wave-wrapper  common-margin-common">
                 <svg xmlns="http://www.w3.org/2000/svg" width="271" height="22" viewBox="0 0 271 22" fill="none">
-                  <path d="M2 2C15.3547 2 15.3547 20 28.7094 20C42.0641 20 42.0641 2 55.4188 2C68.7735 2 68.7735 20 82.0969 20C95.452 20 95.452 2 108.775 2C122.13 2 122.13 20 135.453 20C148.808 20 148.808 2 162.162 2C175.517 2 175.517 20 188.872 20C202.226 20 202.226 2 215.581 2C228.936 2 228.936 20 242.291 20C255.645 20 255.645 2 269 2" stroke="#B5B35C" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+                  <path d="M2 2C15.3547 2 15.3547 20 28.7094 20C42.0641 20 42.0641 2 55.4188 2C68.7735 2 68.7735 20 82.0969 20C95.452 20 95.452 2 108.775 2C122.13 2 122.13 20 135.453 20C148.808 20 148.808 2 162.162 2C175.517 2 175.517 20 188.872 20C202.226 20 202.226 2 215.581 2C228.936 2 228.936 20 242.291 20C255.645 20 255.645 2 269 2"   {% if section.settings.arroa == "Orange" %}
+                    stroke="#D77628"
+                  {% elsif section.settings.arroa == "Yellow" %}
+                  stroke="#F2E085"
+         
+                  {% endif %} stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
                   </svg>
               </div>
           </div>
@@ -19,7 +24,12 @@
           <div class="col-lg-4  col-md-3 col-sm-2 col-2  d-flex align-items-center justify-content-end p-0">
             <div class="right-wave-rapper common-margin-common">
               <svg xmlns="http://www.w3.org/2000/svg" width="271" height="22" viewBox="0 0 271 22" fill="none">
-                <path d="M2 2C15.3547 2 15.3547 20 28.7094 20C42.0641 20 42.0641 2 55.4188 2C68.7735 2 68.7735 20 82.0969 20C95.452 20 95.452 2 108.775 2C122.13 2 122.13 20 135.453 20C148.808 20 148.808 2 162.162 2C175.517 2 175.517 20 188.872 20C202.226 20 202.226 2 215.581 2C228.936 2 228.936 20 242.291 20C255.645 20 255.645 2 269 2" stroke="#B5B35C" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+                <path d="M2 2C15.3547 2 15.3547 20 28.7094 20C42.0641 20 42.0641 2 55.4188 2C68.7735 2 68.7735 20 82.0969 20C95.452 20 95.452 2 108.775 2C122.13 2 122.13 20 135.453 20C148.808 20 148.808 2 162.162 2C175.517 2 175.517 20 188.872 20C202.226 20 202.226 2 215.581 2C228.936 2 228.936 20 242.291 20C255.645 20 255.645 2 269 2"   {% if section.settings.arroa == "Orange" %}
+                  stroke="#D77628"
+                {% elsif section.settings.arroa == "Yellow" %}
+                stroke="#F2E085"
+       
+                {% endif %} stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
                 </svg>
             </div>
           </div>
@@ -47,7 +57,7 @@
                       <pattern id="pattern-{{ section.id }}={{forloop.index}}" patternContentUnits="objectBoundingBox" width="1" height="1">
                       <use xlink:href="#image-{{ section.id }}={{forloop.index}}" transform="translate(-0.0282016) scale(0.00240092 0.00162338)"/>
                       </pattern>
-                      <image id="image-{{ section.id }}={{forloop.index}}" width="440" height="616" xlink:href="{{ product.featured_image.src | img_url: '' }}"/>
+                      <image id="image-{{ section.id }}={{forloop.index}}" class="lazyload"  width="440" height="616" xlink:href="{{ product.featured_image.src | img_url: '' }}"/>
                       </defs>
                       </svg>
                   
@@ -118,6 +128,26 @@
             "default": "#fff"
            },
            {
+            "type": "select",
+            "id": "arroa",
+            "label": "Please Select your Wave Color",
+            
+            "options": [
+                {
+            
+                "value": "Orange",
+                "label": "Orange"
+                },
+                {
+            
+                "value": "Yellow",
+                "label": "Yellow"
+                }
+            ],
+            "default": "Orange"
+          
+           },
+           {
             "type": "collection",
             "id": "product",
             "label": "Seclect your Product Collection",
@@ -152,7 +182,7 @@
       drag   : 'free',
       cover      : true,
       gap       : 20,
-      perMove:1.5,
+      perMove:1.2,
       focus  : 'left',
       interval: 4000,
        autoScroll: {

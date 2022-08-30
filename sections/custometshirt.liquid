@@ -56,7 +56,7 @@
                       <pattern id="p{{section.id}}-{{forloop.index}}" patternContentUnits="objectBoundingBox" width="1" height="1">
                       <use xlink:href="#image{{section.id}}-{{forloop.index}}" transform="translate(0 -0.000505902) scale(0.00147059 0.00105148)"/>
                       </pattern>
-                      <image id="image{{section.id}}-{{forloop.index}}" width="680" loading="lazy" height="952" xlink:href="{{ product.featured_image.src | img_url: '' }}"/>
+                      <image id="image{{section.id}}-{{forloop.index}}" width="680" loading="lazy" class="lazyload"  height="952" xlink:href="{{ product.featured_image.src | img_url: '' }}"/>
                       </defs>
                     </svg>
                    
@@ -169,13 +169,13 @@
     breakpoints : {
 
       '200': {
-        perPage: 1,
+        perPage: 1.3,
         autoScroll: {
           speed: 0,
         },
       },
       '600': {
-        perPage: 1,
+        perPage: 1.3,
         autoScroll: {
           speed: 0,
         },
