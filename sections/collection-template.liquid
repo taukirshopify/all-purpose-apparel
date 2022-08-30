@@ -11,13 +11,9 @@
   endcase
 %}
 
-{% if section.settings.layout == 'grid' %}
-  {%- assign limit = section.settings.grid | times: section.settings.rows -%}
-{% else %}
-  {%- assign limit = 16 -%}
-{% endif %}
 
-{% paginate collection.products by limit %}
+
+{% paginate collection.products by section.settings.limit %}
 
 <div data-section-id="{{ section.id }}" data-section-type="collection-template">
 
@@ -43,6 +39,7 @@
   <div class="container-fluid container-xxl shop-extra-magin">
       <div class="row align-items-top">
           <div class="col-md-2 ">
+            
               <div class="side-menu d-none d-md-block">
                   <p>Showing:</p>
                   <ul>
@@ -64,7 +61,7 @@
                       <div class="col-4 col-sm-6  align-items-center d-flex justify-content-center">
                         
                            
-                                <div class="shop-mobile-wrapper d-flex">
+                                <div class="shop-mobile-wrapper d-flex" id="sidebarollapse">
                                   <h6 class="m-0"> Shop</h6>
                            
                               <div> {% include 'svgshopmobilebutton' %} </div>
@@ -176,25 +173,25 @@
                                 
 
                                   <div class="img-fluid">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="252" height="351" viewBox="0 0 252 351" fill="none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 252 351" fill="none">
                                       <rect x="0.5" y="0.5" width="250.5" height="350" rx="63.5" fill="url(#p{{forloop.index}}attern0)" stroke="black"/>
                                       <defs>
                                       <pattern id="p{{forloop.index}}attern0" patternContentUnits="objectBoundingBox" width="1" height="1">
                                       <use xlink:href="#image0_280{{forloop.index}}_2170" transform="translate(0 -0.00156695) scale(0.00227273 0.00162846)"/>
                                       </pattern>
-                                      <image id="image0_280{{forloop.index}}_2170" width="440" height="616" xlink:href="{{ product.featured_image.src | img_url: 'large' }}"/>
+                                      <image id="image0_280{{forloop.index}}_2170" width="440" height="616" class="lazyload" xlink:href="{{ product.featured_image.src | img_url: 'large' }}"/>
                                       </defs>
                                       </svg>
                                   </div>
                                     <div class="img-fluid hover-img">
-                                      <svg xmlns="http://www.w3.org/2000/svg" width="252" height="351" viewBox="0 0 252 351" fill="none">
+                                      <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 252 351" fill="none">
                                         <rect x="1" y="0.5" width="250.5" height="350" rx="63.5" fill="#F2E085" stroke="black"/>
                                         </svg>
                                     </div>                
 
 
 
-                                  <img class="img-fluid hover-img" src="./shop-img/hover.svg" alt="">
+                                 
                                 </a>
                               </div>
                               <div class="text-center product-content">
@@ -264,72 +261,113 @@
 {
   "name": "t:sections.collection-template.name",
   "settings": [
-    {
-      "type": "select",
-      "id": "layout",
-      "label": "t:sections.collection-template.settings.layout.label",
-      "default": "grid",
-      "options": [
-        {
-          "value": "grid",
-          "label": "t:sections.collection-template.settings.layout.options__1.label"
-        },
-        {
-          "value": "list",
-          "label": "t:sections.collection-template.settings.layout.options__2.label"
-        }
-      ]
-    },
-    {
-      "type": "range",
-      "id": "grid",
-      "label": "t:sections.collection-template.settings.grid.label",
-      "default": 4,
-      "min": 2,
-      "max": 5,
-      "step": 1
-    },
-    {
-      "type": "range",
-      "id": "rows",
-      "label": "t:sections.collection-template.settings.rows.label",
-      "default": 2,
-      "min": 2,
-      "max": 8,
-      "step": 1
-    },
-    {
-      "type": "checkbox",
-      "id": "show_collection_image",
-      "label": "t:sections.collection-template.settings.show_collection_image.label",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_vendor",
-      "label": "t:sections.collection-template.settings.show_vendor.label",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "sort_enable",
-      "label": "t:sections.collection-template.settings.sort_enable.label",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "tags_enable",
-      "label": "t:sections.collection-template.settings.tags_enable.label",
-      "default": true
-    }
+  {
+    "type": "text",
+    "id": "limit",
+    "label": "Please how meany Proudct you want to show on proudct page",
+    "default": "24",
+    "placeholder": "24"
+  }
   ]
 }
 {% endschema %}
+
+<nav id="sidebara">
+  <div id="dismissa">
+      {% include 'svgclose' %}
+  </div>
+
+
+
+  <ul class="list-unstyled components shop-margin-top">
+    <p>Showing:</p>
+    <ul>
+
+      {% for c in collections  %}
+       
+        <li>
+          <a href="{{ c.url }}">{{ c.title }}</a>
+        </li>
+       
+        {% endfor %}
+
+    
+    </ul>
+  </ul>
+
+</nav>
+
 
 
 
 
 <style>
+  #sidebara {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: -110%;
+    height: 100vh;
+    z-index: 1999;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+    overflow-y: scroll;
+    box-shadow: 3px 3px 3px rgb(0 0 0 / 20%);
+    color: #000;
+    background: #fff;
+}
+#sidebara.active{
+
+  left: 0;
+}
+.shop-margin-top {
+  margin-top: 108px;
+  margin-left: 29px;
+}
+.shop-margin-top p {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0 0 10px 0;
+  /* identical to box height, or 150% */
+  
+  
+  /* Current / Black */
+  
+  color: #000000;
+}
+.list-unstyled.components.shop-margin-top ul li a {
+  display: inline-block;
+  font-family: 'GT Super Txt Trial';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin: 11px 0;
+}
+#dismissa {
+    width: 45px;
+    height: 45px;
+    line-height: 35px;
+    text-align: center;
+    background: #fff;
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    z-index: 2000;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+#dismissa:hover {
+    background: #fff;
+    color: #7386D5;
+}
   .border-left{
     border-left: 1px solid #000;
 }
@@ -360,7 +398,7 @@ right:0;
 top: 22%;
 }
 .shop-section{
-    padding-bottom: 104px;
+    padding-bottom: 204px;
 }
 .wave-area {
   margin-bottom: 10px;
@@ -380,7 +418,11 @@ top: 22%;
     margin-top: 20px;
   margin-bottom: 20px;
 }
+.single-shop-product  svg{
 
+
+
+}
 .shop-banner {
     background: #D77628;
     border-bottom: 1px solid #000000;
@@ -390,6 +432,16 @@ top: 22%;
 }
 .shop-breadcrumb img{
     margin: 0px 14px;
+}
+.single-shop-product svg{
+  width: 252px;
+  height: 351px;
+}
+@media (min-width: 1200px) and (max-width: 1299px) { 
+  .single-shop-product svg{
+    width: 236px;
+    height: 345px;
+  }
 }
 .shop-breadcrumb {
     font-family: 'Jost';
@@ -525,7 +577,7 @@ top: 22%;
 }
 .mobile-filtera .icon-absolute-sort {
        
-  right: 14px;
+  right: 4px;
   top: 22%;
 }
 @media screen and (max-width:767px) {
@@ -555,3 +607,24 @@ top: 22%;
 
 
 </style>
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+      $("#sidebara").mCustomScrollbar({
+          theme: "minimal"
+      });
+
+      $('#dismissa, .overlay').on('click', function () {
+          $('#sidebara').removeClass('active');
+          $('.overlay').removeClass('active');
+      });
+
+      $('#sidebarollapse').on('click', function () {
+          $('#sidebara').addClass('active');
+          $('.overlay').addClass('active');
+          $('.collapse.in').toggleClass('in');
+          $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+  });
+</script>

@@ -17,7 +17,7 @@
       </div> 
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-4">
               <div class="footer-logo-area">
                 <div class="footer-logo">
                   <img src="{{section.settings.img | img_url: '' }}" alt="">
@@ -65,30 +65,42 @@
                 </div>
               </div>
           </div>
-          <div class="col-md-6">
-              <div class="footer-right-menu d-flex justify-content-between">
+          <div class="col-md-6 offset-md-2">
+            <div class="footer-right-menu d-flex justify-content-between">
+                <div class="row">
+                 <div class="col-12 col-sm-6 offset-lg-1">
                   <div class="sinel-menu-item">
                     <h6>{{ section.settings.menu1 }}</h6>
                  
-                  <ul class="singel-menu-item">
-                    
-                    {% assign footer_menu_4 = section.settings.sub4 %}
-                    {% for link in linklists[footer_menu_4].links %}
-                    <li><a href="{{link.url}}">{{ link.title}}</a></li>
-                    {% endfor %}
-                  </ul>
+                    <ul class="singel-menu-item">
+                      
+                      {% assign footer_menu_4 = section.settings.sub4 %}
+                      {% for link in linklists[footer_menu_4].links %}
+                      <li><a href="{{link.url}}">{{ link.title}}</a></li>
+                      {% endfor %}
+                    </ul>
                 </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-5 col-md-6">
+                
+    
                   <div class="sinel-menu-item">
                     <h6>{{ section.settings.menu2 }}</h6>
                 
-                  <ul class="singel-menu-item">
-                    {% assign footer_menu_4 = section.settings.sub5 %}
-                    {% for link in linklists[footer_menu_4].links %}
-                    <li><a href="{{link.url}}">{{ link.title}}</a></li>
-                    {% endfor %}
-                  </ul>
+                    <ul class="singel-menu-item">
+                      {% assign footer_menu_4 = section.settings.sub5 %}
+                      {% for link in linklists[footer_menu_4].links %}
+                      <li><a href="{{link.url}}">{{ link.title}}</a></li>
+                      {% endfor %}
+                    </ul>
+                  
                 </div>
-              </div>
+                </div>
+                </div>
+          </div> 
+              {% comment %} {% endcomment %}
+
+
           </div>
         </div>
       </div>

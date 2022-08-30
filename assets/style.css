@@ -1010,11 +1010,11 @@ div#suggeationlist {
 .common-product-wrapper .custome-arrow {
   width: 40px;
   height: 40px;
-  background: #F8F8F8;
+  background: #fff;
   border: 2px solid #000000;
   border-radius: 0;
+  opacity: 1;
   margin: 0 12px;
-  background-image: url(../../images/product/gray-proudct.svg);
 }
 .common-product-wrapper button.splide__arrow.custome-arrow.active {
   background: #B5B35C;
@@ -1146,6 +1146,18 @@ div#suggeationlist {
   }
 }
 @media (min-width: 576px) {
+  .newslatter-wrapper .section-title h2 {
+    font-size: 56px;
+    line-height: 84px;
+  }
+}
+@media (min-width: 1200px) {
+  .newslatter-wrapper .section-title h2 {
+    font-size: 40px;
+    line-height: 84px;
+  }
+}
+@media (min-width: 1400px) {
   .newslatter-wrapper .section-title h2 {
     font-size: 56px;
     line-height: 84px;
@@ -1364,19 +1376,19 @@ div#suggeationlist {
 @media (min-width: 992px) {
   .footer-wrapper .footer-human-shap {
     top: -96px;
-    left: 74px;
+    left: 20px;
   }
 }
 @media (min-width: 1200px) {
   .footer-wrapper .footer-human-shap {
     top: -121px;
-    left: 201px;
+    left: 20px;
   }
 }
 @media (min-width: 1400px) {
   .footer-wrapper .footer-human-shap {
     top: -154px;
-    left: 363px;
+    left: 200px;
   }
 }
 @media (min-width: 250px) {

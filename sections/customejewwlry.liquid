@@ -1,4 +1,4 @@
-<div class="common-product-wrapper">
+<div class="common-product-wrapper common-product-wrapper-{{section.id}} ">
     <div class="container-fluid container-lg container-xl">
        <!-- Headign with way  -->
       <div class="row ">
@@ -112,6 +112,12 @@
             "placeholder": "JEWELRY"
            },
            {
+            "type": "color",
+            "id": "color",
+            "label": "Please select the Background Color",
+            "default": "#fff"
+           },
+           {
             "type": "collection",
             "id": "product",
             "label": "Seclect your Product Collection",
@@ -125,7 +131,14 @@
     }
   {% endschema %}
   
+<style>
 
+  .common-product-wrapper-{{section.id}} {
+   
+    background: {{ section.settings.color }};
+}
+
+</style>
 
 
 
@@ -139,7 +152,7 @@
       drag   : 'free',
       cover      : true,
       gap       : 20,
-      perMove:1,
+      perMove:1.5,
       focus  : 'left',
       interval: 4000,
        autoScroll: {
@@ -148,7 +161,7 @@
       breakpoints : {
   
         '600': {
-          perPage: 1,
+          perPage: 1.3,
           autoScroll: {
             speed: 0,
           },
