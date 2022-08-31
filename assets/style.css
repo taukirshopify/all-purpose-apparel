@@ -567,12 +567,12 @@ div#suggeationlist {
 @media (min-width: 250px) {
   div#suggeationlist {
     padding: 39px 5px;
-    margin-top: 5px;
   }
 }
 @media (min-width: 576px) {
   div#suggeationlist {
     padding: 39px 5px;
+    margin-top: 0px;
   }
 }
 @media (min-width: 576px) {
@@ -707,6 +707,31 @@ div#suggeationlist {
   .singel-porduct a h4 {
     padding: 37px 0;
   }
+}
+
+.shop-banner {
+  background: #D77628;
+  border-bottom: 1px solid #000000;
+  padding: 7px 0;
+  margin-bottom: 40px;
+}
+
+.single-shop-product svg {
+  width: 252px;
+  height: 351px;
+}
+
+@media (min-width: 1200px) and (max-width: 1299px) {
+  .single-shop-product svg {
+    width: 236px;
+    height: 345px;
+  }
+}
+.shop-breadcrumb {
+  font-family: "Jost";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .bannar-wrapper {
@@ -2013,6 +2038,53 @@ html.js {
   padding: 0 !important;
 }
 
+.pt-100 {
+  padding-top: 100px;
+}
+
+.pb-100 {
+  padding-bottom: 110px;
+}
+
+.pb-180 {
+  padding-bottom: 180px;
+}
+
+.login-butoon p a {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  display: block;
+}
+.login-butoon input {
+  padding: 15px 30px;
+}
+
+.card-common-inputclass h1 {
+  font-family: "GT Super Txt Trial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 60px;
+  font-family: "GT Super Txt Trial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 60px;
+}
+.card-common-inputclass form label {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 10px;
+  display: block;
+}
+
 .about-hero-area {
   background-color: #BD6059;
   padding-top: 104px;
@@ -2066,6 +2138,7 @@ html.js {
   list-style: none;
   margin-bottom: 12px;
   text-align: center;
+  display: block;
 }
 
 .about-card a {
