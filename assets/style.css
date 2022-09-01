@@ -1415,9 +1415,13 @@ div#suggeationlist {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   background-color: white;
-  padding: 1rem 1.5rem;
-  width: 24rem;
+  width: 366px;
   border-radius: 0.5rem;
+}
+@media (min-width: 768px) {
+  .cmodal-content {
+    width: 424px;
+  }
 }
 
 .close-button {
@@ -1445,6 +1449,64 @@ div#suggeationlist {
   -o-transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s, -webkit-transform 0.25s;
+}
+
+.modal-images {
+  position: relative;
+}
+.modal-images .close-button {
+  position: absolute;
+  top: 16px;
+  right: 30px;
+}
+
+.cmodal-content {
+  background: #F2E085;
+}
+
+.modal-content-c {
+  padding: 46px 28px;
+  border-top: 1px solid #000;
+  text-align: center;
+  background: #F2E085;
+}
+@media (min-width: 768px) {
+  .modal-content-c {
+    padding: 46px;
+  }
+}
+.modal-content-c h5 {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.cmodal .input-group {
+  border: 2px solid #000;
+}
+.cmodal .input-group input.form-control {
+  padding: 18px 24px;
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  /* or 150% */
+  /* Current / Mild Olive */
+  color: #A3A59B;
+  height: 56px;
+  background: #F3F3F3;
+}
+.cmodal .input-group svg {
+  height: 56px;
+}
+.cmodal .input-group button {
+  border: none;
+  border-left: 2px solid #000;
+  background: #B5B35C;
+  padding: 0 11px;
 }
 
 .footer-wrapper {
