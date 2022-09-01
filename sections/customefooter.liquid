@@ -1,20 +1,26 @@
 <footer>
   
     <div class="footer-wrapper">
- <div class="footer-human-shap">
+
   {%if  request.page_type  == "blog" %}
 
 
 
  {% elsif request.page_type  == "article" %}
  {% elsif request.page_type  == "product" %}
-
- <img src="{{section.settings.img3 | img_url: '' }}" alt="">
+ <div class="footer-human-shap proudct-area-shap">
+ <img  src="{{section.settings.img3 | img_url: '' }}" alt="">
+</div> 
 {% else %}
-
+<div class="footer-human-shap">
 <img src="{{section.settings.img2 | img_url: '' }}" alt="">
+</div> 
 {%endif%}
-      </div> 
+
+
+
+
+
       <div class="container">
         <div class="row">
           <div class="col-md-4">
@@ -65,10 +71,10 @@
                 </div>
               </div>
           </div>
-          <div class="col-md-6 offset-md-2">
-            <div class="footer-right-menu d-flex justify-content-between">
+          <div class="col-md-5 offset-md-3">
+            <div class="footer-right-menu ">
                 <div class="row">
-                 <div class="col-12 col-sm-6 offset-lg-1">
+                 <div class="col-6 col-sm-6 offset-lg-1">
                   <div class="sinel-menu-item">
                     <h6>{{ section.settings.menu1 }}</h6>
                  
@@ -81,7 +87,7 @@
                     </ul>
                 </div>
                 </div>
-                <div class="col-12 col-sm-6 col-lg-5 col-md-6">
+                <div class="col-6 col-sm-6 col-lg-5 col-md-6">
                 
     
                   <div class="sinel-menu-item">

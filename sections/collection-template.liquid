@@ -167,7 +167,7 @@
 
 
                   {% comment %} pagination  {% endcomment %}
-
+                  {%- if paginate.pages > 1 -%}
                 <div class="pagination-wrapper pagination">
                 
                         <ul class="pagination-custom">
@@ -198,7 +198,7 @@
                           {% endif %}
                         </ul>
                 </div>
-
+              {% endif %}
          
                   {% comment %} pagination End  {% endcomment %}
 

@@ -1,30 +1,30 @@
 @font-face {
   font-family: "Jost";
-  src: url("../../webfonts/jost-v14-latin-regular.eot");
-  src: url("../../webfonts/jost-v14-latin-regular.woff") format("woff"), url("../../webfonts/jost-v14-latin-regular.ttf") format("truetype"), url("../../webfonts/jost-v14-latin-regular.svg") format("svg");
+  src: url("jost-v14-latin-regular.eot");
+  src: url("jost-v14-latin-regular.woff") format("woff"), url("jost-v14-latin-regular.ttf") format("truetype"), url("jost-v14-latin-regular.svg") format("svg");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  src: url("../../webfonts/free-font/GT-Super-Text-Black.woff2") format("woff");
+  src: url("GT-Super-Text-Black.woff2") format("woff");
   font-family: "GT Super Txt Trial";
   font-style: normal;
   font-weight: 700;
 }
 @font-face {
-  src: url("../../webfonts/free-font/GT-Super-Text-Bold.woff2") format("woff");
+  src: url("GT-Super-Text-Bold.woff2") format("woff");
   font-family: "GT Super Txt Trial";
   font-style: normal;
   font-weight: 600;
 }
 @font-face {
-  src: url("../../webfonts/free-font/GT-Super-Text-Medium.woff2") format("woff");
+  src: url("GT-Super-Text-Medium.woff2") format("woff");
   font-family: "GT Super Txt Trial";
   font-style: normal;
   font-weight: 500;
 }
 @font-face {
-  src: url("../../webfonts/free-font/GT-Super-Text-Regular.woff2") format("woff");
+  src: url("GT-Super-Text-Regular.woff2") format("woff");
   font-family: "GT Super Txt Trial";
   font-style: normal;
   font-weight: 600;
@@ -271,6 +271,10 @@ img {
   vertical-align: middle;
   border-style: none;
   max-width: 100%;
+}
+
+div#backToCollection {
+  margin: 40px 0;
 }
 
 @media (min-width: 768px) {
@@ -1006,10 +1010,14 @@ div#suggeationlist {
 
 .join-image-wrapper {
   margin: 40px 0;
+  text-align: center;
+}
+.join-image-wrapper img {
+  display: inline-block;
 }
 
 .join-content-wrapper {
-  margin: 40px 0;
+  margin: 40px 0 40px 4px;
 }
 .join-content-wrapper h2 {
   font-family: "GT Super Txt Trial";
@@ -1393,12 +1401,17 @@ div#suggeationlist {
   font-family: "GT Super Txt Trial";
   font-style: normal;
   font-weight: 700;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 30px;
   color: #F8F8F8;
   margin-bottom: 40px;
 }
 @media (min-width: 576px) {
+  .footer-right-menu .sinel-menu-item h6 {
+    font-size: 16px;
+  }
+}
+@media (min-width: 768px) {
   .footer-right-menu .sinel-menu-item h6 {
     font-size: 20px;
   }
@@ -1413,11 +1426,21 @@ div#suggeationlist {
   font-family: "Jost";
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 14px;
   display: block;
   line-height: 30px;
   color: #F8F8F8;
   margin: 16.5px 0;
+}
+@media (min-width: 576px) {
+  .footer-right-menu .singel-menu-item li a {
+    font-size: 16px;
+  }
+}
+@media (min-width: 768px) {
+  .footer-right-menu .singel-menu-item li a {
+    font-size: 20px;
+  }
 }
 
 .footer-copy-right {
@@ -1499,6 +1522,20 @@ div#suggeationlist {
     width: auto;
   }
 }
+.footer-wrapper .footer-human-shap .footer-human-shap.proudct-area-shap {
+  top: -134%;
+}
+
+@media (min-width: 250px) {
+  .sinel-menu-item {
+    margin-left: 17px;
+  }
+}
+@media (min-width: 576px) {
+  .sinel-menu-item {
+    margin-left: 0px;
+  }
+}
 
 .product-slider-wrapper {
   padding: 40px 0;
@@ -1549,7 +1586,6 @@ input.search-form__input.search-bar__input {
 }
 .proudct-wrapper-content .product-single__title {
   font-family: "GT Super Txt Trial";
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
