@@ -79,8 +79,8 @@ var trigger = document.querySelector(".trigger");
 var closeButton = document.querySelector(".close-button");
 
 function toggleModal() {
+  
     modal.classList.toggle("show-modal");
-    sessionStorage.setItem("modal", "true");
 }
 
 function windowOnClick(event) {
@@ -93,21 +93,27 @@ function windowOnClick(event) {
 
 closeButton.addEventListener("click", toggleModal);
 
-window.addEventListener("click", windowOnClick);
 
-let personName = sessionStorage.getItem("modal");
-  console.log(personName)
- if( personName == "false"){
+
+
 
   window.setTimeout(function(){
         toggleModal();
     }, 1000)
 
-  }
+  
 
 
 
+    const name = localStorage.getItem('modal');
 
+    if(name){
+        console.log('Name exists');
+        
+    }else{
+        console.log('Name is not found');
+        window.sessionStorage.setItem("modal", "true");
+    }
 
   });
 
