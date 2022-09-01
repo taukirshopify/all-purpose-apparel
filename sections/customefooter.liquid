@@ -9,7 +9,7 @@
  {% elsif request.page_type  == "article" %}
  {% elsif request.page_type  == "product" %}
 
-      {% include 'svgproudctpage' %}
+ <img src="{{section.settings.img3 | img_url: '' }}" alt="">
 {% else %}
 
 <img src="{{section.settings.img2 | img_url: '' }}" alt="">
@@ -132,6 +132,11 @@
                 "type": "image_picker",
                 "id": "img2",
                 "label": "Select footer shap"
+            },
+            {
+                "type": "image_picker",
+                "id": "img3",
+                "label": "Select footer shap for proudct page"
             },
             {
                 "type": "url",

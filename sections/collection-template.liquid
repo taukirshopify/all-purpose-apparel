@@ -58,7 +58,7 @@
               <!-- -------for mobile--------- -->
               <div class="d-block d-md-none">
                   <div class="row mobile-filter">
-                      <div class="col-4 col-sm-6  align-items-center d-flex justify-content-center">
+                      <div class="col-6 col-sm-6  align-items-center d-flex justify-content-center">
                         
                            
                                 <div class="shop-mobile-wrapper d-flex" id="sidebarollapse">
@@ -69,36 +69,19 @@
                                 </div>
                           
                       </div>
-                      <div class="col-8 col-sm-6 border-left" >
+                      <div class="col-6 col-sm-6 border-left" >
                           <div class=" align-items-center d-flex pb-1 justify-content-center mobile-filtera">
-                            {%- assign is_filter_by_available = true -%}
+              
 
-                            {% if is_filter_by_available or section.settings.enable %}
+                            
                               <div class="filters-toolbar">
                               
                               
                         
-                                      {% if section.settings.enable %}
-                                        <div class="filters-tool">
-                                          {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-                                          <div class="filters-toolbar__input-wrapper select-group">
-                                            <select name="sort_by" id="SortBy"
-                                              class="filters-toolbar__input hidden"
-                                              aria-describedby="a11y-refresh-page-message a11y-selection-message"
-                                              data-default-sortby="{{ collection.default_sort_by }}"
-                                              data-select-input
-                                            >
-                                              {%- for option in collection.sort_options -%}
-                                                <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
-                                              {%- endfor -%}
-                                            </select>
-                                            {% render 'icon-chevron-down' %}
-                                          </div>
-                                        </div>
-                                      {% endif %}
+                                {% include 'collection-featuredfilter' %}
                                   
                               </div>
-                            {% endif %}
+                            
                           </div>
                       </div>
                   </div>
@@ -121,34 +104,11 @@
                   <div class=" align-items-center drop-down pb-1 ">
                    {% comment %} featued start  {% endcomment %}
                     <div class="featued-wrapper">
-                      {%- assign is_filter_by_available = true -%}
+                     
 
-                        {% if is_filter_by_available or section.settings.enable %}
-                          <div class="filters-toolbar">
-                          
-                          
-                    
-                                  {% if section.settings.enable %}
-                                    <div class="filters-tool">
-                                      {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
-                                      <div class="filters-toolbar__input-wrapper select-group">
-                                        <select name="sort_by" id="SortBy"
-                                          class="filters-toolbar__input hidden"
-                                          aria-describedby="a11y-refresh-page-message a11y-selection-message"
-                                          data-default-sortby="{{ collection.default_sort_by }}"
-                                          data-select-input
-                                        >
-                                          {%- for option in collection.sort_options -%}
-                                            <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
-                                          {%- endfor -%}
-                                        </select>
-                                        {% render 'icon-chevron-down' %}
-                                      </div>
-                                    </div>
-                                  {% endif %}
-                              
-                          </div>
-                        {% endif %}
+                       
+                          {% include 'collection-featuredfilter' %}
+                   
                     
                     </div>
                    {% comment %} featued start  {% endcomment %}
@@ -166,7 +126,7 @@
                     {% for product in collection.products %}
           
                       <!-- ---------product-1----------- -->
-                      <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6  col-12  p-0">
+                      <div class="col-xl-3 col-lg-4 col-md-4 col-6    p-0">
                           <div class="single-shop-product text-center">
                               <div class="product-img  d-inline-block">
                                 <a href="{{ product.url }}">
@@ -377,32 +337,8 @@
   .border-left{
     border-left: 1px solid #000;
 }
-  .filters-toolbar__input {
-    border: none;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 100%;
-    height: 40px;
-    opacity: 1;
-    color: #000000;
-    font-family: 'GT Super Txt Trial';
-    font-weight: 700;
-    padding: 0 29px 0 0;
-    font-size: 20px;
-}
 
-.filters-toolbar__input:focus-visible {
-outline:none;
-border:none;
 
-}
-.icon-absolute-sort{
-
-position: absolute;
-right:0;
-top: 22%;
-}
 .shop-section{
     padding-bottom: 204px;
 }
@@ -418,17 +354,7 @@ top: 22%;
     cursor: pointer;
 }
 
-.single-shop-product {
-  margin-left: 18px;
-    margin-right: 18px;
-    margin-top: 20px;
-  margin-bottom: 20px;
-}
-.single-shop-product  svg{
 
-
-
-}
 
 
 .hover-img {
@@ -556,11 +482,7 @@ top: 22%;
     line-height: 23px;
     padding-right: 12px;
 }
-.mobile-filtera .icon-absolute-sort {
-       
-  right: 4px;
-  top: 22%;
-}
+
 @media screen and (max-width:767px) {
     .drop-down {
         display: none;
