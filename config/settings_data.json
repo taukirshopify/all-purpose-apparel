@@ -2,6 +2,7 @@
   "current": {
     "enable_ajax": true,
     "img3": "shopify:\/\/shop_images\/Group_14.jpg",
+    "img4": "shopify:\/\/shop_images\/Group_13.png",
     "sections": {
       "header": {
         "type": "header",
