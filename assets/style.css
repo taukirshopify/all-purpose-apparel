@@ -760,7 +760,7 @@ div#suggeationlist {
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 100%;
-  height: 40px;
+  height: 65px;
   opacity: 1;
   color: #000000;
   font-family: "GT Super Txt Trial";
@@ -777,7 +777,7 @@ div#suggeationlist {
 .mobile-filtera .icon-absolute-sort {
   position: absolute;
   right: 18px;
-  top: 22%;
+  top: 32%;
 }
 @media (min-width: 576px) {
   .mobile-filtera .icon-absolute-sort {
@@ -1529,6 +1529,15 @@ div#suggeationlist {
   .product-slider-wrapper .splide__track .splide__list .splide__slide.product-page svg {
     margin-left: 18px;
   }
+}
+
+input.search-form__input.search-bar__input {
+  padding: 9px 15px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  background: #F8F8F8;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .splide__track--nav > .splide__list > .splide__slide.is-active {
