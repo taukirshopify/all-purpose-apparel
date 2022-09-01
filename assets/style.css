@@ -1381,14 +1381,26 @@ div#suggeationlist {
   padding: 60px 0;
 }
 .footer-wrapper .footer-logo {
-  margin: 50px 0 24px 0;
+  margin: 80px 0 24px 0;
   text-align: center;
 }
 .footer-wrapper .footer-logo img {
   display: inline-block;
+  width: 270px;
+}
+@media (min-width: 576px) {
+  .footer-wrapper .footer-logo img {
+    width: 250px;
+  }
+}
+@media (min-width: 768px) {
+  .footer-wrapper .footer-logo img {
+    width: 390px;
+  }
 }
 .footer-wrapper .footer-socail {
   text-align: center;
+  margin-bottom: 24px;
 }
 .footer-wrapper .footer-socail ul li {
   margin: 0 19px;
