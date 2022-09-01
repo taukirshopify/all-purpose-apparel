@@ -1688,7 +1688,7 @@ div#suggeationlist {
 }
 @media (min-width: 768px) {
   .footer-wrapper .footer-human-shap.proudct-area-shap {
-    top: -75px;
+    top: -77px;
     left: 74px;
   }
 }
@@ -1700,13 +1700,13 @@ div#suggeationlist {
 }
 @media (min-width: 1200px) {
   .footer-wrapper .footer-human-shap.proudct-area-shap {
-    top: -121px;
+    top: -96px;
     left: 20px;
   }
 }
 @media (min-width: 1400px) {
   .footer-wrapper .footer-human-shap.proudct-area-shap {
-    top: -154px;
+    top: -120px;
     left: 200px;
   }
 }
@@ -1722,16 +1722,13 @@ div#suggeationlist {
 }
 @media (min-width: 992px) {
   .footer-wrapper .footer-human-shap.proudct-area-shap img {
-    width: 200px;
+    width: 186px;
   }
 }
 @media (min-width: 1200px) {
   .footer-wrapper .footer-human-shap.proudct-area-shap img {
-    width: auto;
+    width: 186px;
   }
-}
-.footer-wrapper .footer-human-shap.proudct-area-shap .footer-human-shap.proudct-area-shap {
-  top: -134%;
 }
 
 @media (min-width: 250px) {

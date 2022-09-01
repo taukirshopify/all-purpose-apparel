@@ -72,6 +72,7 @@ $(".crote").click(function(){
 });
 });
 $(document).ready(function(){
+  
 
 var modal = document.querySelector(".cmodal");
 var trigger = document.querySelector(".trigger");
@@ -79,22 +80,35 @@ var closeButton = document.querySelector(".close-button");
 
 function toggleModal() {
     modal.classList.toggle("show-modal");
- 
+    sessionStorage.setItem("modal", "true");
 }
 
 function windowOnClick(event) {
     if (event.target === modal) {
         toggleModal();
+       
     }
 }
 
 
 closeButton.addEventListener("click", toggleModal);
+
 window.addEventListener("click", windowOnClick);
+
+let personName = sessionStorage.getItem("modal");
+  console.log(personName)
+ if( personName == "false"){
 
   window.setTimeout(function(){
         toggleModal();
     }, 1000)
 
+  }
+
+
+
+
+
   });
+
   })(jQuery);
