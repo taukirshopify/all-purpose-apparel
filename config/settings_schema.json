@@ -4,8 +4,8 @@
     "theme_name": "Debut",
     "theme_author": "Shopify",
     "theme_version": "17.14.1",
-    "theme_documentation_url": "https://help.shopify.com/manual/using-themes/themes-by-shopify/debut",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/using-themes\/themes-by-shopify\/debut",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
     "name": "t:settings_schema.colors.name",
@@ -301,19 +301,19 @@
         "type": "image_picker",
         "id": "img3",
         "label": "Desktop Popup Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "img4",
-      "label": "Mobile Image"
-  },
-  {
-    "type": "text",
-    "id": "menu1",
-    "label": "PopUp massage",
-    "default": "Join the WE ARE CHIMMI newsletter to be the first to know about new products, the organizations we support, and more.",
-    "placeholder": "Join the WE ARE CHIMMI newsletter to be the first to know about new products, the organizations we support, and more."
-}
+      },
+      {
+        "type": "image_picker",
+        "id": "img4",
+        "label": "Mobile Image"
+      },
+      {
+        "type": "text",
+        "id": "menu1",
+        "label": "PopUp massage",
+        "default": "Join the WE ARE CHIMMI newsletter to be the first to know about new products, the organizations we support, and more.",
+        "placeholder": "Join the WE ARE CHIMMI newsletter to be the first to know about new products, the organizations we support, and more."
+      }
     ]
   },
   {
