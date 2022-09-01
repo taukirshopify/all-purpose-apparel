@@ -295,6 +295,28 @@
     ]
   },
   {
+    "name": "Newlatter PopUp",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "img3",
+        "label": "Desktop Popup Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "img4",
+      "label": "Mobile Image"
+  },
+  {
+    "type": "text",
+    "id": "menu1",
+    "label": "PopUp massage",
+    "default": "Join the WE ARE CHIMMI newsletter to be the first to know about new products, the organizations we support, and more.",
+    "placeholder": "Join the WE ARE CHIMMI newsletter to be the first to know about new products, the organizations we support, and more."
+}
+    ]
+  },
+  {
     "name": "t:settings_schema.currency.name",
     "settings": [
       {
