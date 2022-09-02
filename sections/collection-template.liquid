@@ -540,15 +540,13 @@
         //url = "bb65efd50ade4b3591dcf7f4c693042b"
         return url;           //return "bb65efd50ade4b3591dcf7f4c693042b"
       }(); {% endcomment %}
-      {% comment %} var Getvalue = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
-      console.log(Getvalue)
+       var Getvalue = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+     
 
       if( Getvalue == "all" ){
         $(".collection-titlae").html("All Products");
        
-      }else{
-        $(".collection-titlae").html(Getvalue);
-      } {% endcomment %}
+      }
      
   });
 </script>
