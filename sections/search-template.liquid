@@ -1,18 +1,32 @@
+<div class="search-page-wrapper pt-100 pb-180">
+
+
+
+
 {% paginate search.results by 10 %}
 
-<div class="page-width">
-  {% if search.performed == false %}
-    <div class="text-center">
-      <h1 class="h2">{{ 'general.search.title' | t }}</h1>
-  {% else %}
-    <div class="text-center">
-      <h1 class="h2">
-        <span class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}:</span>
-        {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
-      </h1>
-  {% endif %}
-      <div class="grid">
-        <div class="grid__item medium-up--six-tenths medium-up--push-two-tenths">
+<div class="container ">
+  <div class="row">
+      <div class="col-md-8 offset-md-2">
+        {% if search.performed == false %}
+          <div class="text-center">
+            <h1 class="h2">{{ 'general.search.title' | t }}</h1>
+        {% else %}
+          <div class="text-center">
+            
+            <h1 class="h2">
+              <span class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}:</span>
+              {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+            </h1>
+      
+        {% endif %}
+ 
+
+
+
+
+
+        <div class="">
           {% if search.performed and search.results_count == 0 %}
             <div class="rte search--no-results-found">
               <p>{{ 'general.search.no_results' | t }}</p>
@@ -53,9 +67,11 @@
           </form>
         </div>
       </div>
-  </div>
-</div>
 
+
+</div>
+</div>
+</div>
 
 {% if search.performed %}
   {% if search.results_count > 0 %}
@@ -109,7 +125,7 @@
 {% endif %}
 
 {% endpaginate %}
-
+</div>
 {% schema %}
 {
   "name": "t:sections.search-template.name"

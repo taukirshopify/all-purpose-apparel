@@ -31,7 +31,7 @@
                       <path d="M1 1L5 5L1 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                       </svg>
                   </div>
-                  <a>Products</a>
+                  <a class="collection-titlae" >{{ collection.title }}</a>
               </div>
           </div>
       </div>
@@ -469,7 +469,9 @@
 .drop-down {
     display: flex;
 }
-
+.collection-titlae{
+  text-transform: capitalize;
+}
 .mobile-filter {
     border-top: 1px solid #000000;
     border-bottom: 1px solid #000000;
@@ -529,5 +531,24 @@
           $('.collapse.in').toggleClass('in');
           $('a[aria-expanded=true]').attr('aria-expanded', 'false');
       });
+   
+
+      {% comment %} function getImageDirectoryByFullURL(url){
+        url = url.split('/'); //url = ["serverName","app",...,"bb65efd50ade4b3591dcf7f4c693042b"]
+        url = url.pop();    
+         console.log(url)
+        //url = "bb65efd50ade4b3591dcf7f4c693042b"
+        return url;           //return "bb65efd50ade4b3591dcf7f4c693042b"
+      }(); {% endcomment %}
+      {% comment %} var Getvalue = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+      console.log(Getvalue)
+
+      if( Getvalue == "all" ){
+        $(".collection-titlae").html("All Products");
+       
+      }else{
+        $(".collection-titlae").html(Getvalue);
+      } {% endcomment %}
+     
   });
 </script>
