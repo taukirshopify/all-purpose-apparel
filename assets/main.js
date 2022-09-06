@@ -21,7 +21,7 @@
     var offsets = document.getElementById('rec').getBoundingClientRect();
     var top = offsets.left;
     $('.submenu').css('left', -top,"px");
-    console.log(top);
+  
     };
 
 $(document).ready(function(){
