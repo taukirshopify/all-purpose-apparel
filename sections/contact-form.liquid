@@ -46,11 +46,11 @@
 
           <label for="{{ formId }}-message">{{ 'contact.form.message' | t }}</label>
           <textarea rows="10" id="{{ formId }}-message" name="contact[{{ 'contact.form.message' | t }}]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
-          <div class="login-butoon">
+            <div class="login-butoon">
           
-         
-          <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
-        </div>
+                 <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
+  
+            </div>
         {% endform %}
       </div>
     </div>

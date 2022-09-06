@@ -30,9 +30,10 @@
   font-weight: 600;
 }
 body {
-  font-weight: 700;
+  font-family: "Jost";
   font-style: normal;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 .img {
@@ -94,11 +95,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 900;
   color: #373737;
-  margin: 0px;
+  font-family: "GT Super Txt Trial";
   font-style: normal;
-  font-family: "Nunito", sans-serif;
+  font-weight: 700;
 }
 
 h1 a,
@@ -120,9 +120,10 @@ li {
 }
 
 p {
-  font-size: 14px;
+  font-family: "Jost";
+  font-style: normal;
   font-weight: 400;
-  line-height: 1.5;
+  font-size: 16px;
   color: #000;
   margin-bottom: 0px;
 }
@@ -136,7 +137,15 @@ hr {
 label {
   cursor: pointer;
   font-size: 18px;
-  font-weight: 300;
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+}
+
+option {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
 }
 
 *::-moz-selection {
@@ -2447,6 +2456,40 @@ html.js {
 
 .magring-minous {
   margin-top: -180px;
+}
+
+.grid__item myaccount__account-details h2 {
+  margin: 60px 0 60px 0;
+  font-family: "GT Super Txt Trial";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 60px;
+}
+.grid__item myaccount__account-details p {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 15px 0;
+  display: block;
+}
+.grid__item myaccount__account-details p a.btn {
+  margin-top: 30px;
+}
+
+.adress-page li {
+  display: block;
+}
+
+#AddressNewForm h2 {
+  text-align: center;
+  margin: 60px 0;
+}
+
+.cutome-class {
+  margin: 270px 0 0 0;
 }
 
 .pt-100 {
