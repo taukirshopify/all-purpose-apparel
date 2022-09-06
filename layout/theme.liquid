@@ -44,11 +44,7 @@
     <link rel="stylesheet" href="{{ 'mCustomScrollbar.min.css' | asset_url }}" defer="defer" >
     <link rel="stylesheet" href="{{ 'style.css' | asset_url }}"  >
 
-    <script src="{{ 'jquery-3.5.1.slim.min.js' | asset_url }}" ></script>
 
-
-    <script src="{{ 'splide.js' | asset_url }}" ></script> 
-    <script src="{{ 'lazysizes.min.js' | asset_url }}" defer="defer" ></script>
     
     <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script" async>
   
@@ -257,7 +253,11 @@
 
   {% include 'homemodal' %}
 
- 
+  <script src="{{ 'jquery-3.5.1.slim.min.js' | asset_url }}" defer="defer"></script>
+
+
+  <script src="{{ 'splide.js' | asset_url }}" ></script> 
+  <script src="{{ 'lazysizes.min.js' | asset_url }}" defer="defer" ></script>
   <script src="{{ 'bootstrap.bundle.min.js' | asset_url }}"  defer="defer"></script>
   <script src="{{ 'mCustomScrollbar.min.js' | asset_url }}" defer="defer" ></script>
  
