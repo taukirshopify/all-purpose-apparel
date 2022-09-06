@@ -5,12 +5,9 @@
     {% if section.settings.enable %}
       <div class="filters-tool">
        
-        <div class="filters-toolbar__input-wrapper select-group">
+        <div class=" select-group">
           <select name="sort_by" class="SortBy"
-            class="filters-toolbar__input hidden"
-            aria-describedby="a11y-refresh-page-message a11y-selection-message"
-            data-default-sortby="{{ collection.default_sort_by }}"
-            data-select-input
+            
           >
             {%- for option in collection.sort_options -%}
               <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
