@@ -1198,6 +1198,12 @@ div#suggeationlist {
     height: 383px;
   }
 }
+@media (min-width: 1200px) and (max-width: 1299px) {
+  .egg-mobile-respinsive {
+    width: 300px;
+    height: 383px;
+  }
+}
 
 .common-product-wrapper.t-shirt {
   margin: 0;
@@ -1242,6 +1248,12 @@ div#suggeationlist {
 @media (min-width: 576px) {
   .t-shirt-mobile {
     width: 424px;
+    height: 593px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1299px) {
+  .t-shirt-mobile {
+    width: 405px;
     height: 593px;
   }
 }
