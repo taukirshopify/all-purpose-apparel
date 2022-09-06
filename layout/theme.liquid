@@ -42,11 +42,11 @@
     <link rel="stylesheet" href="{{ 'splide.min.css' | asset_url }}"  defer="defer">
     <link rel="stylesheet" href="{{ 'allextra.css' | asset_url }}"  defer="defer">
     <link rel="stylesheet" href="{{ 'mCustomScrollbar.min.css' | asset_url }}" defer="defer" >
-    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}"  >
+    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}"  defer="defer" >
 
 
     
-    <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script" async>
+    <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script" defer="defer">
   
     {%- if canonical_url != blank -%}
       <link rel="canonical" href="{{ canonical_url }}">
@@ -195,7 +195,7 @@
   
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
   
-    <script type="text/javascript">
+    <script type="text/javascript" defer="defer">
       if (window.MSInputMethodContext && document.documentMode) {
         var scripts = document.getElementsByTagName('script')[0];
         var polyfill = document.createElement("script");
