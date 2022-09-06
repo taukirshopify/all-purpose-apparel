@@ -1,5 +1,15 @@
 {
   "sections": {
+    "1662462529d3a241d8": {
+      "type": "customeyellowbreadbannar",
+      "settings": {
+        "text": "ABOUT US",
+        "t-color": "#F8F8F8",
+        "show_announcement": true,
+        "color": "#bd6059",
+        "arroa": "Yellow"
+      }
+    },
     "main": {
       "type": "page-template",
       "disabled": true,
@@ -14,6 +24,7 @@
     }
   },
   "order": [
+    "1662462529d3a241d8",
     "main",
     "1661634278e8b4c6cf"
   ]
