@@ -1,17 +1,21 @@
-<div class="page-width">
+<div class="loging-wrapper  pb-180">
+  <div class="container">
+    <div class="row">
+     <div class="col-11 col-md-8 offset-md-2 offset-1">
+      <div class="card-common-inputclass">
   <div class="grid">
-    <div class="grid__item medium-up--five-sixths medium-up--push-one-twelfth">
+
       <div class="contact-form form-vertical">
         {%- assign formId = 'ContactForm' -%}
         {% form 'contact', id: formId %}
           {% render 'form-status', form: form, form_id: formId %}
 
-          <div class="grid grid--half-gutters">
-            <div class="grid__item medium-up--one-half">
+          <div class="">
+            <div >
               <label for="{{ formId }}-name">{{ 'contact.form.name' | t }}</label>
               <input type="text" id="{{ formId }}-name" name="contact[{{ 'contact.form.name' | t }}]" value="{% if form.first_name and form.last_name %}{{ form.first_name }} {{ form.last_name }}{% elsif customer %}{{ customer.name }}{% endif %}">
             </div>
-            <div class="grid__item medium-up--one-half">
+            <div >
               <label for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span aria-hidden="true">*</span></label>
               <input
                 type="email"
@@ -42,16 +46,22 @@
 
           <label for="{{ formId }}-message">{{ 'contact.form.message' | t }}</label>
           <textarea rows="10" id="{{ formId }}-message" name="contact[{{ 'contact.form.message' | t }}]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
-
+          <div class="login-butoon">
+          
+         
           <input type="submit" class="btn" value="{{ 'contact.form.submit' | t }}">
-
+        </div>
         {% endform %}
       </div>
     </div>
   </div>
+
+
 </div>
-
-
+</div>
+</div>
+</div>
+</div>
 
 {% schema %}
 {
