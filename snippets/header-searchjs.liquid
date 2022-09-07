@@ -126,9 +126,9 @@ suggestionList.append( proudctwerapper, collectionwerapper);
 
 }
 
-$(document).ready(function() {
-$('.search-form-active').click(function() {
+window.addEventListener('load', function () {
+    $('.search-form-active').click(function() {
 
-  $(".search-wrapper").toggleClass("active");
-});
-});
+      $(".search-wrapper").toggleClass("active");
+    });
+  })
