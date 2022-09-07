@@ -45,7 +45,7 @@
           <ul class="splide__list">
 
             {% for product in collection.products limit: section.settings.p_limit %}
-            <li class="splide__slide">
+            <li class="splide__slide" data-sizes="{{product.url}}">
       
               <div class="singel-product-svg-wrapper">
                 <a href="{{product.url}}">
