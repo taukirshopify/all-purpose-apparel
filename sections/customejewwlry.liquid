@@ -172,9 +172,9 @@
 
 
 
-  <script>
+  <script defer async>
   
-  
+    window.addEventListener('load', function () {
   
 
     new Splide("#first-slider-{{section.id}}",{
@@ -235,7 +235,7 @@
         }
     },
     }).mount(window.splide.Extensions);
-  
+  })
   </script>
 
   {% comment %} window.splide.Extensions {% endcomment %}

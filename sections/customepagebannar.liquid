@@ -61,8 +61,8 @@
 
 
 
-  <script>
-
+  <script defer async>
+    window.addEventListener('load', function () {
   
       // top bannar insitalization 
       new Splide( '#splide1-{{section.id}}' , {
@@ -98,7 +98,7 @@
         
       }).mount( window.splide.Extensions );
     
-
+    })
   </script>
 
 

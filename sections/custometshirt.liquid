@@ -151,8 +151,8 @@
 
 
 
-<script>
-
+<script defer async>
+  window.addEventListener('load', function () {
   new Splide("#first-slidertshir-{{section.id}}",{
   
     pagination : false,
@@ -222,6 +222,6 @@
   },
   }).mount(window.splide.Extensions);
 
-
+})
 
 </script>

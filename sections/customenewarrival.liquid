@@ -133,9 +133,9 @@
 
 
 
-  <script>
+  <script defer async>
   
-  
+    window.addEventListener('load', function () {
   
     new Splide("#first-slider-{{section.id}}",{
       type: 'loop',
@@ -195,5 +195,5 @@
         }
     },
     }).mount(window.splide.Extensions);
-  
+  })
   </script>
