@@ -6,13 +6,21 @@
     <div class="col-lg-6 col-md-10   offset-md-1 offset-lg-3">
        <div class="section-title text-center">
         <h2>{{  section.settings.h2}}</h2>
-         <!-- form end  -->
+        <!-- form start  -->
+        {% form 'customer' %}
+          {{ form.errors | default_errors }}
+          {% if form.posted_successfully? %}
+            <p>{{ 'general.newsletter_form.confirmation' | t }}</p>
+          {% else %}
        <div class="form-wrapper">
             <div class="form-group ">
               <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Your email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="hidden" name="contact[tags]" value="newsletter">
+
+                <input name="contact[email]"
+                  id="Email" type="text" class="form-control" placeholder="Your email" aria-label="Recipient's username" aria-describedby="basic-addon2"  value="{% if customer %}{{ customer.email }}{% endif %}">
                 <div class="input-group-append">
-                  <button class="form-btn" type="button">
+                  <button class="form-btn"  type="submit" name="commit" id="Subscribe">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                         <path d="M0.999998 15C0.447714 15 -1.90735e-06 15.4477 -1.90735e-06 16C-1.90735e-06 16.5523 0.447714 17 0.999998 17V15ZM31 17C31.5523 17 32 16.5523 32 16C32 15.4477 31.5523 15 31 15V17ZM0.999998 17L31 17V15L0.999998 15V17Z" fill="black"/>
                         <path d="M20.8858 6.5359C20.6295 6.0467 20.0251 5.8579 19.5359 6.11422C19.0467 6.37053 18.8579 6.97489 19.1142 7.4641L20.8858 6.5359ZM30.6235 16.9264C31.1352 17.1344 31.7185 16.8881 31.9264 16.3765C32.1344 15.8648 31.8881 15.2815 31.3765 15.0736L30.6235 16.9264ZM19.1142 7.4641C20.3876 9.89445 21.7198 11.6573 23.5494 13.1255C25.3594 14.578 27.6042 15.6994 30.6235 16.9264L31.3765 15.0736C28.4063 13.8665 26.3796 12.8324 24.8011 11.5657C23.2422 10.3146 22.0692 8.79453 20.8858 6.5359L19.1142 7.4641Z" fill="black"/>
@@ -23,6 +31,8 @@
               </div>
             </div>
        </div>
+      {% endif %}
+    {% endform %}
         <!-- form end  -->
        </div>
     </div>
