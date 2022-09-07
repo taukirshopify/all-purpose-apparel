@@ -535,7 +535,7 @@
 
 
 
-<script>
+<script defer async>
 
   $(function()
   {
@@ -567,7 +567,7 @@
 
 
   // new Splide(".second-slider").mount();
-
+  window.addEventListener('load', function () {
   var main = new Splide( '#main-carousel', { 
     type      : 'fade',
     rewind    : true,
@@ -606,5 +606,5 @@
   main.mount();
   thumbnails.mount();
 
-
+  });
 </script>
