@@ -283,8 +283,8 @@
 
 
 
-  <script defer="defer">
-
+  <script defer async >
+    window.addEventListener('load', function () {
     
       // top bannar insitalization 
       new Splide( '#splide-{{section.id}}' , {
@@ -319,7 +319,7 @@
       },
         
       }).mount( window.splide.Extensions );
-    
+    })
       {% include 'header-searchjs' %}
   
   </script>

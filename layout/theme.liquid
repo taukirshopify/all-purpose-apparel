@@ -34,8 +34,8 @@
 </script>
 
 
-    <script src="{{ 'jquery-3.5.1.slim.min.js' | asset_url }}" type="module" async></script>
-    <script  src="{{ 'splide.js' | asset_url }}" ></script> 
+    <script src="{{ 'jquery-3.5.1.slim.min.js' | asset_url }}" defer async ></script>
+    <script  src="{{ 'splide.js' | asset_url }}" defer async></script> 
     <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script" defer="defer">
   
     {%- if canonical_url != blank -%}
