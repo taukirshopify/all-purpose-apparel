@@ -23,24 +23,14 @@
 
     <link rel="preload" href="{{ 'theme.css' | asset_url }}" as="style">
 
-
-    <link rel="stylesheet" href="{{ 'bootstrap.min.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
-    <noscript><link rel="stylesheet" href="{{ 'bootstrap.min.css' | asset_url }}"></noscript>
-    <link rel="stylesheet" href="{{ 'splide.min.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
-    <noscript><link rel="stylesheet" href="{{ 'splide.min.css' | asset_url }}"></noscript>
-    <link rel="stylesheet" href="{{ 'allextra.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
-    <noscript><link rel="stylesheet" href="{{ 'allextra.css' | asset_url }}"></noscript>
-    <link rel="stylesheet" href="{{ 'mCustomScrollbar.min.css' | asset_url }}" media="none" onload="if(media!='all')media='all'">
-    <noscript><link rel="stylesheet" href="{{ 'mCustomScrollbar.min.css' | asset_url }}"></noscript>
-    {% comment %} <link rel="stylesheet" href="" defer="defer" > 
-    <link rel="stylesheet" href=""  defer="defer">
-    <link rel="stylesheet" href=""  defer="defer">
-    <link rel="stylesheet" href="" defer="defer" >
-    {% endcomment %}
-    {% comment %}     <link href="{{ 'style.css' | asset_url }}" rel="preload" as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href=""></noscript> {% endcomment %}
-
-    <link rel="stylesheet" href="{{ 'style.css' | asset_url }}"  defer="defer" >
+    
+    <link rel="stylesheet" href="{{ 'bootstrap.min.css' | asset_url }}" defer="defer" >
+    <link rel="stylesheet" href="{{ 'splide.min.css' | asset_url }}"  defer="defer">
+    <link rel="stylesheet" href="{{ 'allextra.css' | asset_url }}"  defer="defer">
+    <link rel="stylesheet" href="{{ 'mCustomScrollbar.min.css' | asset_url }}" defer="defer" >
+    {% comment %} <link rel="stylesheet" href=""  defer="defer" > {% endcomment %}
+    <link href="{{ 'style.css' | asset_url }}" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'style.css' | asset_url }}"></noscript>
  <script>
 
 
