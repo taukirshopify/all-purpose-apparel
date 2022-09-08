@@ -4,9 +4,9 @@
       "type": "customebannar",
       "settings": {
         "h1": "LOUD & PROUD",
-        "p": "We Are Children of Immigrats",
+        "p": "We Are Children of Immigrants",
         "shop": "Shop Now",
-        "link": "",
+        "link": "shopify:\/\/collections\/all",
         "img": "shopify:\/\/shop_images\/bannarhuman.jpg",
         "imgw": "shopify:\/\/shop_images\/Heavy_Waves.png",
         "img1": "shopify:\/\/shop_images\/Best-saller.png",
@@ -24,7 +24,7 @@
         "img": "shopify:\/\/shop_images\/Frame.png",
         "h2": "JOIN THE HUSTLE.",
         "p": "WE ARE CHIMMI, short for 'Children of Immigrants,' is inspired by our backgrounds. We are an accessories brand that donates 10% of profits from sales to organizations that support immigrant and marginalized communities. Learn more about us",
-        "url": "",
+        "url": "shopify:\/\/pages\/about-us",
         "urlt": "Learn More"
       }
     },
@@ -62,7 +62,7 @@
       "type": "custometshirt",
       "settings": {
         "h2": "T-SHIRTS",
-        "product": "hair-ties"
+        "product": "clothing"
       }
     },
     "16615151866e0eb289": {
@@ -70,6 +70,7 @@
       "settings": {
         "h2": "JEWELRY",
         "color": "#bd6059",
+        "arroa": "Orange",
         "product": "jewelry"
       }
     },
