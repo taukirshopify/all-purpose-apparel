@@ -1261,6 +1261,11 @@ div#suggeationlist {
 }
 @media (min-width: 1400px) {
   .t-shirt-mobile {
+    width: 95%;
+  }
+}
+@media (min-width: 1800px) {
+  .t-shirt-mobile {
     width: 424px;
   }
 }
@@ -1439,6 +1444,7 @@ div#suggeationlist {
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
+  z-index: 1000;
   -webkit-transition: visibility 0s linear 0.25s, opacity 0.25s 0s, -webkit-transform 0.25s;
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, -webkit-transform 0.25s;
   -o-transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
