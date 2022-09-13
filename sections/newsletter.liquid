@@ -9,7 +9,7 @@
       {% endif %}
     </div>
     {%- assign formId = 'Contact_' | append: section.id -%}
-    {% form 'customer', id: formId, novalidate: 'novalidate', class: 'contact-form form-single-field' %}
+    {% form 'customer',  id: 'Contact-bottom', novalidate: 'novalidate', class: 'contact-form form-single-field' %}
       {%- if form.posted_successfully? -%}
         <p class="form-message form-message--success" tabindex="-1" data-form-status>
           {{ 'general.newsletter_form.confirmation' | t }}
