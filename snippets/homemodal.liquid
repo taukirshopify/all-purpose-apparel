@@ -15,7 +15,7 @@
         <div class="modal-content-c">
          <h5>{{ settings.menu1 }}</h5>
             {% comment %} modal end  {% endcomment %}
-            {% form 'customer' %}
+            {% form 'customer', id: 'ContactFooter'  %}
                 {{ form.errors | default_errors }}
                
                 <div class="form-wrapper">
