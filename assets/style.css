@@ -1193,9 +1193,6 @@ div#suggeationlist {
   color: #B5B35C;
 }
 
-.egg-mobile-respinsive {
-  width: 260px;
-}
 @media (min-width: 576px) {
   .egg-mobile-respinsive {
     width: 309px;
@@ -1240,6 +1237,7 @@ div#suggeationlist {
 
 .t-shirt-content h2 {
   color: #fff;
+  padding: 10px;
 }
 .t-shirt-content p {
   color: #B5B35C;
