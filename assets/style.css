@@ -1196,13 +1196,13 @@ div#suggeationlist {
 }
 
 @media (min-width: 576px) {
-  .egg-mobile-respinsive {
+  .egg-mobile-respinsive svg {
     width: 309px;
     height: 383px;
   }
 }
 @media (min-width: 1200px) and (max-width: 1299px) {
-  .egg-mobile-respinsive {
+  .egg-mobile-respinsive svg {
     width: 300px;
     height: 383px;
   }
