@@ -909,7 +909,7 @@ div#suggeationlist {
   .bannar-wrapper .bannar-shape-1 {
     position: absolute;
     top: 30.5%;
-    right: 0px;
+    right: 10px;
     z-index: 1;
     text-align: center;
   }
