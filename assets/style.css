@@ -895,6 +895,11 @@ div#suggeationlist {
     width: 170px;
   }
 }
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .bannar-wrapper .bannar-shape-1 img {
+    width: 150px;
+  }
+}
 @media (min-width: 1200px) {
   .bannar-wrapper .bannar-shape-1 img {
     width: 190px;
