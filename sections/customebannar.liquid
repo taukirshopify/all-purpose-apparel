@@ -1,33 +1,12 @@
 {% assign favorite_food = "" %}
  {% for block in section.blocks %}
     {% case block.type %}
-
-    {% when  'fullwidth'%}
-         
-   <div class="all-bannar-wrapper bannar-wrapper">
-      <div class="fulwidth-wrapper d-flex  align-items-center " style="background-image: url({{ block.settings.img | img_url:'master' }})">
-          <div class="container">
-            <div class="row">
-               <div class="col-12">
-                     <div class="bannar-content text-center bannar-right-wrapper">
-                        <h1 style="color: red; font-size: ;">NY Forever</h1>
-                        <p style="color: red; font-size: ;">We Are Children of Immigrants</p>
-                        <div class="bannar-btn-area">
-                        <a href="{{ block.settings.url}}" class="btn">shop Now</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-          </div>
-      </div>
-   </div>
-
     {% when  'twoside'%}
    
 
 
- <div class="two-slide-wrapper-{{section.id}}" id="{% if favorite_food == blank or favorite_food.empty? %}{% assign favorite_food = "twoslidehieght" %} {{favorite_food}} {% else %}twoslidehieght-{{forloop.index}}{% endif %}">
-  
+ <div class="two-slide-wrapper" id="hello">
+
    <div class="bannar-wrapper">
       <div class="bannar-shape-1">
          <img 
@@ -68,6 +47,27 @@
        </div>
      </div>
  </div>
+    {% when  'fullwidth'%}
+         
+   <div class="all-bannar-wrapper bannar-wrapper" >
+      <div class="fulwidth-wrapper d-flex  align-items-center " style="background-image: url({{ block.settings.img | img_url:'master' }})">
+          <div class="container">
+            <div class="row">
+               <div class="col-12">
+                     <div class="bannar-content text-center bannar-right-wrapper">
+                        <h1 style="color: #000; font-size: ;">NY Forever</h1>
+                        <p style="color: #000; font-size: ;">We Are Children of Immigrants</p>
+                        <div class="bannar-btn-area">
+                        <a href="{{ block.settings.url}}" class="btn">shop Now</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+      </div>
+   </div>
+
+
 
 
 
@@ -160,7 +160,30 @@
 
 
 <style>
-   .fulwidth-wrapper{
+   /* .fulwidth-wrapper{
       min-height: 600px;
-   }
+   } */
 </style>
+
+
+
+<script> 
+
+   window.addEventListener('load', function () {
+    
+  var elementha = document.getElementById('hello');
+  console.log(elementha);
+   const getheight = elementha.offsetHeight;
+  console.log(getheight);
+     
+  [...document.querySelectorAll(".fulwidth-wrapper")].map(
+    (element, index, array) => {
+      console.log(element);
+      element.style["height"] = getheight + "px";
+    }
+  );
+ 
+
+
+})
+</script>
