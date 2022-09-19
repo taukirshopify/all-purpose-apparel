@@ -50,15 +50,17 @@
     {% when  'fullwidth'%}
          
    <div class="all-bannar-wrapper bannar-wrapper" >
-      <div class="fulwidth-wrapper d-flex  align-items-center " style="background-image: url({{ block.settings.img | img_url:'master' }})">
+      <div class="fulwidth-wrapper d-flex   {% if block.settings.Horizontal == "center" %}  align-items-center {% elsif block.settings.Horizontal == 'top' %}align-items-start {% elsif block.settings.Horizontal == 'bottom' %} align-items-end {% endif%}" style="background-image: url({{ block.settings.img | img_url:'master' }}); background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;">
           <div class="container">
             <div class="row">
                <div class="col-12">
-                     <div class="bannar-content text-center bannar-right-wrapper">
-                        <h1 style="color: #000; font-size: ;">NY Forever</h1>
-                        <p style="color: #000; font-size: ;">We Are Children of Immigrants</p>
+                     <div class="bannar-content {% if block.settings.vertecal == "center" %} text-center {% elsif block.settings.vertecal == 'left' %} text-left {% elsif block.settings.vertecal == 'right' %} text-right {% endif%} bannar-right-wrapper">
+                        <h1 style="color: #000; font-size: {{ block.settings.h2-c}} ;">{{ block.settings.h2}}</h1>
+                        <p style="color: #000; font-size: {{ block.settings.p-c}};">{{ block.settings.p}}</p>
                         <div class="bannar-btn-area">
-                        <a href="{{ block.settings.url}}" class="btn">shop Now</a>
+                        <a href="{{ block.settings.shop-url}}" class="btn">{{ block.settings.shop}}</a>
                      </div>
                   </div>
                </div>
@@ -81,7 +83,7 @@
         "name": "Slider",
         "class": "slider",
         "settings": [
-
+   
         ],	
         "blocks":[
           {
@@ -92,7 +94,92 @@
                   "type": "image_picker",
                   "id": "img",
                   "label": "Slider Main left Image"
-               }
+               },    
+                {
+                  "type": "select",
+                  "id": "vertecal",
+                  "label": "Content  vertical alignment",
+                  "options": [
+                     {
+                        "value": "center",
+                        "label": "center"
+                     },
+                     {
+                        "value": "left",
+                        "label": "left"
+                     },
+                     {
+                        "value": "right",
+                        "label": "right"
+                     }
+                  ],
+                  "default": "center"
+                },
+                {
+                  "type": "select",
+                  "id": "Horizontal",
+                  "label": "Content  Horizontal  alignment",
+                  "options": [
+                     {
+                        "value": "center",
+                        "label": "center"
+                     },
+                     {
+                        "value": "top",
+                        "label": "top"
+                     },
+                     {
+                        "value": "bottom",
+                        "label": "bottom"
+                     }
+                  ],
+                  "default": "center"
+                },
+               {
+                  "type": "text",
+                  "id": "h2",
+                  "label": "Select your title",
+                  "default": "Ny Forever",
+            
+                  "placeholder": "NY Forever"
+                 },
+                 {
+                  "type": "color",
+                  "id": "h2-c",
+                  "label": "label",
+                  "default": "#000",
+                  "info": "Title color"
+                 },
+                 {
+                  "type": "text",
+                  "id": "p",
+                  "label": "label",
+                  "default": "We Are Children of Immigrants",
+               
+                  "placeholder": "We Are Children of Immigrants"
+                 },
+                 {
+                  "type": "color",
+                  "id": "p-c",
+                  "label": "label",
+                  "default": "#000",
+                  "info": "Title color"
+                 },
+                 {
+                  "type": "text",
+                  "id": "shop",
+                  "label": "Shop Now",
+                  "default": "Shop Now",
+            
+                  "placeholder": "Shop Now"
+                 },
+      
+      
+                 {
+                  "type": "url",
+                  "id": "shop-url",
+                  "label": "shoplink"
+                 }
            ]
            
           },
@@ -163,6 +250,7 @@
    /* .fulwidth-wrapper{
       min-height: 600px;
    } */
+
 </style>
 
 
@@ -172,13 +260,13 @@
    window.addEventListener('load', function () {
     
   var elementha = document.getElementById('hello');
-  console.log(elementha);
+
    const getheight = elementha.offsetHeight;
-  console.log(getheight);
+
      
   [...document.querySelectorAll(".fulwidth-wrapper")].map(
     (element, index, array) => {
-      console.log(element);
+
       element.style["height"] = getheight + "px";
     }
   );
