@@ -6,7 +6,15 @@
         "7bc2fd7b-7b8f-4673-ad0f-33d8ea7b894c": {
           "type": "fullwidth",
           "settings": {
-            "img": "shopify:\/\/shop_images\/full-width-bannar.jpg"
+            "img": "shopify:\/\/shop_images\/full-width-bannar.jpg",
+            "vertecal": "center",
+            "Horizontal": "center",
+            "h2": "Ny Forever",
+            "h2-c": "#ff2828",
+            "p": "We Are Children of Immigrants",
+            "p-c": "#9a2828",
+            "shop": "Shop Now",
+            "shop-url": ""
           }
         },
         "1b54fac4-ed9e-41d9-a7d4-0a4f65720220": {
