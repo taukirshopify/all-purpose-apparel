@@ -55,13 +55,13 @@
     "166151523068b4b8aa": {
       "type": "customepagebannar",
       "blocks": {
-        "747f071b-3aa4-4b4a-9ad9-f8e53d882c9b": {
+        "b0715bd2-e11b-4daf-aef5-8bbe59a095b5": {
           "type": "slide",
           "settings": {
             "text": "FREE US SHIPPING ON ORDERS OVER $100"
           }
         },
-        "b0715bd2-e11b-4daf-aef5-8bbe59a095b5": {
+        "747f071b-3aa4-4b4a-9ad9-f8e53d882c9b": {
           "type": "slide",
           "settings": {
             "text": "FREE US SHIPPING ON ORDERS OVER $100"
@@ -69,8 +69,8 @@
         }
       },
       "block_order": [
-        "747f071b-3aa4-4b4a-9ad9-f8e53d882c9b",
-        "b0715bd2-e11b-4daf-aef5-8bbe59a095b5"
+        "b0715bd2-e11b-4daf-aef5-8bbe59a095b5",
+        "747f071b-3aa4-4b4a-9ad9-f8e53d882c9b"
       ],
       "settings": {
       }
