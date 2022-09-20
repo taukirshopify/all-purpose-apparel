@@ -1,6 +1,9 @@
 {% assign favorite_food = "" %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
           
@@ -65,7 +68,8 @@
       <div class="all-bannar-wrapper bannar-wrapper" >
          <div class="fulwidth-wrapper d-flex   {% if block.settings.Horizontal == "center" %}  align-items-center {% elsif block.settings.Horizontal == 'top' %}align-items-start {% elsif block.settings.Horizontal == 'bottom' %} align-items-end {% endif%}" style="background-image: url({{ block.settings.img | img_url:'master' }}); background-position: center center;
          background-repeat: no-repeat;
-         background-size: cover;">
+         background-size: cover;
+         height:{{ block.settings.height }}px;">
             <div class="container">
                <div class="row">
                   <div class="col-12">
@@ -94,7 +98,20 @@
         "name": "Slider",
         "class": "slider",
         "settings": [
-   
+        {
+         "type": "checkbox",
+         "id": "autoplay",
+         "label": "Autoplay",
+         "default": false
+        },
+         {
+            "type": "text",
+            "id": "speed",
+            "label": "Auto play speed  millisecond",
+            "default": "5000",
+      
+            "placeholder": "5000"
+         }
         ],	
         "blocks":[
           {
@@ -105,7 +122,15 @@
                   "type": "image_picker",
                   "id": "img",
                   "label": "Slider Main left Image"
-               },    
+               },   
+               {
+                  "type": "text",
+                  "id": "height",
+                  "label": "Put you slider hight in Pixel",
+                  "default": "600",
+          
+                  "placeholder": "600"
+               }, 
                 {
                   "type": "select",
                   "id": "vertecal",
@@ -305,10 +330,12 @@ $('.slider-for').slick({
   slidesToScroll: 1,
   arrows: false,
   fade: true,
-   cssEase: 'linear',
-   infinite: false,
-   autoplay: false,
-
+  cssEase: 'linear',
+   infinite: true,
+   autoplay: {% if section.settings.autoplay == true%} true {% else %} false {% endif %},
+   autoplaySpeed: {{section.settings.speed}},
+    
+   
    adaptiveHeight: true,
 
 });
