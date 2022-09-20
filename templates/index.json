@@ -11,12 +11,12 @@
             "vertecal": "center",
             "Horizontal": "center",
             "h2": "Ny Forever",
-            "h2-c": "#ff2828",
+            "h2-c": "#b5b35c",
             "p": "We Are Children of Immigrants",
-            "p-c": "#9a2828",
+            "p-c": "#b5b35c",
             "shop": "Shop Now",
             "shop-url": "shopify:\/\/pages\/contact-us",
-            "btn-c": "#000",
+            "btn-c": "#000000",
             "btn-b": "#b5b35c"
           }
         },
