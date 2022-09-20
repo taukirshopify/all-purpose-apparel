@@ -1,11 +1,14 @@
 {% assign favorite_food = "" %}
-<section id="image-carousel" class="splide" aria-label="Beautiful Images">
-   <div class="splide__track">
-       <ul class="splide__list">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script>
+
           
             
             
         
+
+<div class="slider-for">
 
 
 
@@ -14,7 +17,7 @@
     {% when  'twoside'%}
    
 
-    <li class="splide__slide">
+
  <div class="two-slide-wrapper" id="hello">
 
    <div class="bannar-wrapper">
@@ -57,9 +60,9 @@
        </div>
      </div>
  </div>
-</li>
+
     {% when  'fullwidth'%}
-    <li class="splide__slide">
+
    <div class="all-bannar-wrapper bannar-wrapper" >
       <div class="fulwidth-wrapper d-flex   {% if block.settings.Horizontal == "center" %}  align-items-center {% elsif block.settings.Horizontal == 'top' %}align-items-start {% elsif block.settings.Horizontal == 'bottom' %} align-items-end {% endif%}" style="background-image: url({{ block.settings.img | img_url:'master' }}); background-position: center center;
       background-repeat: no-repeat;
@@ -80,15 +83,11 @@
       </div>
    </div>
 
-</li>
-
 
 
     {% endcase %}
  {% endfor %}
-</ul>
 </div>
-</section>
 
 
 {% schema %}
@@ -302,21 +301,16 @@
    }
 
 });
-document.addEventListener( 'DOMContentLoaded', function () {
-  new Splide( '#image-carousel', {
-
-    arrows:false,
-    pagination : false,
-    perMove:1,
-    perPage: 1,
-    type: 'loop',
-      pagination : false,
-      drag   : 'free',
-      cover      : true,
-      gap       : 00,
-      perMove:1,
-      focus  : 'right',
-      interval: 4000,
-  } ).mount();
-} );
+$('.slider-for').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  fade: true,
+   cssEase: 'linear',
+   infinite: true,
+   autoplay: true,
+   autoplaySpeed: 4000,
+   adaptiveHeight: true,
+   pauseOnHover: true,
+});
 </script>
