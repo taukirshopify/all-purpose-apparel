@@ -7,7 +7,7 @@
           "type": "fullwidth",
           "settings": {
             "img": "shopify:\/\/shop_images\/full-width-bannar.jpg",
-            "height": "600",
+            "height": "800",
             "vertecal": "center",
             "Horizontal": "center",
             "h2": "Ny Forever",
