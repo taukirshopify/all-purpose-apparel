@@ -824,6 +824,9 @@ div#suggeationlist {
 .bannar-wrapper .bannar-right-wrapper .bannar-wev-image {
   margin-bottom: 70px;
 }
+.bannar-wrapper .bannar-right-wrapper .bannar-wev-image img {
+  display: inline-block;
+}
 .bannar-wrapper .bannar-right-wrapper h1 {
   font-family: "GT Super Txt Trial";
   font-style: normal;
@@ -898,16 +901,19 @@ div#suggeationlist {
 @media (min-width: 992px) {
   .bannar-wrapper .bannar-shape-1 img {
     width: 170px;
+    display: inline-block;
   }
 }
 @media (min-width: 1200px) and (max-width: 1399px) {
   .bannar-wrapper .bannar-shape-1 img {
     width: 150px;
+    display: inline-block;
   }
 }
 @media (min-width: 1400px) {
   .bannar-wrapper .bannar-shape-1 img {
     width: 212px;
+    display: inline-block;
   }
 }
 @media (min-width: 250px) {
@@ -956,14 +962,21 @@ div#suggeationlist {
 }
 @media (min-width: 250px) {
   .bannar-wrapper .bannar-shape-2 {
+    right: 19px;
+    bottom: 5px;
+    z-index: 0;
+  }
+}
+@media (min-width: 576px) {
+  .bannar-wrapper .bannar-shape-2 {
     right: 39px;
-    bottom: -50px;
+    bottom: 45px;
   }
 }
 @media (min-width: 992px) {
   .bannar-wrapper .bannar-shape-2 {
     right: 69px;
-    bottom: -90px;
+    bottom: 12px;
   }
 }
 .bannar-wrapper .bannar-shape-2 img {
@@ -981,7 +994,12 @@ div#suggeationlist {
 }
 @media (min-width: 1200px) {
   .bannar-wrapper .bannar-shape-2 img {
-    width: 170px;
+    width: 130px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .bannar-wrapper .bannar-shape-2 img {
+    width: 110px;
   }
 }
 @media (min-width: 1400px) {

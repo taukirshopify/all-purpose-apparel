@@ -1,7 +1,7 @@
 {% assign favorite_food = "" %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
           
             
@@ -18,70 +18,69 @@
    
 
 
- <div class="two-slide-wrapper" id="hello">
+         <div class="two-slide-wrapper" id="hello">
 
-   <div class="bannar-wrapper">
-      <div class="bannar-shape-1">
-         <img 
-          data-sizes="auto"
-          data-src="{{ block.settings.img1 | img_url:'' }}" class="lazyload"
-          alt="">
-       </div>
-       <div class="bannar-shape-2">
-         <img data-sizes="auto"
-          data-src="{{ block.settings.img2 | img_url:'' }}" class="lazyload" alt="">
-       </div>
-       <div class="container-fluid">
-         <div class="row">
-           <div class="col-xl-6 col-md-12 p-0">
-               <div class="bannar-left-image">
-                 <img 
-                  data-src="{{ block.settings.img | img_url:'master' }}"
-                  data-srcset="{{ block.settings.img | img_url:'grande' }} 300w,
-                  {{ block.settings.img | img_url:'2048 x 2048' }} 600w,
-                  {{ block.settings.img | img_url:'master' }} 900w" class="lazyload" alt="">
+            <div class="bannar-wrapper">
+               <div class="bannar-shape-1">
+                  <img 
+                  data-sizes="auto"
+                  data-src="{{ block.settings.img1 | img_url:'' }}" class="lazyload"
+                  alt="">
                </div>
-           </div>
-           <div class="col-xl-6 col-md-12 d-flex align-items-center justify-content-center">
-                 <div class="bannar-right-wrapper text-center">
-                   <div class="bannar-wev-image">
-                     <img 
-                      data-src="{{ block.settings.imgw | img_url:'' }}" class="lazyload" alt="">
-                   </div>
-                    <h1>{{ block.settings.h1 }}</h1>
-                    <p>{{ block.settings.p }}</p>
-                    <div class="bannar-btn-area">
-                    <a href="{{  block.settings.link }}" class="btn">{{ block.settings.shop }}</a>
-                   </div>
-                 </div>
-           </div>
-  
+               <div class="bannar-shape-2">
+                  <img data-sizes="auto"
+                  data-src="{{ block.settings.img2 | img_url:'' }}" class="lazyload" alt="">
+               </div>
+               
+               <div class="container-fluid">
+                  <div class="row">
+                  <div class="col-xl-6 col-md-12 p-0">
+                        <div class="bannar-left-image">
+                        <img 
+                           src="{{ block.settings.img | img_url:'' }}"
+                class="lazyload" alt="">
+                        </div>
+                  </div>
+                  <div class="col-xl-6 col-md-12 d-flex align-items-center justify-content-center">
+                        <div class="bannar-right-wrapper text-center">
+                           <div class="bannar-wev-image">
+                              <img 
+                              data-src="{{ block.settings.imgw | img_url:'' }}" class="lazyload" alt="">
+                           </div>
+                           <h1>{{ block.settings.h1 }}</h1>
+                           <p>{{ block.settings.p }}</p>
+                           <div class="bannar-btn-area">
+                           <a href="{{  block.settings.link }}" class="btn">{{ block.settings.shop }}</a>
+                           </div>
+                        </div>
+                  </div>
+         
+                  </div>
+               </div>
+            </div>
          </div>
-       </div>
-     </div>
- </div>
 
     {% when  'fullwidth'%}
 
-   <div class="all-bannar-wrapper bannar-wrapper" >
-      <div class="fulwidth-wrapper d-flex   {% if block.settings.Horizontal == "center" %}  align-items-center {% elsif block.settings.Horizontal == 'top' %}align-items-start {% elsif block.settings.Horizontal == 'bottom' %} align-items-end {% endif%}" style="background-image: url({{ block.settings.img | img_url:'master' }}); background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;">
-          <div class="container">
-            <div class="row">
-               <div class="col-12">
-                     <div class="bannar-content {% if block.settings.vertecal == "center" %} text-center {% elsif block.settings.vertecal == 'left' %} text-left {% elsif block.settings.vertecal == 'right' %} text-right {% endif%} bannar-right-wrapper">
-                        <h1 style=" color:{{ block.settings.h2-c}} ;">{{ block.settings.h2}}</h1>
-                        <p style="  color: {{ block.settings.p-c}};">{{ block.settings.p}}</p>
-                        <div class="bannar-btn-area">
-                        <a href="{{ block.settings.shop-url}}" class="btn" style="background-color:{{ block.settings.btn-b}};  color:{{ block.settings.btn-c}};">{{ block.settings.shop}}</a>
+      <div class="all-bannar-wrapper bannar-wrapper" >
+         <div class="fulwidth-wrapper d-flex   {% if block.settings.Horizontal == "center" %}  align-items-center {% elsif block.settings.Horizontal == 'top' %}align-items-start {% elsif block.settings.Horizontal == 'bottom' %} align-items-end {% endif%}" style="background-image: url({{ block.settings.img | img_url:'master' }}); background-position: center center;
+         background-repeat: no-repeat;
+         background-size: cover;">
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                        <div class="bannar-content {% if block.settings.vertecal == "center" %} text-center {% elsif block.settings.vertecal == 'left' %} text-left {% elsif block.settings.vertecal == 'right' %} text-right {% endif%} bannar-right-wrapper">
+                           <h1 style=" color:{{ block.settings.h2-c}} ;">{{ block.settings.h2}}</h1>
+                           <p style="  color: {{ block.settings.p-c}};">{{ block.settings.p}}</p>
+                           <div class="bannar-btn-area">
+                           <a href="{{ block.settings.shop-url}}" class="btn" style="background-color:{{ block.settings.btn-b}};  color:{{ block.settings.btn-c}};">{{ block.settings.shop}}</a>
+                        </div>
                      </div>
                   </div>
                </div>
             </div>
-          </div>
+         </div>
       </div>
-   </div>
 
 
 
@@ -283,34 +282,34 @@
 
 <script> 
 
-   window.addEventListener('load', function () {
-      var newWindowWidth = $(window).width();
-        if (newWindowWidth > 800) {
-  var elementha = document.getElementById('hello');
+//    window.addEventListener('load', function () {
+//       var newWindowWidth = $(window).width();
+//         if (newWindowWidth > 800) {
+//   var elementha = document.getElementById('hello');
 
-   const getheight = elementha.offsetHeight;
+//    const getheight = elementha.offsetHeight;
 
      
-  [...document.querySelectorAll(".fulwidth-wrapper")].map(
-    (element, index, array) => {
+//   [...document.querySelectorAll(".fulwidth-wrapper")].map(
+//     (element, index, array) => {
 
-      element.style["height"] = getheight + "px";
-    }
-  );
+//       element.style["height"] = getheight + "px";
+//     }
+//   );
  
-   }
+//    }
 
-});
+// });
 $('.slider-for').slick({
   slidesToShow: 1,
   slidesToScroll: 1,
-  arrows: true,
+  arrows: false,
   fade: true,
    cssEase: 'linear',
-   infinite: true,
-   autoplay: true,
-   autoplaySpeed: 4000,
+   infinite: false,
+   autoplay: false,
+
    adaptiveHeight: true,
-   pauseOnHover: true,
+
 });
 </script>
