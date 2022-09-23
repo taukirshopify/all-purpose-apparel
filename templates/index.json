@@ -3,8 +3,22 @@
     "1661379305202ed988": {
       "type": "customebannar",
       "blocks": {
+        "1b54fac4-ed9e-41d9-a7d4-0a4f65720220": {
+          "type": "twoside",
+          "settings": {
+            "h1": "LOUD & PROUD",
+            "p": "We Are Children of Immigrats",
+            "shop": "Shop Now",
+            "link": "shopify:\/\/collections\/all",
+            "img": "shopify:\/\/shop_images\/bannarhuman.jpg",
+            "imgw": "shopify:\/\/shop_images\/Heavy_Waves.png",
+            "img1": "shopify:\/\/shop_images\/Best-saller-hires.png",
+            "img2": "shopify:\/\/shop_images\/earch-logo.png"
+          }
+        },
         "7bc2fd7b-7b8f-4673-ad0f-33d8ea7b894c": {
           "type": "fullwidth",
+          "disabled": true,
           "settings": {
             "img": "shopify:\/\/shop_images\/full-width-bannar.jpg",
             "height": "800",
@@ -19,24 +33,11 @@
             "btn-c": "#000000",
             "btn-b": "#b5b35c"
           }
-        },
-        "1b54fac4-ed9e-41d9-a7d4-0a4f65720220": {
-          "type": "twoside",
-          "settings": {
-            "h1": "LOUD & PROUD",
-            "p": "We Are Children of Immigrats",
-            "shop": "Shop Now",
-            "link": "shopify:\/\/collections\/all",
-            "img": "shopify:\/\/shop_images\/bannarhuman.jpg",
-            "imgw": "shopify:\/\/shop_images\/Heavy_Waves.png",
-            "img1": "shopify:\/\/shop_images\/Best-saller-hires.png",
-            "img2": "shopify:\/\/shop_images\/earch-logo.png"
-          }
         }
       },
       "block_order": [
-        "7bc2fd7b-7b8f-4673-ad0f-33d8ea7b894c",
-        "1b54fac4-ed9e-41d9-a7d4-0a4f65720220"
+        "1b54fac4-ed9e-41d9-a7d4-0a4f65720220",
+        "7bc2fd7b-7b8f-4673-ad0f-33d8ea7b894c"
       ],
       "settings": {
         "autoplay": true,
