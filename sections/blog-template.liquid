@@ -28,7 +28,7 @@
                   <div class="blog-content">
                       <h6>{{ article.published_at | time_tag: format: 'date' }}</h6>
                       <a href="{{ article.url }}">
-                          <h3>{{ article.title | escape }}T</h3>
+                          <h3>{{ article.title | escape }}</h3>
                       </a>
                       <p>{{article.content | strip_html | truncate: 110 }}</p>
                       <div class="d-flex align-items-center blog-btn">
