@@ -11,6 +11,7 @@
       }
     },
     "main": {
+
       "type": "aboutpage-template",
       "disabled": true,
       "settings": {
