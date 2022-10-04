@@ -801,6 +801,15 @@ div#suggeationlist {
   }
 }
 
+.mobile-filter h6 {
+  font-size: 15px !important;
+}
+@media (min-width: 576px) {
+  .mobile-filter h6 {
+    font-size: 20px !important;
+  }
+}
+
 @media (min-width: 576px) {
   .shop-extra-magin {
     margin-top: 40px;

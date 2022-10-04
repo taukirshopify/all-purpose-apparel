@@ -53,7 +53,7 @@ const req = await fetch(`/search/suggest.json?q=${ thisVal }&resources[type]=pro
 const items  = await req.json()
 
 const proudctlist = items.resources.results.products;
-console.log(proudctlist)
+
 const proudctwerapper = document.createElement('div')
 const proudctTitle = document.createElement('h3')
 proudctTitle.innerHTML ="Proudcts"
