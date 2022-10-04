@@ -44,10 +44,11 @@
                   {% comment %}<p>Showing:</p>{% endcomment %}
                   <ul>
 
-                    {% for c in collections  %}
+                         {% assign footer_menu_mobile = section.settings.shop %}
+            {% for link in linklists[footer_menu_mobile].links %}
                      
                       <li>
-                        <a href="{{ c.url }}">{{ c.title }}</a>
+                        <a href="{{ link.url }}">{{ link.title }}</a>
                       </li>
                      
                       {% endfor %}
@@ -156,7 +157,7 @@
                               </div>
                               <div class="text-center product-content">
                                 <a href="{{ product.url }}"> <h3>{{ product.title }}</h3> </a>
-                                  <h6>$38.00</h6>
+                                  <h6>{{ product.price | money }}</h6>
                               </div>
                           </div>
                       </div>
@@ -233,6 +234,11 @@
     "label": "Please how meany Proudct you want to show on proudct page",
     "default": "24",
     "placeholder": "24"
+  },
+  {
+    "type": "link_list",
+    "id": "shop",
+    "label": "Shop Menu"
   }
   ]
 }
@@ -249,13 +255,14 @@
     <p>Showing:</p>
     <ul>
 
-      {% for c in collections  %}
-       
-        <li>
-          <a href="{{ c.url }}">{{ c.title }}</a>
-        </li>
-       
-        {% endfor %}
+                         {% assign footer_menu_mobile = section.settings.shop %}
+            {% for link in linklists[footer_menu_mobile].links %}
+                     
+                      <li>
+                        <a href="{{ link.url }}">{{ link.title }}</a>
+                      </li>
+                     
+                      {% endfor %}
 
     
     </ul>
