@@ -20,7 +20,7 @@
           "type": "fullwidth",
           "settings": {
             "img": "shopify:\/\/shop_images\/full-width-bannar.jpg",
-            "height": "800",
+            "height": "684",
             "vertecal": "center",
             "Horizontal": "center",
             "h2": "Express Yourself",
