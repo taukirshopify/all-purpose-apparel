@@ -779,18 +779,25 @@ div#suggeationlist {
   font-family: "GT Super Txt Trial";
   font-weight: 700;
   padding: 0 0px 0 5px;
-  font-size: 20px;
+  margin-left: -16px;
+  font-size: 15px;
+}
+@media (min-width: 576px) {
+  .SortBy {
+    font-size: 20px;
+    margin-left: 0px;
+  }
 }
 
 .mobile-filtera .icon-absolute-sort {
   position: absolute;
-  right: 0px;
+  right: -22px;
   top: 32%;
 }
 @media (min-width: 576px) {
   .mobile-filtera .icon-absolute-sort {
-    right: 4px;
-    top: 22%;
+    right: 0px;
+    top: 32%;
   }
 }
 
