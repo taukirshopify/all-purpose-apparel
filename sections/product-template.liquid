@@ -335,7 +335,9 @@
 
 
 
-
+{% comment %} testing button  {% endcomment %}
+<a href="#" class="btn" id="testingbutton">Testing button</a>
+{% comment %} testing button end {% endcomment %}
 
 
 
@@ -606,5 +608,26 @@
   main.mount();
   thumbnails.mount();
 
+  $("#testingbutton").click(function(){
+                    thumbnails.go(3);
+                    });
+
+      var url      = window.location.href; 
+    console.log("this from me");
+    var pathname = window.location.pathname;
+    console.log(pathname);
+    console.log(url);
+
+
+    $("select").change(function(){
+        var url      = window.location.href; 
+    console.log("this from me");
+    console.log(url);
+    const lastSegment = url.split("=").pop();
+    console.log(lastSegment);
+});
   });
+
+  {% comment %} thumbnails.go( Slides[ 2 ].index ); {% endcomment %}
+  
 </script>
