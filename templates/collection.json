@@ -1,7 +1,12 @@
 {
   "sections": {
     "main": {
-      "type": "collection-template"
+      "type": "collection-template",
+      "settings": {
+        "enable": true,
+        "limit": "24",
+        "shop": "new-collection-page-menu"
+      }
     }
   },
   "order": [
