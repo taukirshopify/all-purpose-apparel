@@ -30,6 +30,9 @@
                 </div>
                 <div class="footer-socail">
                   <ul>
+                  {% if section.settings.Social != '' %}
+
+
                     <li>
                       <a href="{{section.settings.Social}}">
                           <div class="footer-singel-svg">
@@ -42,6 +45,8 @@
                         
                       </a>
                     </li>
+                    {% endif %}
+                    {% if section.settings.Social1 != '' %}
                     <li>
                       <a href="{{section.settings.Social1}}">
                           <div class="footer-singel-svg">
@@ -54,6 +59,9 @@
                         
                       </a>
                     </li>
+                     {% endif %}
+                    {% if section.settings.Social2 != '' %}
+
                     <li>
                       <a href="{{section.settings.Social2}}">
                           <div class="footer-singel-svg">
@@ -67,6 +75,8 @@
                         
                       </a>
                     </li>
+                     {% endif %}
+
                   </ul>
                 </div>
               </div>
