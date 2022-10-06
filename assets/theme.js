@@ -248,9 +248,7 @@ window.theme = window.theme || {}, window.theme = window.theme || {}, theme.Sect
                 i = this.currentVariant.featured_image || {};
                 const proudctimage = i;
 
-                $("#testingbutton").click(function(){
-                    thumbnails.go(3);
-                    });
+              
                 
 
               
