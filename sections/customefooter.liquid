@@ -30,7 +30,7 @@
                 </div>
                 <div class="footer-socail">
                   <ul>
-                  {% if section.settings.Social != '' %}
+                  {% if section.settings.Social != blank %}
 
 
                     <li>
@@ -60,7 +60,7 @@
                       </a>
                     </li>
                      {% endif %}
-                    {% if section.settings.Social2 != '' %}
+                    {% if section.settings.Social2 != blank %}
 
                     <li>
                       <a href="{{section.settings.Social2}}">
