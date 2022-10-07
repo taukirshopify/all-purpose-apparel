@@ -336,9 +336,6 @@
 
 
 
-{% comment %} testing button  {% endcomment %}
-<a href="#" class="btn" id="testingbutton">Testing button</a>
-{% comment %} testing button end {% endcomment %}
 
 
 
@@ -661,3 +658,23 @@ const nodeList = document.querySelectorAll('.imageslider-image')
   });
 
 </script>
+
+
+<style>
+ a{
+  font-size:18px;
+ }
+.product-single__description ul li{
+  position: relative;
+}
+.product-single__description ul li:before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #000000;
+    border-radius: 50%;
+    top: 12.5px;
+    left: -19px;
+}
+</style>
