@@ -14,13 +14,19 @@
     <div class="container">
         <div class="shop-breadcrumb">
             <div class="d-flex align-tems-center">
-                <a>All collections</a>
+                <a  href="/collections/all">All collections</a>
                  <div class="breade-comearrow">
                   <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
                     <path d="M1 1L5 5L1 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <a href="/collections/all">{{ product.title }}</a>
+                <a href="{{ collection.url }}">{{ collection.title }}</a>
+                 <div class="breade-comearrow">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                    <path d="M1 1L5 5L1 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <a >{{ product.title }}</a>
             </div>
         </div>
     </div>
