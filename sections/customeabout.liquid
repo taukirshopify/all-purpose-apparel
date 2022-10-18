@@ -1,0 +1,79 @@
+<div class="about-wrapper">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-6">
+        <div class="left-about-content">
+          <p>{{section.settings.lfp}}
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="lfimg">
+          <img src="{{section.settings.lfimg}}" alt="{{section.settings.lfimgalt}}">
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-lg-6">
+        <div class="lfimg">
+          <img src="{{section.settings.rfimg}}" alt="{{section.settings.rfimgalt}}">
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="left-about-content">
+          <p>{{section.settings.rfp}}
+          </p>
+        </div>
+      </div>
+
+      
+
+
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "About Details",
+    "class": "about",
+    "settings": [
+     {
+      "type": "text",
+      "id": "lfp",
+      "label": "About us text",
+      "default": "Lorem ipsum dolor sit amet",
+      "placeholder": "Lorem ipsum dolor sit amet"
+     },
+     {
+      "type": "image_picker",
+      "id": "lfimg",
+      "label": "About Image 01"
+     },
+     {
+      "type": "text",
+      "id": "rfp",
+      "label": "About us text",
+      "default": "Lorem ipsum dolor sit amet",
+      "placeholder": "Lorem ipsum dolor sit amet"
+     },
+     {
+      "type": "image_picker",
+      "id": "rfimg",
+      "label": "About Image 02"
+     }
+    
+    ],
+        "presets": [
+            {
+              "name": "Bannar"
+            }]
+
+  }
+{% endschema %}
