@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-lg-6">
-        <div class="left-about-content">
+      <div class="col-lg-6 d-flex align-items-center">
+        <div class="left-about-content about-content  ">
           <p>{{section.settings.lfp}}
           </p>
         </div>
@@ -11,7 +11,7 @@
 
       <div class="col-lg-6">
         <div class="lfimg">
-          <img src="{{section.settings.lfimg}}" alt="{{section.settings.lfimgalt}}">
+          <img src="{{section.settings.lfimg | img_url:''}}" alt="{{section.settings.lfimgalt}}">
         </div>
       </div>
 
@@ -20,12 +20,12 @@
 
       <div class="col-lg-6">
         <div class="lfimg">
-          <img src="{{section.settings.rfimg}}" alt="{{section.settings.rfimgalt}}">
+          <img src="{{section.settings.rfimg | img_url:''}}" alt="{{section.settings.rfimgalt}}">
         </div>
       </div>
 
-      <div class="col-lg-6">
-        <div class="left-about-content">
+      <div class="col-lg-6 d-flex align-items-center">
+        <div class="right-about-content about-content ">
           <p>{{section.settings.rfp}}
           </p>
         </div>
@@ -72,7 +72,7 @@
     ],
         "presets": [
             {
-              "name": "Bannar"
+              "name": "About Page"
             }]
 
   }
