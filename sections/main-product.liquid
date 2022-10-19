@@ -1177,15 +1177,15 @@
  {% endfor %}
 
 
- {% comment %} Get the color   {% endcomment %}
-   {% for value in product.options_by_name.color.values %}
-  {{ value }}
-{% endfor %}
 
 <div class="container">
   <div class="row">
   
   </div>
+
+</div>
+<div class="add-card" onclick="addItem()">
+  Add to card 
 </div>
 
 <script>
@@ -1205,13 +1205,14 @@ const allavaiableinventory = [
 
 console.log(allavaiableinventory)
 
+
 {% comment %} Get seperated color data end {% endcomment %}
 
 const getallColorfromproudct =[
   {% for value in product.options_by_name.color.values %}
-   {% if forloop.index == last %} "{{ value | split: " " | join:"_" }} " {% else %} "{{ value | split: " " | join:"_"}}", {% endif %}
+   {% if forloop.index == last %} "{{ value | split: " " | join:"" }} " {% else %} "{{ value | split: " " | join:""}}", {% endif %}
  {% endfor %}];
-// console.log( getallColorfromproudct);
+  console.log( getallColorfromproudct);
 
 
 async function getUsers() {
@@ -1227,7 +1228,7 @@ async function getUsers() {
 
 {% comment %} Get seperated color data  {% endcomment %}
 {% for value in product.options_by_name.color.values %}
-  const  {{ value | split: " " | join:"_" }} = [];
+  const  {{ value | split: " " | join:"" }} = [];
   {% endfor %}
 
 async function renderUsers() {
@@ -1263,7 +1264,7 @@ if ( users.product.options[1].name === 'Color'){
                            
             <p>$ ${user.price}</p>
             <div>
-              <input type="number" data-varnitid="${user.id}" placeholder="${user.option1}">  
+              <input type="number" data-varnitid="${user.id}" onchange="myFunction(this)" placeholder="${user.option1}">  
             </div>
             <p>${allavaiableinventory[index]} </p>
         </div>`;
@@ -1299,31 +1300,88 @@ if ( users.product.options[1].name === 'Color'){
 
   users.product.variants.forEach((user,index) => {
     user.occupation = allavaiableinventory[index];
-      console.log()
+     
 
     getallColorfromproudct.map(singelcolor =>{
-    
- 
-        if(user.option1 == singelcolor || user.option2 == singelcolor || user.option3 == singelcolor  ){
-        
-          eval(singelcolor).push(user);
+      {% comment %} let userop1 = user.option1.split('').filter(e => e.trim().length).join('_');
+      let userop2 = user.option2.split('').filter(e => e.trim().length).join('_');
+      let userop3 = user.option3.split('').filter(e => e.trim().length).join('_');
+      if(userop1 == singelcolor || userop2 == singelcolor || userop3 == singelcolor  ){
+  {% endcomment %}
+  let option1s = user.option1;
+   let option1 = option1s.split('').filter(e => e.trim().length).join('');
+  let option2s = user.option2;
+   let option2 = option2s.split('').filter(e => e.trim().length).join('');
+ //let option3s = user.option3;
+ //  let option3 = option3s.split('').filter(e => e.trim().length).join('_');
+ {% comment %} console.log(option2);
+ console.log("this is opiton one");
+ console.log(singelcolor); {% endcomment %}
+{% comment %} 
+if(singelcolor == "LightBlue"){
+  console.log("This is LightBlue working");
+} // endof lightblue {% endcomment %}
+
+        if(option1 == singelcolor || option2 == singelcolor   ){
+           {% comment %} let singelcolorName = singelcolor.split(' ').filter(e => e.trim().length).join('_') {% endcomment %}
+          // console.log(singelcolorName);
+          {% comment %} console.log(singelcolor +" inner"); {% endcomment %}
+         // console.log("This is inner LightBlue");
+           eval(singelcolor).push(user); 
           
         } else{
          
         }
- 
+      
+
     });
   });
   {% for value in product.options_by_name.color.values %}
-    console.log({{ value | split: " " | join:"_" }} );
-    {% endfor %}
+    console.log({{ value | split: " " | join:"" }} );
+    {% endfor %} 
+    
+
 
 } //last of main function
 
 
 
 renderUsers();
+const itemraw = [];
+async function myFunction(e){
 
+  let newobect = {};
+   //console.log(e)
+ console.log("this is working");
+ // newobect.[";id"] = e.getAttribute('data-varnitid');
+ // newobect.["quantity"] = e.value;
+ newobect['id'] = e.getAttribute('data-varnitid');
+ newobect['quantity'] = e.value;
+ itemraw.push(newobect);
+   
+} 
+
+async function addItem() {
+
+ async function addItem1(itemraw) {
+  console.log(itemraw);
+  const result = await fetch("/cart/add.js", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+      },
+      body: JSON.stringify(
+        {
+          items:itemraw
+        }
+    )
+  })
+}
+
+const additemcount = addItem1(itemraw);
+
+}
 
 
 
@@ -2121,5 +2179,10 @@ p span{
 
 .user{
  width:20%;
+}
+.add-card {
+  color: red;
+  padding: 20px;
+  font-size: 34px;
 }
 </style>
