@@ -1074,6 +1074,9 @@
         </div>
       </div>
     </modal-dialog>
+
+
+    
   {%- endfor -%}
 
   {%- if product.media.size > 0 -%}
@@ -1164,6 +1167,169 @@
     }
   </script>
 </section>
+
+
+
+{% for variant in product.variants %}
+
+  <p> <span>{{- variant.id -}}</span> {{ variant.inventory_quantity }}</p>
+       
+ {% endfor %}
+
+
+ {% comment %} Get the color   {% endcomment %}
+   {% for value in product.options_by_name.color.values %}
+  {{ value }}
+{% endfor %}
+
+<div class="container">
+  <div class="row">
+  
+  </div>
+</div>
+
+<script>
+
+{% comment %} get varinat inventroy count  {% endcomment %}
+const allavaiableinventory = [
+{% for variant in product.variants %}
+
+ {{ variant.inventory_quantity }},
+       
+ {% endfor %}
+
+
+]
+
+
+
+console.log(allavaiableinventory)
+
+{% comment %} Get seperated color data end {% endcomment %}
+
+const getallColorfromproudct =[
+  {% for value in product.options_by_name.color.values %}
+   {% if forloop.index == last %} "{{ value | split: " " | join:"_" }} " {% else %} "{{ value | split: " " | join:"_"}}", {% endif %}
+ {% endfor %}];
+// console.log( getallColorfromproudct);
+
+
+async function getUsers() {
+  let url = 'http://127.0.0.1:9292{{ product.url }}.json';
+  try {
+      let res = await fetch(url);
+      return await res.json();
+  } catch (error) {
+      console.log(error);
+  }
+}
+
+
+{% comment %} Get seperated color data  {% endcomment %}
+{% for value in product.options_by_name.color.values %}
+  const  {{ value | split: " " | join:"_" }} = [];
+  {% endfor %}
+
+async function renderUsers() {
+  let users = await getUsers();
+   {% comment %} //Get value of color  for checking and putting the item
+   const getvalueofcolor = [  {% for value in product.options_by_name.color.values %}
+   
+    {% if forloop.index == last %} "{{ value }} " {% else %} "{{ value}}", {% endif %}
+     {% endfor %}] {% endcomment %}
+
+// geting the color to check if it contain  that color or size for optio one or option two in jeson data
+let html = '';
+
+if ( users.product.options[1].name === 'Color'){
+
+  // console.log(users.product.options[1].name);
+
+
+
+  if(users.product.options[0].name === 'Size'){
+
+
+     // console.log(users.product.options[0].name + " From 0 option ");
+    users.product.options[1].values.forEach(value =>{
+      {% comment %} console.log(value); {% endcomment %}
+      {% comment %} console.log(users.product.variants); {% endcomment %}
+      users.product.variants.forEach((user , index) => {
+     // console.log(user) 
+     {% comment %} console.log(value) {% endcomment %}
+        if( value === user.option2 ){
+          
+          let htmlSegment = `<div class="user">
+                           
+            <p>$ ${user.price}</p>
+            <div>
+              <input type="number" data-varnitid="${user.id}" placeholder="${user.option1}">  
+            </div>
+            <p>${allavaiableinventory[index]} </p>
+        </div>`;
+        // console.log("this is running Varinat");
+        html += htmlSegment;
+        } // end of if loop
+       
+    }); // forEach end
+
+
+    }); ///for Each end 
+    // settings update here 
+
+
+ 
+
+
+    } // last of Inner if for sizing users.product.options[0].name === 'Size'
+    else if(users.product.options[2].name === 'Size' ) {
+
+
+
+    //  console.log(users.product.options[2].name + " From 2 option ");
+
+
+
+    }// last of Inner if for sizing users.product.options[2].name === 'Size'
+  } //last of Main if function this is only work if users.product.options[1].name === 'Color'
+  
+  let container = document.querySelector('.row');
+  container.innerHTML = html;
+
+
+  users.product.variants.forEach((user,index) => {
+    user.occupation = allavaiableinventory[index];
+      console.log()
+
+    getallColorfromproudct.map(singelcolor =>{
+    
+ 
+        if(user.option1 == singelcolor || user.option2 == singelcolor || user.option3 == singelcolor  ){
+        
+          eval(singelcolor).push(user);
+          
+        } else{
+         
+        }
+ 
+    });
+  });
+  {% for value in product.options_by_name.color.values %}
+    console.log({{ value | split: " " | join:"_" }} );
+    {% endfor %}
+
+} //last of main function
+
+
+
+renderUsers();
+
+
+
+
+</script>
+
+
 
 {% schema %}
 {
@@ -1937,3 +2103,23 @@
   ]
 }
 {% endschema %}
+
+
+
+<style>
+  p {
+    margin-left:50px;
+    color:#fff;
+  }
+p span{
+  color:red;
+}
+.container{
+ display: flex;
+ width: 600px;
+}
+
+.user{
+ width:20%;
+}
+</style>
