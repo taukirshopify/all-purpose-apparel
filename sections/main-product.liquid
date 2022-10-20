@@ -1213,10 +1213,9 @@ const getallColorfromproudct =[
    {% if forloop.index == last %} "{{ value | split: " " | join:"" }} " {% else %} "{{ value | split: " " | join:""}}", {% endif %}
  {% endfor %}];
   console.log( getallColorfromproudct);
-
-
+  console.log();
 async function getUsers() {
-  let url = 'http://127.0.0.1:9292{{ product.url }}.json';
+  let url = `{{ product.url }}.json`;
   try {
       let res = await fetch(url);
       return await res.json();
