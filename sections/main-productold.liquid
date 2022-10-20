@@ -1180,21 +1180,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <div class="d-flex">
-        <div class="allinonarray">
-
-        </div>
-      </div>
-    </div>
+  
   </div>
 
 </div>
 <div class="add-card" onclick="addItem()">
   Add to card 
 </div>
-<div class="alltitle">
-</div>
+
 <script>
 
 {% comment %} get varinat inventroy count  {% endcomment %}
@@ -1300,14 +1293,14 @@ if ( users.product.options[1].name === 'Color'){
     }// last of Inner if for sizing users.product.options[2].name === 'Size'
   } //last of Main if function this is only work if users.product.options[1].name === 'Color'
   
-  let container = document.querySelector('.allinonarray');
+  let container = document.querySelector('.row');
   container.innerHTML = html;
 
 
   users.product.variants.forEach((user,index) => {
-    user.inventory_product_count = allavaiableinventory[index];
+    user.occupation = allavaiableinventory[index];
      
-  console.log(user.enventorycount);
+
     getallColorfromproudct.map(singelcolor =>{
       {% comment %} let userop1 = user.option1.split('').filter(e => e.trim().length).join('_');
       let userop2 = user.option2.split('').filter(e => e.trim().length).join('_');
@@ -1342,87 +1335,10 @@ if(singelcolor == "LightBlue"){
 
     });
   });
-  
-  {% for value in product.options_by_name.color.values %}
-    {{ value | split: " " | join:"" }}.unshift( '{{ value }} '  );
-    {% endfor %} 
-
-
   {% for value in product.options_by_name.color.values %}
     console.log({{ value | split: " " | join:"" }} );
     {% endfor %} 
     
-
-   // color and sizing name array 
-
-   const colorandSizing = [
-      "Color",
-
-    {% for value in product.options_by_name.size.values %}
-    {% if forloop.index == last %} "{{ value }} " {% else %} "{{ value}}", {% endif %}
-    {% endfor %}
-   ];
-  // console.log(colorandSizing);
-
-  //now seperate array start
-let htmla =''
-colorandSizing.forEach((data)=>{
-
-  
-  let htmlSegment2 = `<div class="allvarinatname">
-                           <p>
-    ${data} </p>
-  </div>`;
-  // console.log("this is running Varinat");
-  htmla += htmlSegment2;
-})
-
-
-{% for value in product.options_by_name.color.values %}
-  {{ value | split: " " | join:"" }}.forEach((data,index,arr)=>{
-
-    
-   if(index === 0){
-    console.log(data);
-    let htmlSegment2 = `
-    <div class="topwrapper">
-    <div class="allvarinatname">
-     <p>${data} </p>
-    </div>`;
-    htmla += htmlSegment2;
-  } else if( index === arr-1 ){
-    let htmlSegment4 = `<div class="allvarinatname">
-      <p>
-${data.title} </p>
-</div>
-</div>
-`;
-htmla += htmlSegment4; 
-  }
-  
-  else{
-       let htmlSegment3 = `<div class="user">
-                           
-        <p>$ ${data.price}</p>
-        <div>
-          <input type="number" data-varnitid="${data.id}" onchange="myFunction(this)" placeholder="${data.option1}">  
-        </div>
-        <p>${data.inventory_product_count} </p>
-    </div>`;
-    htmla += htmlSegment3; 
-  }
-    // console.log("this is running Varinat");
-    
-  });
-  {% endfor %} 
-
-
-
-let container2 = document.querySelector('.alltitle');
-container2.innerHTML = htmla;
-
-
-
 
 
 } //last of main function
@@ -1465,9 +1381,6 @@ async function addItem() {
 const additemcount = addItem1(itemraw);
 
 }
-
-
-
 
 
 
@@ -2251,10 +2164,6 @@ const additemcount = addItem1(itemraw);
 
 
 <style>
-
-  .allvarinatname{
-  display:inline-block;
-  }
   p {
     margin-left:50px;
     color:#fff;
@@ -2262,12 +2171,13 @@ const additemcount = addItem1(itemraw);
 p span{
   color:red;
 }
-.allinonarray{
- width:600px;
+.container{
+ display: flex;
+ width: 600px;
 }
 
 .user{
- display: inline-block;
+ width:20%;
 }
 .add-card {
   color: red;
@@ -2275,4 +2185,3 @@ p span{
   font-size: 34px;
 }
 </style>
-
