@@ -1170,6 +1170,12 @@
 
 
 
+{% for variant in product.variants %}
+
+  <p> <span>{{- variant.id -}}</span> {{ variant.inventory_quantity }}</p>
+       
+ {% endfor %}
+
 
 
 <div class="container">
@@ -1189,34 +1195,8 @@
 </div>
 <div class="alltitle">
 </div>
-
-
-<div class="container">
-  <div class="row">
-     <div class="col-md-12">
-      {% for value in product.options_by_name.color.values %}
-         <div id="{{ value | split: " " | join:"" }}"> 
-        
-        </div>
-      {% endfor %}];
-    </div>
-  </div>
-</div>
-
-
 <script>
- async function imposeMinMax(e){
-    if(e.value != ""){
-      if(parseInt(e.value) < parseInt(e.min)){
-        e.value = e.min;
-      }
-      if(parseInt(e.value) > parseInt(e.max)){
-        e.value = e.max;
-      }
-    }
-  }
-  
- 
+
 {% comment %} get varinat inventroy count  {% endcomment %}
 const allavaiableinventory = [
 {% for variant in product.variants %}
@@ -1394,8 +1374,8 @@ colorandSizing.forEach((data)=>{
     ${data} </p>
   </div>`;
   // console.log("this is running Varinat");
-    htmla += htmlSegment2;
-  }) // coloradnsizing end
+  htmla += htmlSegment2;
+})
 
 
 {% for value in product.options_by_name.color.values %}
@@ -1404,38 +1384,32 @@ colorandSizing.forEach((data)=>{
     
    if(index === 0){
     console.log(data);
- htmlSegment = `
+    let htmlSegment2 = `
     <div class="topwrapper">
     <div class="allvarinatname">
      <p>${data} </p>
     </div>`;
-    htmla += htmlSegment;
-  } else if( index === arr.length-1 ){
-    htmlSegment = `<div class="user">         
-    <p>$ ${data.price}</p>
-    <div>
-      <input type="number" min="0" max="${data.inventory_product_count}" data-varnitid="${data.id}" onchange="myFunction(this)" placeholder="${data.option1}" onkeyup="imposeMinMax(this)">  
-    </div>
-    <p>${data.inventory_product_count} </p>
-  </div>
-    <div class="add-card" onclick="addItem()">
-      Add
-    </div>
+    htmla += htmlSegment2;
+  } else if( index === arr-1 ){
+    let htmlSegment4 = `<div class="allvarinatname">
+      <p>
+${data.title} </p>
 </div>
-  
-  `;
-    htmla += htmlSegment; 
+</div>
+`;
+htmla += htmlSegment4; 
   }
   
   else{
-    htmlSegment = `<div class="user">         
-          <p>$ ${data.price}</p>
-          <div>
-            <input type="number" min="0" max="${data.inventory_product_count}" data-varnitid="${data.id}" onchange="myFunction(this)" placeholder="${data.option1}" onkeyup="imposeMinMax(this)">  
-          </div>
-          <p>${data.inventory_product_count} </p>
-        </div>`;
-    htmla += htmlSegment; 
+       let htmlSegment3 = `<div class="user">
+                           
+        <p>$ ${data.price}</p>
+        <div>
+          <input type="number" data-varnitid="${data.id}" onchange="myFunction(this)" placeholder="${data.option1}">  
+        </div>
+        <p>${data.inventory_product_count} </p>
+    </div>`;
+    htmla += htmlSegment3; 
   }
     // console.log("this is running Varinat");
     
@@ -1449,6 +1423,8 @@ container2.innerHTML = htmla;
 
 
 
+
+
 } //last of main function
 
 
@@ -1456,20 +1432,20 @@ container2.innerHTML = htmla;
 renderUsers();
 const itemraw = [];
 async function myFunction(e){
+
   let newobect = {};
    //console.log(e)
-  // console.log("this is working");
+ console.log("this is working");
  // newobect.[";id"] = e.getAttribute('data-varnitid');
  // newobect.["quantity"] = e.value;
  newobect['id'] = e.getAttribute('data-varnitid');
  newobect['quantity'] = e.value;
  itemraw.push(newobect);
-
    
 } 
 
 async function addItem() {
-  location.replace(`/cart`);
+
  async function addItem1(itemraw) {
   console.log(itemraw);
   const result = await fetch("/cart/add.js", {
@@ -1488,7 +1464,7 @@ async function addItem() {
 
 const additemcount = addItem1(itemraw);
 
-}///async addItem end
+}
 
 
 
