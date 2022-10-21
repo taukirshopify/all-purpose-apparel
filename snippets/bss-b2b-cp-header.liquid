@@ -351,7 +351,7 @@ li.bss-qi-text-warning::before {
 </style>
 	          
 	          {% capture bss_b2b_featured_product_vat_styles_content %}{% include 'bss-b2b-featured-product-vat-styles' %}{% endcapture %}{% unless bss_b2b_featured_product_vat_styles_content contains "Liquid error" %}{{ bss_b2b_featured_product_vat_styles_content }}{% endunless %}
-	          
+	          {% capture bss_b2b_pl_rules_data %}{% include 'bss-b2b-pl-rules-data' %}{% endcapture %}{% unless bss_b2b_pl_rules_data contains "Liquid error" %}{{ bss_b2b_pl_rules_data }}{% endunless %}{% include 'bss-b2b-cp-rules-data' %} 
 	          {% include "bss-b2b-currency-format"%}
 	          <script id="bss-b2b-config-data">
 	          if (typeof BSS_B2B == 'undefined') {
@@ -359,9 +359,9 @@ li.bss-qi-text-warning::before {
 	          }
 	
 	          BSS_B2B.storeId = 6991;
-	          BSS_B2B.configData = null;
-	          BSS_B2B.plConfigData = null;
-	          BSS_B2B.cpSettings = null;
+	          BSS_B2B.configData = [];
+	          BSS_B2B.plConfigData = [];
+	          BSS_B2B.cpSettings = {"cpType":0,"default_price_color":"#000000","price_applied_cp_color":"#000000"};
 	          BSS_B2B.currentPlan = "false";
 	          BSS_B2B.planCode = "null";
 	          BSS_B2B.isAllowFree = true;
@@ -370,7 +370,7 @@ li.bss-qi-text-warning::before {
 	          BSS_B2B.qbTranslations = null;
 	          BSS_B2B.qbSettings = null;
 	          BSS_B2B.rfGeneralSettings = null;
-	          BSS_B2B.shopModules = [];
+	          BSS_B2B.shopModules = [{"code":"qb","status":0},{"code":"cp","status":1},{"code":"act","status":0},{"code":"form","status":0},{"code":"tax_exempt","status":0},{"code":"amo","status":0},{"code":"mc","status":0},{"code":"public_api","status":0},{"code":"dc","status":0},{"code":"cart_note","status":0},{"code":"mo","status":0},{"code":"tax_display","status":0},{"code":"sr","status":0},{"code":"bogo","status":0},{"code":"qi","status":0},{"code":"ef","status":0}];
 	          BSS_B2B.currencyConfig = null;
 	          BSS_B2B.currencyFormat = bssCurrencyFormat;
 	          BSS_B2B.amoRules = null;
@@ -404,7 +404,24 @@ li.bss-qi-text-warning::before {
 	          var bssB2BVatExemptSelectedOriginal = null;
 	          var bssB2BVatExemptSelected = null;
 	        </script>
-	        
+	        <style>
+    [bss-b2b-cart-item-key],
+    [bss-b2b-product-id],
+    [bss-b2b-variant-id],
+    [bss-b2b-cart-item-key],
+    [bss-b2b-cart-total-price],
+    [bss-b2b-cart-total-discount],
+    [data-cart-item-regular-price],
+    [bss-b2b-ajax-cart-subtotal],
+    [data-cart-subtotal] {
+        visibility: hidden;
+    }
+</style><style type="text/css">
+                .shopify-payment-button__button, .shopify-payment-button__more-options{
+                         display: none !important;
+                }
+                .bss-b2b-btn-buyitnow { display: block !important; }
+                meta[itemprop="price"] { display: none !important; }</style>
 			<script id="bss-b2b-wholesaler-form-default">
                  BSS_B2B.formDataRenderDefault = null;
                  BSS_B2B.formIdDef = null;
