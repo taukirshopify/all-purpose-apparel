@@ -1189,16 +1189,15 @@
 </div>
 
 
-<div class="container">
-  <div class="row">
-     <div class="col-md-12">
-      <div class="alltitle">
+<section >
+  <div class="whole_sell_wrapper">
+    <div class="containr alltitle">
 
-      </div>
-      
     </div>
   </div>
-</div>
+
+
+</section>
 
 <h2>{{ "Cranberry___9F000F" | split: "___" | last }}</h2>
 <script>
@@ -1370,15 +1369,69 @@ if ( users.product.options[1].name === 'Color'){
 
   //now seperate array start
 let htmla =''
-colorandSizing.forEach((data)=>{
+colorandSizing.forEach((data,index,arr)=>{
 
+  if(index === 0){
   
-  let htmlSegment2 = `<div class="allvarinatname">
-                           <p>
-    ${data} </p>
-  </div>`;
-  // console.log("this is running Varinat");
+    let htmlSegment2 = `
+  <div class="row wholesaleoption-title">
+    <div class="col-3">
+    <div class="allvarinatname">
+                            <p>
+      ${data} </p>
+    </div>
+  </div>
+    `;
     htmla += htmlSegment2;
+      }
+      else if (index === 1 ) {
+        let htmlSegment3 = `
+    <div class="col-8 d-flex justify-content-around">
+            <div class="allvarinatname">
+                                    <p>
+              ${data} </p>
+            </div>
+           
+      
+            `;
+            htmla += htmlSegment3;
+  
+          
+        }
+      
+      
+   else if (index === arr.length - 1 ) {
+        let htmlSegment3 = `
+  
+            <div class="allvarinatname">
+                                    <p>
+              ${data} </p>
+            </div>
+          </div>
+            <div class="col-1">
+              
+            </div>
+          </div> 
+            `;
+            htmla += htmlSegment3;
+  
+          
+        } 
+      
+      else{
+
+  let htmlSegment4 = `
+ 
+    <div class="allvarinatname">
+                            <p>
+      ${data} </p>
+    </div>`;
+    htmla += htmlSegment4;
+}
+
+
+  // console.log("this is running Varinat");
+  
   }) // coloradnsizing end
 
 
@@ -1389,33 +1442,60 @@ colorandSizing.forEach((data)=>{
    if(index === 0){
     console.log(data);
  htmlSegment = `
-    <div class="topwrapper">
-    <div class="allvarinatname">
+    <div class="row topwrapper d-flex align-items-center">
+    <div class="allvarinatcolorname  col-3">
+
       <p> Cost Per Unit: </p>
-      <div class="d-flex">
-       <div style="background: #{{ value | split: "___" | last  }};
-        width: 45px;
-        height: 45px;
-        border:1px solid #fffff7;
-        border-radius: 50%;">
-       </div>
-       <p>${data} </p>
-      </div >
+
+        <div class="d-flex align-items-center colorname">
+          <div style="background: #{{ value | split: "___" | last  }};
+            width: 45px;
+            height: 45px;
+            border:1px solid #fffff7;
+            border-radius: 50%;">
+          </div>
+        <p>${data} </p>
+        </div >
+
       <p> Stock Level: </p>
      
     </div>`;
     htmla += htmlSegment;
-  } else if( index === arr.length-1 ){
-    htmlSegment = `<div class="user">         
-    <p>$ ${data.price}</p>
+  } 
+  else if( index === 1 ){
+    htmlSegment = `<div class="col-8 d-flex justify-content-around">    
+    <div class="singel-varniat-input">        
+          <p>$${data.price}</p>
+          <div>
+            <input type="number" min="0" max="${data.inventory_product_count}" data-varnitid="${data.id}" onchange="myFunction(this)" placeholder="${data.option1}" onkeyup="imposeMinMax(this)">  
+          </div>
+          <p>${data.inventory_product_count   } </p>
+        </div>`;
+    htmla += htmlSegment; 
+  }
+  
+  
+  
+  
+  else if( index === arr.length-1 ){
+    htmlSegment = `<div class="singel-varniat-input">         
+    <p>$${data.price.replace(/\s+/g,'')}</p>
     <div>
       <input type="number" min="0" max="${data.inventory_product_count}" data-varnitid="${data.id}" onchange="myFunction(this)" placeholder="${data.option1}" onkeyup="imposeMinMax(this)">  
     </div>
     <p>${data.inventory_product_count} </p>
   </div>
-    <div class="add-car" onclick="addItem()">
+
+   </div> <!--end of element bootstrap inner div-->
+  
+
+
+   <div class="col-1">
+    <div class="color-add-color" onclick="addItem()">
       Add
     </div>
+  </div>
+
 </div>
   
   `;
@@ -1423,8 +1503,8 @@ colorandSizing.forEach((data)=>{
   }
   
   else{
-    htmlSegment = `<div class="user">         
-          <p>$ ${data.price}</p>
+    htmlSegment = `<div class="singel-varniat-input">         
+          <p>$${data.price.replace(/\s+/g,'')}</p>
           <div>
             <input type="number" min="0" max="${data.inventory_product_count}" data-varnitid="${data.id}" onchange="myFunction(this)" placeholder="${data.option1}" onkeyup="imposeMinMax(this)">  
           </div>
