@@ -1187,23 +1187,20 @@
 <div class="add-card" onclick="addItem()">
   Add to card 
 </div>
-<div class="alltitle">
-</div>
 
 
 <div class="container">
   <div class="row">
      <div class="col-md-12">
-      {% for value in product.options_by_name.color.values %}
-         <div id="{{ value | split: " " | join:"" }}"> 
-        
-        </div>
-      {% endfor %}];
+      <div class="alltitle">
+
+      </div>
+      
     </div>
   </div>
 </div>
 
-
+<h2>{{ "Cranberry___9F000F" | split: "___" | last }}</h2>
 <script>
  async function imposeMinMax(e){
     if(e.value != ""){
@@ -1313,11 +1310,12 @@ if ( users.product.options[1].name === 'Color'){
 
 
 
-    //  console.log(users.product.options[2].name + " From 2 option ");
+  
 
 
 
     }// last of Inner if for sizing users.product.options[2].name === 'Size'
+
   } //last of Main if function this is only work if users.product.options[1].name === 'Color'
   
   let container = document.querySelector('.allinonarray');
@@ -1329,30 +1327,16 @@ if ( users.product.options[1].name === 'Color'){
      
   console.log(user.enventorycount);
     getallColorfromproudct.map(singelcolor =>{
-      {% comment %} let userop1 = user.option1.split('').filter(e => e.trim().length).join('_');
-      let userop2 = user.option2.split('').filter(e => e.trim().length).join('_');
-      let userop3 = user.option3.split('').filter(e => e.trim().length).join('_');
-      if(userop1 == singelcolor || userop2 == singelcolor || userop3 == singelcolor  ){
-  {% endcomment %}
+     
+      
   let option1s = user.option1;
    let option1 = option1s.split('').filter(e => e.trim().length).join('');
   let option2s = user.option2;
    let option2 = option2s.split('').filter(e => e.trim().length).join('');
  //let option3s = user.option3;
  //  let option3 = option3s.split('').filter(e => e.trim().length).join('_');
- {% comment %} console.log(option2);
- console.log("this is opiton one");
- console.log(singelcolor); {% endcomment %}
-{% comment %} 
-if(singelcolor == "LightBlue"){
-  console.log("This is LightBlue working");
-} // endof lightblue {% endcomment %}
 
         if(option1 == singelcolor || option2 == singelcolor   ){
-           {% comment %} let singelcolorName = singelcolor.split(' ').filter(e => e.trim().length).join('_') {% endcomment %}
-          // console.log(singelcolorName);
-          {% comment %} console.log(singelcolor +" inner"); {% endcomment %}
-         // console.log("This is inner LightBlue");
            eval(singelcolor).push(user); 
           
         } else{
@@ -1364,7 +1348,7 @@ if(singelcolor == "LightBlue"){
   });
   
   {% for value in product.options_by_name.color.values %}
-    {{ value | split: " " | join:"" }}.unshift( '{{ value }} '  );
+    {{ value | split: " " | join:"" }}.unshift( '{{ value | split: "___" | first  }}'  );
     {% endfor %} 
 
 
@@ -1407,7 +1391,18 @@ colorandSizing.forEach((data)=>{
  htmlSegment = `
     <div class="topwrapper">
     <div class="allvarinatname">
-     <p>${data} </p>
+      <p> Cost Per Unit: </p>
+      <div class="d-flex">
+       <div style="background: #{{ value | split: "___" | last  }};
+        width: 45px;
+        height: 45px;
+        border:1px solid #fffff7;
+        border-radius: 50%;">
+       </div>
+       <p>${data} </p>
+      </div >
+      <p> Stock Level: </p>
+     
     </div>`;
     htmla += htmlSegment;
   } else if( index === arr.length-1 ){
@@ -1418,7 +1413,7 @@ colorandSizing.forEach((data)=>{
     </div>
     <p>${data.inventory_product_count} </p>
   </div>
-    <div class="add-card" onclick="addItem()">
+    <div class="add-car" onclick="addItem()">
       Add
     </div>
 </div>
@@ -1469,7 +1464,7 @@ async function myFunction(e){
 } 
 
 async function addItem() {
-  location.replace(`/cart`);
+  
  async function addItem1(itemraw) {
   console.log(itemraw);
   const result = await fetch("/cart/add.js", {
@@ -1487,7 +1482,7 @@ async function addItem() {
 }
 
 const additemcount = addItem1(itemraw);
-
+location.replace(`/cart`);
 }///async addItem end
 
 
@@ -2280,7 +2275,7 @@ const additemcount = addItem1(itemraw);
   display:inline-block;
   }
   p {
-    margin-left:50px;
+   
     color:#fff;
   }
 p span{
