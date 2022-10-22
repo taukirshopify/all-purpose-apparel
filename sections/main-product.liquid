@@ -499,7 +499,7 @@
                                     checked
                                   {% endif %}
                                 >
-                                <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class="dropdown-color" style="background:#{{ value | split: "___" | last }};     padding: 20px 20px;">
+                                <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class="dropdown-color" style="background:#{{ value | split: "___" | last }};   padding: 20px 20px;">
                                 
                                 </label>
                               {%- endfor -%}
@@ -519,7 +519,16 @@
                                             checked
                                           {% endif %}
                                         >
-                                        <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                         
+                                          
+                                          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" style=" 
+                                            width: 45px;
+                                            height: 45px;
+                                            padding: 0px;
+                                            line-height: 45px;
+                                            "
+                                        
+                                        >
                                           {{ value  }}
                                         </label>
                                       {%- endfor -%}
