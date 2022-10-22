@@ -482,24 +482,59 @@
                     {{ block.shopify_attributes }}
                   >
                     {%- for option in product.options_with_values -%}
-                      <fieldset class="js product-form__input">
-                        <legend class="form__label">{{ option.name }}</legend>
-                        {%- for value in option.values -%}
-                          <input
-                            type="radio"
-                            id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-                            name="{{ option.name }}"
-                            value="{{ value | escape }}"
-                            form="{{ product_form_id }}"
-                            {% if option.selected_value == value %}
-                              checked
-                            {% endif %}
-                          >
-                          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                            {{ value }}
-                          </label>
-                        {%- endfor -%}
-                      </fieldset>
+
+
+
+                      {% if option.name  == 'Color' %}
+                            <fieldset class="js product-form__input">
+                              <legend class="form__label">{{ option.name }}</legend>
+                              {%- for value in option.values -%}
+                                <input
+                                  type="radio"
+                                  id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                  name="{{ option.name }}"
+                                  value="{{ value  | escape }}"
+                                  form="{{ product_form_id }}"
+                                  {% if option.selected_value == value %}
+                                    checked
+                                  {% endif %}
+                                >
+                                <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class="dropdown-color" style="background:#{{ value | split: "___" | last }};     padding: 20px 20px;">
+                                
+                                </label>
+                              {%- endfor -%}
+                            </fieldset>
+
+                                    {% else %}
+                                    <fieldset class="js product-form__input">
+                                      <legend class="form__label">{{ option.name }}</legend>
+                                      {%- for value in option.values -%}
+                                        <input
+                                          type="radio"
+                                          id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                          name="{{ option.name }}"
+                                          value="{{ value  | escape }}"
+                                          form="{{ product_form_id }}"
+                                          {% if option.selected_value == value %}
+                                            checked
+                                          {% endif %}
+                                        >
+                                        <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+                                          {{ value  }}
+                                        </label>
+                                      {%- endfor -%}
+                                    </fieldset>
+
+                          {% endif %}
+
+
+                   
+
+
+
+
+
+
                     {%- endfor -%}
                     <script type="application/json">
                       {{ product.variants | json }}
@@ -1184,9 +1219,6 @@
   </div>
 
 </div>
-<div class="add-card" onclick="addItem()">
-  Add to card 
-</div>
 
 
 <section >
@@ -1199,7 +1231,7 @@
 
 </section>
 
-<h2>{{ "Cranberry___9F000F" | split: "___" | last }}</h2>
+
 <script>
  async function imposeMinMax(e){
     if(e.value != ""){
@@ -1236,7 +1268,6 @@ const getallColorfromproudct =[
    {% if forloop.index == last %} "{{ value | split: " " | join:"" }} " {% else %} "{{ value | split: " " | join:""}}", {% endif %}
  {% endfor %}];
   console.log( getallColorfromproudct);
-  console.log();
 async function getUsers() {
   let url = `{{ product.url }}.json`;
   try {
@@ -1255,18 +1286,14 @@ async function getUsers() {
 
 async function renderUsers() {
   let users = await getUsers();
-   {% comment %} //Get value of color  for checking and putting the item
-   const getvalueofcolor = [  {% for value in product.options_by_name.color.values %}
-   
-    {% if forloop.index == last %} "{{ value }} " {% else %} "{{ value}}", {% endif %}
-     {% endfor %}] {% endcomment %}
+
 
 // geting the color to check if it contain  that color or size for optio one or option two in jeson data
 let html = '';
 
 if ( users.product.options[1].name === 'Color'){
 
-  // console.log(users.product.options[1].name);
+
 
 
 
@@ -1317,8 +1344,8 @@ if ( users.product.options[1].name === 'Color'){
 
   } //last of Main if function this is only work if users.product.options[1].name === 'Color'
   
-  let container = document.querySelector('.allinonarray');
-  container.innerHTML = html;
+  {% comment %} let container = document.querySelector('.allinonarray');
+  container.innerHTML = html; {% endcomment %}
 
 
   users.product.variants.forEach((user,index) => {
@@ -1430,7 +1457,7 @@ colorandSizing.forEach((data,index,arr)=>{
 }
 
 
-  // console.log("this is running Varinat");
+
   
   }) // coloradnsizing end
 
@@ -1532,10 +1559,6 @@ renderUsers();
 const itemraw = [];
 async function myFunction(e){
   let newobect = {};
-   //console.log(e)
-  // console.log("this is working");
- // newobect.[";id"] = e.getAttribute('data-varnitid');
- // newobect.["quantity"] = e.value;
  newobect['id'] = e.getAttribute('data-varnitid');
  newobect['quantity'] = e.value;
  itemraw.push(newobect);
