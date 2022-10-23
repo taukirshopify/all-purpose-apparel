@@ -1571,8 +1571,6 @@ async function myFunction(e){
  newobect['id'] = e.getAttribute('data-varnitid');
  newobect['quantity'] = e.value;
  itemraw.push(newobect);
-
-   
 } 
 
 async function addItem() {
@@ -1591,10 +1589,12 @@ async function addItem() {
         }
     )
   })
+
 }
 
 const additemcount = addItem1(itemraw);
-location.replace(`/cart`);
+setTimeout( function(){location.replace(`/cart`) },2000);
+// ;
 }///async addItem end
 
 
