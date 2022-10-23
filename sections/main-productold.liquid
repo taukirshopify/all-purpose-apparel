@@ -1235,8 +1235,6 @@ const getallColorfromproudct =[
   {% for value in product.options_by_name.color.values %}
    {% if forloop.index == last %} "{{ value | split: " " | join:"" }} " {% else %} "{{ value | split: " " | join:""}}", {% endif %}
  {% endfor %}];
-  console.log( getallColorfromproudct);
-  console.log();
 async function getUsers() {
   let url = `{{ product.url }}.json`;
   try {

@@ -1295,7 +1295,7 @@ async function getUsers() {
 
 async function renderUsers() {
   let users = await getUsers();
-
+   console.log(users)
 
 // geting the color to check if it contain  that color or size for optio one or option two in jeson data
 let html = '';
@@ -1386,10 +1386,6 @@ if ( users.product.options[1].name === 'Color'){
     {{ value | split: " " | join:"" }}.unshift( '{{ value | split: "___" | first  }}'  );
     {% endfor %} 
 
-
-  {% for value in product.options_by_name.color.values %}
-    console.log({{ value | split: " " | join:"" }} );
-    {% endfor %} 
     
 
    // color and sizing name array 
