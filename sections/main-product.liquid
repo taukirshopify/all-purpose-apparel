@@ -1267,7 +1267,7 @@ const allavaiableinventory = [
 
 
 
-console.log(allavaiableinventory)
+//console.log(allavaiableinventory)
 
 
 {% comment %} Get seperated color data end {% endcomment %}
@@ -1276,7 +1276,7 @@ const getallColorfromproudct =[
   {% for value in product.options_by_name.color.values %}
    {% if forloop.index == last %} "{{ value | split: " " | join:"" }} " {% else %} "{{ value | split: " " | join:""}}", {% endif %}
  {% endfor %}];
-  console.log( getallColorfromproudct);
+  // console.log( getallColorfromproudct);
 async function getUsers() {
   let url = `{{ product.url }}.json`;
   try {
