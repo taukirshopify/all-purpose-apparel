@@ -320,7 +320,7 @@
                             .then(response => response.json())
                             .then(async function (data) {
                                 if (data.success) {
-                                    if (data.checkLimitAmount){
+                                    if (BSS_B2B.storeId !== 3793) {
                                         messageDiscountCode.style.color = "green";
                                         messageDiscountCode.innerHTML = data.message;
                                         discountCodeInput.setAttribute('discount-code', true);
@@ -332,20 +332,18 @@
                                             "X\n" +
                                             "</div>" +
                                             "</div>";
-                                        handleRemoveDiscountCodeApplied()
+                                        handleRemoveDiscountCodeApplied();
                                         let dataUpdateJSON = JSON.stringify({
                                             dc_keys: data.listKeysItemAppliedDC,
                                             discount_value: data.discountValue,
                                             discount_type: data.discountType,
-                                            discount_code: data.discountCode,
-                                            limitAmount: data.limitAmount,
-                                            enableLimitAmount:data.enableLimitAmount
-                                        })
+                                            discount_code: data.discountCode
+                                        });
                                         let dataUpdate = {
                                             attributes: {
                                                 discountCodeRule: dataUpdateJSON
                                             }
-                                        }
+                                        };
                                         await fetch("/cart/update.js", {
                                             method: "POST",
                                             headers: {
@@ -355,53 +353,7 @@
                                             body: JSON.stringify(dataUpdate)
                                         })
                                     } else {
-                                        let listItemAppliedDc = data.listItemAppliedDc;
-                                        let minimumAmount = Shopify.formatMoney(parseFloat(data.limitAmountDc *100));
-                                        let warningsModalDc= "<div id='modalWarningDc'>\n"+
-                                            "<div class='bss-modal-warning-dc-wrap' tabindex='-1'>" +
-                                            "<div class='bss-modal-dc activeDc'>" +
-                                            "<div class='bss-modal-dc-header'>" +
-                                            "<button title='Close (Esc)' type='button' class='bss-modal-dc-button-close'>×</button>" +
-                                            "<b class='bss-modal-dc-title'>" + data.warningAmountDc + "</b>\n" +
-                                            "</div>" +
-                                            "<div class='bss-modal-dc-body'>" +
-                                            "<div class='bss-dc-list-warning'>" +
-                                            "<span class='bss-warning-dc-minimum-quantity-title'>" + data.textWarningAmountDc;
-
-                                        warningsModalDc += "</span>";
-                                        warningsModalDc += "<ol class='bss-dc-list-warning-amount'>\n" +
-                                            "</ol>\n" +
-                                            "</div>\n" +
-                                            "</div>\n" +
-                                            "</div>\n" +
-                                            "</div>\n" +
-                                            "</div>"
-                                        if (!$('#modalWarningDc').length) {
-                                            $("body").prepend(warningsModalDc);
-                                            if ($("body").hasClass("gradient")) {
-                                                let applyDiscountCodeBtn = $("body").find("#bss-b2b-discount-code-submit");
-                                                if (applyDiscountCodeBtn.length) {
-                                                    applyDiscountCodeBtn.css("pointer-events", "none");
-                                                }
-                                            }
-                                        }
-
-                                        let listWarningDc = $('.bss-dc-list-warning-amount');
-                                        if (listWarningDc && listItemAppliedDc.length) {
-                                            listItemAppliedDc.map(item => {
-                                                let itemElement = "<li class='bss-amo-text-warning' data-warning-dc-minimum-amount data-warning-dc-id='" + item.id + "' style='display: block'>" + item.title + ":" + minimumAmount + "</li>";
-                                                listWarningDc.prepend(itemElement);
-                                            });
-                                            $(".bss-modal-dc-button-close").on("click", function () {
-                                                $("#modalWarningDc").remove();
-                                                if ($("body").hasClass("gradient")) {
-                                                    let applyDiscountCodeBtn = $("body").find("#bss-b2b-discount-code-submit");
-                                                    if (applyDiscountCodeBtn.length) {
-                                                        applyDiscountCodeBtn.css("pointer-events", "auto");
-                                                    }
-                                                }
-                                            })
-                                        }
+                                        BSS_B2B.customize.dc.checkLimitAmount(data, messageDiscountCode, discountCodeInput, discountCodeApplied, Shopify);
                                     }
                                 } else {
                                     messageDiscountCode.style.color = "red";
