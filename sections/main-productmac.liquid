@@ -482,24 +482,68 @@
                     {{ block.shopify_attributes }}
                   >
                     {%- for option in product.options_with_values -%}
-                      <fieldset class="js product-form__input">
-                        <legend class="form__label">{{ option.name }}</legend>
-                        {%- for value in option.values -%}
-                          <input
-                            type="radio"
-                            id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-                            name="{{ option.name }}"
-                            value="{{ value | escape }}"
-                            form="{{ product_form_id }}"
-                            {% if option.selected_value == value %}
-                              checked
-                            {% endif %}
-                          >
-                          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                            {{ value }}
-                          </label>
-                        {%- endfor -%}
-                      </fieldset>
+
+
+
+                      {% if option.name  == 'Color' %}
+                            <fieldset class="js product-form__input">
+                              <legend class="form__label">{{ option.name }}</legend>
+                              {%- for value in option.values -%}
+                                <input
+                                  type="radio"
+                                  id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                  name="{{ option.name }}"
+                                  value="{{ value  | escape }}"
+                                  form="{{ product_form_id }}"
+                                  {% if option.selected_value == value %}
+                                    checked
+                                  {% endif %}
+                                >
+                                <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class="dropdown-color" style="background:#{{ value | split: "___" | last }};   padding: 20px 20px;">
+                                
+                                </label>
+                              {%- endfor -%}
+                            </fieldset>
+
+                                    {% else %}
+                                    <fieldset class="js product-form__input">
+                                      <legend class="form__label">{{ option.name }}</legend>
+                                      {%- for value in option.values -%}
+                                        <input
+                                          type="radio"
+                                          id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                          name="{{ option.name }}"
+                                          value="{{ value  | escape }}"
+                                          form="{{ product_form_id }}"
+                                          {% if option.selected_value == value %}
+                                            checked
+                                          {% endif %}
+                                        >
+                                         
+                                          
+                                          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" style=" 
+                                            width: 45px;
+                                            height: 45px;
+                                            padding: 0px;
+                                            line-height: 45px;
+                                            "
+                                        
+                                        >
+                                          {{ value  }}
+                                        </label>
+                                      {%- endfor -%}
+                                    </fieldset>
+
+                          {% endif %}
+
+
+                   
+
+
+
+
+
+
                     {%- endfor -%}
                     <script type="application/json">
                       {{ product.variants | json }}
@@ -1170,12 +1214,6 @@
 
 
 
-{% for variant in product.variants %}
-
-  <p> <span>{{- variant.id -}}</span> {{ variant.inventory_quantity }}</p>
-       
- {% endfor %}
-
 
 
 <div class="container">
@@ -1190,13 +1228,32 @@
   </div>
 
 </div>
-<div class="add-card" onclick="addItem()">
-  Add to card 
-</div>
-<div class="alltitle">
-</div>
-<script>
 
+
+<section >
+  <div class="whole_sell_wrapper">
+    <div class="containr alltitle">
+
+    </div>
+  </div>
+
+
+</section>
+
+
+<script>
+ async function imposeMinMax(e){
+    if(e.value != ""){
+      if(parseInt(e.value) < parseInt(e.min)){
+        e.value = e.min;
+      }
+      if(parseInt(e.value) > parseInt(e.max)){
+        e.value = e.max;
+      }
+    }
+  }
+  
+ 
 {% comment %} get varinat inventroy count  {% endcomment %}
 const allavaiableinventory = [
 {% for variant in product.variants %}
@@ -1210,7 +1267,7 @@ const allavaiableinventory = [
 
 
 
-console.log(allavaiableinventory)
+//console.log(allavaiableinventory)
 
 
 {% comment %} Get seperated color data end {% endcomment %}
@@ -1219,8 +1276,7 @@ const getallColorfromproudct =[
   {% for value in product.options_by_name.color.values %}
    {% if forloop.index == last %} "{{ value | split: " " | join:"" }} " {% else %} "{{ value | split: " " | join:""}}", {% endif %}
  {% endfor %}];
-  console.log( getallColorfromproudct);
-  console.log();
+  // console.log( getallColorfromproudct);
 async function getUsers() {
   let url = `{{ product.url }}.json`;
   try {
@@ -1239,18 +1295,14 @@ async function getUsers() {
 
 async function renderUsers() {
   let users = await getUsers();
-   {% comment %} //Get value of color  for checking and putting the item
-   const getvalueofcolor = [  {% for value in product.options_by_name.color.values %}
-   
-    {% if forloop.index == last %} "{{ value }} " {% else %} "{{ value}}", {% endif %}
-     {% endfor %}] {% endcomment %}
+   console.log(users)
 
 // geting the color to check if it contain  that color or size for optio one or option two in jeson data
 let html = '';
 
 if ( users.product.options[1].name === 'Color'){
 
-  // console.log(users.product.options[1].name);
+
 
 
 
@@ -1293,15 +1345,16 @@ if ( users.product.options[1].name === 'Color'){
 
 
 
-    //  console.log(users.product.options[2].name + " From 2 option ");
+  
 
 
 
     }// last of Inner if for sizing users.product.options[2].name === 'Size'
+
   } //last of Main if function this is only work if users.product.options[1].name === 'Color'
   
-  let container = document.querySelector('.allinonarray');
-  container.innerHTML = html;
+  {% comment %} let container = document.querySelector('.allinonarray');
+  container.innerHTML = html; {% endcomment %}
 
 
   users.product.variants.forEach((user,index) => {
@@ -1309,30 +1362,16 @@ if ( users.product.options[1].name === 'Color'){
      
   console.log(user.enventorycount);
     getallColorfromproudct.map(singelcolor =>{
-      {% comment %} let userop1 = user.option1.split('').filter(e => e.trim().length).join('_');
-      let userop2 = user.option2.split('').filter(e => e.trim().length).join('_');
-      let userop3 = user.option3.split('').filter(e => e.trim().length).join('_');
-      if(userop1 == singelcolor || userop2 == singelcolor || userop3 == singelcolor  ){
-  {% endcomment %}
+     
+      
   let option1s = user.option1;
    let option1 = option1s.split('').filter(e => e.trim().length).join('');
   let option2s = user.option2;
    let option2 = option2s.split('').filter(e => e.trim().length).join('');
  //let option3s = user.option3;
  //  let option3 = option3s.split('').filter(e => e.trim().length).join('_');
- {% comment %} console.log(option2);
- console.log("this is opiton one");
- console.log(singelcolor); {% endcomment %}
-{% comment %} 
-if(singelcolor == "LightBlue"){
-  console.log("This is LightBlue working");
-} // endof lightblue {% endcomment %}
 
         if(option1 == singelcolor || option2 == singelcolor   ){
-           {% comment %} let singelcolorName = singelcolor.split(' ').filter(e => e.trim().length).join('_') {% endcomment %}
-          // console.log(singelcolorName);
-          {% comment %} console.log(singelcolor +" inner"); {% endcomment %}
-         // console.log("This is inner LightBlue");
            eval(singelcolor).push(user); 
           
         } else{
@@ -1344,13 +1383,9 @@ if(singelcolor == "LightBlue"){
   });
   
   {% for value in product.options_by_name.color.values %}
-    {{ value | split: " " | join:"" }}.unshift( '{{ value }} '  );
+    {{ value | split: " " | join:"" }}.unshift( '{{ value | split: "___" | first  }}'  );
     {% endfor %} 
 
-
-  {% for value in product.options_by_name.color.values %}
-    console.log({{ value | split: " " | join:"" }} );
-    {% endfor %} 
     
 
    // color and sizing name array 
@@ -1366,16 +1401,70 @@ if(singelcolor == "LightBlue"){
 
   //now seperate array start
 let htmla =''
-colorandSizing.forEach((data)=>{
+colorandSizing.forEach((data,index,arr)=>{
+
+  if(index === 0){
+  
+    let htmlSegment2 = `
+  <div class="row wholesaleoption-title">
+    <div class="col-3">
+    <div class="allvarinatname-title">
+                            <p>
+      ${data} </p>
+    </div>
+  </div>
+    `;
+    htmla += htmlSegment2;
+      }
+      else if (index === 1 ) {
+        let htmlSegment3 = `
+    <div class="col-8 d-flex justify-content-around">
+            <div class="allvarinatname-content">
+                                    <p>
+              ${data} </p>
+            </div>
+           
+      
+            `;
+            htmla += htmlSegment3;
+  
+          
+        }
+      
+      
+   else if (index === arr.length - 1 ) {
+        let htmlSegment3 = `
+  
+            <div class="allvarinatname-content">
+                                    <p>
+              ${data} </p>
+            </div>
+          </div>
+            <div class="col-1">
+              
+            </div>
+          </div> 
+            `;
+            htmla += htmlSegment3;
+  
+          
+        } 
+      
+      else{
+
+  let htmlSegment4 = `
+ 
+    <div class="allvarinatname-content">
+                            <p>
+      ${data} </p>
+    </div>`;
+    htmla += htmlSegment4;
+}
+
+
 
   
-  let htmlSegment2 = `<div class="allvarinatname">
-                           <p>
-    ${data} </p>
-  </div>`;
-  // console.log("this is running Varinat");
-  htmla += htmlSegment2;
-})
+  }) // coloradnsizing end
 
 
 {% for value in product.options_by_name.color.values %}
@@ -1384,32 +1473,76 @@ colorandSizing.forEach((data)=>{
     
    if(index === 0){
     console.log(data);
-    let htmlSegment2 = `
-    <div class="topwrapper">
-    <div class="allvarinatname">
-     <p>${data} </p>
+ htmlSegment = `
+    <div class="row topwrapper d-flex align-items-center">
+    <div class="allvarinatcolorname  col-3">
+
+      <p> Cost Per Unit: </p>
+
+        <div class="d-flex align-items-center colorname">
+          <div style="background: #{{ value | split: "___" | last  }};
+            width: 45px;
+            height: 45px;
+            border:1px solid #fffff7;
+            border-radius: 50%;">
+          </div>
+        <p>${data} </p>
+        </div >
+
+      <p> Stock Level: </p>
+     
     </div>`;
-    htmla += htmlSegment2;
-  } else if( index === arr-1 ){
-    let htmlSegment4 = `<div class="allvarinatname">
-      <p>
-${data.title} </p>
+    htmla += htmlSegment;
+  } 
+  else if( index === 1 ){
+    htmlSegment = `<div class="col-8 d-flex justify-content-around">    
+    <div class="singel-varniat-input">        
+          <p>$${data.price}</p>
+          <div>
+            <input type="number" min="0" max="${data.inventory_product_count}" data-varnitid="${data.id}" onchange="myFunction(this)" placeholder="${data.option1}" onkeyup="imposeMinMax(this)">  
+          </div>
+          <p>${data.inventory_product_count   } </p>
+        </div>`;
+    htmla += htmlSegment; 
+  }
+  
+  
+  
+  
+  else if( index === arr.length-1 ){
+    htmlSegment = `<div class="singel-varniat-input">         
+    <p>$${data.price.replace(/\s+/g,'')}</p>
+    <div>
+      <input type="number" min="0" max="${data.inventory_product_count}" data-varnitid="${data.id}" onchange="myFunction(this)" placeholder="${data.option1}" onkeyup="imposeMinMax(this)">  
+    </div>
+    <p>${data.inventory_product_count} </p>
+  </div>
+
+   </div> <!--end of element bootstrap inner div-->
+  
+
+
+   <div class="col-1">
+    <div class="color-add-color" onclick="addItem()">
+      Add
+    </div>
+  </div>
+
 </div>
-</div>
-`;
-htmla += htmlSegment4; 
+  
+  `;
+    htmla += htmlSegment; 
   }
   
   else{
-       let htmlSegment3 = `<div class="user">
-                           
-        <p>$ ${data.price}</p>
-        <div>
-          <input type="number" data-varnitid="${data.id}" onchange="myFunction(this)" placeholder="${data.option1}">  
-        </div>
-        <p>${data.inventory_product_count} </p>
-    </div>`;
-    htmla += htmlSegment3; 
+    htmlSegment = `<div class="singel-varniat-input">         
+          <p>$${data.price.replace(/\s+/g,'')}</p>
+          <div>
+            <input type="number" min="0" max="${data.inventory_product_count}" data-varnitid="${data.id}" onchange="myFunction(this)" placeholder="${data.option1}" onkeyup="imposeMinMax(this)">  
+          </div>
+          <p>${data.inventory_product_count} </p>
+        </div>`;
+    htmla += htmlSegment; 
   }
     // console.log("this is running Varinat");
     
@@ -1423,8 +1556,6 @@ container2.innerHTML = htmla;
 
 
 
-
-
 } //last of main function
 
 
@@ -1432,20 +1563,14 @@ container2.innerHTML = htmla;
 renderUsers();
 const itemraw = [];
 async function myFunction(e){
-
   let newobect = {};
-   //console.log(e)
- console.log("this is working");
- // newobect.[";id"] = e.getAttribute('data-varnitid');
- // newobect.["quantity"] = e.value;
  newobect['id'] = e.getAttribute('data-varnitid');
  newobect['quantity'] = e.value;
  itemraw.push(newobect);
-   
 } 
 
 async function addItem() {
-
+  
  async function addItem1(itemraw) {
   console.log(itemraw);
   const result = await fetch("/cart/add.js", {
@@ -1460,11 +1585,13 @@ async function addItem() {
         }
     )
   })
+
 }
 
 const additemcount = addItem1(itemraw);
-
-}
+setTimeout( function(){location.replace(`/cart`) },2000);
+// ;
+}///async addItem end
 
 
 
@@ -2256,7 +2383,7 @@ const additemcount = addItem1(itemraw);
   display:inline-block;
   }
   p {
-    margin-left:50px;
+   
     color:#fff;
   }
 p span{
