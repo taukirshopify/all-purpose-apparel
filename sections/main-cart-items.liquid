@@ -294,7 +294,7 @@
 
     <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
     <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
-  </form>
+  {% if content_for_header contains 'bss-b2b' %}{% render "bss-b2b-discount-code-form" %}{% endif %}</form>
 </cart-items>
 
 {% schema %}
