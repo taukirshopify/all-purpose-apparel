@@ -69,7 +69,7 @@
           "type": "text",
           "settings": {
             "text": "<p>Already a member? Click here to sign in<\/p>",
-            "url": "shopify:\/\/blogs\/news"
+            "url": "\/loging"
           }
         }
       },
