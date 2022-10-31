@@ -300,7 +300,14 @@
         font-style: var(--font-body-style);
         font-weight: var(--font-body-weight);
       }
-
+      @font-face {
+        font-family: 'Akira';
+        src: url('{{ 'AkiraExpanded-SuperBold.wof2' | asset_url }}') format('woff2'),
+            url('{{ 'AkiraExpanded-SuperBold.woff' | asset_url }}') format('woff');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+     }
       @media screen and (min-width: 750px) {
         body {
           font-size: 1.6rem;
@@ -337,7 +344,7 @@
       }
     </script>
   
-	                {% if content_for_header contains 'bss-b2b' %}{% include 'bss-b2b-cp-header' %}{% endif %}</head>
+</head>
 	            
 
   <body class="gradient">
@@ -396,5 +403,5 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-  {% if content_for_header contains 'bss-b2b' %}{% include 'bss-b2b-jquery-341-js' %}{% include 'bss-b2b-js' %}{% endif %}</body>
+ 
 </html>
