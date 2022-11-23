@@ -5,7 +5,7 @@ class CartNotification extends HTMLElement {
     this.notification = document.getElementById('cart-notification');
     this.header = document.querySelector('sticky-header');
     this.onBodyClick = this.handleBodyClick.bind(this);
-
+  this.getdata ={};
     this.notification.addEventListener('keyup', (evt) => evt.code === 'Escape' && this.close());
     this.querySelectorAll('button[type="button"]').forEach((closeButton) =>
       closeButton.addEventListener('click', this.close.bind(this))
@@ -21,8 +21,52 @@ class CartNotification extends HTMLElement {
     }, { once: true });
 
     document.body.addEventListener('click', this.onBodyClick);
-  }
+    const list = document.getElementsByTagName("dl")[0];
+   // console.log(list);
+    // console.log(this.getdata.options_with_values[0].name);
 
+   
+    // let coorvalue = this.getdata.variant_options[1];
+    // const myfArray = coorvalue.split("___");
+   //  console.log(myfArray[0]);
+
+    if(this.getdata.options_with_values[0].name === 'Color'){
+        let coorvalue = this.getdata.variant_options[0];
+    const myfArray = coorvalue.split("___");
+
+    list.getElementsByClassName("product-option")[0].innerHTML = `  <div class="product-option">
+    <dt>Color:</dt>
+    <dd>${myfArray[0]}</dd>
+  </div> `;
+
+    }
+    else if(this.getdata.options_with_values[1].name === 'Color'){
+      let coorvalue = this.getdata.variant_options[1];
+      const myfArray = coorvalue.split("___");
+      list.getElementsByClassName("product-option")[1].innerHTML = `  <div class="product-option">
+      <dt>Color:</dt>
+      <dd>${myfArray[0]}</dd>
+    </div> `;
+    }
+     else if(this.getdata.options_with_values[2].name === 'Color'){
+      let coorvalue = this.getdata.variant_options[2];
+      const myfArray = coorvalue.split("___");
+      list.getElementsByClassName("product-option")[2].innerHTML = `  <div class="product-option">
+      <dt>Color:</dt>
+      <dd>${myfArray[0]}</dd>
+    </div> `;
+    } else{
+      console.log('there is no color');
+    }
+  
+ 
+  }
+  exTrafunction(e){
+  
+    this.getdata = e;
+
+
+  }
   close() {
     this.notification.classList.remove('active');
     document.body.removeEventListener('click', this.onBodyClick);
@@ -33,22 +77,20 @@ class CartNotification extends HTMLElement {
   renderContents(parsedState) {
       this.cartItemKey = parsedState.key;
       this.getSectionsToRender().forEach((section => {
-     //  console.log(parsedState.sections[section.id]);
-      // console.log(section.selector);
-        //document.getElementById(section.id).innerHTML =
-         // this.getSectionInnerHTML(parsedState.sections[section.id], section.selector);
+        document.getElementById(section.id).innerHTML =
+          this.getSectionInnerHTML(parsedState.sections[section.id], section.selector);
       }));
 
       if (this.header) this.header.reveal();
       this.open();
   }
 
-  getSectionsToRender() {
+  getSectionsToRender(e) {
+   
     return [
       {
         id: 'cart-notification-product',
         selector: `[id="cart-notification-product-${this.cartItemKey}"]`,
-        
       },
       {
         id: 'cart-notification-button'
@@ -60,10 +102,7 @@ class CartNotification extends HTMLElement {
   }
 
   getSectionInnerHTML(html, selector = '.shopify-section') {
-   // console.log(html);
-    console.log(selector);
     return new DOMParser()
-      
       .parseFromString(html, 'text/html')
       .querySelector(selector).innerHTML;
   }

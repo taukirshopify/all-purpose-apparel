@@ -7,7 +7,6 @@ if (!customElements.get('product-form')) {
       this.form.querySelector('[name=id]').disabled = false;
       this.form.addEventListener('submit', this.onSubmitHandler.bind(this));
       this.cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
-      this.cartAll = document.querySelector('cart-notification-product');
       this.submitButton = this.querySelector('[type="submit"]');
       if (document.querySelector('cart-drawer')) this.submitButton.setAttribute('aria-haspopup', 'dialog');
     }
@@ -27,41 +26,21 @@ if (!customElements.get('product-form')) {
       delete config.headers['Content-Type'];
 
       const formData = new FormData(this.form);
+
       if (this.cart) {
-        formData.append('sections', this.cart.getSectionsToRender().map((section) => {
-          // console.log(section);
-          return  section.id;
-         } ));
-        formData.append('sections_url', window.location.pathname);
-        this.cart.setActiveElement(document.activeElement);
+        
+         formData.append('sections', this.cart.getSectionsToRender().map((section) => section.id));
+       formData.append('sections_url', window.location.pathname);
+       this.cart.setActiveElement(document.activeElement);
+      
+       
       }
       config.body = formData;
 
       fetch(`${routes.cart_add_url}`, config)
-        .then((response) =>{
- 
-
-           return  response.json();
-        })
-        .then((response) =>{
-          console.log(response.options_with_values[1].name)
-          if(response.options_with_values[1].name  === "Color" ){
-             let getValue = response.options_with_values[1].value;
-              let getFinalvalue = getValue.split("___");
-              
-              response.options_with_values[1].value = getFinalvalue[0];
-
-             response.variant_options[1] = getFinalvalue[0];
-             
-             this.cartAll.innerText = getFinalvalue[0];
-            
-          }
-     
-           return  response;
-        })
-
+        .then((response) => response.json())
         .then((response) => {
-       //   console.log(response);
+          this.cart.exTrafunction(response);
           if (response.status) {
             this.handleErrorMessage(response.description);
 
@@ -78,11 +57,9 @@ if (!customElements.get('product-form')) {
           }
 
           this.error = false;
-          const quickAddModal = this.closest('quick-add-modal');
+          const quickAddModal = this.closest('quick-add-moda');
           if (quickAddModal) {
-            document.body.addEventListener('modalClosed', () => {
-              setTimeout(() => { this.cart.renderContents(response) });
-            }, { once: true });
+  
             quickAddModal.hide(true);
           } else {
             this.cart.renderContents(response);
