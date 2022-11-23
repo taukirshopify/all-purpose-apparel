@@ -50,7 +50,7 @@
                
                 <div class="col-md-6">
                   <div class="field">
-                    <input class="field__input" type="text" id="Company-Name" name="contact[Company-Name]" placeholder="Custom Question">
+                    <input class="field__input" type="text" id="Company-Name" name="contact[Company-Name]" required placeholder="Custom Question">
                     <label class="field__label" for="Company-Name">*Company Name:</label>
                   </div>          
                 </div>
@@ -96,14 +96,14 @@
               <div class="row">
                   <div class="col-md-6">
                     <div class="field">
-                      <input class="field__input" type="text" id="custom-Address" name="contact[Address-1]" placeholder="Address 1">
+                      <input class="field__input" type="text" id="custom-Address" name="contact[Address-1]" placeholder="Address 1" required>
                       <label class="field__label" for="custom-question">*Address 1:</label>
                     </div>
             
                   </div>
                   <div class="col-md-6">
                     <div class="field">
-                      <input class="field__input" type="text" id="custom-Address2" name="contact[Address-2]" placeholder="Address 2">
+                      <input class="field__input" type="text" id="custom-Address2" name="contact[Address-2]" placeholder="Address 2" required>
                       <label class="field__label" for="custom-question">*Address 2:</label>
                     </div>
                   </div>
@@ -113,11 +113,11 @@
 
                 <div class="col-md-6">
                   <div class="field">
-                    <input class="field__input" type="number" id="custom-postal" name="contact[Postal]" placeholder="Custom Question">
+                    <input class="field__input" type="number" id="custom-postal" name="contact[Postal]" placeholder="Custom Question" required>
                     <label class="field__label" for="custom-postal">*Postal / Zip Code:</label>
                   </div>
                   <div class="field">
-                    <input class="field__input" type="text" id="custom-City" name="contact[City]" placeholder="*City:">
+                    <input class="field__input" type="text" id="custom-City" name="contact[City]" placeholder="*City:" required>
                     <label class="field__label" for="custom-City">*City:</label>
                   </div>
           
@@ -126,7 +126,7 @@
                 <div class="col-md-6">
 
                   <div class="fielda">
-                    <select id="request-county" name="contact[request_Country]">
+                    <select id="request-county" name="contact[request_Country]" required>
                       <option>Select Your Country</option>
                       <option value="ae" data-validate="false">United Arab Emirates</option>
                       <option value="ar" data-validate="false">Argentina
@@ -311,7 +311,7 @@
                    </div>
 
                    <div class="field">
-                    <input class="field__input" type="text" id="custom-City" name="contact[Province]" placeholder="*City:">
+                    <input class="field__input" type="text" id="custom-City" name="contact[Province]" placeholder="*City:" required>
                     <label class="field__label" for="custom-City">*Your State or Province:</label>
                   </div>
 
@@ -405,19 +405,19 @@
                   <div class="col-md-6">
                     <div class="field">
          
-                      <input class="field__input" autocomplete="name" type="text" id="ContactForm-name" name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'templates.contact.form.name' | t }}">
+                      <input class="field__input" autocomplete="name" type="text" id="ContactForm-name" required name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'templates.contact.form.name' | t }}" required>
                       <label class="field__label" for="ContactForm-name">*First name:</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="field">
-                      <input class="field__input" type="text" id="custom-question" name="contact[lastname]" placeholder="Custom Question">
+                      <input class="field__input" type="text" id="custom-question" name="contact[lastname]" placeholder="Custom Question" required>
                       <label class="field__label" for="custom-question">*Last Name:</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="field">
-                      <input class="field__input" type="text" id="custom-question" name="contact[title]" placeholder="Custom Question">
+                      <input class="field__input" type="text" id="custom-question" name="contact[title]" placeholder="Custom Question" required>
                       <label class="field__label" for="custom-question">*Title</label>
                     </div>
                   </div>
@@ -466,13 +466,13 @@
            
               <div class="col-md-6">
                 <div class="field">
-                  <input class="field__input" type="text" id="custom-question" name="contact[password]" placeholder="Custom Question">
+                  <input class="field__input" type="text" id="custom-question" name="contact[password]" required placeholder="Custom Question">
                   <label class="field__label" for="custom-question">*Password:</label>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="field">
-                  <input class="field__input" type="text" id="custom-question" name="contact[cpassword]" placeholder="Custom Question">
+                  <input class="field__input" type="text" id="custom-question" name="contact[cpassword]" required placeholder="Custom Question">
                   <label class="field__label" for="custom-question">*Confirm Password:</label>
                 </div>
               </div>
