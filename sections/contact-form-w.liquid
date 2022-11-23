@@ -25,6 +25,12 @@
           {%- if form.posted_successfully? -%}
             <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>{% render 'icon-success' %} {{ 'templates.contact.form.post_success' | t }}</h2>
           {%- elsif form.errors -%}
+          
+
+
+
+
+
             <div class="form__message">
               <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>{% render 'icon-error' %} {{ 'templates.contact.form.error_heading' | t }}</h2>
             </div>
@@ -36,62 +42,302 @@
               </li>
             </ul>
           {%- endif -%}
+             {% comment %} start  {% endcomment %}
+            
+          <div class="company-details">
+           
+               <div class="row">
+               
+                <div class="col-md-6">
+                  <div class="field">
+                    <input class="field__input" type="text" id="Company-Name" name="contact[Company-Name]" placeholder="Custom Question">
+                    <label class="field__label" for="Company-Name">*Company Name:</label>
+                  </div>          
+                </div>
 
-          <div class="field">
-            <input class="field__input" autocomplete="name" type="text" id="ContactForm-name" name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'templates.contact.form.name' | t }}">
-            <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+                <div class="col-md-6">
+                  <div class="field">
+             
+                    <input class="field__input" autocomplete="name" type="text" id="Company-Website" name="contact[Website Url]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'templates.contact.form.name' | t }}">
+                    <label class="field__label" for="Company-Website" >Website</label>
+                  </div>          
+                </div>
+
+                <div class="col-md-6">
+                  <div class="field">
+                    <input
+                      autocomplete="email"
+                      type="email"
+                      id="Company-email"
+                      class="field__input"
+                      name="contact[email]"
+                      spellcheck="false"
+                      autocapitalize="off"
+                      value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                      aria-required="true"
+                      {% if form.errors contains 'email' %}
+                        aria-invalid="true"
+                        aria-describedby="ContactForm-email-error"
+                      {% endif %}
+                      placeholder="{{ 'templates.contact.form.email' | t }}"
+                    >
+                    <label class="field__label" for="Company-email" default="https://">*Company Email</label>
+                    {%- if form.errors contains 'email' -%}
+                      <small class="contact__field-error" id="Company-email-error">
+                        <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                        <span class="form__message">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</span>
+                      </small>
+                    {%- endif -%}
+                  </div>          
+                </div>
+               
+              </div>
+
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="field">
+                      <input class="field__input" type="text" id="custom-Address" name="contact[Address-1]" placeholder="Address 1">
+                      <label class="field__label" for="custom-question">*Address 1:</label>
+                    </div>
+            
+                  </div>
+                  <div class="col-md-6">
+                    <div class="field">
+                      <input class="field__input" type="text" id="custom-Address2" name="contact[Address-2]" placeholder="Address 2">
+                      <label class="field__label" for="custom-question">*Address 2:</label>
+                    </div>
+                  </div>
+              </div>
+               
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="field">
+                    <input class="field__input" type="number" id="custom-postal" name="contact[Postal]" placeholder="Custom Question">
+                    <label class="field__label" for="custom-postal">*Postal / Zip Code:</label>
+                  </div>
+                  <div class="field">
+                    <input class="field__input" type="text" id="custom-City" name="contact[City]" placeholder="*City:">
+                    <label class="field__label" for="custom-City">*City:</label>
+                  </div>
+          
+                </div>
+
+                <div class="col-md-6">
+
+                  <div class="fielda">
+                    <select id="request-county" name="contact[request_Country]">
+                      <option>Select Your Country</option>
+                      <option>Shipping</option>
+                      <option>Custom order</option>
+                      <option>Other</option>
+                    </select>
+                   </div>
+
+                  <div class="fielda">
+                    <select id="request-province" name="contact[request_Province]">
+                      <option>Select Your Province</option>
+                      <option>Returns</option>
+                      <option>Shipping</option>
+                      <option>Custom order</option>
+                      <option>Other</option>
+                    </select>
+                   </div>
+
+                </div>
+
+              </div>
+                  
+ 
+              <div class="row">
+                <div class="col-md-6">
+                  
+                  <div class="field">
+                    <input type="tel" id="ContactForm-phone" class="field__input" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'templates.contact.form.phone' | t }}">
+                    <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+                  </div>
+
+                </div>
+                <div class="col-md-6">
+                  
+                  <div class="field">
+                    <input class="field__input" type="text" id="customfax" name="contact[custom-fax]" placeholder="Phone">
+                    <label class="field__label" for="customfax">Fax: </label>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+             
           </div>
-          <div class="contact__fields">
-            <div class="field field--with-error">
-              <input
-                autocomplete="email"
-                type="email"
-                id="ContactForm-email"
-                class="field__input"
-                name="contact[email]"
-                spellcheck="false"
-                autocapitalize="off"
-                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                aria-required="true"
-                {% if form.errors contains 'email' %}
-                  aria-invalid="true"
-                  aria-describedby="ContactForm-email-error"
-                {% endif %}
-                placeholder="{{ 'templates.contact.form.email' | t }}"
-              >
-              <label class="field__label" for="ContactForm-email">{{ 'templates.contact.form.email' | t }} <span aria-hidden="true">*</span></label>
-              {%- if form.errors contains 'email' -%}
-                <small class="contact__field-error" id="ContactForm-email-error">
-                  <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-                  <span class="form__message">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</span>
-                </small>
-              {%- endif -%}
+           {% comment %} end  {% endcomment %}
+
+
+
+
+
+
+          {% comment %} start  {% endcomment %}
+         
+          <div class="contact-information">
+           
+              <div class="row">
+                <h3>BUSINESS INFORMATION</h3>
+              </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="fielda">
+                      <select id="request-type" name="contact[businessinfo]">
+                        <option>Returns</option>
+                        <option>Shipping</option>
+                        <option>Custom order</option>
+                        <option>Other</option>
+                      </select>
+                  </div> 
+              </div>
+              <div class="col-md-6">
+                    <div class="fielda">
+                      <select id="request-type" name="contact[BUSINESSsalesreps]">
+                        <option>10</option>
+                        <option>20</option>
+                        <option>50+</option>
+                        
+                      </select>
+                </div> 
+              </div>
             </div>
-            <div class="field">
-              <input type="tel" id="ContactForm-phone" class="field__input" autocomplete="tel" name="contact[{{ 'templates.contact.form.phone' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'templates.contact.form.phone' | t }}">
-              <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+ 
+           </div>
+            {% comment %} end  {% endcomment %}
+            {% comment %} /// {% endcomment %}
+            {% comment %} start  {% endcomment %}
+           
+            
+           
+            {% comment %} end  {% endcomment %}
+            {% comment %} start  {% endcomment %}
+
+            <div class="account-information">
+              
+                <div class="row">
+                  <div class="col-12">
+                    <h3>WEB ACCOUNT INFORMATION</h3>
+                    <p> An account will be created with the login ID using the Direct Email Address.</p>
+                  </div>
+                </div>
+            
+
+              
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="field">
+         
+                      <input class="field__input" autocomplete="name" type="text" id="ContactForm-name" name="contact[{{ 'templates.contact.form.name' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'templates.contact.form.name' | t }}">
+                      <label class="field__label" for="ContactForm-name">*F name:</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="field">
+                      <input class="field__input" type="text" id="custom-question" name="contact[lastname]" placeholder="Custom Question">
+                      <label class="field__label" for="custom-question">*Last Name:</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="field">
+                      <input class="field__input" type="text" id="custom-question" name="contact[title]" placeholder="Custom Question">
+                      <label class="field__label" for="custom-question">*Title</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+    
+    
+                    <div class="field field--with-error">
+                      <input
+                        autocomplete="email"
+                        type="email"
+                        id="ContactForm-email"
+                        class="field__input"
+                        name="contact[email]"
+                        spellcheck="false"
+                        autocapitalize="off"
+                        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                        aria-required="true"
+                        {% if form.errors contains 'email' %}
+                          aria-invalid="true"
+                          aria-describedby="ContactForm-email-error"
+                        {% endif %}
+                        placeholder="{{ 'templates.contact.form.email' | t }}"
+                      >
+                      <label class="field__label" for="ContactForm-email">{{ 'templates.contact.form.email' | t }}</label>
+                      {%- if form.errors contains 'email' -%}
+                        <small class="contact__field-error" id="ContactForm-email-error">
+                          <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+                          <span class="form__message">{% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</span>
+                        </small>
+                      {%- endif -%}
+                    </div>
+    
+    
+                  </div>
+                 
+               </div>
+
+
             </div>
-       
-        
+            
+           
+            {% comment %} end  {% endcomment %}
 
-          </div>
-          <div class="field">
-            <input class="field__input" autocomplete="name" type="text" id="ContactForm-namea" name="contact[Website Url]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'templates.contact.form.name' | t }}">
-            <label class="field__label" for="ContactForm-namea">Website Url</label>
-          </div>
+            <div class="account-information">
+              <h3>CONTACT INFORMATION</h3>
+           
+              <div class="col-md-6">
+                <div class="field">
+                  <input class="field__input" type="text" id="custom-question" name="contact[password]" placeholder="Custom Question">
+                  <label class="field__label" for="custom-question">*Password:</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="field">
+                  <input class="field__input" type="text" id="custom-question" name="contact[cpassword]" placeholder="Custom Question">
+                  <label class="field__label" for="custom-question">*Confirm Password:</label>
+                </div>
+              </div>
 
-          <div class="field">
-            <textarea
-              rows="10"
-              id="ContactForm-body"
-              class="text-area field__input"
-              name="contact[{{ 'templates.contact.form.comment' | t }}]"
-              placeholder="Message"
-            >
-              {{- form.body -}}
-            </textarea>
-            <label class="form__label field__label" for="ContactForm-body">Message</label>
-          </div>
+
+            </div>
+             {% comment %} /// {% endcomment %}
+            {% comment %} start  {% endcomment %}
+              <div class="row">
+                <div class="col-md-12">
+                    <div class="account-terms">
+                      <h3> TERMS AND CONDITIONS</h3>
+                      <p>By proceeding I acknowledge that I have read and agree to the following terms and conditions</p>
+                      
+
+                      <textarea rows="8"  disabled placeholder="Describe yourself here..sadfsadf.  The parties agree that any transaction(s) governed by these terms and conditions shall be governed by the laws of the State of California, without regard to any applicable choice of law rules, standards, or norms. By agreeing to transact with Seller, Buyer and any Guarantor hereby consent to jurisdiction in Los Angeles County, California. NO EXPRESS WARRANTIES: BUYER ACKNOWLEDGES THAT SELLER HAS MADE NO EXPRESS WARRANTIES. EXCLUSION OF IMPLIED WARRANTIES: NOTWITHSTANDING ANY OTHER STATEMENTS, AGREEMENTS, OR UNDERSTANDINGS INVOLVING BUYER AND SELLER OR ANY OF ITS RESPECTIVE EMPLOYEES OR AGENTS, OR GUARANTOR, TO THE FULLEST EXTENT PERMITTED UNDER APPLICABLE LAW, SELLER SHALL NOT HAVE OR INCUR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR PARTICULAR PURPOSE, AND ALL SUCH WARRANTIES ARE EXPRESSLY DISCLAIMED. ALL OTHER WARRANTIES IMPLIED ARE EXCLUDED FROM ANY TRANSACTION BETWEEN BUYER AND SELLER AND SHALL NOT APPLY TO THE GOODS SOLD BY SELLER. SELLER SHALL ALSO NOT BE LIABLE FOR ANY SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES. NONE OF SELLER'S AGENTS, EMPLOYEES, PROFESSIONALS, OR OTHER REPRESENTATIVES HAVE OR SHOULD BE CONSIDERED TO HAVE AUTHORITY TO ALTER THE TERMS OF THIS PROVISION. No Responsibility: Buyer acknowledges that Seller has no responsibility for any work performed by any vendor referred by Buyer and hereby waives any right to assert any claim against Seller for work performed by any other firm, including but not limited to claims for negligent referral, agency, or respondeat superior. Deterioration of Buyer's Credit: Seller's agreement to provide a Buyer with goods or services prior to payment is purely at Seller's discretion, and may be altered, conditioned, or revoked at any time, and without notice. Acceptance of goods with known defects waives claims for damage : To induce Seller to consider selling goods to Buyer whether on credit or otherwise, the individual(s) or entity(ies) signing these Terms and Conditions under the heading Guarantor' (who, if more than one, shall be jointly and severally bound) hereby unconditionally guarantee(s) to Seller and its affiliates, successors, endorsees, and assigns, the punctual payment and performance when due, with such interest as may accrue thereon either before or after any maturity(ies) thereof, of all debts, indemnities, and other obligations of Buyer and any other party or parties, now existing or hereafter arising, as well as the performance and observance by the Buyer of the terms, conditions, stipulations, and agreements of Buyer contained in these Terms and Conditions and any invoice, credit application, and/or order confirmation of Seller. This Guaranty will be a continuing and irrevocable guaranty for such indebtedness and obligations of Buyer. The undersigned Guarantor hereby waives notice of acceptance of this Guaranty, notice of the occurrence of any default, presentments, demand, protests, and notices of any and all action at any time taken or omitted by Buyer regarding its indebtedness to Seller. Such Guarantor consents to any modification or renewal of the credit or other relationship between Buyer and Seller, including increases in rates or fees, and changes to the dates specified for payment, all of which will remain hereby guaranteed. This Guaranty shall bind the executors, administrators, and assigns of the undersigned Guarantor and shall remain in full force and effect unless and until canceled by written notice sent by Seller to Buyer by registered mail, in which case it shall then be binding as to any balances, amounts and other obligations then owing and outstanding as of the date of Buyer's receipt of such registered notice"></textarea>
+                    </div>
+                </div>
+              </div>
+            {% comment %} end  {% endcomment %}
+            {% comment %} start  {% endcomment %}
+            <div class="fieldb radio-buttons">
+              <input type="radio" name="contact[contact_method]" value="email" id="contact-method">
+              <label for="contact-method">i agree with the terms and conditions</label>
+              
+             
+            </div>
+            {% comment %} end  {% endcomment %}
+            {% comment %} start  {% endcomment %}
+
+            {% comment %} end  {% endcomment %}
+
+
+
+
+
 
           <div class="contact__button">
             <button type="submit" class="button contact-btn">
@@ -102,6 +348,12 @@
                 </svg>
             </button>
           </div>
+
+
+
+
+
+
         {%- endform -%}
       </div>
     </div>
@@ -240,3 +492,43 @@
   ]
 }
 {% endschema %}
+
+
+
+<style>
+  .field:after{
+    box-shadow: none;
+   }
+    .fielda {
+      margin-bottom: 2rem;
+    }
+    .fielda select {
+    flex-grow: 1;
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem;
+    margin: var(--inputs-border-width);
+    transition: box-shadow var(--duration-short) ease;
+    outline: none;
+    color:#fff;
+     background:rgb(var(--color-background));
+}
+option {
+  font-family: Jost;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+}
+h3{
+ margin: 20px 0;
+}
+.fieldb{
+ margin: 20px 0;
+}
+p{
+ padding: 0 0 10px 0; 
+}
+textarea{
+width: 100%;
+}
+</style>
