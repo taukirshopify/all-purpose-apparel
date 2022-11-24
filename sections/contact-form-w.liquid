@@ -329,14 +329,7 @@
                   </div>
 
                 </div>
-                <div class="col-md-6">
-                  
-                  <div class="field">
-                    <input class="field__input" type="text" id="customfax" name="contact[custom-fax]" placeholder="Phone">
-                    <label class="field__label" for="customfax">Fax: </label>
-                  </div>
 
-                </div>
 
               </div>
 
@@ -360,7 +353,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="fielda">
-                      <select id="request-type" name="contact[businessinfo]">
+                      <select id="request-type" name="contact[business info]">
                         <option>Returns</option>
                         <option>Shipping</option>
                         <option>Custom order</option>
@@ -370,7 +363,7 @@
               </div>
               <div class="col-md-6">
                     <div class="fielda">
-                      <select id="request-type" name="contact[BUSINESSsalesreps]">
+                      <select id="request-type" name="contact[outside sales]">
                         <option>10</option>
                         <option>20</option>
                         <option>50+</option>
@@ -411,7 +404,7 @@
                   </div>
                   <div class="col-md-6">
                     <div class="field">
-                      <input class="field__input" type="text" id="custom-question" name="contact[lastname]" placeholder="Custom Question" required>
+                      <input class="field__input" type="text" id="custom-question" name="contact[last name]" placeholder="Custom Question" required>
                       <label class="field__label" for="custom-question">*Last Name:</label>
                     </div>
                   </div>
@@ -472,7 +465,7 @@
               </div>
               <div class="col-md-6">
                 <div class="field">
-                  <input class="field__input" type="text" id="custom-question" name="contact[cpassword]" required placeholder="Custom Question">
+                  <input class="field__input" type="text" id="custom-question" name="contact[password 2]" required placeholder="Custom Question">
                   <label class="field__label" for="custom-question">*Confirm Password:</label>
                 </div>
               </div>
@@ -495,7 +488,7 @@
             {% comment %} end  {% endcomment %}
             {% comment %} start  {% endcomment %}
             <div class="fieldb radio-buttons">
-              <input type="radio" name="contact[contact_method]" value="email" id="contact-method">
+              <input type="radio" name="contact[Agree statement]" required  value="email" id="contact-method">
               <label for="contact-method">{{ section.settings.agree }}</label>
               
              
