@@ -22,7 +22,10 @@ class CartDrawer extends HTMLElement {
       }
     });
   }
-
+  exTrafunction(e){
+    console.log(e);
+    console.log("this is loml");
+  }
   open(triggeredBy) {
     if (triggeredBy) this.setActiveElement(triggeredBy);
     const cartDrawerNote = this.querySelector('[id^="Details-"] summary');
@@ -43,6 +46,7 @@ class CartDrawer extends HTMLElement {
     this.classList.remove('active');
     removeTrapFocus(this.activeElement);
     document.body.classList.remove('overflow-hidden');
+    // window.location.reload();
   }
 
   setSummaryAccessibility(cartDrawerNote) {
@@ -76,12 +80,14 @@ class CartDrawer extends HTMLElement {
   }
 
   getSectionInnerHTML(html, selector = '.shopify-section') {
+   
     return new DOMParser()
       .parseFromString(html, 'text/html')
       .querySelector(selector).innerHTML;
   }
 
   getSectionsToRender() {
+    console.log("this is get selection");
     return [
       {
         id: 'cart-drawer',

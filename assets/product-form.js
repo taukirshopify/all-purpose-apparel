@@ -36,11 +36,12 @@ if (!customElements.get('product-form')) {
        
       }
       config.body = formData;
-
+  
       fetch(`${routes.cart_add_url}`, config)
         .then((response) => response.json())
         .then((response) => {
-          // this.cart.exTrafunction(response);
+          console.log(response);
+           this.cart.exTrafunction(response);
           if (response.status) {
             this.handleErrorMessage(response.description);
 

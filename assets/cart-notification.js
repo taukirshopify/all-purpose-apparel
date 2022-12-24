@@ -22,13 +22,7 @@ class CartNotification extends HTMLElement {
 
     document.body.addEventListener('click', this.onBodyClick);
     const list = document.getElementsByTagName("dl")[0];
-   // console.log(list);
-    // console.log(this.getdata.options_with_values[0].name);
 
-   
-    // let coorvalue = this.getdata.variant_options[1];
-    // const myfArray = coorvalue.split("___");
-   //  console.log(myfArray[0]);
 
     if(this.getdata.options_with_values[0].name === 'Color'){
         let coorvalue = this.getdata.variant_options[0];
