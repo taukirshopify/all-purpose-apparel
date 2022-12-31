@@ -60,7 +60,7 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "<ul><li>WHOLESALE ACCOUNT REGISTRY→<\/li><\/ul>",
+            "heading": "<ul><li><strong>WHOLESALE ACCOUNT REGISTRY→<\/strong><\/li><\/ul>",
             "url": "shopify:\/\/pages\/wholesale",
             "heading_size": "h2"
           }
