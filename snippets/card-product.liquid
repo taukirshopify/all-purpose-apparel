@@ -377,7 +377,7 @@
 <div class="card-proudctimage ">
   {% for value in card_product.options_by_name.color.values %}
     <div class="s-card-color" data-color="{{ value }}" style="background:#{{ value | split: "___" | last }}"
-    onclick="renderUsersa(this)"
+    onclick="render{{card_product.id}}Usersa(this)"
     >
     
     </div>
@@ -389,7 +389,7 @@
 
 <script>
 
-  const getallcolor = [
+  const get{{card_product.id}}allcolor = [
 
     {% for value in card_product.options_by_name.color.values %}
       {% if forloop.index == last %} "{{ value }} " {% else %} "{{ value }}", {% endif %}
@@ -404,7 +404,7 @@
         console.log(error);
     }
   }
-  async function renderUsersa(e) {
+  async function render{{card_product.id}}Usersa(e) {
     let users = await getUsers();
     
    
