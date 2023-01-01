@@ -422,7 +422,7 @@
     if ( users.product.options[0].name != null && users.product.options[0].name === 'Color'){
       users.product.variants.forEach((user,index) => {
       
-        {% comment %} console.log(users.product.options[0].name); {% endcomment %}
+ console.log(users.product.options[0].name); 
       });
 
     } else if(users.product.options[1].name != null && users.product.options[1].name === 'Color'){
@@ -440,7 +440,7 @@
          
                if(img.id === user.image_id ){
 
-          {% comment %} console.log(img.src); {% endcomment %}
+     console.log(img.src); 
                 myElement.src= img.src
               }
             }) 
@@ -454,7 +454,7 @@
     
     } else if(users.product.options[2].name != null && users.product.options[2].name === 'Color'){
       users.product.variants.forEach((user,index) => {
-    {% comment %} console.log(users.product.options[2].name); {% endcomment %}
+ console.log(users.product.options[2].name); 
        
       
       });
@@ -466,7 +466,7 @@
 
 
 <style>
- .grid__item {
+ .padding-bottom {
     padding-bottom: 4%;
 }
 
