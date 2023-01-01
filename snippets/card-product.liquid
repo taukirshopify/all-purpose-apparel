@@ -31,6 +31,15 @@
       assign ratio = 1
     endif
   -%}
+
+  
+  {% comment %} {% for variant in card_product.variants %}
+  
+    {{ variant.title }} - {{ variant.image  | product_img_url: 'medium'  }}
+
+{% endfor %} {% endcomment %}
+
+
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
       class="
@@ -400,7 +409,7 @@
   async function getUsers() {
     let urllink = window.location.host
 
-    let url = `${urllink}{{ card_product.url }}.json`;
+    let url = `${urllink}{{ card_product.url }}/variants.json`;
     try {
         let res = await fetch(url);
         return await res.json();
@@ -415,6 +424,8 @@
 
 
     let users = await getUsers();
+
+    console.log(users);
     
  
 
