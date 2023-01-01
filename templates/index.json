@@ -106,7 +106,7 @@
         "ee41bbf9-0d84-4fd0-a36b-196f42aea102": {
           "type": "text",
           "settings": {
-            "text": "<p>Already a member? Click here to sign in<\/p>",
+            "text": "<ul><li>Already a member? Click here to sign in<\/li><\/ul>",
             "url": "\/account\/login"
           }
         }
