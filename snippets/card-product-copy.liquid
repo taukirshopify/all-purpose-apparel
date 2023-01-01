@@ -158,17 +158,7 @@
           </div>
            <h4> {{ card_product.metafields.descriptors.subtitle }}</h4>
           <div class="card-information">
-
-            <div class="card-proudctimage ">
-              {% for value in card_product.options_by_name.color.values %}
-                <div class="s-card-color" data-color="{{ value }}" style="background:#{{ value | split: "___" | last }}"
-                onclick="render{{card_product.id}}Usersa(this)"
-                >
-                
-                </div>
-             
-                {% endfor %} 
-            </div>
+      
 
 
             {%- if show_vendor -%}
@@ -371,7 +361,6 @@
             </a>
           </h3>
           <div class="card-information">
-            
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ 'products.product.vendor' | t }}</div>
@@ -385,7 +374,7 @@
 {%- endif -%}     
 
 
-
+    
 
 
 
@@ -398,9 +387,7 @@
     {% endfor %} 
   ]
   async function getUsers() {
-    let urllink = window.location.host
-
-    let url = `${urllink}{{ card_product.url }}.json`;
+    let url = `{{ card_product.url }}.json`;
     try {
         let res = await fetch(url);
         return await res.json();
@@ -416,7 +403,7 @@
 
     let users = await getUsers();
     
- 
+    console.log(users);
 
 
     if ( users.product.options[0].name != null && users.product.options[0].name === 'Color'){
@@ -427,9 +414,9 @@
 
     } else if(users.product.options[1].name != null && users.product.options[1].name === 'Color'){
       users.product.variants.forEach((user,index) => {
-   
+   // 
 
-
+   console.log(e.dataset.color ===  user.option2);
 
           if(user.image_id != null   &&  e.dataset.color ===  user.option2 ){
        
