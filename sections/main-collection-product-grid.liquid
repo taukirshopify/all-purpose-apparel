@@ -101,7 +101,7 @@
             <ul id="product-grid" data-id="{{ section.id }}" class="
               grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
               grid--{{ section.settings.columns_desktop }}-col-desktop">
-              {%- for product in collection.products -%}
+              {%- for product in collection.products -%}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
 
 
                 
@@ -369,7 +369,11 @@
     text-transform: uppercase;
 }
   .card__heading a{
+<<<<<<< HEAD
     font-family: "HelveticaNeue-CondensedBold";
+=======
+    font-family: "HelveticaNeue-CondensedBold"; 
+>>>>>>> eafd72b55d7310e89b7a462e83496fb566d445ea
     font-style: normal;
     font-weight: 800;
     font-size: 19px;
@@ -378,7 +382,7 @@
   }
 
   .price-card{
-    font-family: 'Akira Expanded';
+    font-family: "HelveticaNeue-CondensedBold"; 
     font-style: normal;
     font-weight: 800;
     font-size: 19px;
