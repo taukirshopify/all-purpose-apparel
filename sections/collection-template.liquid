@@ -1,0 +1,559 @@
+{% liquid
+  case section.settings.grid
+    when 2
+      assign max_height = 530
+    when 3
+      assign max_height = 345
+    when 4
+      assign max_height = 250
+    when 5
+      assign max_height = 195
+  endcase
+%}
+
+
+
+{% paginate collection.products by section.settings.limit %}
+
+<div data-section-id="{{ section.id }}" data-section-type="collection-template">
+
+
+
+
+<section class="overflow-hidden shop-section">
+  <div class="shop-banner">
+      <div class="container">
+          <div class="shop-breadcrumb">
+              <div class="d-flex align-tems-center">
+                  <a>All collections</a>
+                   <div class="breade-comearrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                      <path d="M1 1L5 5L1 9" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                  </div>
+                  <a class="collection-titlae" >{{ collection.title }}</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container-fluid container-xxl shop-extra-magin">
+      <div class="row align-items-top">
+          <div class="col-md-2 ">
+            
+              <div class="side-menu d-none d-md-block">
+                  {% comment %}<p>Showing:</p>{% endcomment %}
+                  <ul>
+
+                         {% assign footer_menu_mobile = section.settings.shop %}
+            {% for link in linklists[footer_menu_mobile].links %}
+                     
+                      <li>
+                        <a href="{{ link.url }}">{{ link.title }}</a>
+                      </li>
+                     
+                      {% endfor %}
+
+                  
+                  </ul>
+              </div>
+              <!-- -------for mobile--------- -->
+              <div class="d-block d-md-none">
+                  <div class="row mobile-filter">
+                      <div class="col-6 col-sm-6  align-items-center d-flex justify-content-center">
+                        
+                           
+                                <div class="shop-mobile-wrapper d-flex" id="sidebarollapse">
+                                  <h6 class="m-0"> Shop</h6>
+                           
+                              <div> {% include 'svgshopmobilebutton' %} </div>
+                                
+                                </div>
+                          
+                      </div>
+                      <div class="col-6 col-sm-6 border-left" >
+                          <div class=" align-items-center d-flex pb-1 justify-content-center mobile-filtera">
+              
+
+                            
+                              <div class="filters-toolbar">
+                              
+                              
+                        
+                                {% include 'collection-featuredfilter' %}
+                                  
+                              </div>
+                            
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+
+          </div>
+          <div class="col-md-10 col-12">
+              <!-- -----------wave-area----------- -->
+              <div class="wave-area d-flex align-items-center justify-content-left justify-content-sm-center justify-content-md-center  justify-content-lg-between">
+                  <div class="d-flex align-items-center">
+                      <h5 class="collection-titlae">{{ collection.title }}</h5>
+                      <div class="wave-img" >
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="271" height="22" viewBox="0 0 271 22" fill="none">
+                          <path d="M2 2C15.3547 2 15.3547 20 28.7094 20C42.0641 20 42.0641 2 55.4188 2C68.7735 2 68.7735 20 82.0969 20C95.452 20 95.452 2 108.775 2C122.13 2 122.13 20 135.453 20C148.808 20 148.808 2 162.162 2C175.517 2 175.517 20 188.872 20C202.226 20 202.226 2 215.581 2C228.936 2 228.936 20 242.291 20C255.645 20 255.645 2 269 2" stroke="#B5B35C" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round"/>
+                          </svg>
+                      </div>
+                  </div>
+                  <div class=" align-items-center drop-down pb-1 ">
+                   {% comment %} featued start  {% endcomment %}
+                    <div class="featued-wrapper">
+                     
+
+                       
+                          {% include 'collection-featuredfilter' %}
+                   
+                    
+                    </div>
+                   {% comment %} featued start  {% endcomment %}
+
+
+
+
+
+                  </div>
+              </div>
+              <!-- ------product-area------ -->
+              <div class="product-area">
+                  <div class="row justify-content-center ">
+
+                    {% for product in collection.products %}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
+          
+                      <!-- ---------product-1----------- -->
+                      <div class="col-xl-3 col-lg-4 col-md-4 col-6    p-0">
+                          <div class="single-shop-product text-center">
+                              <div class="product-img  d-inline-block">
+                                <a href="{{ product.url }}">
+                                
+
+                                  <div class="img-fluid">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 252 351" fill="none">
+                                      <rect x="0.5" y="0.5" width="250.5" height="350" rx="63.5" fill="url(#p{{forloop.index}}attern0)" stroke="black"/>
+                                      <defs>
+                                      <pattern id="p{{forloop.index}}attern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                      <use xlink:href="#image0_280{{forloop.index}}_2170" transform="translate(0 -0.00156695) scale(0.00227273 0.00162846)"/>
+                                      </pattern>
+                                      <image id="image0_280{{forloop.index}}_2170" width="440" height="616" class="lazyload" xlink:href="{{ product.featured_image.src | img_url: 'large' }}"/>
+                                      </defs>
+                                      </svg>
+                                  </div>
+                                    <div class="img-fluid hover-img">
+                                      <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 252 351" fill="none">
+                                        <rect x="1" y="0.5" width="250.5" height="350" rx="63.5" fill="#F2E085" stroke="black"/>
+                                        </svg>
+                                    </div>                
+
+
+
+                                 
+                                </a>
+                              </div>
+                              <div class="text-center product-content">
+                                <a href="{{ product.url }}"> <h3>{{ product.title }}</h3> </a>
+                                  <h6>{{ product.price | money }}</h6>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- ---------product-1----------- -->
+                    {% endfor %}
+                      
+                  </div>
+
+
+                  {% comment %} pagination  {% endcomment %}
+                  {%- if paginate.pages > 1 -%}
+                <div class="pagination-wrapper pagination">
+                
+                        <ul class="pagination-custom">
+                          {% if paginate.previous %}
+                            <li><a href="{{ paginate.previous.url }}" title="{{ paginate.previous.title }}">&larr;</a></li>
+                          {% else %}
+                            <li class="disabled"><span>&larr;</span></li>
+                          {% endif %}
+                        
+                          {% for part in paginate.parts %}
+                            {% if part.is_link %}
+                              <li>
+                                <a href="{{ part.url }}" title="">{{ part.title }}</a>
+                              </li>
+                            {% else %}
+                              {% if part.title == paginate.current_page %}
+                                <li class="active"><span>{{ part.title }}</li>
+                              {% else %}
+                                <li><span>{{ part.title }}</span></li>
+                              {% endif %}
+                            {% endif %}
+                          {% endfor %}
+                        
+                          {% if paginate.next %}
+                            <li><a href="{{ paginate.next.url }}" title="{{ paginate.next.title }}">&rarr;</a></li>
+                          {% else %}
+                            <li class="disabled"><span>&rarr;</span></li>
+                          {% endif %}
+                        </ul>
+                </div>
+              {% endif %}
+         
+                  {% comment %} pagination End  {% endcomment %}
+
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+</div>
+
+
+
+
+{% endpaginate %}
+
+
+
+{% schema %}
+{
+  "name": "t:sections.collection-template.name",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable",
+      "label": "Enable Banner",
+      "default": true
+    },
+  {
+    "type": "text",
+    "id": "limit",
+    "label": "Please how meany Proudct you want to show on proudct page",
+    "default": "24",
+    "placeholder": "24"
+  },
+  {
+    "type": "link_list",
+    "id": "shop",
+    "label": "Shop Menu"
+  }
+  ]
+}
+{% endschema %}
+
+<nav id="sidebara">
+  <div id="dismissa">
+      {% include 'svgclose' %}
+  </div>
+
+
+
+  <ul class="list-unstyled components shop-margin-top">
+    <p>Showing:</p>
+    <ul>
+
+                         {% assign footer_menu_mobile = section.settings.shop %}
+            {% for link in linklists[footer_menu_mobile].links %}
+                     
+                      <li>
+                        <a href="{{ link.url }}">{{ link.title }}</a>
+                      </li>
+                     
+                      {% endfor %}
+
+    
+    </ul>
+  </ul>
+
+</nav>
+
+
+
+
+
+<style>
+  #sidebara {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: -110%;
+    height: 100vh;
+    z-index: 1999;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+    overflow-y: scroll;
+    box-shadow: 3px 3px 3px rgb(0 0 0 / 20%);
+    color: #000;
+    background: #fff;
+}
+#sidebara.active{
+
+  left: 0;
+}
+.shop-margin-top {
+  margin-top: 108px;
+  margin-left: 29px;
+}
+.shop-margin-top p {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  margin: 0 0 10px 0;
+  /* identical to box height, or 150% */
+  
+  
+  /* Current / Black */
+  
+  color: #000000;
+}
+.list-unstyled.components.shop-margin-top ul li a {
+  display: inline-block;
+  font-family: 'GT Super Txt Trial';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  margin: 11px 0;
+}
+#dismissa {
+    width: 45px;
+    height: 45px;
+    line-height: 35px;
+    text-align: center;
+    background: #fff;
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    z-index: 2000;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+#dismissa:hover {
+    background: #fff;
+    color: #7386D5;
+}
+  .border-left{
+    border-left: 1px solid #000;
+}
+
+
+.shop-section{
+    padding-bottom: 204px;
+}
+.wave-area {
+  margin-bottom: 10px;
+}
+.side-menu ul li {
+  display: block;
+}
+.product-img {
+    position: relative;
+    z-index: 22;
+    cursor: pointer;
+}
+
+
+
+
+.hover-img {
+    z-index: -22;
+    position: absolute;
+    left: 4%;
+    top: 2.5%;
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.product-img:hover .hover-img {
+    opacity: 100%;
+}
+
+.product-content h3 {
+    font-family: 'GT Super Txt Trial';
+    color: #000000;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.product-content h6 {
+    color: #B5B35C;
+    font-family: 'Jost';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.wave-area {
+    margin-bottom: 20px;
+}
+
+.wave-area h5 {
+    color: #000000;
+    font-family: 'GT Super Txt Trial';
+    font-weight: 700;
+    font-size: 40px;
+    
+    margin-top: 10px;
+    margin-right: 64px;
+}
+
+.wave-area h6 {
+    color: #000000;
+    font-family: 'GT Super Txt Trial';
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.drop-down {
+    border-bottom: 2px solid #000000;
+    ;
+}
+
+.side-menu li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.side-menu a {
+    color: #B5B35C;
+    text-decoration: none;
+    font-family: 'GT Super Txt Trial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.side-menu p {
+    font-family: 'Jost';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 12px;
+    padding: 0;
+}
+
+.pagination {
+    margin-top: 70px;
+}
+.pagination ul  {
+  display: flex;
+}
+
+.pagination ul li {
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border: 2px solid black;
+    margin-right: 24px;
+    font-family: 'GT Super Txt Trial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.pagination-active {
+    background-color: #B5B35C;
+}
+
+.drop-down {
+    display: flex;
+}
+.collection-titlae{
+  text-transform: capitalize;
+}
+.mobile-filter {
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+.mobile-filter h6 {
+    font-family: 'GT Super Txt Trial';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    padding-right: 12px;
+}
+
+@media screen and (max-width:767px) {
+    .drop-down {
+        display: none;
+    }
+}
+
+@media screen and (max-width:991px) and (min-width:767px) {
+    .wave-img {
+        width: 40%;
+    }
+
+    .wave-area h5 {
+        margin-right: 20px;
+    }
+}
+
+@media screen and (min-width:800px) and (max-width:1440px) {
+    .product-content h3 {
+        line-height: 22px;
+        font-size: 17px;
+
+    }
+}
+
+
+
+</style>
+
+
+<script type="text/javascript">
+  $(document).ready(function () {
+      $("#sidebara").mCustomScrollbar({
+          theme: "minimal"
+      });
+
+      $('#dismissa, .overlay').on('click', function () {
+          $('#sidebara').removeClass('active');
+          $('.overlay').removeClass('active');
+      });
+
+      $('#sidebarollapse').on('click', function () {
+          $('#sidebara').addClass('active');
+          $('.overlay').addClass('active');
+          $('.collapse.in').toggleClass('in');
+          $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+      });
+   
+
+      {% comment %} function getImageDirectoryByFullURL(url){
+        url = url.split('/'); //url = ["serverName","app",...,"bb65efd50ade4b3591dcf7f4c693042b"]
+        url = url.pop();    
+         console.log(url)
+        //url = "bb65efd50ade4b3591dcf7f4c693042b"
+        return url;           //return "bb65efd50ade4b3591dcf7f4c693042b"
+      }(); {% endcomment %}
+       var Getvalue = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+     
+
+      if( Getvalue == "all" ){
+        $(".collection-titlae").html("All Products");
+       
+      }
+     
+  });
+</script>
