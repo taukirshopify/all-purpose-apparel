@@ -170,7 +170,7 @@
 
             <div class="card-proudctimage ">
               {% for value in card_product.options_by_name.color.values %}
-                <div class="s-card-color" data-color="{{ value }}" style="background:#{{ value | split: "___" | last }}"
+                <div class="s-card-color" data-color="{{ value }}"  data-url="{{ card_product.url }}" data-color="{{ value }}" style="background:#{{ value | split: "___" | last }}"
                 onclick="render{{card_product.id}}Usersa(this)"
                 >
                 
@@ -406,12 +406,12 @@
       {% if forloop.index == last %} "{{ value }} " {% else %} "{{ value }}", {% endif %}
     {% endfor %} 
   ]
-  async function getUsers() {
+  async function getUsers(e) {
     let urllink = window.location.host
 
-    let url = `${urllink}{{ card_product.url }}/variants.json`;
+    let ur{{card_product.id}}l = `${e}.json`;
     try {
-        let res = await fetch(url);
+        let res = await fetch(ur{{card_product.id}}l);
         return await res.json();
     } catch (error) {
         console.log(error);
@@ -420,10 +420,9 @@
   async function render{{card_product.id}}Usersa(e) {
 
 
-  
 
 
-    let users = await getUsers();
+    let users = await getUsers(e.dataset.url);
 
     console.log(users);
     
@@ -460,7 +459,7 @@
             }) 
           
           } else{
-          {% comment %} console.log("Image not found") {% endcomment %}
+         console.log("Image not found")
           }
    
       
