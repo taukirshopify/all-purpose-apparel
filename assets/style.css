@@ -113,13 +113,13 @@ h4,
 h5,
 h6 {
 	color: #fff;
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+	font-family: "HelveticaNeue-CondensedBold"; 
 	font-style: normal;
 	font-weight: 800
 }
 
 h1.collection-hero__title {
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+	font-family: "HelveticaNeue-CondensedBold"; 
 	font-style: normal;
 	font-weight: 800
 }
@@ -343,7 +343,7 @@ div#backToCollection {
 }
 
 .color-add-color {
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+	font-family: "HelveticaNeue-CondensedBold";
 	font-style: normal;
 	font-weight: 800;
 	font-size: 25px;
@@ -513,7 +513,7 @@ div#backToCollection {
 }
 
 .allvarinatname-title p {
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+	font-family: "HelveticaNeue-CondensedBold"; 
 	font-style: normal;
 	font-weight: 800;
 	font-size: 35px;
@@ -526,7 +526,7 @@ div#backToCollection {
 }
 
 .allvarinatname-content p {
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+	font-family: "HelveticaNeue-CondensedBold"; 
 	font-style: normal;
 	font-weight: 800;
 	font-size: 35px;
@@ -569,7 +569,7 @@ button.product-form__submit {
 }
 
 .product__title h1 span {
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+	font-family: "HelveticaNeue-CondensedBold"; 
 	font-style: normal;
 	font-weight: 800
 }
@@ -583,13 +583,13 @@ button.product-form__submit {
 }
 
 .product-form__submit span {
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+	font-family: "HelveticaNeue-CondensedBold"; 
 	font-style: normal;
 	font-weight: 800
 }
 
 .shopify-payment-button__button.shopify-payment-button__button--unbranded {
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+	font-family: "HelveticaNeue-CondensedBold"; 
 	font-style: normal;
 	font-weight: 800;
 	display: block
@@ -600,7 +600,7 @@ div#cart-notification {
 }
 
 form#cart-notification-form button {
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+	font-family: "HelveticaNeue-CondensedBold"; 
 	font-style: normal;
 	font-weight: 800;
 	padding: 10px
@@ -690,7 +690,7 @@ a#cart-notification-button {
 }
 
 .customer button {
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+	font-family: "HelveticaNeue-CondensedBold"; 
 	font-style: normal;
 	font-weight: 700;
 	font-size: 20px;
@@ -728,7 +728,7 @@ h1#login {
 }
 
 .contact-btn {
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+	font-family: "HelveticaNeue-CondensedBold"; 
 	font-style: normal;
 	font-weight: 800;
 	font-size: 30px;
@@ -749,7 +749,7 @@ h1#login {
 }
 
 .singel-content h3 {
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+	font-family: "HelveticaNeue-CondensedBold"; 
 	font-style: normal;
 	font-weight: 800;
 	font-size: 45px;
