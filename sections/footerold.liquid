@@ -9,19 +9,19 @@
                       </div>
                       <div class="ot-social ot-social2">
                           {% if settings.facebook != blank %}
-                              <a target="_blank" href="{{settings.facebook}}">
+                              <a target="_blank" href="{{settings.settings.facebook}}">
                                 {% render 'facebook' %}
                               </a>
                             {% endif %}
                             {% if settings.instagram != blank %}
-                          <a target="_blank" href="{{settings.instagram}}">
+                          <a target="_blank" href="{{settings.settings.instagram}}">
         
                                 {% render 'instagram' %}
         
                           </a>
                         {% endif %}
                         {% if settings.twitter != blank %}
-                          <a target="_blank" href="{{settings.twitte}}">
+                          <a target="_blank" href="{{settings.settings.twitte}}">
         
                             {% render 'twitter' %}
                           
@@ -30,7 +30,7 @@
                     {% endif %}
         
                     {% if settings.ticktok != blank %}
-                          <a target="_blank" href="{{settings.ticktok}}">
+                          <a target="_blank" href="{{settings.settings.ticktok}}">
                             
                          {% render 'tiktok' %}
                         
@@ -38,7 +38,7 @@
                         </a>
                       {% endif %}
                         {% if settings.discord != blank %}
-                          <a target="_blank" href="{{ settings.discord}}">
+                          <a target="_blank" href="{{ settings.settings.discord}}">
                           
                           {% render 'discord' %}
                           
@@ -85,7 +85,8 @@
   </div>
   <div class="container">
       <div class="container">
-          <p class="copyright">  {{ shop.name }}   &copy; {{ 'now' | date: '%Y' }}, {{ section.settings.copy }}</p>
+        {% comment %} {{ shop.name }}  {% endcomment %}
+          <p class="copyright">    &copy; {{ 'now' | date: '%Y' }}, {{ section.settings.copy }}</p>
       </div>
      
   </div>
@@ -113,6 +114,31 @@
           "label": "Icon Hover color",
           "default": "#f0f"
        },
+       {
+        "type": "url",
+        "id": "facebook",
+        "label": "Facebook link"
+      },
+      {
+        "type": "url",
+        "id": "instagram",
+        "label": "Facebook link"
+      },
+      {
+        "type": "url",
+        "id": "twitter",
+        "label": "Facebook link"
+      },
+      {
+        "type": "url",
+        "id": "ticktok",
+        "label": "Facebook link"
+      },
+      {
+        "type": "url",
+        "id": "discord",
+        "label": "Facebook link"
+      },
 
     {
       "type": "link_list",
@@ -123,9 +149,9 @@
       "type": "text",
       "id": "copy",
       "label": "Copy Right",
-      "default": "hypland 2022 all rights reserved",
+      "default": "Allpurpose 2022 all rights reserved",
 
-      "placeholder": "hypland 2022 all rights reserved"
+      "placeholder": "Allpurpose 2022 all rights reserved"
     }
           ],
           "blocks": [
@@ -156,8 +182,8 @@
       font-size: 18px;
   }
   .footer-wrapper{
-    background-color:var(--title-color);
-    --body-color:#fff;
+   
+    
     overflow:hidden
 }
 .footer-wrapper .ot-social a{
@@ -297,6 +323,7 @@
 @media only screen and (min-width:1200px){
     .payment-all-wrapper{
         max-width:0;
+        padding:10px 0;
         display:inline-block
     }
 }
