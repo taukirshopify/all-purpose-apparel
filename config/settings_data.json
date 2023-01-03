@@ -222,7 +222,7 @@
       "footerold": {
         "type": "footerold",
         "settings": {
-          "img": "shopify:\/\/shop_images\/apa-social-sharing.png",
+          "img": "shopify:\/\/shop_images\/APA_LOGO-ART-WHITE.png",
           "a": "#ffffff",
           "a1": "#1947ba",
           "facebook": "#",
@@ -231,7 +231,7 @@
           "ticktok": "shopify:\/\/pages\/contact-1",
           "discord": "#",
           "menu02": "footer",
-          "copy": "hypland 2022 all rights reserved"
+          "copy": "All Purpose Apparel LLC. All ights Reserved"
         }
       }
     },
