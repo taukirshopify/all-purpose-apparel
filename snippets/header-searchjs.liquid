@@ -1,0 +1,134 @@
+async function suggestinlist(e){
+  const thisVal = e.value
+ 
+  const suggestionList = document.getElementById("suggeationlist")
+ 
+
+  const reqcollection = await fetch(`/search/suggest.json?q=${ thisVal }&resources[type]=collection&limit=4`)
+  const collectionitems  = await reqcollection.json()
+
+ const collectionlist = collectionitems.resources.results.collections;
+
+ const collectionwerapper = document.createElement('div')
+ const collectiontTitle = document.createElement('h3')
+ collectiontTitle.innerHTML ="Collection"
+ collectionwerapper.className = "proudct-werappera"
+ suggestionList.innerHTML = ''
+ collectionlist.forEach((item) => {
+ 
+  const singelcollection = document.createElement('div')
+  singelcollection.className = "singel-porducta"
+  {% comment %} img  {% endcomment %}
+  const singelcollectionimg = document.createElement('img')
+  singelcollectionimg.src= item.featured_image.url
+
+
+ 
+  {% comment %} imglink {% endcomment %}
+  const singelcollectionimglink = document.createElement('a')
+  singelcollectionimglink.href= item.url
+  singelcollectionimglink.append(singelcollectionimg);
+
+
+  {% comment %} proudct title  {% endcomment %}
+  const singelcollectiontTitle = document.createElement('h4');
+  singelcollectiontTitle.innerText = item.title
+  {% comment %} proudct title link {% endcomment %}
+  const singelcollectiontTitlelink = document.createElement('a')
+  singelcollectiontTitlelink.href= item.url
+  singelcollectiontTitlelink.append(singelcollectiontTitle);
+
+  if(singelcollectionimg === undefined  ){
+    singelcollection.append(singelcollectiontTitlelink);
+  } else {
+    singelcollection.append(singelcollectionimglink,singelcollectiontTitlelink);
+  }
+
+
+  collectionwerapper.append(collectiontTitle, singelcollection )
+
+})
+
+const req = await fetch(`/search/suggest.json?q=${ thisVal }&resources[type]=product`)
+const items  = await req.json()
+
+const proudctlist = items.resources.results.products;
+
+const proudctwerapper = document.createElement('div')
+const proudctTitle = document.createElement('h3')
+proudctTitle.innerHTML ="Products"
+proudctwerapper.className = "proudct-werapper"
+suggestionList.innerHTML = ''
+proudctwerapper.append( proudctTitle )
+proudctlist.forEach((item) => {
+
+const singelproudct = document.createElement('div')
+singelproudct.className = "singel-porduct"
+{% comment %} img  {% endcomment %}
+const singelproudctimg = document.createElement('img')
+singelproudctimg.src= item.image
+
+{% comment %} imglink {% endcomment %}
+const singelproudctimglink = document.createElement('a')
+singelproudctimglink.href= item.url
+singelproudctimglink.append(singelproudctimg);
+
+{% comment %} proudct title  {% endcomment %}
+const singelproudcttitle = document.createElement('h4');
+singelproudcttitle.innerText = item.title
+{% comment %} proudct title link {% endcomment %}
+const singelproudcttitlelink = document.createElement('a')
+singelproudcttitlelink.href= item.url
+singelproudcttitlelink.append(singelproudcttitle);
+
+
+
+
+
+singelproudct.append(singelproudctimglink,singelproudcttitlelink);
+proudctwerapper.append( singelproudct )
+
+}) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(collectionlist.length > 0 && proudctlist.length > 0) {
+suggestionList.append( proudctwerapper, collectionwerapper);
+
+  
+} else if(collectionlist.length > 0){
+  suggestionList.append( collectionwerapper)
+}
+ else if(proudctlist.length > 0){
+  suggestionList.append(proudctwerapper)
+}
+
+}
+
+window.addEventListener('load', function () {
+    $('.search-form-active').click(function() {
+
+      $(".search-wrapper").toggleClass("active");
+    });
+  })

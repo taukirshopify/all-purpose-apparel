@@ -1,0 +1,139 @@
+<section class="about-card-area">
+    <div class="container">
+            {{ page.content }}
+  <div>
+  </section>
+
+{% schema %}
+{
+  "name": "t:sections.page-template.name"
+}
+{% endschema %}
+
+
+<style>
+
+.about-hero-area {
+    background-color: #BD6059;
+    padding-top: 104px;
+    padding-bottom: 95px;
+    border-bottom: 1px solid #000000;
+}
+
+.about-hero-area h4 {
+    color: white;
+    font-family: 'GT Super Txt Trial';
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 83px;
+}
+
+.about-card-area {
+    background: #F2E085;
+    padding-top: 120px;
+    padding-bottom: 136px
+}
+
+.about-card {
+    background: #F8F8F8;
+    border: 1px solid #000000;
+    border-radius: 90px;
+    padding: 71px 71px 63px 71px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.6s;
+    width: 1114px;
+    margin: auto;
+    display: block;
+}
+
+.about-card:hover {
+    box-shadow: 12px 14px 0px 1px #D77628;
+}
+
+.about-card p {
+    font-family: 'Jost';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+}
+
+.about-card li {
+    list-style: none;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.about-card a {
+    font-family: 'Jost';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #B5B35C;
+    text-decoration: none;
+    text-align: center;
+}
+
+.about-card h6 {
+    color: #000000;
+    font-family: 'GT Super Txt Trial';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 48px;
+}
+.svg-mobile svg{
+    display: inline-block;
+    text-align: left;
+
+}
+@media screen and (max-width:991px) {
+    .about-hero-area img {
+        width: 100%;
+    }
+
+    .about-hero-area h4 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width:541px) {
+
+    .about-hero-area h4 {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width:1114px) {
+
+    .about-card {
+        width: 90%;
+    }
+}
+@media screen and (max-width:767px) {
+    .about-card {
+        width: 85%;
+    }
+    .about-card {
+        padding: 61px 61px 53px 61px;
+    }
+    .about-card p{
+        font-size: 17px;
+    }
+    .about-card a{
+        font-size: 17px;
+    }
+}
+@media screen and (max-width:516px) {
+
+    .about-card {
+        padding: 21px 21px 13px 21px;
+    }
+    .about-card p{
+        font-size: 16px;
+    }
+    .about-card a{
+        font-size: 16px;
+    }
+}
+</style>

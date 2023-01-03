@@ -1,0 +1,109 @@
+<nav id="sidebar">
+    <div class="d-flex justify-content-between align-items-center sider-bar-top">
+      <div class="sidebar-header-logo">
+        <img src="{{section.settings.img | img_url:''}}" alt="">
+    </div>
+      <div id="dismiss">
+       {% include 'svgclose' %}
+    </div>
+
+    
+    </div>
+    
+
+    <ul class="list-unstyled components">
+        {% assign footer_menu_mobile = section.settings.sub5 %}
+            {% for link in linklists[footer_menu_mobile].links %}
+            
+            {% assign child_list_handle = link.title | handleize %}
+            {% if linklists[child_list_handle].links != blank %}
+                <li>
+                    <a href="#{{ link.title | handle}}-{{forloop.index | handle}}" data-toggle="collapse" aria-expanded="false" class="d-flex justify-content-between align-items-center crote"><p>{{link.title}}</p>   <div class="mobile-menu-arrow">{% include 'svgarrow_down' %}</div> </a>
+                    <ul class="collapse list-unstyled" id="{{ link.title | handle}}-{{forloop.index | handle}}">
+                        {% for childlink in linklists[child_list_handle].links %}
+                            {% assign grand_child_link_handle = childlink.title | handleize %}
+                            {% if linklists[grand_child_link_handle] and linklists[grand_child_link_handle].links.size > 0 %}
+                        {% comment %} child with submenu  {% endcomment %}
+                        <li>
+                           
+                           
+                            <a href="#{{ childlink.title | handle}}-{{forloop.index | handle}}" data-toggle="collapse" aria-expanded="false" class="d-flex justify-content-between align-items-center crote"><p>{{ childlink.title }}</p>   <div class="mobile-menu-arrow">{% include 'svgarrow_down' %}</div> </a>
+
+                                <ul class="collapse list-unstyled" id="{{ childlink.title | handle}}-{{forloop.index | handle}}">
+
+                                  {% for grand_child_link in linklists[grand_child_link_handle].links %}
+                                  
+                                    <li>
+                                        <a href="{{ grand_child_link.url }}">{{ grand_child_link.title }}</a>
+                                    </li>            
+                                        
+                                  {% endfor %}
+                                </ul>
+                             
+                        </li>
+                        {% else %}
+                        
+                        <li>
+                            <a href="{{ childlink.url }}">{{ childlink.title }}</a>
+                        </li>
+                    {% endif %}
+                        {% comment %} child with submenu End {% endcomment %}
+
+
+
+                    {% endfor %}
+                    </ul>
+                </li>
+            {% else %}
+            <li><a href="{{link.url}}">{{ link.title }}</a></li>
+            {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {% comment %} <li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="d-flex justify-content-between align-items-center crote"><p>Pages</p>   <div class="mobile-menu-arrow">{% include 'svgarrow_down' %}</div> </a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                    <a href="#">Page 1</a>
+               
+                <li>
+                    <a href="#">Page 3</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Portfolio</a>
+        </li> {% endcomment %}
+     {%- endfor -%}
+    </ul>
+
+   <ul class="list-unstyled navigation">
+        <ul>
+            {% if shop.customer_accounts_enabled %}
+                {% if customer %}
+                 
+
+                  <li><a href="{{ routes.account_url }}">{% include 'svguser' %}</a></li>
+                {% else %}
+                  <li><a href="{{ routes.account_login_url }}">{% include 'svguser' %}</a></li>
+                {% endif %}
+              {% endif %}
+           
+
+
+
+
+                  <li><a href="{{ routes.cart_url }}"> {% include 'svgcart' %} </a></li>
+        </ul>
+    </ul>
+</nav>

@@ -1,0 +1,158 @@
+<footer class="footer-wrapper">
+  <div class="widget-area">
+      <div class="container">
+          <div class="row  justify-content-center   justify-content-xxl-between ">
+              <div class="col-xxl-auto col-xl-4">
+                  <div class="footer-left">
+                      <div class="footer-logo">
+                          <img src="{{ section.settings.img  | img_url: 'master' }}" alt="Hypland">
+                      </div>
+                      <div class="ot-social ot-social2">
+                          {% if settings.facebook != blank %}
+                              <a target="_blank" href="{{settings.facebook}}">
+                                {% render 'facebook' %}
+                              </a>
+                            {% endif %}
+                            {% if settings.instagram != blank %}
+                          <a target="_blank" href="{{settings.instagram}}">
+        
+                                {% render 'instagram' %}
+        
+                          </a>
+                        {% endif %}
+                        {% if settings.twitter != blank %}
+                          <a target="_blank" href="{{settings.twitte}}">
+        
+                            {% render 'twitter' %}
+                          
+                          
+                      </a>
+                    {% endif %}
+        
+                    {% if settings.ticktok != blank %}
+                          <a target="_blank" href="{{settings.ticktok}}">
+                            
+                         {% render 'tiktok' %}
+                        
+                        
+                        </a>
+                      {% endif %}
+                        {% if settings.discord != blank %}
+                          <a target="_blank" href="{{ settings.discord}}">
+                          
+                          {% render 'discord' %}
+                          
+                          </a>
+                        {% endif %}
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xxl-9 col-xl-8">
+                  <div class="footer-right">
+                      <div class="footer-menu-wrap">
+                          <div class="footer-menu">
+                              {% assign footer_menu_2 = section.settings.menu02 %}
+                              {% for link in linklists[footer_menu_2].links %}
+                              <li><a href="{{link.url}}">{{ link.title }}</a></li>
+                              {% endfor %}
+                          </div>
+                          {% comment %} <div class="footer-menu">
+                              <ul>
+                                  {% assign footer_menu_4 = section.settings.menu01 %}
+                                  {% for link in linklists[footer_menu_4].links %}
+                                  <li><a href="{{link.url}}">{{ link.title }}</a></li>
+                                  {% endfor %}
+                              </ul>
+                          </div> {% endcomment %}
+                      </div>
+
+                          <div class="payment-all-wrapper">
+                              <div class="payment-methods">
+                
+                                  {%- for type in shop.enabled_payment_types -%}
+                                      <li class="list-payment__item">
+                                        {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                                      </li>
+                                    {%- endfor -%}
+                                
+                              </div>
+                          </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container">
+      <div class="container">
+          <p class="copyright">  {{ shop.name }}   &copy; {{ 'now' | date: '%Y' }}, {{ section.settings.copy }}</p>
+      </div>
+     
+  </div>
+</footer>
+
+{% schema %}
+  {
+      "name": "Footer",
+      "class": "Featured",
+      "settings": [
+       {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Footer Logo"
+       },
+       {
+          "type": "color",
+          "id": "a",
+          "label": "Icon color",
+          "default": "#fff"
+       },
+       {
+          "type": "color",
+          "id": "a1",
+          "label": "Icon Hover color",
+          "default": "#f0f"
+       },
+
+    {
+      "type": "link_list",
+      "id": "menu02",
+      "label": "Select your Footer First menu"
+    },
+    {
+      "type": "text",
+      "id": "copy",
+      "label": "Copy Right",
+      "default": "hypland 2022 all rights reserved",
+
+      "placeholder": "hypland 2022 all rights reserved"
+    }
+          ],
+          "blocks": [
+              {
+                  "type": "Payment",
+                  "name": "Payment Method",
+                  "settings": [
+                      {
+                          "type": "image_picker",
+                          "id": "imga",
+                          "label": "Your Payment method Picture"
+                      }
+                  ]
+              }
+          ]
+          
+  }
+{% endschema %}
+
+
+<style>
+  .ot-social2 a svg {
+      fill: {{ section.settings.a }};
+      font-size: 18px;
+  }
+  .ot-social2 a:hover svg {
+      fill: {{ section.settings.a1 }};
+      font-size: 18px;
+  }
+</style>

@@ -1,0 +1,129 @@
+<div class="page-width feature-row">
+  {% capture image_layout %}
+    <div class="feature-row__item">
+      {% if section.settings.image != blank %}
+        {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
+        {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
+        {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '.' -%}
+        {% render 'image-style', image: section.settings.image, height: 545, wrapper_id: wrapper_id, img_id: img_id %}
+        <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
+          <div style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;" data-image-loading-animation>
+            <img id="{{ img_id }}"
+                 class="feature-row__image"
+                 src="{{ img_url }}"
+                 data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                 data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+                 data-sizes="auto"
+                 loading="lazy"
+                 width="auto"
+                 height="auto"
+                 alt="{{ section.settings.image.alt | escape }}">
+          </div>
+        </div>
+
+        <noscript>
+          {{ section.settings.image | img_url: '600x600', scale: 2 | img_tag: section.settings.image.alt, 'feature-row__image' }}
+        </noscript>
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+  {% endcapture %}
+
+  <div class="feature-row">
+    {% if section.settings.layout == 'left' %}
+      {{ image_layout }}
+    {% endif %}
+
+    <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }}">
+      {% if section.settings.title != blank %}
+        <h2 class="h3">{{ section.settings.title | escape }}</h2>
+      {% endif %}
+      {% if section.settings.text != blank %}
+        <div class="rte rte-setting featured-row__subtext">{{ section.settings.text }}</div>
+      {% endif %}
+      {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+        {%- capture ariaLabel -%}
+          {{- section.settings.button_label -}}
+          {%- if section.settings.button_link.type == 'frontpage_link' -%}
+            : {{ 'homepage.general.title' | t -}}
+          {%- elsif section.settings.button_link.type == 'catalog_link' -%}
+            : {{ 'collections.catalog.title' | t -}}
+          {%- elsif section.settings.button_link.object.title -%}
+            : {{ section.settings.button_link.object.title -}}
+          {%- endif -%}
+        {%- endcapture -%}
+
+        <a href="{{ section.settings.button_link }}"
+          class="btn"
+          aria-label="{{ ariaLabel }}">
+          {{- section.settings.button_label | escape -}}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.settings.layout == 'right' %}
+      {{ image_layout }}
+    {% endif %}
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "t:sections.feature-row.name",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.feature-row.settings.image.label"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "t:sections.feature-row.settings.layout.label",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.feature-row.settings.layout.options__1.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.feature-row.settings.layout.options__2.label"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.feature-row.settings.title.label",
+      "default": "Image with text"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "t:sections.feature-row.settings.text.label",
+      "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:sections.feature-row.settings.button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.feature-row.settings.button_link.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.feature-row.presets.name",
+      "category": "t:sections.feature-row.presets.category"
+    }
+  ]
+}
+{% endschema %}

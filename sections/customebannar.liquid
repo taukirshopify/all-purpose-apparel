@@ -1,0 +1,342 @@
+{% assign favorite_food = "" %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+          
+            
+            
+        
+
+<div class="slider-for">
+
+
+
+ {% for block in section.blocks %}
+    {% case block.type %}
+    {% when  'twoside'%}
+   
+
+
+         <div class="two-slide-wrapper" id="hello">
+
+            <div class="bannar-wrapper">
+               <div class="bannar-shape-1">
+                  <img 
+                  data-sizes="auto"
+                  data-src="{{ block.settings.img1 | img_url:'' }}" class="lazyload"
+                  alt="">
+               </div>
+               <div class="bannar-shape-2">
+                  <img data-sizes="auto"
+                  data-src="{{ block.settings.img2 | img_url:'' }}" class="lazyload" alt="">
+               </div>
+               
+               <div class="container-fluid">
+                  <div class="row">
+                  <div class="col-xl-6 col-md-12 p-0">
+                        <div class="bannar-left-image">
+                        <img 
+                           src="{{ block.settings.img | img_url:'' }}"
+                class="lazyload" alt="">
+                        </div>
+                  </div>
+                  <div class="col-xl-6 col-md-12 d-flex align-items-center justify-content-center">
+                        <div class="bannar-right-wrapper text-center">
+                           <div class="bannar-wev-image">
+                              <img 
+                              data-src="{{ block.settings.imgw | img_url:'' }}" class="lazyload" alt="">
+                           </div>
+                           <h1>{{ block.settings.h1 }}</h1>
+                           <p>{{ block.settings.p }}</p>
+                           <div class="bannar-btn-area">
+                           <a href="{{  block.settings.link }}" class="btn">{{ block.settings.shop }}</a>
+                           </div>
+                        </div>
+                  </div>
+         
+                  </div>
+               </div>
+            </div>
+         </div>
+
+    {% when  'fullwidth'%}
+
+      <div class="all-bannar-wrapper bannar-wrapper" >
+         <div class="fulwidth-wrapper d-flex   {% if block.settings.Horizontal == "center" %}  align-items-center {% elsif block.settings.Horizontal == 'top' %}align-items-start {% elsif block.settings.Horizontal == 'bottom' %} align-items-end {% endif%}" style="background-image: url({{ block.settings.img | img_url:'master' }}); background-position: center center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         height:{{ block.settings.height }}px;">
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                        <div class="bannar-content {% if block.settings.vertecal == "center" %} text-center {% elsif block.settings.vertecal == 'left' %} text-left {% elsif block.settings.vertecal == 'right' %} text-right {% endif%} bannar-right-wrapper">
+                           <h1 style=" color:{{ block.settings.h2-c}} ;">{{ block.settings.h2}}</h1>
+                           <p style="  color: {{ block.settings.p-c}};">{{ block.settings.p}}</p>
+                           <div class="bannar-btn-area">
+                           <a href="{{ block.settings.shop-url}}" class="btn" style="background-color:{{ block.settings.btn-b}};  color:{{ block.settings.btn-c}};">{{ block.settings.shop}}</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+    {% endcase %}
+ {% endfor %}
+</div>
+
+
+{% schema %}
+    {
+        "name": "Slider",
+        "class": "slider",
+        "settings": [
+        {
+         "type": "checkbox",
+         "id": "autoplay",
+         "label": "Autoplay",
+         "default": false
+        },
+         {
+            "type": "text",
+            "id": "speed",
+            "label": "Auto play speed  millisecond",
+            "default": "5000",
+      
+            "placeholder": "5000"
+         }
+        ],	
+        "blocks":[
+          {
+           "type": "fullwidth",
+           "name":"Full width",
+           "settings":[
+               {
+                  "type": "image_picker",
+                  "id": "img",
+                  "label": "Slider Main left Image"
+               },   
+               {
+                  "type": "text",
+                  "id": "height",
+                  "label": "Put you slider hight in Pixel",
+                  "default": "600",
+          
+                  "placeholder": "600"
+               }, 
+                {
+                  "type": "select",
+                  "id": "vertecal",
+                  "label": "Content  vertical alignment",
+                  "options": [
+                     {
+                        "value": "center",
+                        "label": "center"
+                     },
+                     {
+                        "value": "left",
+                        "label": "left"
+                     },
+                     {
+                        "value": "right",
+                        "label": "right"
+                     }
+                  ],
+                  "default": "center"
+                },
+                {
+                  "type": "select",
+                  "id": "Horizontal",
+                  "label": "Content  Horizontal  alignment",
+                  "options": [
+                     {
+                        "value": "center",
+                        "label": "center"
+                     },
+                     {
+                        "value": "top",
+                        "label": "top"
+                     },
+                     {
+                        "value": "bottom",
+                        "label": "bottom"
+                     }
+                  ],
+                  "default": "center"
+                },
+               {
+                  "type": "text",
+                  "id": "h2",
+                  "label": "Select your title",
+                  "default": "Ny Forever",
+            
+                  "placeholder": "NY Forever"
+                 },
+                 {
+                  "type": "color",
+                  "id": "h2-c",
+                  "label": "label",
+                  "default": "#000",
+                  "info": "Title color"
+                 },
+                 {
+                  "type": "text",
+                  "id": "p",
+                  "label": "label",
+                  "default": "We Are Children of Immigrants",
+               
+                  "placeholder": "We Are Children of Immigrants"
+                 },
+                 {
+                  "type": "color",
+                  "id": "p-c",
+                  "label": "label",
+                  "default": "#000",
+                  "info": "Title color"
+                 },
+                 {
+                  "type": "text",
+                  "id": "shop",
+                  "label": "Shop Now",
+                  "default": "Shop Now",
+            
+                  "placeholder": "Shop Now"
+                 },
+      
+      
+                 {
+                  "type": "url",
+                  "id": "shop-url",
+                  "label": "shoplink"
+                 },
+                 {
+                  "type": "color",
+                  "id": "btn-c",
+                  "label": "label",
+                  "default": "#000",
+                  "info": "Title color"
+                 },
+                 {
+                  "type": "color",
+                  "id": "btn-b",
+                  "label": "label",
+                  "default": "#b5b35c",
+                  "info": "Title color"
+                 }
+           ]
+           
+          },
+          {
+            "type":"twoside",
+            "name":"two side",
+            "settings":[
+            {
+               "type": "text",
+               "id": "h1",
+               "label": "Slider Title",
+               "default": "LOUD & PROUD",
+               "placeholder": "LOUD & PROUD"
+            },
+            {
+               "type": "text",
+               "id": "p",
+               "label": "Slider Details",
+               "default": "We Are Children of Immigrats",
+               "placeholder": "We Are Children of Immigrats"
+            },
+            {
+               "type": "text",
+               "id": "shop",
+               "label": "Shop Now",
+               "default": "Shop Now",
+               "placeholder": "Shop Now"
+            },
+            {
+               "type": "url",
+               "id": "link",
+               "label": "Shop Now link",
+               "info": "Button link"
+            },
+            {
+               "type": "image_picker",
+               "id": "img",
+               "label": "Slider Main left Image"
+            },
+            {
+               "type": "image_picker",
+               "id": "imgw",
+               "label": "Slider wave  Image"
+            },
+            {
+               "type": "image_picker",
+               "id": "img1",
+               "label": "Slider Shap 01"
+            },
+            {
+               "type": "image_picker",
+               "id": "img2",
+               "label": "Slider Shap 01"
+            }
+            ]
+          }
+        ],
+        "presets": [
+            {
+              "name": "Bannar"
+            }]
+        
+    }
+{% endschema %}
+
+
+<style>
+/* .splide__track {
+
+    overflow: visible;
+} */
+</style>
+
+
+
+<script> 
+
+//    window.addEventListener('load', function () {
+//       var newWindowWidth = $(window).width();
+//         if (newWindowWidth > 800) {
+//   var elementha = document.getElementById('hello');
+
+//    const getheight = elementha.offsetHeight;
+
+     
+//   [...document.querySelectorAll(".fulwidth-wrapper")].map(
+//     (element, index, array) => {
+
+//       element.style["height"] = getheight + "px";
+//     }
+//   );
+ 
+//    }
+
+// });
+$('.slider-for').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  cssEase: 'linear',
+   infinite: true,
+   autoplay: {% if section.settings.autoplay == true%} true {% else %} false {% endif %},
+   autoplaySpeed: {{section.settings.speed}},
+    
+   
+   adaptiveHeight: true,
+
+});
+</script>
