@@ -155,4 +155,303 @@
       fill: {{ section.settings.a1 }};
       font-size: 18px;
   }
+  .footer-wrapper{
+    background-color:var(--title-color);
+    --body-color:#fff;
+    overflow:hidden
+}
+.footer-wrapper .ot-social a{
+    font-size:22px
+}
+.footer-wrapper .widget-area{
+    padding:60px 0;
+    position:relative
+}
+.footer-wrapper .footer-logo{
+    margin-bottom:25px;
+    max-width:250px;
+    display:inline-block
+}
+.footer-right{
+    text-align:right
+}
+.footer-menu{
+    margin-bottom:0
+}
+.footer-menu ul{
+    list-style-type:none;
+    padding-left:0;
+    margin:0
+}
+.footer-menu li{
+    display:inline-block;
+    margin:10px 0 0 35px
+}
+@media (max-width:991px){
+    .footer-menu li{
+        margin:0
+    }
+}
+.footer-menu a{
+    color:var(--white-color);
+    font-size:20px;
+    text-transform:uppercase
+}
+.payment-methods{
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack:end;
+    -ms-flex-pack:end;
+    justify-content:flex-end;
+    gap:20px
+}
+.sub-menu.ot-submenu li{
+    position:relative
+}
+.sub-menu.ot-submenu li:before{
+    content:"—";
+    position:absolute;
+    margin-left:-18px;
+    top:30%;
+    -webkit-transform:translateY(-17%);
+    -ms-transform:translateY(-17%);
+    transform:translateY(-17%)
+}
+.menu-item-hot-children.ot-item-hot-children.ot-active ul{
+    margin-left:10px
+}
+.copyright{
+    text-transform:uppercase;
+    margin-bottom:0;
+    padding:30px 0;
+    text-align:center;
+    font-size:16px;
+    font-weight:500;
+    color:var(--light-color);
+    border-top:1px solid var(--border-color)
+}
+@media (max-width:1199px){
+    .footer-left{
+        text-align:center;
+        margin-bottom:50px
+    }
+    .footer-wrapper .ot-social{
+        width:100%;
+        -webkit-box-pack:center;
+        -ms-flex-pack:center;
+        justify-content:center
+    }
+    .footer-wrapper .payment-methods{
+        display:-webkit-box;
+        display:-ms-flexbox;
+        display:flex;
+        -webkit-box-pack:center;
+        -ms-flex-pack:center;
+        justify-content:center;
+        gap:20px
+    }
+    .footer-right{
+        text-align:left
+    }
+    .footer-menu-wrap{
+        display:-webkit-box;
+        display:-ms-flexbox;
+        display:flex;
+        -webkit-box-pack:center;
+        -ms-flex-pack:center;
+        justify-content:center
+    }
+    .payment-methods{
+        -webkit-box-pack:center;
+        -ms-flex-pack:center;
+        justify-content:center
+    }
+}
+@media (max-width:991px){
+    .footer-menu-wrap{
+        display:-webkit-box;
+        display:-ms-flexbox;
+        display:flex
+    }
+    .footer-menu li{
+        display:block;
+        margin-bottom:27px;
+        margin-right:0
+    }
+    .footer-menu a{
+        font-size:16px
+    }
+    .payment-methods{
+        -ms-flex-wrap:wrap;
+        flex-wrap:wrap;
+        -ms-flex-pack:distribute!important;
+        justify-content:space-around!important
+    }
+}
+@media only screen and (max-width:1350px) and (min-width:1200px){
+    .footer-menu{
+        margin-bottom:0
+    }
+}
+@media only screen and (min-width:1200px){
+    .payment-all-wrapper{
+        max-width:0;
+        display:inline-block
+    }
+}
+@media (min-width:300px) and (max-width:450px){
+    li.list-payment__item{
+        width:20px
+    }
+    li.list-payment__item svg{
+        width:25px
+    }
+}
+@media (min-width:800px) and (max-width:1030px){
+    li.list-payment__item{
+        width:25px
+    }
+    li.list-payment__item svg{
+        width:31px
+    }
+    .footer-wrapper .widget-area{
+        padding:44px 0;
+        position:relative
+    }
+    .footer-menu a{
+        font-size:18px
+    }
+    .footer-left{
+        margin-bottom:36px
+    }
+    .copyright{
+        padding:22px 0;
+        font-size:15px
+    }
+}
+@media (min-width:500px) and (max-width:799px){
+    li.list-payment__item{
+        width:25px
+    }
+    li.list-payment__item svg{
+        width:31px
+    }
+    .footer-wrapper .widget-area{
+        padding:44px 0;
+        position:relative
+    }
+    .footer-menu a{
+        font-size:17px
+    }
+    .footer-left{
+        margin-bottom:36px
+    }
+    .copyright{
+        padding:22px 0;
+        font-size:15px
+    }
+    .footer-menu li{
+        display:inline-block;
+        margin-bottom:0;
+        margin-right:0;
+        padding:0 20px
+    }
+    .payment-all-wrapper{
+        display:inline-block
+    }
+    .footer-right{
+        text-align:center
+    }
+    .ot-social.ot-social2 a svg{
+        width:18px;
+        height:18px
+    }
+}
+@media (min-width:299px) and (max-width:499px){
+    li.list-payment__item{
+        width:18px
+    }
+    li.list-payment__item svg{
+        width:28px
+    }
+    .footer-wrapper .widget-area{
+        padding:44px 0;
+        position:relative
+    }
+    .footer-menu a{
+        font-size:14px
+    }
+    .footer-left{
+        margin-bottom:21px
+    }
+    .copyright{
+        padding:7px 0;
+        font-size:10px
+    }
+    .footer-menu li{
+        display:inline-block;
+        margin-bottom:0;
+        margin-right:0;
+        padding:0 7px
+    }
+    .payment-all-wrapper{
+        display:inline-block
+    }
+    .footer-right{
+        text-align:center
+    }
+    .ot-social.ot-social2 a svg{
+        width:18px;
+        height:16px
+    }
+    li.list-payment__item{
+        width:10px;
+        height:18px
+    }
+    .footer-wrapper .footer-logo{
+        margin-bottom:11px
+    }
+    .ot-social{
+        gap:15px
+    }
+}
+.ot-pagination ul{
+    margin:0;
+    padding:0
+}
+.ot-pagination li{
+    display:inline-block;
+    margin:0 3px;
+    list-style-type:none
+}
+.ot-pagination li:last-child{
+    margin-right:0
+}
+.ot-pagination li:first-child{
+    margin-left:0
+}
+.ot-pagination a,.ot-pagination span{
+    display:inline-block;
+    width:40px;
+    height:40px;
+    line-height:39px;
+    color:var(--body-color);
+    text-align:center;
+    position:relative;
+    border:1px solid var(--body-color);
+    z-index:1;
+    font-weight:500;
+    font-size:16px;
+    border-radius:0
+}
+.ot-pagination a i,.ot-pagination span i{
+    position:relative;
+    top:0
+}
+.ot-pagination a.active,.ot-pagination a:hover,.ot-pagination span.active,.ot-pagination span:hover{
+    color:var(--white-color);
+    background-color:var(--title-color);
+    border-color:var(--title-color)
+}
 </style>
