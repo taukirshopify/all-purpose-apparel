@@ -32,3 +32,7 @@ body {
   background-color: #1947ba;
   padding: 5px;
 }
+
+.shopify-policy__container {
+  max-width: 1000px !important;
+}
