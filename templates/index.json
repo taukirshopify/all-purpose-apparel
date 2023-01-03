@@ -1,1 +1,151 @@
-{"sections":{"54d581d6-b576-49cc-84f4-930f726f40ab":{"type":"slideshow","blocks":{"63d7b941-84e8-42cf-b54f-51b9d312d9be":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/Extra-01.jpg","heading":"","heading_size":"h1","subheading":"","button_label":"","link":"","button_style_secondary":false,"box_align":"middle-center","show_text_box":true,"text_alignment":"center","image_overlay_opacity":0,"color_scheme":"background-1","text_alignment_mobile":"center"}},"template--15836671639732__54d581d6-b576-49cc-84f4-930f726f40ab-1665611668b8ce1e46-1":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/Screen_Shot_2022-12-31_at_1.15.08_PM.png","heading":"","heading_size":"h1","subheading":"","button_label":"","link":"","button_style_secondary":false,"box_align":"middle-center","show_text_box":false,"text_alignment":"center","image_overlay_opacity":0,"color_scheme":"background-1","text_alignment_mobile":"center"}},"7367dac2-ea5a-4b03-ae81-67d854dac856":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/BJ9A5815.jpg","heading":"","heading_size":"h1","subheading":"","button_label":"","link":"","button_style_secondary":false,"box_align":"middle-center","show_text_box":true,"text_alignment":"center","image_overlay_opacity":0,"color_scheme":"background-1","text_alignment_mobile":"center"}},"template--15836671639732__54d581d6-b576-49cc-84f4-930f726f40ab-1665611668b8ce1e46-0":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/Screen_Shot_2022-12-31_at_1.14.07_PM.png","heading":"","heading_size":"h1","subheading":"","button_label":"","link":"","button_style_secondary":false,"box_align":"middle-center","show_text_box":false,"text_alignment":"center","image_overlay_opacity":0,"color_scheme":"background-1","text_alignment_mobile":"center"}},"99576fef-8199-423d-9d7d-8e4b8474083f":{"type":"slide","settings":{"image":"shopify:\/\/shop_images\/BJ9A5842.jpg","heading":"","heading_size":"h1","subheading":"","button_label":"","link":"","button_style_secondary":false,"box_align":"middle-center","show_text_box":true,"text_alignment":"center","image_overlay_opacity":0,"color_scheme":"background-1","text_alignment_mobile":"center"}}},"block_order":["63d7b941-84e8-42cf-b54f-51b9d312d9be","template--15836671639732__54d581d6-b576-49cc-84f4-930f726f40ab-1665611668b8ce1e46-1","7367dac2-ea5a-4b03-ae81-67d854dac856","template--15836671639732__54d581d6-b576-49cc-84f4-930f726f40ab-1665611668b8ce1e46-0","99576fef-8199-423d-9d7d-8e4b8474083f"],"settings":{"layout":"grid","slide_height":"adapt_image","slider_visual":"counter","auto_rotate":true,"change_slides_speed":5,"show_text_below":false,"accessibility_info":"Slideshow about our brand"}},"64b18a49-5da0-4841-ab30-32b0dc2fa119":{"type":"rich-text","blocks":{"d73e591b-23ca-41bc-b290-04c2db611ef7":{"type":"heading","settings":{"heading":"<ul><li><strong>WHOLESALE ACCOUNT REGISTRY→<\/strong><\/li><\/ul>","url":"shopify:\/\/pages\/wholesale","heading_size":"h2"}},"1c16cf03-13ab-4d81-92f6-d0aa207613c9":{"type":"text","settings":{"text":"<ul><li>Already a member? Click here to sign in<\/li><\/ul>","url":"\/account\/login"}}},"block_order":["d73e591b-23ca-41bc-b290-04c2db611ef7","1c16cf03-13ab-4d81-92f6-d0aa207613c9"],"settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"background-1","full_width":true,"padding_top":12,"padding_bottom":0}}},"order":["54d581d6-b576-49cc-84f4-930f726f40ab","64b18a49-5da0-4841-ab30-32b0dc2fa119"]}
+{
+  "sections": {
+    "54d581d6-b576-49cc-84f4-930f726f40ab": {
+      "type": "slideshow",
+      "blocks": {
+        "63d7b941-84e8-42cf-b54f-51b9d312d9be": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Extra-01.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "template--15836671639732__54d581d6-b576-49cc-84f4-930f726f40ab-1665611668b8ce1e46-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screen_Shot_2022-12-31_at_1.15.08_PM.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "7367dac2-ea5a-4b03-ae81-67d854dac856": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BJ9A5815.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "template--15836671639732__54d581d6-b576-49cc-84f4-930f726f40ab-1665611668b8ce1e46-0": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Screen_Shot_2022-12-31_at_1.14.07_PM.png",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "99576fef-8199-423d-9d7d-8e4b8474083f": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/BJ9A5842.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "63d7b941-84e8-42cf-b54f-51b9d312d9be",
+        "template--15836671639732__54d581d6-b576-49cc-84f4-930f726f40ab-1665611668b8ce1e46-1",
+        "7367dac2-ea5a-4b03-ae81-67d854dac856",
+        "template--15836671639732__54d581d6-b576-49cc-84f4-930f726f40ab-1665611668b8ce1e46-0",
+        "99576fef-8199-423d-9d7d-8e4b8474083f"
+      ],
+      "settings": {
+        "layout": "grid",
+        "slide_height": "large",
+        "slider_visual": "counter",
+        "auto_rotate": true,
+        "change_slides_speed": 7,
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "64b18a49-5da0-4841-ab30-32b0dc2fa119": {
+      "type": "rich-text",
+      "blocks": {
+        "d73e591b-23ca-41bc-b290-04c2db611ef7": {
+          "type": "heading",
+          "settings": {
+            "heading": "<ul><li><strong>WHOLESALE ACCOUNT REGISTRY→<\/strong><\/li><\/ul>",
+            "url": "shopify:\/\/pages\/wholesale",
+            "heading_size": "h2"
+          }
+        },
+        "1c16cf03-13ab-4d81-92f6-d0aa207613c9": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>Already a member? Click here to sign in<\/li><\/ul>",
+            "url": "\/account\/login"
+          }
+        }
+      },
+      "block_order": [
+        "d73e591b-23ca-41bc-b290-04c2db611ef7",
+        "1c16cf03-13ab-4d81-92f6-d0aa207613c9"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "54d581d6-b576-49cc-84f4-930f726f40ab",
+    "64b18a49-5da0-4841-ab30-32b0dc2fa119"
+  ]
+}
