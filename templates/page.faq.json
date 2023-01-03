@@ -1,1 +1,90 @@
-{"sections":{"main":{"type":"main-page","settings":{"padding_top":28,"padding_bottom":28}},"53946f89-1824-4e53-8363-b6f8524dddaf":{"type":"contact-form","disabled":true,"settings":{"heading":"Contact form","heading_size":"h1","color_scheme":"background-1","padding_top":36,"padding_bottom":36,"h3":"Reach OUT","email":"hello@demoblanks.com","phone":"313-456-7890","h32":"Our headquarters","details":"10001 Pioneer Blvd. Santa Fe Springs, CA 90670"}},"6cebd2b8-0fa1-45e1-932f-f74d81a45d9a":{"type":"contact-form-w","disabled":true,"settings":{"heading":"Contact form","heading_size":"h1","color_scheme":"background-1","padding_top":36,"padding_bottom":36,"h3":"Reach OUT","email":"hello@demoblanks.com","phone":"313-456-7890","h32":"Our headquarters","details":"10001 Pioneer Blvd. Santa Fe Springs, CA 90670"}},"d2f2dcca-8c84-46f2-af8e-4916e48650bd":{"type":"collage","disabled":true,"blocks":{"template--15859247415476__d2f2dcca-8c84-46f2-af8e-4916e48650bd-166745838778d61005-0":{"type":"video","settings":{"video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","description":"Describe the video","image_padding":false}},"template--15859247415476__d2f2dcca-8c84-46f2-af8e-4916e48650bd-166745838778d61005-1":{"type":"product","settings":{"product":"","second_image":false}},"template--15859247415476__d2f2dcca-8c84-46f2-af8e-4916e48650bd-166745838778d61005-2":{"type":"collection","settings":{"collection":""}}},"block_order":["template--15859247415476__d2f2dcca-8c84-46f2-af8e-4916e48650bd-166745838778d61005-0","template--15859247415476__d2f2dcca-8c84-46f2-af8e-4916e48650bd-166745838778d61005-1","template--15859247415476__d2f2dcca-8c84-46f2-af8e-4916e48650bd-166745838778d61005-2"],"settings":{"heading":"Multimedia collage","heading_size":"h1","desktop_layout":"left","mobile_layout":"collage","card_styles":"product-card-wrapper","color_scheme":"background-1","padding_top":36,"padding_bottom":36}}},"order":["main","53946f89-1824-4e53-8363-b6f8524dddaf","6cebd2b8-0fa1-45e1-932f-f74d81a45d9a","d2f2dcca-8c84-46f2-af8e-4916e48650bd"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "53946f89-1824-4e53-8363-b6f8524dddaf": {
+      "type": "contact-form",
+      "disabled": true,
+      "settings": {
+        "heading": "Contact form",
+        "heading_size": "h1",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "h3": "Reach OUT",
+        "email": "hello@demoblanks.com",
+        "phone": "313-456-7890",
+        "h32": "Our headquarters",
+        "details": "10001 Pioneer Blvd. Santa Fe Springs, CA 90670"
+      }
+    },
+    "6cebd2b8-0fa1-45e1-932f-f74d81a45d9a": {
+      "type": "contact-form-w",
+      "disabled": true,
+      "settings": {
+        "heading": "Contact form",
+        "heading_size": "h1",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "h3": "Reach OUT",
+        "email": "hello@demoblanks.com",
+        "phone": "313-456-7890",
+        "h32": "Our headquarters"
+      }
+    },
+    "d2f2dcca-8c84-46f2-af8e-4916e48650bd": {
+      "type": "collage",
+      "disabled": true,
+      "blocks": {
+        "template--15859247415476__d2f2dcca-8c84-46f2-af8e-4916e48650bd-166745838778d61005-0": {
+          "type": "video",
+          "settings": {
+            "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "description": "Describe the video",
+            "image_padding": false
+          }
+        },
+        "template--15859247415476__d2f2dcca-8c84-46f2-af8e-4916e48650bd-166745838778d61005-1": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        },
+        "template--15859247415476__d2f2dcca-8c84-46f2-af8e-4916e48650bd-166745838778d61005-2": {
+          "type": "collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--15859247415476__d2f2dcca-8c84-46f2-af8e-4916e48650bd-166745838778d61005-0",
+        "template--15859247415476__d2f2dcca-8c84-46f2-af8e-4916e48650bd-166745838778d61005-1",
+        "template--15859247415476__d2f2dcca-8c84-46f2-af8e-4916e48650bd-166745838778d61005-2"
+      ],
+      "settings": {
+        "heading": "Multimedia collage",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "53946f89-1824-4e53-8363-b6f8524dddaf",
+    "6cebd2b8-0fa1-45e1-932f-f74d81a45d9a",
+    "d2f2dcca-8c84-46f2-af8e-4916e48650bd"
+  ]
+}
