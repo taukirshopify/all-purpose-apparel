@@ -102,12 +102,12 @@
         "99576fef-8199-423d-9d7d-8e4b8474083f"
       ],
       "settings": {
-        "layout": "grid",
+        "layout": "full_bleed",
         "slide_height": "large",
         "slider_visual": "counter",
         "auto_rotate": true,
         "change_slides_speed": 7,
-        "show_text_below": true,
+        "show_text_below": false,
         "accessibility_info": "Slideshow about our brand"
       }
     },
