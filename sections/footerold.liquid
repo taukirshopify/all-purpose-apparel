@@ -9,20 +9,20 @@
                       </div>
                       <div class="ot-social ot-social2">
                           {% if settings.facebook != blank %}
-                              <a target="_blank" href="{{settings.settings.facebook}}">
+                              <a target="_blank" href="{{section.settings.facebook}}">
                                 {% render 'facebook' %}
                               </a>
                             {% endif %}
                             {% if settings.instagram != blank %}
-                          <a target="_blank" href="{{settings.settings.instagram}}">
+                          <a target="_blank" href="{{section.settings.instagram}}">
         
                                 {% render 'instagram' %}
         
                           </a>
                         {% endif %}
                         {% if settings.twitter != blank %}
-                          <a target="_blank" href="{{settings.settings.twitte}}">
-        
+                          <a target="_blank" href="{{section.settings.twitte}}">
+
                             {% render 'twitter' %}
                           
                           
@@ -30,7 +30,7 @@
                     {% endif %}
         
                     {% if settings.ticktok != blank %}
-                          <a target="_blank" href="{{settings.settings.ticktok}}">
+                          <a target="_blank" href="{{section.settings.ticktok}}">
                             
                          {% render 'tiktok' %}
                         
@@ -38,7 +38,7 @@
                         </a>
                       {% endif %}
                         {% if settings.discord != blank %}
-                          <a target="_blank" href="{{ settings.settings.discord}}">
+                          <a target="_blank" href="{{ section.settings.discord}}">
                           
                           {% render 'discord' %}
                           
@@ -122,22 +122,22 @@
       {
         "type": "url",
         "id": "instagram",
-        "label": "Facebook link"
+        "label": "Instagram link"
       },
       {
         "type": "url",
         "id": "twitter",
-        "label": "Facebook link"
+        "label": "Twitter link"
       },
       {
         "type": "url",
         "id": "ticktok",
-        "label": "Facebook link"
+        "label": "Ticktok link"
       },
       {
         "type": "url",
         "id": "discord",
-        "label": "Facebook link"
+        "label": "Discord link"
       },
 
     {
