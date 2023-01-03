@@ -173,7 +173,7 @@
           "footer-0": {
             "type": "link_list",
             "settings": {
-              "heading": "",
+              "heading": ".",
               "menu": "footer",
               "colormenu": "#ffffff"
             }
