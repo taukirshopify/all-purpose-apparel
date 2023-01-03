@@ -8,19 +8,19 @@
                           <img src="{{ section.settings.img  | img_url: 'master' }}" alt="Hypland">
                       </div>
                       <div class="ot-social ot-social2">
-                          {% if settings.facebook != blank %}
+                          {% if section.settings.facebook != blank %}
                               <a target="_blank" href="{{section.settings.facebook}}">
                                 {% render 'facebook' %}
                               </a>
                             {% endif %}
-                            {% if settings.instagram != blank %}
+                            {% if section.settings.instagram != blank %}
                           <a target="_blank" href="{{section.settings.instagram}}">
         
                                 {% render 'instagram' %}
         
                           </a>
                         {% endif %}
-                        {% if settings.twitter != blank %}
+                        {% if section.settings.twitter != blank %}
                           <a target="_blank" href="{{section.settings.twitte}}">
 
                             {% render 'twitter' %}
@@ -29,7 +29,7 @@
                       </a>
                     {% endif %}
         
-                    {% if settings.ticktok != blank %}
+                    {% if section.settings.ticktok != blank %}
                           <a target="_blank" href="{{section.settings.ticktok}}">
                             
                          {% render 'tiktok' %}
@@ -37,7 +37,7 @@
                         
                         </a>
                       {% endif %}
-                        {% if settings.discord != blank %}
+                        {% if section.settings.discord != blank %}
                           <a target="_blank" href="{{ section.settings.discord}}">
                           
                           {% render 'discord' %}
@@ -112,7 +112,7 @@
           "type": "color",
           "id": "a1",
           "label": "Icon Hover color",
-          "default": "#f0f"
+          "default": "#1a47ba"
        },
        {
         "type": "url",
@@ -173,9 +173,16 @@
 
 
 <style>
+  .ot-social.ot-social2 {
+    text-align: center;
+}
+
+
   .ot-social2 a svg {
       fill: {{ section.settings.a }};
       font-size: 18px;
+      width: 24px;
+      height: 23px;
   }
   .ot-social2 a:hover svg {
       fill: {{ section.settings.a1 }};
