@@ -172,9 +172,8 @@
           },
           "footer-0": {
             "type": "link_list",
-            "disabled": true,
             "settings": {
-              "heading": "Quick Links",
+              "heading": "",
               "menu": "footer",
               "colormenu": "#ffffff"
             }
