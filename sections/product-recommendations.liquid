@@ -214,3 +214,81 @@
   ]
 }
 {% endschema %}
+<script>
+  async function getUsers(e) {
+    let urllink = window.location.host
+   console.log(e);
+   let newdata = e.split('?').shift();
+   console.log(newdata);
+    let url = `${newdata}.json`;
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+  }
+  async function renderUsersa(e) {
+
+
+   
+
+    let users = await getUsers(e.dataset.url);
+
+    console.log(users);
+    
+ 
+
+
+    if ( users.product.options[0].name != null && users.product.options[0].name === 'Color'){
+      users.product.variants.forEach((user,index) => {
+      
+ console.log(users.product.options[0].name); 
+      });
+
+    } else if(users.product.options[1].name != null && users.product.options[1].name === 'Color'){
+      users.product.variants.forEach((user,index) => {
+   
+
+
+
+          if(user.image_id != null   &&  e.dataset.color ===  user.option2 ){
+       
+            console.log(user);
+            
+
+
+             users.product.images.forEach((img)=>{
+            
+                  
+         
+               if(img.id === user.image_id ){
+                let myElement = document.getElementById(e.dataset.imageid);
+     console.log(img.src); 
+                myElement.src= img.src
+              }
+            }) 
+          
+          } else{
+         console.log("Image not found")
+          }
+   
+      
+      });
+    
+    } else if(users.product.options[2].name != null && users.product.options[2].name === 'Color'){
+      users.product.variants.forEach((user,index) => {
+ console.log(users.product.options[2].name); 
+       
+      
+      });
+    }
+
+      $('.card-proudctimage  .s-card-color').click( function() {
+        $(this).addClass('active').siblings().removeClass('active');
+      });
+
+  }
+
+
+</script>

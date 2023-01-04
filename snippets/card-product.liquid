@@ -178,8 +178,8 @@
 
             <div class="card-proudctimage ">
               {% for value in card_product.options_by_name.color.values %}
-                <div class="s-card-color" data-color="{{ value }}"  data-url="{{ card_product.url }}" data-color="{{ value }}" style="background:#{{ value | split: "___" | last }}"
-                onclick="render{{card_product.id}}Usersa(this)"
+                <div class="s-card-color" data-color="{{ value }}"  data-imageid="{{card_product.title | split: "_" | first}}"  data-url="{{ card_product.url  }}" data-color="{{ value }}" style="background:#{{ value | split: "___" | last }}"
+                onclick="renderUsersa(this)"
                 >
                 
                 </div>
@@ -410,14 +410,9 @@
 
 
 
-<script>
+{% comment %} <script>
 
-  const get{{card_product.id}}allcolor = [
 
-    {% for value in card_product.options_by_name.color.values %}
-      {% if forloop.index == last %} "{{ value }} " {% else %} "{{ value }}", {% endif %}
-    {% endfor %} 
-  ]
   async function getUsers(e) {
     let urllink = window.location.host
 
@@ -442,7 +437,7 @@
 
 
     if ( users.product.options[0].name != null && users.product.options[0].name === 'Color'){
-      users.product.variants.forEach((user,index) => {
+      users.product.variants.forEach((<user,index) => {
       
  console.log(users.product.options[0].name); 
       });
@@ -490,7 +485,7 @@
       });
 
   }
-</script>
+</script> {% endcomment %}
 
 
 
