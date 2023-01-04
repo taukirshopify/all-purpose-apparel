@@ -121,6 +121,9 @@
     "cart_type": "drawer",
     "show_vendor": false,
     "show_cart_note": false,
+    "checkout_logo_image": "shopify:\/\/shop_images\/apa-footer-logo.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
