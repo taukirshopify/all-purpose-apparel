@@ -2,19 +2,21 @@
 {% assign easylockdownNow = 'now' | date:'%s' | times: 1 %}{% assign easylockdownNowWeekDay = easylockdownNow | date:'%u' %}{% assign easylockdownNowMonthDay = easylockdownNow | date:'%d' %}{% assign easylockdownNowHM = easylockdownNow | date:'%H%M' | times: 1 %}{% if customer %}{% assign easylockdownPlacedOrder = customer.orders.first.created_at | date:'%s' %}{% assign easylockdownOldestPlacedOrder = customer.orders.last.created_at | date:'%s' %}{% assign easylockdownDateDifference = easylockdownNow | minus: easylockdownPlacedOrder %}{% endif %}
 {% for t in customer.tags %}
 {% assign tag = t | downcase %}
-{% if tag == 'wholesale' %}{% assign elcTag1 = true %}{% endif %}
+{% if tag == 'wholesale1' %}{% assign elcTag1 = true %}{% endif %}
+{% if tag == 'wholesale' %}{% assign elcTag2 = true %}{% endif %}
 {% endfor %}
 {% for t in easylockdown_filter_collection.tags %}
 {% assign tag = t | downcase %}
-{% if tag == 'wholesale' %}{% assign elpTag1 = true %}{% endif %}
+{% if tag == 'wholesale1' %}{% assign elpTag1 = true %}{% endif %}
+{% if tag == 'wholesale' %}{% assign elpTag2 = true %}{% endif %}
 {% endfor %}
 {% assign easylockdownCollectionException = false %}
 {% unless easylockdownCollectionException %}
-{% if elpTag1 %}
+{% if elpTag2 %}
 {% unless customer %}
 {% if easylockdownRender %}continue{% endif %}{% continue %}
 {% else %}
-{% unless elcTag1 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
+{% unless elcTag2 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
 {% endunless %}
 {% endif %}
 {% endunless %}
