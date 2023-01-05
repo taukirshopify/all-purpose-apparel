@@ -17,7 +17,8 @@
 {% if tag == 'wholesale4' %}{% assign elpTag2 = true %}{% endif %}
 {% if tag == 'wholesale3' %}{% assign elpTag3 = true %}{% endif %}
 {% if tag == 'wholesale2' %}{% assign elpTag4 = true %}{% endif %}
-{% if tag == 'wholesale' %}{% assign elpTag5 = true %}{% endif %}
+{% if tag == 'wholesale1' %}{% assign elpTag5 = true %}{% endif %}
+{% if tag == 'wholesale' %}{% assign elpTag6 = true %}{% endif %}
 {% endfor %}
 {% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
 {% assign easylockdownLockedContent = false %}
@@ -106,6 +107,28 @@
 {% assign easylockdownLockedContent = false %}
 {% assign easylockdownHiddenContent = false %}
 {% if template contains "product" and product %}{% if elpTag5 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% unless customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
+{% else %}
+{% unless elcTag2 %}{% assign easylockdownON = true %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
+{% endif %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "product" and product %}{% if elpTag6 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% if easylockdownLockedContent %}
 {% unless customer %}
 {% assign easylockdownON = true %}
