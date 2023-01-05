@@ -241,13 +241,77 @@
           
                     
                               {% endif %} 
+                                                          {% comment %} 4 {% endcomment %}
+                            {% elsif  customer and customer.tags contains 'wholesale4' %} 
+                            {% if product.tags contains 'wholesale4' %}
+                                            
+                                       
+                              {% assign lazy_load = false %}
+                              {%- if forloop.index > 2 -%}
+                                {%- assign lazy_load = true -%}
+                              {%- endif -%}
+                                    <li class="grid__item padding-bottom">
+                                      {% render 'card-product',
+                                        card_product: product,
+                                        media_aspect_ratio: section.settings.image_ratio,
+                                        show_secondary_image: section.settings.show_secondary_image,
+                                        show_vendor: section.settings.show_vendor,
+                                        show_rating: section.settings.show_rating,
+                                        lazy_load: lazy_load,
+                                        show_quick_add: section.settings.enable_quick_add,
+                                        section_id: section.id
+              
+                                      %}
+                                    </li>
+    
+    
+    
+                              {% else %}
+          
+                    
+                              {% endif %} 
+                              {% comment %} 5 {% endcomment %}
+                            {% elsif  customer and customer.tags contains 'wholesale5' %} 
+                            {% if product.tags contains 'wholesale5' %}
+                                            
+                                       
+                              {% assign lazy_load = false %}
+                              {%- if forloop.index > 2 -%}
+                                {%- assign lazy_load = true -%}
+                              {%- endif -%}
+                                    <li class="grid__item padding-bottom">
+                                      {% render 'card-product',
+                                        card_product: product,
+                                        media_aspect_ratio: section.settings.image_ratio,
+                                        show_secondary_image: section.settings.show_secondary_image,
+                                        show_vendor: section.settings.show_vendor,
+                                        show_rating: section.settings.show_rating,
+                                        lazy_load: lazy_load,
+                                        show_quick_add: section.settings.enable_quick_add,
+                                        section_id: section.id
+              
+                                      %}
+                                    </li>
+    
+    
+    
+                              {% else %}
+          
+                    
+                              {% endif %} 
                         {% else %}
-                        {% unless customer.tags contains 'wholesale' %}
+                        {% unless customer.tags contains 'wholesale'  %}
                             
 
                                 {% if product.tags contains 'wholesale' %}
 
+                                  {% elsif product.tags contains 'wholesale1' %}
+                                  {% elsif product.tags contains 'wholesale2' %}
+                                  {% elsif product.tags contains 'wholesale3' %}
+                                  {% elsif product.tags contains 'wholesale4' %}
+
                                   {% else %}
+                      
               
                                   {% assign lazy_load = false %}
                                   {%- if forloop.index > 2 -%}
