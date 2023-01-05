@@ -7,10 +7,14 @@
 {% assign tag = t | downcase %}
 {% if tag == 'wholesale' %}{% assign elcTag1 = true %}{% endif %}
 {% endfor %}
+{% for t in product.tags %}
+{% assign tag = t | downcase %}
+{% if tag == 'wholesale' %}{% assign elpTag1 = true %}{% endif %}
+{% endfor %}
 {% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
 {% assign easylockdownLockedContent = false %}
 {% assign easylockdownHiddenContent = false %}
-{% if template contains "product" and product %}{% if product.id == 7333484560564 or product.id == 7333474599092 or product.id == 7333475877044 or product.id == 7333486133428 or product.id == 7333485576372 or product.id == 7333486461108 or product.id == 7333467226292 or product.id == 7333468471476 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if template contains "product" and product %}{% if elpTag1 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% if easylockdownLockedContent %}
 {% unless customer %}
 {% assign easylockdownON = true %}

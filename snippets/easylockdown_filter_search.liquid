@@ -4,10 +4,14 @@
 {% assign tag = t | downcase %}
 {% if tag == 'wholesale' %}{% assign elcTag1 = true %}{% endif %}
 {% endfor %}
+{% for t in easylockdown_filter_search.tags %}
+{% assign tag = t | downcase %}
+{% if tag == 'wholesale' %}{% assign elpTag1 = true %}{% endif %}
+{% endfor %}
 {% assign easylockdownSearchException = false %}
 {% unless easylockdownSearchException %}
 {% if easylockdown_filter_search.object_type == 'product' %}
-{% if easylockdown_filter_search.id == 7333484560564 or easylockdown_filter_search.id == 7333474599092 or easylockdown_filter_search.id == 7333475877044 or easylockdown_filter_search.id == 7333486133428 or easylockdown_filter_search.id == 7333485576372 or easylockdown_filter_search.id == 7333486461108 or easylockdown_filter_search.id == 7333467226292 or easylockdown_filter_search.id == 7333468471476 %}
+{% if elpTag1 %}
 {% unless customer %}
 {% if easylockdownRender %}continue{% endif %}{% continue %}
 {% else %}
