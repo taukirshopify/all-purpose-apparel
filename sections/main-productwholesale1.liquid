@@ -1,3 +1,5 @@
+
+
 <section
   id="MainProduct-{{ section.id }}"
   class="page-width section-{{ section.id }}-padding"
@@ -46,6 +48,9 @@
       onload="this.media='all'"
     >
   {%- endif -%}
+
+
+
 
   <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
     <div class="grid__item product__media-wrapper{% if section.settings.media_position == 'right' %} medium-hide large-up-hide{% endif %}">
@@ -325,10 +330,11 @@
               </p>
             {%- when 'title' -%}
               <div class="product__title" {{ block.shopify_attributes }}>
-                <h1><span>{{ product.title | escape }}</span></h1>
+                <h1><span>{{ product.title | split: "wholesale1" | last }}</span></h1>
                 <a href="{{ product.url }}" class="product__title">
                   <h2 class="h1">
-                    {{ product.title | escape }}
+                    {{ product.title | split: "wholesale1" | last }}
+         
                   </h2>
                 </a>
               </div>
@@ -482,24 +488,68 @@
                     {{ block.shopify_attributes }}
                   >
                     {%- for option in product.options_with_values -%}
-                      <fieldset class="js product-form__input">
-                        <legend class="form__label">{{ option.name }}</legend>
-                        {%- for value in option.values -%}
-                          <input
-                            type="radio"
-                            id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-                            name="{{ option.name }}"
-                            value="{{ value  | escape }}"
-                            form="{{ product_form_id }}"
-                            {% if option.selected_value == value %}
-                              checked
-                            {% endif %}
-                          >
-                          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-                            {{ value | split: "___" | first   }}
-                          </label>
-                        {%- endfor -%}
-                      </fieldset>
+
+
+
+                      {% if option.name  == 'Color' %}
+                            <fieldset class="js product-form__input">
+                              <legend class="form__label">{{ option.name }}</legend>
+                              {%- for value in option.values -%}
+                                <input
+                                  type="radio"
+                                  id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                  name="{{ option.name }}"
+                                  value="{{ value  | escape }}"
+                                  form="{{ product_form_id }}"
+                                  {% if option.selected_value == value %}
+                                    checked
+                                  {% endif %}
+                                >
+                                <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class="dropdown-color" style="background:#{{ value | split: "___" | last }};   padding: 20px 20px;">
+                                
+                                </label>
+                              {%- endfor -%}
+                            </fieldset>
+
+                                    {% else %}
+                                    <fieldset class="js product-form__input">
+                                      <legend class="form__label">{{ option.name }}</legend>
+                                      {%- for value in option.values -%}
+                                        <input
+                                          type="radio"
+                                          id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                                          name="{{ option.name }}"
+                                          value="{{ value  | escape }}"
+                                          form="{{ product_form_id }}"
+                                          {% if option.selected_value == value %}
+                                            checked
+                                          {% endif %}
+                                        >
+                                         
+                                          
+                                          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" style=" 
+                                            width: 45px;
+                                            height: 45px;
+                                            padding: 0px;
+                                            line-height: 45px;
+                                            "
+                                        
+                                        >
+                                          {{ value  }}
+                                        </label>
+                                      {%- endfor -%}
+                                    </fieldset>
+
+                          {% endif %}
+
+
+                   
+
+
+
+
+
+
                     {%- endfor -%}
                     <script type="application/json">
                       {{ product.variants | json }}
@@ -1175,17 +1225,14 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <div class="d-flex">
-        <div class="allinonarray">
+      <div class="d-flex justify-content-center">
+        <div id="warning">
 
         </div>
       </div>
     </div>
   </div>
 
-</div>
-<div class="add-card" onclick="addItem()">
-  Add to card 
 </div>
 
 
@@ -1199,7 +1246,8 @@
 
 </section>
 
-<h2>{{ "Cranberry___9F000F" | split: "___" | last }}</h2>
+
+
 <script>
  async function imposeMinMax(e){
     if(e.value != ""){
@@ -1226,7 +1274,7 @@ const allavaiableinventory = [
 
 
 
-console.log(allavaiableinventory)
+//console.log(allavaiableinventory)
 
 
 {% comment %} Get seperated color data end {% endcomment %}
@@ -1235,6 +1283,7 @@ const getallColorfromproudct =[
   {% for value in product.options_by_name.color.values %}
    {% if forloop.index == last %} "{{ value | split: " " | join:"" }} " {% else %} "{{ value | split: " " | join:""}}", {% endif %}
  {% endfor %}];
+  // console.log( getallColorfromproudct);
 async function getUsers() {
   let url = `{{ product.url }}.json`;
   try {
@@ -1253,18 +1302,14 @@ async function getUsers() {
 
 async function renderUsers() {
   let users = await getUsers();
-   {% comment %} //Get value of color  for checking and putting the item
-   const getvalueofcolor = [  {% for value in product.options_by_name.color.values %}
-   
-    {% if forloop.index == last %} "{{ value }} " {% else %} "{{ value}}", {% endif %}
-     {% endfor %}] {% endcomment %}
+   {% comment %} console.log(users) {% endcomment %}
 
 // geting the color to check if it contain  that color or size for optio one or option two in jeson data
 let html = '';
 
 if ( users.product.options[1].name === 'Color'){
 
-  // console.log(users.product.options[1].name);
+
 
 
 
@@ -1315,14 +1360,14 @@ if ( users.product.options[1].name === 'Color'){
 
   } //last of Main if function this is only work if users.product.options[1].name === 'Color'
   
-  let container = document.querySelector('.allinonarray');
-  container.innerHTML = html;
+  {% comment %} let container = document.querySelector('.allinonarray');
+  container.innerHTML = html; {% endcomment %}
 
 
   users.product.variants.forEach((user,index) => {
     user.inventory_product_count = allavaiableinventory[index];
      
-  console.log(user.enventorycount);
+  {% comment %} console.log(user.enventorycount); {% endcomment %}
     getallColorfromproudct.map(singelcolor =>{
      
       
@@ -1348,10 +1393,6 @@ if ( users.product.options[1].name === 'Color'){
     {{ value | split: " " | join:"" }}.unshift( '{{ value | split: "___" | first  }}'  );
     {% endfor %} 
 
-
-  {% for value in product.options_by_name.color.values %}
-    console.log({{ value | split: " " | join:"" }} );
-    {% endfor %} 
     
 
    // color and sizing name array 
@@ -1428,7 +1469,7 @@ colorandSizing.forEach((data,index,arr)=>{
 }
 
 
-  // console.log("this is running Varinat");
+
   
   }) // coloradnsizing end
 
@@ -1438,7 +1479,7 @@ colorandSizing.forEach((data,index,arr)=>{
 
     
    if(index === 0){
-    console.log(data);
+    {% comment %} console.log(data); {% endcomment %}
  htmlSegment = `
     <div class="row topwrapper d-flex align-items-center">
     <div class="allvarinatcolorname  col-3">
@@ -1527,40 +1568,98 @@ container2.innerHTML = htmla;
 
 
 renderUsers();
-const itemraw = [];
+let itemraw = [];
 async function myFunction(e){
   let newobect = {};
-   //console.log(e)
-  // console.log("this is working");
- // newobect.[";id"] = e.getAttribute('data-varnitid');
- // newobect.["quantity"] = e.value;
  newobect['id'] = e.getAttribute('data-varnitid');
  newobect['quantity'] = e.value;
  itemraw.push(newobect);
 
-   
 } 
 
+function alertFunc() {
+  itemraw = [];
+}
+
 async function addItem() {
-  
+  timeout = setTimeout(alertFunc, 200);
+  const parser = new DOMParser();
  async function addItem1(itemraw) {
-  console.log(itemraw);
-  const result = await fetch("/cart/add.js", {
+
+  let result = await fetch("/cart/add.js", {
       method: "POST",
       headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json"
+          "Accept": "application/json",
+          'X-Requested-With':  'XMLHttpRequest'
+          
       },
       body: JSON.stringify(
         {
-          items:itemraw
+          items:itemraw,
+          sections: "cart-drawer,cart-icon-bubble"
         }
     )
   })
+  .then((response) => response.json() )
+  .then((response) => {
+  {% comment %} console.log(response); {% endcomment %}
+  if( response.status == 422){
+     const elementoncard = document.getElementById("warning");
+
+     {% comment %} elementoncard.innerHTML = response.description.replace('wholesale','').replace('___','').replace(/[0-9]/g, '');   {% endcomment %}
+     elementoncard.innerHTML = "Some items is already in the cart";  
+  } else{
+          
+    const elementoncard = document.getElementById("warning");
+    elementoncard.innerHTML = "";  
+
+              let section  = response.sections['cart-drawer'];
+              let carticon  = response.sections['cart-icon-bubble']
+            const newdata =   parser.parseFromString(section, 'text/html');
+            const wanted =   newdata.querySelector('#CartDrawer'); 
+
+            const cartdata =   parser.parseFromString(carticon, 'text/html');
+            const carticonh =   cartdata.querySelector('.cart-count-bubble'); 
+
+            {% comment %} console.log(carticonh); {% endcomment %}
+
+            $(function () {
+              $('input').val(''); 
+
+
+              $("body").addClass("overflow-hidden"); 
+              $("cart-drawer").removeClass("is-empty");
+              $("cart-drawer").addClass("drawer animate active"); 
+                html = $($.parseXML(wanted));
+                {% comment %} htmla = $($.parseXML(carticonh)); {% endcomment %}
+                
+                {% comment %} $("head").append(wanted.find("script")); {% endcomment %}
+                $("#CartDrawer").replaceWith(wanted);
+                if ($('#cart-icon-bubble  .cart-count-bubble').length){
+                  $("#cart-icon-bubble  .cart-count-bubble").replaceWith(carticonh);
+                } else{
+                  $("#cart-icon-bubble").append(carticonh);
+                }
+               
+            });
+
+          }
+      });
+     
+
+  
+
 }
 
+const  cart = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
+
 const additemcount = addItem1(itemraw);
-location.replace(`/cart`);
+
+// ;
+
+
+
 }///async addItem end
 
 
@@ -2348,7 +2447,9 @@ location.replace(`/cart`);
 
 
 <style>
-
+  div#hello {
+    color: #fff;
+}
   .allvarinatname{
   display:inline-block;
   }
@@ -2370,6 +2471,10 @@ p span{
   color: red;
   padding: 20px;
   font-size: 34px;
+}
+div#warning {
+  font-size: 18px;
+  color: red;
 }
 </style>
 
