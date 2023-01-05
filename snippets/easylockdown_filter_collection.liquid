@@ -12,6 +12,16 @@
 {% endfor %}
 {% assign easylockdownCollectionException = false %}
 {% unless easylockdownCollectionException %}
+{% if elpTag1 %}
+{% unless customer %}
+{% if easylockdownRender %}continue{% endif %}{% continue %}
+{% else %}
+{% unless elcTag1 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+{% assign easylockdownCollectionException = false %}
+{% unless easylockdownCollectionException %}
 {% if elpTag2 %}
 {% unless customer %}
 {% if easylockdownRender %}continue{% endif %}{% continue %}

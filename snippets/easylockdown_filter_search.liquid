@@ -13,6 +13,19 @@
 {% assign easylockdownSearchException = false %}
 {% unless easylockdownSearchException %}
 {% if easylockdown_filter_search.object_type == 'product' %}
+{% if elpTag1 %}
+{% unless customer %}
+{% if easylockdownRender %}continue{% endif %}{% continue %}
+{% else %}
+{% unless elcTag1 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
+{% endunless %}
+
+{% endif %}
+{% endif %}
+{% endunless %}
+{% assign easylockdownSearchException = false %}
+{% unless easylockdownSearchException %}
+{% if easylockdown_filter_search.object_type == 'product' %}
 {% if elpTag2 %}
 {% unless customer %}
 {% if easylockdownRender %}continue{% endif %}{% continue %}
