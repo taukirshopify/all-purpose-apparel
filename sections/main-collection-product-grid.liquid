@@ -113,12 +113,7 @@
 
 
 
-
-
-
-                        {% if  customer and customer.tags contains 'wholesale1' %} 
-
-                               {% assign lazy_load = false %}
+                          {% assign lazy_load = false %}
                           {%- if forloop.index > 2 -%}
                             {%- assign lazy_load = true -%}
                           {%- endif -%}
@@ -135,6 +130,11 @@
           
                                   %}
                                 </li>
+
+
+                        {% if  customer and customer.tags contains 'wholesale1' %} 
+
+     
                           
                         {% if product.tags contains 'wholesale1' %}
                                         
