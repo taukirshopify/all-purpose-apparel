@@ -112,11 +112,15 @@
 
 
                         {% if  customer and customer.tags contains 'wholesale1' %} 
-                               {% assign lazy_load = false %}
+          
+                        {% if product.tags contains 'wholesale1' %}
+                                        
+                                                        {% assign lazy_load = false %}
                           {%- if forloop.index > 2 -%}
                             {%- assign lazy_load = true -%}
                           {%- endif -%}
-                                <li class="grid__item padding-bottom">
+                    
+                                 <li class="grid__item padding-bottom">
                                   {% render 'card-product',
                                     card_product: product,
                                     media_aspect_ratio: section.settings.image_ratio,
@@ -129,10 +133,6 @@
           
                                   %}
                                 </li>
-                        {% if product.tags contains 'wholesale1' %}
-                                        
-                                   
-                     
 
 
 
