@@ -124,7 +124,7 @@
               <div class="product-area">
                   <div class="row justify-content-center ">
 
-                    {% for product in collection.products %}
+                    {% for product in collection.products %}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_collection' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
           
                       <!-- ---------product-1----------- -->
                       <div class="col-xl-3 col-lg-4 col-md-4 col-6    p-0">

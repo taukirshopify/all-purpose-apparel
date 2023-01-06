@@ -27,13 +27,13 @@
         endcase
       %}
       {% if section.settings.sort == 'products_low' or section.settings.sort == 'date' or section.settings.sort == 'alphabetical' %}
-        {% for collection in collections %}
+        {% for collection in collections %}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_collections' with collection, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
           <li class="grid__item {{ grid_item_width }}">
             {% render 'collection-grid-item', collection: collection %}
           </li>
         {% endfor %}
       {% else %}
-        {% for collection in collections reversed %}
+        {% for collection in collections reversed %}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_collections' with collection, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
           <li class="grid__item {{ grid_item_width }}">
             {% render 'collection-grid-item', collection: collection %}
           </li>
