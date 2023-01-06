@@ -105,7 +105,9 @@
 
 
 
-                          <li> {{ product.tags }}</li>
+                           {% for tag in product.tags %}
+  <li><a href="/collections/all/{{ tag | handleize }}">{{ tag }}</a></li>
+  {% endfor %}
 
 
 
