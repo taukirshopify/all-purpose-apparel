@@ -3,10 +3,72 @@
 {% for t in customer.tags %}
 {% assign tag = t | downcase %}
 {% if tag == 'wholesale' %}{% assign elcTag1 = true %}{% endif %}
+{% if tag == 'wholesale1' %}{% assign elcTag2 = true %}{% endif %}
+{% if tag == 'wholesale2' %}{% assign elcTag3 = true %}{% endif %}
+{% if tag == 'wholesale3' %}{% assign elcTag4 = true %}{% endif %}
+{% if tag == 'wholesale4' %}{% assign elcTag5 = true %}{% endif %}
+{% endfor %}
+{% for t in easylockdown_filter_collection.tags %}
+{% assign tag = t | downcase %}
+{% if tag == 'normal' %}{% assign elpTag1 = true %}{% endif %}
+{% if tag == 'wholesale4' %}{% assign elpTag2 = true %}{% endif %}
+{% if tag == 'wholesale3' %}{% assign elpTag3 = true %}{% endif %}
+{% if tag == 'wholesale2' %}{% assign elpTag4 = true %}{% endif %}
+{% if tag == 'wholesale1' %}{% assign elpTag5 = true %}{% endif %}
+{% if tag == 'wholesale' %}{% assign elpTag6 = true %}{% endif %}
 {% endfor %}
 {% assign easylockdownCollectionException = false %}
 {% unless easylockdownCollectionException %}
-{% if easylockdown_filter_collection.id == 7333484560564 or easylockdown_filter_collection.id == 7333474599092 or easylockdown_filter_collection.id == 7333475877044 or easylockdown_filter_collection.id == 7333486133428 or easylockdown_filter_collection.id == 7333485576372 or easylockdown_filter_collection.id == 7333486461108 or easylockdown_filter_collection.id == 7333467226292 or easylockdown_filter_collection.id == 7333468471476 %}
+{% if elpTag1 %}
+{% if customer %}
+{% assign easylockdownContinue = true %}{% unless elcTag1 or elcTag2 or elcTag3 or elcTag4 or elcTag5 %}{% assign easylockdownContinue = false %}{% endunless %}
+{% if easylockdownContinue %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+{% assign easylockdownCollectionException = false %}
+{% unless easylockdownCollectionException %}
+{% if elpTag2 %}
+{% unless customer %}
+{% if easylockdownRender %}continue{% endif %}{% continue %}
+{% else %}
+{% unless elcTag5 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+{% assign easylockdownCollectionException = false %}
+{% unless easylockdownCollectionException %}
+{% if elpTag3 %}
+{% unless customer %}
+{% if easylockdownRender %}continue{% endif %}{% continue %}
+{% else %}
+{% unless elcTag4 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+{% assign easylockdownCollectionException = false %}
+{% unless easylockdownCollectionException %}
+{% if elpTag4 %}
+{% unless customer %}
+{% if easylockdownRender %}continue{% endif %}{% continue %}
+{% else %}
+{% unless elcTag3 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+{% assign easylockdownCollectionException = false %}
+{% unless easylockdownCollectionException %}
+{% if elpTag5 %}
+{% unless customer %}
+{% if easylockdownRender %}continue{% endif %}{% continue %}
+{% else %}
+{% unless elcTag2 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+{% assign easylockdownCollectionException = false %}
+{% unless easylockdownCollectionException %}
+{% if elpTag6 %}
 {% unless customer %}
 {% if easylockdownRender %}continue{% endif %}{% continue %}
 {% else %}

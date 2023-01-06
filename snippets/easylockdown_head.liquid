@@ -6,11 +6,129 @@
 {% for t in customer.tags %}
 {% assign tag = t | downcase %}
 {% if tag == 'wholesale' %}{% assign elcTag1 = true %}{% endif %}
+{% if tag == 'wholesale1' %}{% assign elcTag2 = true %}{% endif %}
+{% if tag == 'wholesale2' %}{% assign elcTag3 = true %}{% endif %}
+{% if tag == 'wholesale3' %}{% assign elcTag4 = true %}{% endif %}
+{% if tag == 'wholesale4' %}{% assign elcTag5 = true %}{% endif %}
+{% endfor %}
+{% for t in product.tags %}
+{% assign tag = t | downcase %}
+{% if tag == 'normal' %}{% assign elpTag1 = true %}{% endif %}
+{% if tag == 'wholesale4' %}{% assign elpTag2 = true %}{% endif %}
+{% if tag == 'wholesale3' %}{% assign elpTag3 = true %}{% endif %}
+{% if tag == 'wholesale2' %}{% assign elpTag4 = true %}{% endif %}
+{% if tag == 'wholesale1' %}{% assign elpTag5 = true %}{% endif %}
+{% if tag == 'wholesale' %}{% assign elpTag6 = true %}{% endif %}
 {% endfor %}
 {% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
 {% assign easylockdownLockedContent = false %}
 {% assign easylockdownHiddenContent = false %}
-{% if template contains "product" and product %}{% if product.id == 7333484560564 or product.id == 7333474599092 or product.id == 7333475877044 or product.id == 7333486133428 or product.id == 7333485576372 or product.id == 7333486461108 or product.id == 7333467226292 or product.id == 7333468471476 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if template contains "product" and product %}{% if elpTag1 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% if customer %}
+{% assign easylockdownON = true %}{% unless elcTag1 or elcTag2 or elcTag3 or elcTag4 or elcTag5 %}{% assign easylockdownON = false %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "product" and product %}{% if elpTag2 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% unless customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
+{% else %}
+{% unless elcTag5 %}{% assign easylockdownON = true %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
+{% endif %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "product" and product %}{% if elpTag3 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% unless customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
+{% else %}
+{% unless elcTag4 %}{% assign easylockdownON = true %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
+{% endif %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "product" and product %}{% if elpTag4 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% unless customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
+{% else %}
+{% unless elcTag3 %}{% assign easylockdownON = true %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
+{% endif %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "product" and product %}{% if elpTag5 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
+{% if easylockdownLockedContent %}
+{% unless customer %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
+{% else %}
+{% unless elcTag2 %}{% assign easylockdownON = true %}{% endunless %}
+{% if easylockdownON %}
+{% assign easylockdownON = true %}
+{% capture easylockdownPage404Title %}Page not found{% endcapture %}
+{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
+{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
+{% endif %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+
+{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
+{% assign easylockdownLockedContent = false %}
+{% assign easylockdownHiddenContent = false %}
+{% if template contains "product" and product %}{% if elpTag6 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
 {% if easylockdownLockedContent %}
 {% unless customer %}
 {% assign easylockdownON = true %}
