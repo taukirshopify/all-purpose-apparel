@@ -14,6 +14,8 @@
 {% if tag == 'wholesale4' %}{% assign elpTag2 = true %}{% endif %}
 {% if tag == 'wholesale3' %}{% assign elpTag3 = true %}{% endif %}
 {% if tag == 'wholesale2' %}{% assign elpTag4 = true %}{% endif %}
+{% if tag == 'wholesale1' %}{% assign elpTag5 = true %}{% endif %}
+{% if tag == 'wholesale' %}{% assign elpTag6 = true %}{% endif %}
 {% endfor %}
 {% assign easylockdownSearchException = false %}
 {% unless easylockdownSearchException %}
@@ -60,6 +62,32 @@
 {% if easylockdownRender %}continue{% endif %}{% continue %}
 {% else %}
 {% unless elcTag3 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
+{% endunless %}
+
+{% endif %}
+{% endif %}
+{% endunless %}
+{% assign easylockdownSearchException = false %}
+{% unless easylockdownSearchException %}
+{% if easylockdown_filter_search.object_type == 'product' %}
+{% if elpTag5 %}
+{% unless customer %}
+{% if easylockdownRender %}continue{% endif %}{% continue %}
+{% else %}
+{% unless elcTag2 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
+{% endunless %}
+
+{% endif %}
+{% endif %}
+{% endunless %}
+{% assign easylockdownSearchException = false %}
+{% unless easylockdownSearchException %}
+{% if easylockdown_filter_search.object_type == 'product' %}
+{% if elpTag6 %}
+{% unless customer %}
+{% if easylockdownRender %}continue{% endif %}{% continue %}
+{% else %}
+{% unless elcTag1 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
 {% endunless %}
 
 {% endif %}
