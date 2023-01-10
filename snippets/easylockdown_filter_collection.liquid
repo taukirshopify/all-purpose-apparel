@@ -13,6 +13,7 @@
 {% if tag == 'normal' %}{% assign elpTag1 = true %}{% endif %}
 {% if tag == 'wholesale4' %}{% assign elpTag2 = true %}{% endif %}
 {% if tag == 'wholesale3' %}{% assign elpTag3 = true %}{% endif %}
+{% if tag == 'wholesale2' %}{% assign elpTag4 = true %}{% endif %}
 {% endfor %}
 {% assign easylockdownCollectionException = false %}
 {% unless easylockdownCollectionException %}
@@ -40,6 +41,16 @@
 {% if easylockdownRender %}continue{% endif %}{% continue %}
 {% else %}
 {% unless elcTag4 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
+{% endunless %}
+{% endif %}
+{% endunless %}
+{% assign easylockdownCollectionException = false %}
+{% unless easylockdownCollectionException %}
+{% if elpTag4 %}
+{% unless customer %}
+{% if easylockdownRender %}continue{% endif %}{% continue %}
+{% else %}
+{% unless elcTag3 %}{% if easylockdownRender %}continue{% endif %}{% continue %}{% endunless %}
 {% endunless %}
 {% endif %}
 {% endunless %}
