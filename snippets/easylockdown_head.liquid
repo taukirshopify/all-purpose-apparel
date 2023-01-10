@@ -5,13 +5,11 @@
 {% assign easylockdownNow = 'now' | date:'%s' | times: 1 %}{% assign easylockdownNowWeekDay = easylockdownNow | date:'%u' %}{% assign easylockdownNowMonthDay = easylockdownNow | date:'%d' %}{% assign easylockdownNowHM = easylockdownNow | date:'%H%M' | times: 1 %}{% if customer %}{% assign easylockdownPlacedOrder = customer.orders.first.created_at | date:'%s' %}{% assign easylockdownOldestPlacedOrder = customer.orders.last.created_at | date:'%s' %}{% assign easylockdownDateDifference = easylockdownNow | minus: easylockdownPlacedOrder %}{% endif %}
 {% for t in customer.tags %}
 {% assign tag = t | downcase %}
-{% if tag == 'wholesale1' %}{% assign elcTag1 = true %}{% endif %}
-{% if tag == 'wholesale' %}{% assign elcTag2 = true %}{% endif %}
+{% if tag == 'wholesale' %}{% assign elcTag1 = true %}{% endif %}
 {% endfor %}
 {% for t in product.tags %}
 {% assign tag = t | downcase %}
-{% if tag == 'wholesale1' %}{% assign elpTag1 = true %}{% endif %}
-{% if tag == 'wholesale' %}{% assign elpTag2 = true %}{% endif %}
+{% if tag == 'wholesale' %}{% assign elpTag1 = true %}{% endif %}
 {% endfor %}
 {% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
 {% assign easylockdownLockedContent = false %}
@@ -25,28 +23,6 @@
 {% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
 {% else %}
 {% unless elcTag1 %}{% assign easylockdownON = true %}{% endunless %}
-{% if easylockdownON %}
-{% assign easylockdownON = true %}
-{% capture easylockdownPage404Title %}Page not found{% endcapture %}
-{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
-{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
-{% endif %}
-{% endunless %}
-{% endif %}
-{% endunless %}
-
-{% unless easylockdownON or easylockdownSuperPage or template == 'customers/register' %}
-{% assign easylockdownLockedContent = false %}
-{% assign easylockdownHiddenContent = false %}
-{% if template contains "product" and product %}{% if elpTag2 %}{% assign easylockdownLockedContent = true %}{% endif %}{% endif %}
-{% if easylockdownLockedContent %}
-{% unless customer %}
-{% assign easylockdownON = true %}
-{% capture easylockdownPage404Title %}Page not found{% endcapture %}
-{% capture easylockdownPage404Message %}<p>Sorry, we couldn't find this page.</p>{% endcapture %}
-{% capture easylockdownRedirectURL %}https://allpurpose.la/collections/all-products{% endcapture %}
-{% else %}
-{% unless elcTag2 %}{% assign easylockdownON = true %}{% endunless %}
 {% if easylockdownON %}
 {% assign easylockdownON = true %}
 {% capture easylockdownPage404Title %}Page not found{% endcapture %}
