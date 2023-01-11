@@ -35,13 +35,36 @@
         "h3": "Reach OUT",
         "email": "hello@demoblanks.com",
         "phone": "313-456-7890",
-        "h32": "Our headquarters"
+        "h32": "Our headquarters",
+        "agreedet": "The parties agree that any transaction(s) cable choice",
+        "agree": "i agree with the terms and conditions"
+      }
+    },
+    "167343640025099dce": {
+      "type": "apps",
+      "blocks": {
+        "a0110fa1-7180-40d9-a50e-e4e60837bd86": {
+          "type": "shopify:\/\/apps\/helium-customer-fields\/blocks\/app-block\/bab58598-3e6a-4377-aaaa-97189b15f131",
+          "settings": {
+            "form_id": "Y8tRMX",
+            "width": 600,
+            "vertical_spacing": 60,
+            "horizontal_spacing": 0
+          }
+        }
+      },
+      "block_order": [
+        "a0110fa1-7180-40d9-a50e-e4e60837bd86"
+      ],
+      "settings": {
+        "include_margins": true
       }
     }
   },
   "order": [
     "main",
     "53946f89-1824-4e53-8363-b6f8524dddaf",
-    "6cebd2b8-0fa1-45e1-932f-f74d81a45d9a"
+    "6cebd2b8-0fa1-45e1-932f-f74d81a45d9a",
+    "167343640025099dce"
   ]
 }
