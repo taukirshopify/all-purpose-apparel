@@ -118,7 +118,7 @@
           "type": "heading",
           "settings": {
             "heading": "<ul><li>WHOLESALE ACCOUNT REGISTRY→<\/li><\/ul>",
-            "url": "shopify:\/\/pages\/wholesale",
+            "url": "shopify:\/\/pages\/wholesale-registration",
             "heading_size": "h2"
           }
         },
