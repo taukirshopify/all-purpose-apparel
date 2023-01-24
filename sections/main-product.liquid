@@ -499,7 +499,7 @@
                                     checked
                                   {% endif %}
                                 >
-                                <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class="dropdown-color" style="background:#{{ value | split: "___" | last }};   padding: 20px 20px;">
+                                <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}" class="dropdown-color" style="background: var(--{{ value | split: "___" | first  | remove:" "  | downcase }});   padding: 20px 20px;">
                                 
                                 </label>
                               {%- endfor -%}

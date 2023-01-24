@@ -1487,7 +1487,7 @@ colorandSizing.forEach((data,index,arr)=>{
       <p> Cost Per Unit: </p>
 
         <div class="d-flex align-items-center colorname">
-          <div style="background: #{{ value | split: "___" | last  }};
+          <div style="background: var(--{{ value | split: "___" | first  | remove:" "  | downcase }});
             width: 45px;
             height: 45px;
             border:1px solid #fffff7;

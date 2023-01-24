@@ -178,7 +178,7 @@
 
             <div class="card-proudctimage ">
               {% for value in card_product.options_by_name.color.values %}
-                <div class="s-card-color" data-color="{{ value }}"  data-imageid="{{card_product.title | split: "_" | first}}"  data-url="{{ card_product.url  }}" data-color="{{ value }}" style="background:#{{ value | split: "___" | last }}"
+                <div class="s-card-color" data-color="{{ value }}"  data-imageid="{{card_product.title | split: "_" | first}}"  data-url="{{ card_product.url  }}" data-color="{{ value }}" style="background: var(--{{ value | split: "___" | first  | remove:" "  | downcase }})"
                 onclick="renderUsersa(this)"
                 >
                 
