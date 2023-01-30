@@ -36,3 +36,7 @@ body {
 .shopify-policy__container {
   max-width: 1000px !important;
 }
+
+.product-form__buttons .product-form__submit {
+  background-color: navy;
+}
