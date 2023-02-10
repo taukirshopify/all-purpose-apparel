@@ -171,13 +171,7 @@
                 {{ card_product.title | split: "wholesale" | last }}
               </a>
             </h3>
-           {%comment%} pricelock_start_a52c04ad {% endcomment %}
-    {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
-    {% capture pricelock_logic_a52c04ad %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
-    {% assign show_prices = pricelock_logic_a52c04ad | strip %}
-    {% capture pricelock_show_a52c04ad %}<p class="price-card"> {{ card_product.price | money }}</p>{% endcapture %} 
-    {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_a52c04ad }} {% else %} {{ shop.metafields.pricelock.hide_price_text}} {% endif %}
-{%comment%} pricelock_end_a52c04ad {% endcomment %}
+          <p class="price-card"> {{ card_product.price | money }}</p>
           </div>
            <h4> {{ card_product.metafields.descriptors.subtitle }}</h4>
           <div class="card-information">
@@ -402,13 +396,7 @@
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ 'products.product.vendor' | t }}</div>
             {%- endif -%}
-            {%comment%} pricelock_start_acc32216 {% endcomment %}
-    {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
-    {% capture pricelock_logic_acc32216 %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
-    {% assign show_prices = pricelock_logic_acc32216 | strip %}
-    {% capture pricelock_show_acc32216 %}{% render 'price' %}{% endcapture %} 
-    {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_acc32216 }} {% else %} {{ shop.metafields.pricelock.hide_price_text}} {% endif %}
-{%comment%} pricelock_end_acc32216 {% endcomment %}
+           {% render 'price' %}
           </div>
         </div>
       </div>
