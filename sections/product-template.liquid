@@ -405,7 +405,13 @@
           "sku": {{ variant.sku | json }},
         {%- endif -%}
         "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
-        "price" : {{ variant.price | divided_by: 100.00 | json }},
+        {%comment%} pricelock_start_d955677b {% endcomment %}
+    {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
+    {% capture pricelock_logic_d955677b %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
+    {% assign show_prices = pricelock_logic_d955677b | strip %}
+    {% capture pricelock_show_d955677b %}"price" : {{ variant.price | divided_by: 100.00 | json }},{% endcapture %} 
+    {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_d955677b }} {% else %}  {% endif %}
+{%comment%} pricelock_end_d955677b {% endcomment %}
         "priceCurrency" : {{ cart.currency.iso_code | json }},
         "url" : {{ shop.url | append: variant.url | json }}
       }{% unless forloop.last %},{% endunless %}
