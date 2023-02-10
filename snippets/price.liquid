@@ -10,7 +10,11 @@
     Usage:
     {% render 'price', product: product %}
 {% endcomment %}
-{%- liquid
+{%comment%} pricelock_start_18da6a5e {% endcomment %}
+    {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
+    {% capture pricelock_logic_18da6a5e %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
+    {% assign show_prices = pricelock_logic_18da6a5e | strip %}
+    {% capture pricelock_show_18da6a5e %}{%- liquid
   if use_variant
     assign target = product.selected_or_first_available_variant
   else
@@ -90,4 +94,6 @@
       {{ 'products.product.sold_out' | t }}
     </span>
   {%- endif -%}
-</div>
+</div>{% endcapture %} 
+    {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_18da6a5e }} {% else %} {{ shop.metafields.pricelock.hide_price_text}} {% endif %}
+{%comment%} pricelock_end_18da6a5e {% endcomment %}
