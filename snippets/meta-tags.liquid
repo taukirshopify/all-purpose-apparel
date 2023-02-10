@@ -29,7 +29,13 @@
 {%- endif -%}
 
 {%- if request.page_type == 'product' -%}
-  <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html }}">
+  {%comment%} pricelock_start_aafbca3d {% endcomment %}
+    {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
+    {% capture pricelock_logic_aafbca3d %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
+    {% assign show_prices = pricelock_logic_aafbca3d | strip %}
+    {% capture pricelock_show_aafbca3d %}<meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html }}">{% endcapture %} 
+    {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_aafbca3d }} {% else %}  {% endif %}
+{%comment%} pricelock_end_aafbca3d {% endcomment %}
   <meta property="og:price:currency" content="{{ cart.currency.iso_code }}">
 {%- endif -%}
 
