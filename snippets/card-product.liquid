@@ -171,13 +171,14 @@
                 {{ card_product.title | split: "wholesale" | last }}
               </a>
             </h3>
+         <!--
           <p class="price-card"> {%comment%} pricelock_start_34725af9 {% endcomment %}
     {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
     {% capture pricelock_logic_34725af9 %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
     {% assign show_prices = pricelock_logic_34725af9 | strip %}
     {% capture pricelock_show_34725af9 %}{{ card_product.price | money }}{% endcapture %} 
     {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_34725af9 }} {% else %} {{ shop.metafields.pricelock.hide_price_text}} {% endif %}
-{%comment%} pricelock_end_34725af9 {% endcomment %}</p>
+{%comment%} pricelock_end_34725af9 {% endcomment %}</p> -->
           </div>
            <h4> {{ card_product.metafields.descriptors.subtitle }}</h4>
           <div class="card-information">
