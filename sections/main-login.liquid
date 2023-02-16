@@ -131,18 +131,18 @@
           </label>
         </div>
 
-        {% comment %}<a href="#recover">
+        <a href="#recover">
           {{ 'customer.login_page.forgot_password' | t }}
-        </a>{% endcomment %}
+        </a>
       {%- endif -%}
 
       <button>
         {{ 'customer.login_page.sign_in' | t }}
       </button>
 
-      <a href="{{ routes.account_register_url }}">
+      {% comment %}<a href="{{ routes.account_register_url }}">
         {{ 'customer.login_page.create_account' | t }}
-      </a>
+      </a>{% endcomment %}
       
     {%- endform -%}
   </div>
