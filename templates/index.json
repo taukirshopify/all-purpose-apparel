@@ -134,6 +134,7 @@
         "d73e591b-23ca-41bc-b290-04c2db611ef7",
         "1c16cf03-13ab-4d81-92f6-d0aa207613c9"
       ],
+      "disabled": true,
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
