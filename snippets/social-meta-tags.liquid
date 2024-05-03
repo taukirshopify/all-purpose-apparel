@@ -34,23 +34,10 @@
   <meta property="og:image:width" content="{{ page_image.width }}">
   <meta property="og:image:height" content="{{ page_image.height }}">
 {%- endif -%}
-
-{%comment%} pricelock_start_11bba699 {% endcomment %}
-    {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
-    {% capture pricelock_logic_11bba699 %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
-    {% assign show_prices = pricelock_logic_11bba699 | strip %}
-    {% capture pricelock_show_11bba699 %}{% if request.page_type == 'product' %}
+{% if request.page_type == 'product' %}
   <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html }}">
-  {%comment%} pricelock_start_26dd59a7 {% endcomment %}
-    {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
-    {% capture pricelock_logic_26dd59a7 %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
-    {% assign show_prices = pricelock_logic_26dd59a7 | strip %}
-    {% capture pricelock_show_26dd59a7 %}<meta property="og:price:currency" content="{{ cart.currency.iso_code }}">{% endcapture %} 
-    {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_26dd59a7 }} {% else %}  {% endif %}
-{%comment%} pricelock_end_26dd59a7 {% endcomment %}
-{% endif %}{% endcapture %} 
-    {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_11bba699 }} {% else %}  {% endif %}
-{%comment%} pricelock_end_11bba699 {% endcomment %}
+ <meta property="og:price:currency" content="{{ cart.currency.iso_code }}">
+{% endif %}
 
 {% unless settings.social_twitter_link == blank %}
   <meta name="twitter:site" content="{{ settings.social_twitter_link | split: 'twitter.com/' | last | prepend: '@' }}">
