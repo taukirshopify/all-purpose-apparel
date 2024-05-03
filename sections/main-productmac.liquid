@@ -386,11 +386,7 @@
                 </details>
               </div>
             {%- when 'quantity_selector' -%}
-              {%comment%} pricelock_start_d48b085d {% endcomment %}
-    {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
-    {% capture pricelock_logic_d48b085d %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
-    {% assign show_prices = pricelock_logic_d48b085d | strip %}
-    {% capture pricelock_show_d48b085d %}<div
+             <div
                 class="product-form__input product-form__quantity{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} product-form__quantity-top{% endif %}"
                 {{ block.shopify_attributes }}
               >
@@ -421,9 +417,7 @@
                     {% render 'icon-plus' %}
                   </button>
                 </quantity-input>
-              </div>{% endcapture %} 
-    {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_d48b085d }} {% else %}  {% endif %}
-{%comment%} pricelock_end_d48b085d {% endcomment %}
+              </div>
             {%- when 'popup' -%}
               <modal-opener
                 class="product-popup-modal__opener no-js-hidden quick-add-hidden"
@@ -628,13 +622,7 @@
                         >
                           {{ variant.title }}
                           {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
-                          {%comment%} pricelock_start_20f5984d {% endcomment %}
-    {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
-    {% capture pricelock_logic_20f5984d %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
-    {% assign show_prices = pricelock_logic_20f5984d | strip %}
-    {% capture pricelock_show_20f5984d %}- {{ variant.price | money | strip_html }}{% endcapture %} 
-    {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_20f5984d }} {% else %}  {% endif %}
-{%comment%} pricelock_end_20f5984d {% endcomment %}
+                         - {{ variant.price | money | strip_html }}
                         </option>
                       {%- endfor -%}
                     </select>
@@ -643,11 +631,7 @@
                 </div>
               </noscript>
             {%- when 'buy_buttons' -%}
-              {%comment%} pricelock_start_395ce314 {% endcomment %}
-    {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
-    {% capture pricelock_logic_395ce314 %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
-    {% assign show_prices = pricelock_logic_395ce314 | strip %}
-    {% capture pricelock_show_395ce314 %}<div {{ block.shopify_attributes }}>
+             <div {{ block.shopify_attributes }}>
                 <product-form class="product-form">
                   <div class="product-form__error-message-wrapper" role="alert" hidden>
                     <svg
@@ -735,9 +719,7 @@
                 </pickup-availability>
               </div>
 
-              <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>{% endcapture %} 
-    {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_395ce314 }} {% else %}  {% endif %}
-{%comment%} pricelock_end_395ce314 {% endcomment %}
+              <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
                 {% liquid
@@ -1227,13 +1209,7 @@
               "gtin14": {{ variant.barcode }},
             {%- endif -%}
             "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
-            {%comment%} pricelock_start_dc7a3a67 {% endcomment %}
-    {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
-    {% capture pricelock_logic_dc7a3a67 %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
-    {% assign show_prices = pricelock_logic_dc7a3a67 | strip %}
-    {% capture pricelock_show_dc7a3a67 %}"price" : {{ variant.price | divided_by: 100.00 | json }},{% endcapture %} 
-    {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_dc7a3a67 }} {% else %}  {% endif %}
-{%comment%} pricelock_end_dc7a3a67 {% endcomment %}
+           "price" : {{ variant.price | divided_by: 100.00 | json }},
             "priceCurrency" : {{ cart.currency.iso_code | json }},
             "url" : {{ request.origin | append: variant.url | json }}
           }{% unless forloop.last %},{% endunless %}
