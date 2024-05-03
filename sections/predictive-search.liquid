@@ -28,13 +28,7 @@
               {%- endif -%}
               <h3 class="predictive-search__item-heading h5">{{ product.title }}</h3> 
               {%- if settings.predictive_search_show_price -%}
-                {%comment%} pricelock_start_4be427f1 {% endcomment %}
-    {% comment %} This is login to view price code. To remove it safely and quickly, run the uninstallation within the app itself. {% endcomment %}
-    {% capture pricelock_logic_4be427f1 %} {% render 'talon_pricelock_logic', product: product %} {% endcapture %}
-    {% assign show_prices = pricelock_logic_4be427f1 | strip %}
-    {% capture pricelock_show_4be427f1 %}{% render 'price', product: product, use_variant: true, show_badges: false %}{% endcapture %} 
-    {% if show_prices == 'true' or  shop.metafields.pricelock.published == false or shop.metafields.pricelock.published == nil %} {{ pricelock_show_4be427f1 }} {% else %}  {% endif %}
-{%comment%} pricelock_end_4be427f1 {% endcomment %} 
+               {% render 'price', product: product, use_variant: true, show_badges: false %} 
               {%- endif -%}
             </div>
           </a>
