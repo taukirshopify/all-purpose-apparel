@@ -19,10 +19,10 @@
     "slideshow_fMgi4h": {
       "type": "slideshow",
       "blocks": {
-        "slide_aTdGMi": {
+        "slide_DN3Kdf": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/Screen_Shot_2022-12-31_at_1.15.08_PM.png",
+            "image": "shopify://shop_images/APB_E-Comm00166.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -39,7 +39,7 @@
         }
       },
       "block_order": [
-        "slide_aTdGMi"
+        "slide_DN3Kdf"
       ],
       "settings": {
         "layout": "full_bleed",
