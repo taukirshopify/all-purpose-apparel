@@ -48,24 +48,6 @@
             "text_alignment_mobile": "center"
           }
         },
-        "63d7b941-84e8-42cf-b54f-51b9d312d9be": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/ConvertOut-Resized-RAL_0930.jpg",
-            "heading": "",
-            "heading_size": "h2",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
-          }
-        },
         "7367dac2-ea5a-4b03-ae81-67d854dac856": {
           "type": "slide",
           "settings": {
@@ -101,14 +83,32 @@
             "color_scheme": "background-1",
             "text_alignment_mobile": "center"
           }
+        },
+        "63d7b941-84e8-42cf-b54f-51b9d312d9be": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ConvertOut-Resized-RAL_0930.jpg",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
         }
       },
       "block_order": [
         "template--15836671639732__54d581d6-b576-49cc-84f4-930f726f40ab-1665611668b8ce1e46-0",
         "template--15836671639732__54d581d6-b576-49cc-84f4-930f726f40ab-1665611668b8ce1e46-1",
-        "63d7b941-84e8-42cf-b54f-51b9d312d9be",
         "7367dac2-ea5a-4b03-ae81-67d854dac856",
-        "99576fef-8199-423d-9d7d-8e4b8474083f"
+        "99576fef-8199-423d-9d7d-8e4b8474083f",
+        "63d7b941-84e8-42cf-b54f-51b9d312d9be"
       ],
       "settings": {
         "layout": "full_bleed",
@@ -118,39 +118,6 @@
         "change_slides_speed": 7,
         "show_text_below": false,
         "accessibility_info": "Slideshow about our brand"
-      }
-    },
-    "64b18a49-5da0-4841-ab30-32b0dc2fa119": {
-      "type": "rich-text",
-      "blocks": {
-        "d73e591b-23ca-41bc-b290-04c2db611ef7": {
-          "type": "heading",
-          "settings": {
-            "heading": "<ul><li>WHOLESALE ACCOUNT REGISTRY→</li></ul>",
-            "url": "shopify://pages/wholesale-registration",
-            "heading_size": "h2"
-          }
-        },
-        "1c16cf03-13ab-4d81-92f6-d0aa207613c9": {
-          "type": "text",
-          "settings": {
-            "text": "<ul><li>Already a member? Click here to sign in</li></ul>",
-            "url": "/account/login"
-          }
-        }
-      },
-      "block_order": [
-        "d73e591b-23ca-41bc-b290-04c2db611ef7",
-        "1c16cf03-13ab-4d81-92f6-d0aa207613c9"
-      ],
-      "disabled": true,
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 12,
-        "padding_bottom": 0
       }
     },
     "featured_collection_whqgTz": {
@@ -183,7 +150,6 @@
   },
   "order": [
     "54d581d6-b576-49cc-84f4-930f726f40ab",
-    "64b18a49-5da0-4841-ab30-32b0dc2fa119",
     "featured_collection_whqgTz"
   ]
 }
