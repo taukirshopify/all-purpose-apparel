@@ -126,10 +126,234 @@
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
       }
+    },
+    "slideshow_iLhzEc": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_wHWxHy": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ConvertOut-Resized-APB_E-Comm00193.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_LfjFM4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ConvertOut-Resized-APB_E-Comm00199.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_JVWmRX": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ConvertOut-Resized-APB_E-Comm00205.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_R9nXTi": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ConvertOut-Resized-APB_E-Comm00216.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_VAJPMg": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ConvertOut-Resized-APB_E-Comm00222.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_wHWxHy",
+        "slide_LfjFM4",
+        "slide_JVWmRX",
+        "slide_R9nXTi",
+        "slide_VAJPMg"
+      ],
+      "settings": {
+        "layout": "grid",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "slideshow_h9XGDE": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_BtDhKE": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ConvertOut-Resized-APB_E-Comm00210.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_axTFJP": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ConvertOut-Resized-APB_E-Comm00228.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_TKRyGF": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ConvertOut-Resized-APB_E-Comm00115.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_aYY4EW": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ConvertOut-Resized-APB_E-Comm00155.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_gi6FiL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/ConvertOut-Resized-APB_E-Comm00185.jpg",
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_BtDhKE",
+        "slide_axTFJP",
+        "slide_TKRyGF",
+        "slide_aYY4EW",
+        "slide_gi6FiL"
+      ],
+      "settings": {
+        "layout": "grid",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
     }
   },
   "order": [
     "main",
-    "slideshow_fMgi4h"
+    "slideshow_fMgi4h",
+    "slideshow_iLhzEc",
+    "slideshow_h9XGDE"
   ]
 }
