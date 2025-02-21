@@ -40,7 +40,7 @@
         "slide_DN3Kdf": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/ConvertOut-Resized-APB_E-Comm00151.jpg",
+            "image": "shopify://shop_images/ConvertOut-Resized-RAL_0997.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -119,7 +119,7 @@
       ],
       "settings": {
         "layout": "grid",
-        "slide_height": "large",
+        "slide_height": "adapt_image",
         "slider_visual": "counter",
         "auto_rotate": false,
         "change_slides_speed": 5,
