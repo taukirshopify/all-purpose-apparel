@@ -22,25 +22,7 @@
         "slide_kYqwNB": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/ConvertOut-Resized-APB_E-Comm00157.jpg",
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "slide_DN3Kdf": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/ConvertOut-Resized-RAL_0997.jpg",
+            "image": "shopify://shop_images/ConvertOut-Resized-RAL_1087.jpg",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -112,7 +94,6 @@
       },
       "block_order": [
         "slide_kYqwNB",
-        "slide_DN3Kdf",
         "slide_6twmxK",
         "slide_qcgEdd",
         "slide_MVzPze"
