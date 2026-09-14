@@ -152,7 +152,7 @@
   
              
               {% when 'buttons' %}
-                {% capture "form_classes" -%}
+                {% capture form_classes -%}
                   product-form product-form-{{ section.id }}
                   {%- if section.settings.enable_payment_button and product.has_only_default_variant %} product-form--payment-button-no-variants {%- endif -%}
                   {%- if current_variant.available == false %} product-form--variant-sold-out {%- endif -%}
@@ -677,4 +677,13 @@ const nodeList = document.querySelectorAll('.imageslider-image')
     top: 12.5px;
     left: -19px;
 }
-</style>
+</style>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{% capture "form_classes" -%}'
+  to: "{% capture form_classes -%}"
+  position: 5565..5592
+{%- endcomment -%}
